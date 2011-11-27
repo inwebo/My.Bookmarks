@@ -35,19 +35,33 @@
 		<legend>Google Analytics</legend>
 		<label>Id : <input id="setupGa" name="setupGa" /></label>
 	</fieldset>
-
+	<a href="#" id="saveSetup" name="saveSetup">Save</a>
 </form>
-<a href="#" id="saveSetup" name="saveSetup">Save</a>
-<!-- /setup.php -->
-</body>
-</html>
 
+<p id="getIt">
+	D&eacute;placer le lien suivant dans votre barre de favoris.
+	<?php
+		include('helpers/bouton.php');
+	?>
+	<br>
+	<br>
+
+</p>
+<a href="#" id="continue">Continue</a>
 <script>
 <?php
 	echo 'var hostRoot="helpers/ajax/setup.php";'  . "\n";
 ?>
 
 (function($){
+
+	$('#getIt').css('display', 'none');
+	$('#continue').css('display', 'none');
+
+	$('#continue').click(function() {
+		$(location).attr('href',$('#setupRoot').val());
+	});
+
 	$('#saveSetup').click(function() {
 		if( $('#setupRoot').val() == '' ) {
 			$('#containerPath').css('border', 'groove 2px red');
@@ -67,8 +81,10 @@
 					if( data == 'TRUE' ) {
 						alert('TRUE');
 						$('#containerDatabase').css('border', 'groove 2px green');
+						$('#setupForm').fadeOut('fast', function() {
+							$('#continue').fadeIn();
+						});
 
-						$(location).attr('href',$('#setupRoot').val());
 					}
 					else {
 						alert('FALSE');
@@ -85,3 +101,7 @@
 })(jQuery)
 
 </script>
+<!-- /setup.php -->
+</body>
+</html>
+
