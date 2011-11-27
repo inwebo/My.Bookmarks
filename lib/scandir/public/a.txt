@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<title>My First Grid</title>
+ 
+<link rel="stylesheet" type="text/css" media="screen" href="css/custom-theme/jquery-ui-1.8.13.custom.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/ui.jqgrid.css" />
+ 
+<script src="js/jquery-1.5.2.min.js" type="text/javascript"></script>
+<script src="js/i18n/grid.locale-fr.js" type="text/javascript"></script>
+<script src="js/jquery.jqGrid.min.js" type="text/javascript"></script>
+ 
+ <style type="text/css">
+ html, body {
+    margin: 0;
+    padding: 0;
+    font-size: 75%;
+}
+</style> 
+ <?php
+	$url_server	= 'inc/server.php';
+	$url_handler	= 'inc/handler.php';
+ ?>
+<script type="text/javascript">
+$(function(){ 
+	jQuery("#list3").jqGrid({
+		url:'<?php echo $url_server; ?>', 
+		datatype: "json", 
+		colNames:['Type contrat','R&eacute;mun&eacute;ration','Mode de recrutement','Dur&eacute;e de recherche','Cadre','Fonction','Contact','Etablissement','Fonction 1','Fonction 2','Date d&eacute;but','Date de fin','Fonction actuelle','M&eacute;tier 1','M&eacute;tier 2','Email','T&eacute;l&eacute;phone','T&eacute;l&eacute;phone mobile','Fax','Email 2','Crm id'], 
+		colModel:[
+				{name:'field_type_contrat_contact', index:'field_type_contrat_contact',width:'200',align:'center', editable:true},
+				{name:'field_remuneration_contact', index:'field_remuneration_contact',width:'200',align:'center', editable:true},
+				{name:'field_mode_recrutement_contact', index:'field_mode_recrutement_contact',width:'200', align:'center' , editable:true},
+				{name:'field_duree_recherche_contact', index:'field_duree_recherche_contact',width:'200',align:'center', editable:true},
+				{name:'field_cadre_contact', index:'field_cadre_contact',width:'200',align:'center', editable:true},
+				{name:'field_titre_fonction_contact', index:'field_titre_fonction_contact',width:'200',align:'center', editable:true},
+				{name:'field_contact_fonction_contact', index:'field_contact_fonction_contact',width:'200',align:'center', editable:true},
+				{name:'field_etablissement_fonction', index:'field_etablissement_fonction',width:'200',align:'center', editable:true},
+				{name:'field_fonction1_contact', index:'field_fonction1_contact',width:'200',align:'center', editable:true},
+				{name:'field_fonction2_contact', index:'field_fonction2_contact',width:'200',align:'center', editable:true},
+				{name:'field_date_fonction_contact', index:'field_date_fonction_contact',width:'200',align:'center', editable:true},
+				{name:'field_date_fin_fonction_contact', index:'field_date_fin_fonction_contact',width:'200',align:'center', editable:true},
+				{name:'field_fonction_actuelle_contact', index:'field_fonction_actuelle_contact',width:'200',align:'center', editable:true},
+				{name:'field_metier1_fonction_contact', index:'field_metier1_fonction_contact',width:'200',align:'center', editable:true},
+				{name:'field_metier2_fonction_contact', index:'field_metier2_fonction_contact',width:'200',align:'center', editable:true},
+				{name:'field_email_fonction_contact', index:'field_email_fonction_contact',width:'200',align:'center', editable:true},
+				{name:'field_telephone_fonction_contact', index:'field_telephone_fonction_contact',width:'200',align:'center', editable:true},
+				{name:'field_tel_mobile_fonction', index:'field_tel_mobile_fonction',width:'200',align:'center', editable:true},
+				{name:'field_fax_fonction_contact', index:'field_fax_fonction_contact',width:'200',align:'center', editable:true},
+				{name:'field_email2_fonction_contact', index:'field_email2_fonction_contact',width:'200',align:'center', editable:true}
+				{name:'field_new_compte_contact_id', index:'field_new_compte_contact_id',width:'200',align:'center', editable:true}
+			],
+			rowNum:20, 
+			rowList:[20],
+			pager: '#pager3', 
+			//sortname: 'id', 
+			viewrecords: true, 
+			sortorder: "asc", 
+			loadonce: false, 
+			caption: "Fonctions",
+			autowidth: true,
+			shrinkToFit: false
+		}
+	).navGrid("#pager3",
+			{edit:true,add:true,del:true}, //options
+			{reloadAfterSubmit:true,url:'<?php echo $url_handler; ?>',closeAfterEdit:true,closeOnEscape:true,savekey:[true,13]}, // edit options 
+			{reloadAfterSubmit:true,url:'<?php echo $url_handler; ?>',closeAfterAdd:true,closeOnEscape:true,savekey:[true,13]}, // add options 
+			{reloadAfterSubmit:true,url:'<?php echo $url_handler; ?>',savekey:[true,13]}, // del options 
+			{} // search options 
+			);
+});
+
+ </script>
+ 
+</head>
+<body>
+<table id="list3"><tr><td/></tr></table> 
+<div id="pager3"></div> 
+</body>
+</html>

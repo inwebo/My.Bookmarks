@@ -1,0 +1,142 @@
+<?php header('Content-type: application/javascript'); ?>
+<?php
+chdir('..');
+chdir('..');
+include('autoload.php');
+include( 'helpers/const.define.php');
+?>
+<!--
+	var fileCss=document.createElement("link");
+	fileCss.setAttribute("rel", "stylesheet");
+	fileCss.setAttribute("type", "text/css");
+	fileCss.setAttribute("href", "<?php echo ROOT_CSS; ?>style-public.css");
+	document.getElementsByTagName("head")[0].appendChild(fileCss);
+
+	var submitForm=document.createElement('div');
+	submitForm.setAttribute('id','bookmarkContainer');
+
+	document.getElementsByTagName('body')[0].appendChild( submitForm );
+
+	var newH1 = document.createElement('h1');
+	newH1.setAttribute('id','h');
+	document.getElementById('bookmarkContainer').appendChild( newH1 );
+	document.getElementById('h').innerHTML = 'Add this <span id="close-container"><a id="modalClose" href="#" onclick="">close</a></span>';
+
+	document.getElementById('modalClose').setAttribute( 'onclick',"var mynode = document.getElementById('bookmarkContainer');var parent = mynode.parentNode;parent.removeChild(mynode);return false;" );
+
+	var newForm = document.createElement('form');
+	newForm.setAttribute('id','bookmarkForm');
+	newForm.setAttribute('name','bookmarkForm');
+	newForm.setAttribute('method','post');
+	newForm.setAttribute('enctype','application/x-www-form-urlencoded');
+	newForm.setAttribute('action','<?php echo ROOT_AJAX; ?>bookmark.php');
+	document.getElementById('bookmarkContainer').appendChild( newForm );
+
+	var newLabelCategories = document.createElement('label');
+	newLabelCategories.setAttribute('id','labelCategories');
+	document.getElementById('bookmarkForm').appendChild( newLabelCategories );
+	document.getElementById('labelCategories').innerHTML = 'Categories : <br>';
+
+	var newSelectCategories = document.createElement('select');
+	newSelectCategories.setAttribute('id','selectCategories');
+	newSelectCategories.setAttribute('name','selectCategories');
+	document.getElementById('labelCategories').appendChild( newSelectCategories );
+
+	<?php
+		$categoriesJavascript = "";
+		$categories = $sql->query('SELECT * FROM `categories`');
+		while ($row = mysql_fetch_assoc( $categories )) {
+		$categoriesJavascript .= "
+			var elOptNew = document.createElement('option');
+			elOptNew.text = '".$row['name']."';
+			elOptNew.value = '".$row['id']."';
+			var elSel = document.getElementById('selectCategories');
+
+			try {
+				elSel.add(elOptNew, null); // standards compliant; doesn't work in IE
+			}
+			catch(ex) {
+				elSel.add(elOptNew); // IE only
+			}
+		";
+		}
+		echo $categoriesJavascript;
+	?>
+
+	var newLabelUrl = document.createElement('label');
+	newLabelUrl.setAttribute('id','labelUrl');
+	document.getElementById('bookmarkForm').appendChild( newLabelUrl );
+	document.getElementById('labelUrl').innerHTML = 'URL : <br>';
+
+	var newUrl = document.createElement('input');
+	newUrl.setAttribute('id','url');
+	newUrl.setAttribute('name','url');
+	newUrl.setAttribute('type','text');
+	newUrl.setAttribute('value',location.href);
+	document.getElementById('labelUrl').appendChild( newUrl );
+
+	var newLabelTitle = document.createElement('label');
+	newLabelTitle.setAttribute('id','labelTitle');
+	document.getElementById('bookmarkForm').appendChild( newLabelTitle );
+	document.getElementById('labelTitle').innerHTML = 'Title : <br>';
+
+	var newTitle = document.createElement('input');
+	newTitle.setAttribute('id','title');
+	newTitle.setAttribute('name','title');
+	newTitle.setAttribute('type','text');
+	newTitle.setAttribute('value',document.title);
+	document.getElementById('labelTitle').appendChild( newTitle );
+
+	var newLabelTags = document.createElement('label');
+	newLabelTags.setAttribute('id','labelTags');
+	document.getElementById('bookmarkForm').appendChild( newLabelTags );
+	document.getElementById('labelTags').innerHTML = 'Tags : <br>';
+
+	var newTags = document.createElement('input');
+	newTags.setAttribute('id','tags');
+	newTags.setAttribute('name','tags');
+	newTags.setAttribute('type','text');
+	newTags.setAttribute('value','<?php echo $_GET['tags']; ?>');
+	document.getElementById('labelTags').appendChild( newTags );
+
+	var newLabelDesc = document.createElement('label');
+	newLabelDesc.setAttribute('id','labelDesc');
+	document.getElementById('bookmarkForm').appendChild( newLabelDesc );
+	document.getElementById('labelDesc').innerHTML = 'Desc : <br>';
+
+	var newDesc = document.createElement('textarea');
+	newDesc.setAttribute('id','desc');
+	newDesc.setAttribute('name','desc');
+	newDesc.setAttribute('rows','5');
+	newDesc.setAttribute('cols','40');
+
+	document.getElementById('labelDesc').appendChild( newDesc );
+	document.getElementById('desc').value= '<?php echo $_GET['desc']; ?>';
+
+	var newHr = document.createElement('hr');
+	var newHr2 = document.createElement('hr');
+
+	document.getElementById('bookmarkForm').appendChild( newHr );
+
+	var newAhrefSubmit = document.createElement('a');
+	newAhrefSubmit.setAttribute('id','save');
+	newAhrefSubmit.setAttribute('href','#');
+	newAhrefSubmit.setAttribute('class','bookmarker');
+	newAhrefSubmit.setAttribute('onclick','saveContent();return false;');
+	document.getElementById('bookmarkForm').appendChild( newAhrefSubmit );
+	document.getElementById('save').innerHTML = 'Save';
+	document.getElementById('bookmarkForm').appendChild( newHr2 );
+
+function saveContent() {
+	var getTags = document.getElementById('tags');
+	var getDesc = document.getElementById('desc');
+	var getTitle = document.getElementById('title');
+	var selectElmt = document.getElementById('selectCategories');
+	var idCat = selectElmt.options[selectElmt.selectedIndex].value;
+
+	var jsScript=document.createElement('script');
+	jsScript.setAttribute('type','text/javascript');
+	jsScript.setAttribute('src', '<?php echo ROOT_AJAX; ?>bookmark-save.php?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(getTitle.value)+'&tags='+encodeURIComponent(getTags.value)+'&desc='+encodeURIComponent(getDesc.value)+'&id='+encodeURIComponent(idCat) );
+	document.getElementsByTagName('head')[0].appendChild(jsScript);
+}
+//-->

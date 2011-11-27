@@ -1,0 +1,172 @@
+/* -----------------------------------------*/
+/* ------------- My.bookmarks --------------*/
+/* -----------------------------------------*/
+
+/* Buton save */
+.bookmarker {
+    background: -moz-linear-gradient(center top , #89C403 5%, #77A809 100%) repeat scroll 0 0 #89C403;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #89c403), color-stop(1, #77a809) );
+    border: 1px solid #74B807;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 1px 0 0 #A4E271 inset;
+    color: #FFFFFF;
+    display: inline-block;
+    font-family: arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 1px 1px 0 #528009;
+}
+
+	.bookmarker:hover {
+		background: -moz-linear-gradient(center top , #77A809 5%, #89C403 100%) repeat scroll 0 0 #77A809;
+	}
+
+	.bookmarker:active {
+		position: relative;
+		top: 1px;
+	}
+
+	#bookmarkUrl {
+		background-color: red;
+	}
+
+/* Whole container */
+#bookmarkContainer {
+	font-family: sans-serif Verdana;
+	color:black;
+	size:1em;
+    background-color: #F5F5F5;
+    border-radius: 10px 10px 10px 10px;
+	border: 10px solid rgba(0,0,0,0.3);
+    -moz-background-clip: border;     /* Firefox 3.6 */
+    -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+    background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+    box-shadow: 0 0 15px 0 #BFBFBF;
+    left: 50%;
+    margin-left: -175px;
+    padding: 10px;
+    position: fixed;
+    top: 50%;
+    width: 350px;
+	height: 518px;
+	margin-top:-259px;
+    z-index: 999999;
+    vertical-align:top;
+}
+
+/* Form */
+#bookmarkContainer form{
+
+}
+
+#bookmarkContainer hr{
+	font-size: 1px;
+	line-height: 0;
+	overflow: visible;
+	display: block;
+	position: relative;
+	padding: 0;
+	margin: 8px auto;
+	width: 100%;
+	clear: both;
+	border: none;
+	border-top: 1px solid #AAA;
+	border-bottom: 1px solid #FFF;
+	font-size: 1px;
+	line-height: 0;
+	overflow: visible;
+}
+
+
+
+#bookmarkContainer h1 {
+	margin: 0 0 20px;
+	font-size: x-large;
+}
+
+	#bookmarkContainer h1 span{
+		float:right;
+	}
+
+	#bookmarkContainer h1 span a{
+		text-decoration:none;
+		color:red;
+		font-size:x-small;
+		vertical-align: top;
+	}
+
+#bookmarkContainer input, #bookmarkContainer textarea, #bookmarkContainer select{
+    width: 96%;
+	padding: 5px;
+}
+
+	#bookmarkContainer input:focus, #bookmarkContainer textarea:focus {
+		border:solid 2px #DFEBDF;
+		border-radius: 4px;
+	}
+
+	#bookmarkContainer textarea {
+		resize:none;
+	}
+#bookmarkContainer #save {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    width: 30%;
+}
+
+#bookmarkContainer label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#bookmarkContainer .copyright {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: x-small;
+    text-align: center;
+	padding:5px;
+}
+
+	#bookmarkContainer .copyright a {
+		border-bottom: 1px dotted black;
+		color: black;
+		text-decoration: none;
+	}
+
+	#bookmarkContainer .copyright a span {
+		display:none;
+		background-color:rgba(0, 0, 0, 0.9);
+		position:absolute;
+		z-index:20;
+		left:0;
+		margin-top:20px;
+		padding: 5px;
+		color:white;
+	}
+
+	#bookmarkContainer .copyright a:hover span {
+		display:block;
+		-webkit-transition: background 300ms ease-in 200ms; /* property duration timing-function delay */
+		-moz-transition: background 300ms ease-in 200ms;
+		-o-transition: background 300ms ease-in 200ms;
+		transition: background 300ms ease-in 200ms;
+			border-color: transparent transparent rgba(0, 0, 0, 0.9);
+
+	}
+
+	#bookmarkContainer .copyright a span span{
+		background-color: transparent;
+		border-color: transparent transparent rgba(0, 0, 0, 0.9);
+		border-style: solid;
+		border-width: 15px;
+		height: 0;
+		left: 50%;
+		margin: -30px 0 0 -15px;
+		padding: 0;
+		position: absolute;
+		top: 0;
+		width: 0;
+	}

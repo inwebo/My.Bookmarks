@@ -1,0 +1,371 @@
+@import url("style.css");
+@import url("reset.css");
+@import url("text.css");
+@import url("960.css");
+/*------------------------------------*\
+	NAV
+\*------------------------------------*/
+a {
+	color:#000;
+}
+
+
+
+#nav{
+    float: right;
+    font-weight: bold;
+    list-style: none outside none;
+    margin-bottom: 10px;
+    margin-top: -10px;
+    position: relative;
+    top: -50px;
+}
+#nav li{
+	float:left;
+	margin-right:10px;
+	position:relative;
+}
+#nav a{
+	display:block;
+	padding:5px;
+	color:#fff;
+	background:#333;
+	text-decoration:none;
+}
+#nav a:hover{
+	color:#fff;
+	background:#333;
+	text-decoration:underline;
+}
+
+/*--- DROPDOWN ---*/
+#nav ul{
+	padding: 0;
+	background:#fff; /* Adding a background makes the dropdown work properly in IE7+. Make this as close to your page's background as possible (i.e. white page == white background). */
+	background:rgba(255,255,255,0); /* But! Let's make the background fully transparent where we can, we don't actually want to see it if we can help it... */
+	list-style:none;
+	position:absolute;
+	left:-9999px; /* Hide off-screen when not needed (this is more accessible than display:none;) */
+}
+#nav ul li{
+	padding-top:1px; /* Introducing a padding between the li and the a give the illusion spaced items */
+	float:none;
+}
+#nav ul a{
+	white-space:nowrap; /* Stop text wrapping and creating multi-line dropdown items */
+}
+#nav li:hover ul{ /* Display the dropdown on hover */
+	left:0; /* Bring back on-screen when needed */
+}
+#nav li:hover a{ /* These create persistent hover states, meaning the top-most link stays 'hovered' even when your cursor has moved down the list. */
+	//background:#6b0c36;
+	text-decoration:underline;
+}
+#nav li:hover ul a{ /* The persistent hover state does however create a global style for links even before they're hovered. Here we undo these effects. */
+	text-decoration:none;
+}
+#nav li:hover ul li a:hover{ /* Here we define the most explicit hover states--what happens when you hover each individual link. */
+	//background:#333;
+}
+
+.center {
+	text-align:center;
+}
+
+#breadCrumbs ul {
+
+}
+
+#breadCrumbs ul li{
+	display: inline-block;
+    list-style-type: none;
+    margin:0;
+}
+
+#loginClick {
+	color:white;
+	background-color:black;
+	width:50px;
+	text-align:center;
+}
+
+a#loginClick {
+	text-decoration:none;
+}
+
+#loginContainer {
+	margin-left: -190px;
+    background-color: #333;
+    color: white;
+    display: block;
+    float: right;
+    left: 50%;
+    margin-left: -190px;
+	margin-top:20px;
+    //padding: 10px;
+    position: absolute;
+    width: 200px;
+}
+
+#loginFieldset {
+padding: 7px;
+}
+
+
+
+#tableBrowser tbody tr:nth-child(odd) {
+    	background-color:#fafafa;
+}
+
+#previewPics {
+
+    padding: 0;
+    text-align: center;
+}
+
+#previewPics img {
+    border: 1px solid #333;
+    margin: 10px auto;
+    padding: 1px;
+max-width:940px;
+}
+
+header {
+position:relative;
+}
+
+#categoriesList {
+
+}
+
+#categoriesList p {
+	background-color: #F2F2F2;
+    padding: 20px;
+    text-align: center;
+    border:dotted 1px transparent;
+}
+
+#newItems ul{
+
+}
+
+#newItems ul li{
+    background-color: #F2F2F2;
+    list-style: none outside none;
+    margin: 10px 0;
+    //cursor: move;
+    padding: 10px;
+}
+#newItems ul .dragMeToCat{
+    background-color: #fefefe;
+    display: inline-block;
+    height: 3em;
+    cursor: move;
+    padding: 2px;
+    text-align: center;
+    width: 180px;
+	line-height: 37px;
+}
+#newItems ul li a{
+    display: block;
+    float: left;
+    max-width: 70%;
+    float:right;
+	//line-height: 40px;
+	text-align: justify;
+}
+
+.close {
+    color: red;
+    float: right;
+    padding: 0 5px;
+}
+
+#categoriesList p.containerCat {
+    background-color: white;
+	border: 1px dotted rgba(0, 0, 0, 0.1);
+	min-height:8em;
+}
+
+.displayListUrl ul{
+	min-height:400px;
+}
+
+.delCat {
+    background-color: #d83526;
+    display: inline-block;
+    float: right;
+    padding: 3px;
+    position: relative;
+left: -200px;
+    top: -20px;
+    cursor:pointer;
+    color:#fff;
+}
+
+.vcard p {
+	text-align:center;
+}
+.displayListUrl ul li{
+    border-bottom: 1px dotted black;
+    list-style: none outside none;
+    margin: 0;
+    padding: 5px 0;
+	text-align: justify;
+}
+.displayListUrl ul li:last-child {
+	border-bottom: 0px;
+}
+a.bookmarker {
+	-moz-box-shadow:inset 0px 1px 0px 0px #caefab;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #caefab;
+	box-shadow:inset 0px 1px 0px 0px #caefab;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #77d42a), color-stop(1, #5cb811) );
+	background:-moz-linear-gradient( center top, #77d42a 5%, #5cb811 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77d42a', endColorstr='#5cb811');
+	background-color:#77d42a;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #268a16;
+	display:inline-block;
+	color:#306108;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #aade7c;
+}.bookmarker:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #5cb811), color-stop(1, #77d42a) );
+	background:-moz-linear-gradient( center top, #5cb811 5%, #77d42a 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5cb811', endColorstr='#77d42a');
+	background-color:#5cb811;
+}.bookmarker:active {
+	#bookmarkUrl {
+		background-color: red;
+	}
+
+h1 {
+	float:left;
+}
+
+#loginClick {
+	float:right;
+}
+
+.button {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+	background-color:#ededed;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ffffff;
+}
+.button:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+	background-color:#dfdfdf;
+}
+
+.button:active {
+	position:relative;
+	top:1px;
+}
+
+a.download {
+	color:black;
+}
+
+a.download:visited {
+	color:black;
+}
+
+.download {
+	-moz-box-shadow:inset 0px 1px 0px 0px #caefab;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #caefab;
+	box-shadow:inset 0px 1px 0px 0px #caefab;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #77d42a), color-stop(1, #5cb811) );
+	background:-moz-linear-gradient( center top, #77d42a 5%, #5cb811 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77d42a', endColorstr='#5cb811');
+	background-color:#77d42a;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #268a16;
+	display:inline-block;
+	color:#306108;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #aade7c;
+}.download:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #5cb811), color-stop(1, #77d42a) );
+	background:-moz-linear-gradient( center top, #5cb811 5%, #77d42a 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5cb811', endColorstr='#77d42a');
+	background-color:#5cb811;
+}.download:active {
+	position:relative;
+	top:1px;
+}
+
+#categoriesList p.ui-droppable span {
+    background-color: rgba(0, 0, 0, 0.2);
+    float: right;
+    font-variant: small-caps;
+    margin-right: -20px;
+    margin-top: -20px;
+    padding: 3px;
+    position: relative;
+    cursor: no-drop;
+}
+
+a#unLog {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #f6f6f6) );
+	background:-moz-linear-gradient( center top, #ffffff 5%, #f6f6f6 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f6f6f6');
+	background-color:#ffffff;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#666666;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ffffff;
+}a#unLog:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f6f6f6), color-stop(1, #ffffff) );
+	background:-moz-linear-gradient( center top, #f6f6f6 5%, #ffffff 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff');
+	background-color:#f6f6f6;
+}a#unLog:active {
+	position:relative;
+	top:1px;
+}
+
+.ui-state-active {
+	border:dotted 1px green;
+}

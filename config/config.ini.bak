@@ -1,0 +1,44 @@
+[Data Base]
+server   =
+user     =
+password =
+database =
+
+[Path]
+root            =
+config          = config/
+css             = css/
+helpers         = helpers/
+ajax            = helpers/ajax/
+images          = images/
+js              = js/
+lib             = lib/
+public          = public/
+views           = views/
+logs            = logs/
+cache           = cache/
+scandir         = index.php
+fileInfos       = detail.php
+bookmarks       = bookmark.php
+googleAnalytics = google-analytics.js
+
+[Cache]
+lifetime = 0
+
+[Site]
+name      = My.Bookmarks
+tagline   = Self hosted bookmarks
+publicKey =
+
+[Debug]
+debug = 1
+
+[BreadCrumbs]
+separator = »
+
+[GOOGLE ANALYTICS]
+id =
+
+[LOCAL]
+idDefaultCategory = 1
+homeNomberOfUrls  = 10
