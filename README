@@ -39,7 +39,7 @@ Pour ma part ce n'est tout bonnement pas possible :
        
 Démonstration
 
-    - http://bookmarks.inwebo.net/
+    - http://my.bookmarks.free.fr/
 
 Download
 
@@ -55,7 +55,7 @@ Environnement développement
     - HTML5 / CSS3
     - Boilerplate
     - 960 grid system
-    - Hébergement free.fr / OVH pro
+    - Hébergement free.fr / localhost
     - GitHub
     - Approche MVC
     - Url rewriting même chez free.fr
@@ -74,7 +74,7 @@ Installation
 
 Webographie
 
-Je vais retrouver l'article qui m'a donné l'envie d'écrire ce logiciel.
+    Incoming
 
 
 FAQ
@@ -119,9 +119,3 @@ BUGS
 _______________________________________________________________________________
 
 - Besoin de vous
-
-
-DONATE
-_______________________________________________________________________________
-
-- Acheter moi une mousse.
