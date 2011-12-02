@@ -3,10 +3,10 @@
 
 
 /* TEAM */
-  <your title>: <your name>
-  Site: 
+  author : Julien Hannotin pour Inwebo.net
+  Site: http://www.inwebo.net
   Twitter: 
-  Location: 
+  Location: Toulouse
 
 /* THANKS */
   Names (& URL): 
