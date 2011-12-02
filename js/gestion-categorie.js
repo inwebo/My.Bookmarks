@@ -1,7 +1,7 @@
 $('#addCategory').click( function() {
 
     if( $('#inputCat').val() == '' ) {
-		$('#addResponse').html('added');
+		addMssg('warning','Empty input field');
     }
     else {
 		$.ajax({
@@ -19,12 +19,14 @@ $('#addCategory').click( function() {
 					$.ajaxSetup({async: true});
 				}
 				else {
-					$('#addResponse').html('Already exists');
+					//$('#addResponse').html('Already exists');
+                                        addMssg('warning','Categorie already exists');
 				}
 				$('#inputCat').val('');
 			},
 			error:function() {
-				alert('Une erreur est survenue essayer plus tard');
+				//alert('Une erreur est survenue essayer plus tard');
+                                addMssg('error','Une erreur est survenue essayer plus tard');
 			}
 		});
 

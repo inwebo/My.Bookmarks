@@ -1,8 +1,8 @@
 [Data Base]
 server   =
+database =
 user     =
 password =
-database =
 
 [Path]
 root            =
@@ -39,7 +39,5 @@ separator = »
 [GOOGLE ANALYTICS]
 id =
 
-[LOCAL]
-idDefaultCategory = 1
-homeNomberOfUrls  = 10
-version           = beta 28-11-2011
+[My.Bookmarks]
+homeNomberOfUrls = 10

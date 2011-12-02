@@ -40,42 +40,48 @@
 ?>
 <!-- home.php -->
 <?php
-
 $totalCategories = $sql->query('SELECT count(*) as total FROM `categories`');
-while ($row = mysql_fetch_assoc( $totalCategories )) {
-	$total = $row['total'];
+while ($row = mysql_fetch_assoc($totalCategories)) {
+    $total = $row['total'];
 }
 
 $allCategories = $sql->query('SELECT `id`, `name` FROM `categories`');
 $array_result = array();
-$i=0;
-$clear =0;
+$i = 0;
+$clear = 0;
 $output = '';
-while ( $row = mysql_fetch_assoc( $allCategories ) ) {
+while ($row = mysql_fetch_assoc($allCategories)) {
 
-	$array_result[] = $sql->query('SELECT * FROM `bookmarks` WHERE `category`='.$row['id'] . ' ORDER BY `dt` DESC LIMIT 0,'.$conf['homeNomberOfUrls'] );
+    $array_result[] = $sql->query('SELECT * FROM `bookmarks` WHERE `category`=' . $row['id'] . ' ORDER BY `dt` DESC LIMIT 0,' . $conf['homeNomberOfUrls']);
+    $totalUrl[] = $sql->query('SELECT * FROM `bookmarks` WHERE `category`=' . $row['id']);
+    $numberLinks = mysql_num_rows($array_result[$i]);
+    $totalLinks = mysql_num_rows($totalUrl[$i]);
 
-	$numberLinks = mysql_num_rows( $array_result[$i] ) ;
+    if ($numberLinks != "0") {
+        //if ($numberLinks == 1) {
+          //  $output .= '<div class="grid_12">';
+        //} elseif ($numberLinks == 2) {
+          //  $output .= '<div class="grid_6">';
+        //} elseif ($numberLinks >= 3) {
+            $output .= '<div class="grid_4">';
+       // }
+        $output .='<h2>
+                            <a href="' . ROOT_MAIN . $row['id'] . '/' . $row['name'] . '">' . $row['name'] . '</a>
+                            <span class="totalLinks">' . $totalLinks . '</span>
+			</h2>
+					<ul class="listUrl">' . "\n";
+        while ($li = mysql_fetch_assoc($array_result[$i])) {
+            $output .= '<li><a href="' . $li['url'] . '" title="' . $li['description'] . '" data-tags="' . $li['tags'] . '">' . stripslashes($li['title']) . '</a></li>' . "\n";
+        }
 
-	if( $numberLinks != "0" ) {
-	$output .= '<div class="grid_4 displayListUrl">
-					<h2>
-						<a href="' . ROOT_MAIN . $row['id'] . '/' . $row['name'] . '">'.$row['name'].'</a>
-					</h2>
-					<ul>' ."\n";
-					while ($li = mysql_fetch_assoc( $array_result[$i] )) {
-						$output .= '<li><a href="' . $li['url'] . '" title="' . $li['description'] . '" data-tags="' . $li['tags'] . '">'. stripslashes($li['title']) . '</a></li>'."\n";
-					}
+        $output .= '</ul></div>' . "\n";
+        $clear++;
+    }
 
-		$output  .= '</ul></div>'."\n";
-		$clear++;
-	}
-
-	$i++;
-	if( $clear%3 == 0 && $clear!=0) {
-		$output .= '<div class="clear"></div>'."\n";
-	}
-
+    $i++;
+    if ($clear % 3 == 0 && $clear != 0) {
+        $output .= '<div class="clear"></div>' . "\n";
+    }
 }
 echo $output;
 ?>

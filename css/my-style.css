@@ -61,6 +61,11 @@ hr{
     padding: 2px;
 }
 
+h2 a {
+    color:#555555;
+    text-decoration: none;
+}
+
 .listUrl, #debugOutPut {
     margin-bottom: 5px;
     padding: 0;
@@ -290,15 +295,14 @@ div.debugOkay {
 	position:relative;
 	top:1px;
 }
-
+nav li a.myButton {
+    
+}
 .logme {
 	font-weight: lighter;
 	 padding: 0 5px;
 }
 
-.logmeout {
-
-}
 .logmeout {
 	-moz-box-shadow:inset 0px 1px 0px 0px #f29c93;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #f29c93;
@@ -346,6 +350,7 @@ div.debugOkay {
 header {
     background-color: #35383D;
     margin-bottom: 20px;
+    min-height: 50px;
 }
 header h1{
 	font-family: 'Lobster', cursive;
@@ -368,7 +373,7 @@ nav {
 
 nav li {
     display: inline-block;
-    margin-bottom: 0;
+    margin-bottom: -5px;
     padding: 10px;
     position: relative;
 }
@@ -386,8 +391,9 @@ background: radial-gradient(center, ellipse cover,  #3f4c6b 0%,#35383d 80%); /* 
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f4c6b', endColorstr='#35383d',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
 }
 
-nav li:hover a {
+nav li:hover a:hover {
 	color:white;
+        
 }
 
 .heaederListActif,  .heaederListActif:hover{
@@ -409,7 +415,7 @@ nav li:hover a {
     margin-right: 5px;
     padding: 5px;
     text-decoration: none;
-    white-space: nowrap;
+//white-space: nowrap;
 }
 
 .tags span{
@@ -428,12 +434,13 @@ margin-left: 10px;
 #loginContainer {
     background-color: #FAFAFA;
     border: 1px solid #E6E6E6;
-    left: -130px;
+    left: -128px;
     padding: 10px;
     position: absolute;
-    top: 50px;
+    top: 40px;
+    border-top:solid 1px transparent;
     z-index: 9999;
-	display:none;
+    /*display:none;*/
 }
 /* FOOTER */
 /* ---- */
@@ -480,7 +487,7 @@ footer .grid_12 p .myButton {
 }
 
 	#setupForm input:focus, #setupForm textarea:focus {
-		border:1px inset #BFDE84;
+		border:2px inset #BFDE84;
 		background-color:#EDFBD8;
 		border-radius: 4px;
 	}
@@ -531,4 +538,10 @@ footer .grid_12 p .myButton {
 .grid_12 .debugOkay a:hover {
 	color:white;
 	text-shadow: 1px 1px 0 #77D42A;
+}
+
+
+.listUrl li a.displayTitle {
+    display: inline-block;
+    max-width: 65%;
 }

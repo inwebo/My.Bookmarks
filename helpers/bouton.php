@@ -74,4 +74,4 @@ javascript:(function(){
 })();
 
 
-" class="">Bookmark this!</a>
+" class="myButton">Bookmark this!<link rel="shortcut icon" href="<?php echo ROOT_IMG; ?>favicon.png"></a>

@@ -40,42 +40,88 @@
 ?>
 <!-- categorie.php -->
 <?php if ( $_SESSION['type'] == 'admin' ) { ?>
-			<div id="categoriesList" class="grid_3">
-				<h3>Categories</h3>
+
+			<div id="categoriesList" class="grid_4">
+                            <h2>Categories</h2>
 				<?php
 					$i=0;
 					$links = $sql->query('SELECT * FROM categories ORDER BY `name` ASC ');
 					while ($row = mysql_fetch_assoc( $links )) {
-						echo '<p id="idCategorie'.$row['id'].'" data-id="'.$row['id'].'">'.$row['name'].'<span data-id="'.$row['id'].'" data-category="'.$row['name'].'" class="delCat">del</span></p>'."\n";
+						echo '<p id="idCategorie'.$row['id'].'" data-id="'.$row['id'].'">'.$row['name'].'<span class="delete" data-id="'.$row['id'].'" data-category="'.$row['name'].'" ><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></p>'."\n";
 						$i++;
 					}
 				?>
-			<p id="addNewcat" class="containerCat">
+                            <form id="addNewcat">
+                                <label>
+                                    New categorie name ?<br>
+                                    <input id="inputCat" name="inputCat" type="text"><br><br>
+                                    <a href="#" id="addCategory" class="myButton" onclick="return false;">Add</a>
+                                    <br><span id="addResponse">&nbsp;</span>
+                                    <input type="hidden" value="<?php echo $i; ?>" id="totalCategories" name="totalCategories">
+                                </label>
+                            </form>
+                           <!-- <p id="addNewcat" class="containerCat">
 				<label>Nom de la nouvelle catégorie :
 				<input type="text" id="inputCat" name="inputCat"></label><br><br>
 				<a href="#" id="addCategory" class="button" onclick="return false;">Add</a>
 				<br><span id="addResponse">&nbsp;</span>
-			</p>
-			<input type="hidden" value="<?php echo $i; ?>" id="totalCategories" name="totalCategories">
+                            </p>-->
+                            <input type="hidden" value="<?php echo $i; ?>" id="totalCategories" name="totalCategories">
 			</div>
-			<div id="newItems" class="grid_9">
+
+			<div id="newItems" class="grid_8">
 			<?php } else {?>
 
 			<div id="newItems" class="grid_12">
 
 			<?php } ?>
-			<h3><?php echo $multiViews->args[2]; ?></h3>
-			<ul>
+                        <?php
+                            $links = $sql->query('SELECT * FROM bookmarks where category=":?" ORDER BY `dt` DESC', array($multiViews->args[1]));
+                            $totalLinks = mysql_num_rows( $links ) ;
+                        ?>
+			<h2><?php echo $multiViews->args[2]; ?><span class="totalLinks"><?php echo $totalLinks; ?></span></h2>
+			<ul class="listUrl">
 			<?php
 				$links = $sql->query('SELECT * FROM bookmarks where category=":?" ORDER BY `dt` DESC', array($multiViews->args[1]));
 				if( !is_bool($links ) ) {
 					while ($row = mysql_fetch_assoc( $links )) {
-						echo '<li title="'.$row['hash'].'">';
-						if( $_SESSION['type'] == 'admin' ) {
+						//echo '<li title="'.$row['hash'].'">';
+						/*if( $_SESSION['type'] == 'admin' ) {
 							echo '<span class="dragMeToCat" title="'.$row['hash'].'">Drag me</span>';
 							echo '<span class="close"><a href="#" title="DELETE" data-id="'. $row['id'] .'" data-title="'. $row['title'] .'">x</a></span>';
-						}
-						echo'<a href="' . $row['url'] . '" title="'.$row['description'].'">'. stripslashes($row['title']) . '</a><span class="clear"></span></li>'."\n";
+						}*
+						echo'<a href="' . $row['url'] . '" title="'.$row['description'].'">'. stripslashes($row['title']) . '</a><span class="clear"></span></li>'."\n";*/
+                                                
+                                                echo '<li>';
+                                                
+                                                if( $_SESSION['type'] == 'admin' ) {
+                                                    echo '<span class="dragMeToCat" title="'.$row['hash'].'">Drag me</span>';
+                                                }
+                                                echo'<a href="' . $row['url'] . '" title="'.$row['description'].'" class="displayTitle">'. stripslashes($row['title']) . '</a>';
+                                                if( $_SESSION['type'] == 'admin' ) {
+                                                    echo'
+                                                    <span class="delete close">
+                                                        <a href="#" title="DELETE" data-id="'. $row['id'] .'" data-title="'. $row['title'] .'">x
+                                                        <span class="deleteTxt">
+                                                           <span class="deleteTriangle"></span>
+                                                           Delete
+                                                        </span>
+                                                        </a>
+                                                    </span>';
+                                                }
+                                                echo '</li>';
+                                                
+                                                //<li>
+                                                    //<span class="dragMeToCat">Drag me</span>
+                                                    //<a href="">Nom du len</a>
+                                                    //<span class="delete">
+                                                        //<a href="#">x
+                                                        //<span class="deleteTxt">
+                                                            //<span class="deleteTriangle"></span>
+                                                            //Delete</span>
+                                                        //</a>
+                                                    //</span>
+                                                //</li>
 					}
 				}
 				else {

@@ -1,6 +1,7 @@
 (function($){
-	$('#loginFieldset').hide();
+	$('#loginContainer').hide();
 	$('#loginClick').click(function() {
-		$('#loginFieldset').fadeToggle('fast');
+		$('#loginContainer').fadeToggle('fast');
+                $( this ).parent().toggleClass('heaederListActif');
 	});
 })(jQuery)

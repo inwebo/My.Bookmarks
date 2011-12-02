@@ -40,7 +40,7 @@
 ?>
 <!-- categorie.php -->
 <div class="grid_12">
-<h2>Tags</h2>
+<h2>Tags<span class="totalLinks">125</span></h2>
 <pre>
 <?php
 $array_tags=array();
@@ -73,13 +73,13 @@ $tags = $sql->query('SELECT tags FROM bookmarks');
 					$array_tags = array_filter($array_tags);
 
 ?></pre>
-<ul id="tags">
+<p>
 	<?php
 		foreach( $display_tags as $key => $value ) {
-			echo '<li><a href="">'. $value .' <span>(x)</span></a></li>';
+			echo '<a href="#" class="tags">'. str_replace(' ', '&nbsp;', $value) .'<span>(x)</span></a> ';
 		}
 	?>
-	<li><a href="">Tags <span>(28)</span></a></li>
-</ul>
+	
+</p>
 </div>
 <!-- /categorie.php -->

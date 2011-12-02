@@ -39,16 +39,28 @@
  */
 ?>
 	<!-- header -->
-    <header>
+<header>
 		<div class="container_12">
 			<div id="breadCrumbs" class="grid_12">
 			<h1><?php echo $conf ['name']; ?><!--<img src="img/logo.png">--></h1>
 				<nav>
-					<li>
+					<li
+                                            <?php
+                                                if( isset( $multiViews->total ) && $multiViews->total === 0 ) {
+                                                    echo ' class="heaederListActif" ';
+                                                }
+                                            ?>
+                                        >
 						<?php echo '<a href="'.$conf['root'].'index.php">Home</a>'; ?>
 					</li>
-					<li>
-						<a href="<?php echo ROOT_MAIN.'tags/'; ?>">Tags</a>
+					<li
+                                            <?php
+                                                if( isset($multiViews->args[1]) && $multiViews->args[1] == 'tags' ) {
+                                                    echo ' class="heaederListActif" ';
+                                                }
+                                            ?>
+                                        >
+						<a href="<?php echo ROOT_MAIN . 'tags/'; ?>">Tags</a>
 					</li>
 					<?php if ( $_SESSION['type'] == 'admin' ) { ?>
 					<li>
@@ -64,7 +76,7 @@
 									<br><label>Password <br><input type="password" id="item-5" name="password"><br></label>
 									<br>
 									<input type="submit" id="item-7">
-									<?php	if( $_SESSION['type'] == "admin" ) { echo '<a href="?q"  class="myButton logme" id="unLog">Exit</a>'; } ?>
+									<?php	if( $_SESSION['type'] == "admin" ) { echo '<a href="?q"  class="myButton logmeout" id="unLog">Exit</a>'; } ?>
 									<!--<a class="myButton logme" href="?q">Logme</a>
 									<a class="myButton logmeout" href="?q">Exit</a>-->
 							</form>
@@ -74,6 +86,4 @@
 			</div>
 		</div>
     </header>
-	<!-- /header -->
-
-
+<!-- /header -->

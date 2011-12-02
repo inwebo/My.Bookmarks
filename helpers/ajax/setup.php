@@ -43,20 +43,25 @@ chdir('../../');
 include('lib/mysql/class.mysql.php');
 include('lib/mylog/class.mylog.php');
 
-$create = file('config/structure.sql');
+$create = file( 'config/sql' );
 $create = implode($create);
 
 //echo $create;
 
 $return = '';
 try {
-	$tempSql = new MySql($_POST['sqlserver'] ,$_POST['user'],$_POST['password'],$_POST['database']);
+	$tempSql = new MySql( $_POST['setupDbServer'] ,$_POST['setupDbUser'],$_POST['setupDbPassword'],$_POST['setupDbDatabase']);
+        $tempSql->query('INSERT INTO `users` VALUES ("","'.$_POST['setupUserName'].'", MD5(\'' . $_POST['setupUserName'] . '\'),1,"",MD5(\'' .$_POST['setupUserName'] .'\' ))');
+        //echo $tempSql->query;
 	$newConfig = new MyLog('config/config.ini.bak');
-	$newConfig->setLine(2, $newConfig->getLine(2) . $_POST['sqlserver'] );
-	$newConfig->setLine(3, $newConfig->getLine(3) . $_POST['user'] );
-	$newConfig->setLine(4, $newConfig->getLine(4) . $_POST['password'] );
-	$newConfig->setLine(5, $newConfig->getLine(5) . $_POST['database'] );
-	$newConfig->setLine(8, $newConfig->getLine(8) . $_POST['root'] );
+	$newConfig->setLine(2, $newConfig->getLine(2) . $_POST['setupDbServer'] );
+	$newConfig->setLine(3, $newConfig->getLine(3) . $_POST['setupDbDatabase'] );
+	$newConfig->setLine(4, $newConfig->getLine(4) . $_POST['setupDbUser'] );
+	$newConfig->setLine(5, $newConfig->getLine(5) . $_POST['setupDbPassword'] );
+
+	$newConfig->setLine(8, $newConfig->getLine(8) . $_POST['setupRoot'] );
+	$newConfig->setLine(31, $newConfig->getLine(31) . md5($_POST['setupUserName']) );
+	$newConfig->setLine(40, $newConfig->getLine(40) . $_POST['setupGa'] );
 	$newConfig->file='config/config.ini';
 	$newConfig->save();
 	$return = 'TRUE';

@@ -38,12 +38,15 @@
  * @since     File available since Beta 28-11-2011
  */
 ?>
-<!-- header.php -->
-<footer>
-<div class="vcard">
-<p>
-	<a class="url fn" href="http://hannotin.julien.is.free.fr/" title="Consultation gratuite, et wep">Julien Hannotin</a>
-</p>
-</div>
-</footer>
-<!-- /header.php -->
+	<!-- Footer -->
+    <footer>
+		<div class="container_12">
+			<div class="grid_12">
+				<p>
+					My.Bookmarks version Beta 28-11-2011 <a href="" class="myButton">update now</a> - par www.inwebo.net - cc2 - Github Repository
+				</p>
+			</div>
+		</div>
+	</footer>
+	<!-- /Footer -->
+

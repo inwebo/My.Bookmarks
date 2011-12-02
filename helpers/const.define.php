@@ -61,6 +61,9 @@ define('ROOT_CSS', $publicCSS);
 $publicJS = $conf['root'] . $conf['js'];
 define('ROOT_JS', $publicJS);
 
+$publicImg = $conf['root'] . $conf['images'];
+define('ROOT_IMG', $publicImg);
+
 $publicHelpers = $conf['helpers'];
 define('ROOT_HELPERS', $publicHelpers);
 
