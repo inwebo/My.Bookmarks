@@ -101,6 +101,21 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 	</div>
 	<!-- /Breadcrumbs -->
 
+	<!-- Bouton -->
+	
+        <?php if ( $_SESSION['type'] == 'admin' ) { ?>
+        <div id="dragMeGrid_12" class="grid_12 ">
+            <h2>Drag me to your bookmarks bar</h2>
+            <p>
+	<?php
+            include(ROOT_HELPERS.'bouton.php');
+	?>
+        </div>
+        </p>
+        <?php } ?>
+	
+	<!-- /bouton -->
+
                 <!-- Include -->
 		<div class="clear"></div>
 		<?php

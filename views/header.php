@@ -41,8 +41,8 @@
 	<!-- header -->
 <header>
 		<div class="container_12">
-			<div id="breadCrumbs" class="grid_12">
-			<h1><?php echo $conf ['name']; ?><!--<img src="img/logo.png">--></h1>
+			<div id="headerGrid_12" class="grid_12">
+			<h1><?php echo $conf ['name']; ?><!--<img src="img/logo.png"><span id="headerTotalLinks">125</span>--></h1>
 				<nav>
 					<li
                                             <?php
@@ -64,7 +64,8 @@
 					</li>
 					<?php if ( $_SESSION['type'] == 'admin' ) { ?>
 					<li>
-					<?php include(ROOT_HELPERS.'bouton.php'); } ?>
+                                            Help
+					<?php } ?>
 					</li>
 					<li >
 						<a href="#" id="loginClick">Login</a>

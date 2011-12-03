@@ -3,6 +3,13 @@
         // Active le debug, sortie dans la console JS
         debug = true;
 
+        function totalItem() {
+            var total = parseInt($('.totalLinks').html());
+            total--;
+            $('.totalLinks').html(total);
+            addMssg('informations', 'it exists ' + total + ' links in ' + $('.totalLinks').parent('h2').html() );
+        }
+
         $( "#newItems ul li span.dragMeToCat" ).draggable({
             opacity: 0.7,
             helper: "clone",
@@ -39,6 +46,7 @@
                     data: "id="+ $(containerIdData).attr("data-id") +"&hash="+ $element.attr("title"),
                     success:function(data) {
                         addMssg( 'okay', $element.attr("title") + ' moved.' );
+                        totalItem() ;
                     },
                     error:function() {
                         addMssg( 'error', 'Can\'t moved ' +$element.attr("title") + ' !' );
@@ -47,7 +55,8 @@
 
                 $element.parent().slideUp(300);
             },
-            accept: '#newItems ul li span.dragMeToCat'
+            accept: '#newItems ul li span.dragMeToCat',
+            greedy: false
         });
 
         $('span.close a').click(function() {

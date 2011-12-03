@@ -43,7 +43,7 @@
 		<div class="container_12">
 			<div class="grid_12">
 				<p>
-					My.Bookmarks version Beta 28-11-2011 <a href="" class="myButton">update now</a> - par www.inwebo.net - cc2 - Github Repository
+					My.Bookmarks version <?php echo $conf['version']; ?> <a href="" class="myButton">update now</a> - par <a href="http://www.inwebo.net" title="Julien Hannotin portfolio">www.inwebo.net</a> - <a title="Creative Commons 2" href="http://creativecommons.org/licenses/by-nc-sa/2.0/fr/">cc2</a> - <a href="https://github.com/inwebo/My.Bookmarks" target="_blank" title="Latsest release repository">Github Repository</a>
 				</p>
 			</div>
 		</div>

@@ -60,7 +60,11 @@ hr{
     margin-top: -1em;
     padding: 2px;
 }
+#container {
 
+    height: 100%;
+    min-height: 100%;
+}
 h2 a {
     color:#555555;
     text-decoration: none;
@@ -150,7 +154,7 @@ h2 a {
     margin-right: 20px;
     padding: 2px;
     text-align: center;
-    width: 26%;
+    width: 150px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
@@ -248,8 +252,8 @@ h2 a {
 }
 #debugOutPut ul li.debugWarning, .debugWarning{
  border: 1px solid #E5E181;
-    color: #666666;
-	background-color:#FEFDE2;
+color: #666666;
+background-color:#FEFDE2;
 }
 
 .grid_12 .debugWarning, .grid_12 .debugOkay {
@@ -262,6 +266,11 @@ div.debugOkay {
 .grid_12 .debugOkay p{
 	margin-bottom:0;
 	text-align: center;
+}
+
+#dragMeGrid_12 p {
+text-align: center;
+
 }
 
 /* Bookmark bouton */
@@ -331,8 +340,10 @@ nav li a.myButton {
 #breadCrumbs {
     background-color: transparent;
     border: medium none transparent;
-    margin-bottom: 0;
-	padding-left: 0;
+    margin-bottom: 20px;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-top: 0;
 }
 
 #breadCrumbs ul{
@@ -350,18 +361,34 @@ nav li a.myButton {
 header {
     background-color: #35383D;
     margin-bottom: 20px;
-    min-height: 50px;
+    min-height: 45px;
 }
+
+#headerGrid_12 {
+    background-color: transparent;
+    border: medium none transparent;
+    margin-bottom: 10px;
+    width: 918px;
+}
+
 header h1{
-	font-family: 'Lobster', cursive;
     color: white;
-    display: inline-block;
-    position: absolute;
-	margin-top: -7px;
+    display: block;
+    font-family: 'Lobster',cursive;
+    font-size: 5em;
+    margin-top: 0;
+    text-align: center;
+
 	text-shadow: 2px 2px 0 #9E9E9E;
 	filter: dropshadow(color=#9E9E9E, offx=2, offy=2);
 
 }
+
+header #headerTotalLinks {
+
+    
+}
+
 header h1 img {
 	margin-right: 10px;
 }
@@ -373,7 +400,8 @@ nav {
 
 nav li {
     display: inline-block;
-    margin-bottom: -5px;
+    margin-bottom: -20px;
+    margin-top: 5px;
     padding: 10px;
     position: relative;
 }
@@ -392,8 +420,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f4c6b', end
 }
 
 nav li:hover a:hover {
-	color:white;
-        
+	color:#008ee8;
 }
 
 .heaederListActif,  .heaederListActif:hover{
