@@ -55,7 +55,6 @@
 	<?php
             include(ROOT_HELPERS.'bouton.php');
 	?>
-
         </p>
         <?php } ?>
 	<!-- /bouton -->

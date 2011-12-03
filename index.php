@@ -1,6 +1,5 @@
 <?php include('autoload.php'); ?>
 <?php include( dirname( __FILE__ ) . DIRECTORY_SEPARATOR .'helpers/const.define.php'); ?>
-
 <?php
 
 // Controleur Init
@@ -88,7 +87,7 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 
 <body>
 
-  <div id="container">
+  <div id="container" >
     <?php include('views/header.php'); ?>
     <div id="main" role="main">
 	<!-- Container -->
@@ -107,6 +106,7 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 
                 <!-- Include -->
 		<div class="clear"></div>
+                <div class="gridHome">
 		<?php
 			if( !is_file('config/config.ini') ) {
 				include('views/setup.php');
@@ -126,6 +126,7 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 				include('views/categorie.php');
 			}
 		?>
+                </div>
                 <!-- Breadcrumbs -->
                 
 	
@@ -165,6 +166,7 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 <script type="text/javascript" src="<?php echo ROOT_JS; ?>gestion-categorie.js"></script>
 <!--<script type="text/javascript" src="<?php //echo ROOT_JS; ?>cat-del.js"></script>-->
 <script type="text/javascript" src="<?php echo ROOT_JS; ?>administration.js"></script>
+<script type="text/javascript" src="<?php echo ROOT_JS; ?>handler-help.js"></script>
 <?php } ?>
 <script type="text/javascript" src="<?php echo GOOGLE; ?>?id=<?php echo $conf ['id']; ?>"></script>
 <!-- /Custom JS -->

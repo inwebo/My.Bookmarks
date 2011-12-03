@@ -77,9 +77,9 @@ while ( $oneCategorie = mysql_fetch_assoc( $allCategories ) ) {
 $gridSize = count( $grid );
 $output = '';
 $iterator = 0;
-echo '<pre>';
+//echo '<pre>';
 //var_dump($grid);
-echo '</pre>';
+//echo '</pre>';
 
 $totalCategorie = count($grid);
 //echo $totalCategorie;
@@ -121,11 +121,12 @@ while( isset( $grid[++$iterator] ) ) {
         $output .= '</ul></div>' . "\n";
 
         //$output .= '</div>';
-
+$modulo++;
     //print_r( $grid[$iterator]);
     if ($modulo % 3 == 0 && $modulo != 0) {
         $output .= '<div class="clear"></div>' . "\n";
     }
+    
 }
 echo $output;
 //print_r($grid[0]);

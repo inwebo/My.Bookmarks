@@ -17,8 +17,8 @@ Si comme moi vous :
 My.Bookmarks est fait pour vous. Grâce à un simple widget ( un composant d'in-
 -terface graphique, un élément visuel d'une interface graphique (bouton, ascens
 -eur, liste déroulante, etc.)), déposé dans votre barre de favoris (CTRL+B dans
-firefox), vous pouvez enregistrer la page que vous êtes en train de visualiser
-directement sur votre espace web.
+firefox pour l'afficher), vous pouvez enregistrer la page que vous êtes en train
+de visualiser directement sur votre espace web.
 
 Le logiciel va extraire :
 
@@ -30,7 +30,7 @@ Le logiciel va extraire :
 Libre à vous bien sûr d'éditer toutes ces informations si elles ne vous sembles
 pas pertinentes.
 
-Il est vrai qu'il existe déjà des services comparables : xmark, firefox synx...
+Il est vrai qu'il existe déjà des services comparables : xmark, firefox sync...
 Voulez vous vraiment donner accès à toutes vos données à une société tierce ?
 Pour ma part ce n'est tout bonnement pas possible :
 
@@ -43,8 +43,8 @@ Démonstration
 
 Download
 
-    - Lien github
-    - Lien PHPCS
+    - Git Hub : https://github.com/inwebo/My.Bookmarks (uptodate)
+    - PHPcs   : @todo
 
 Environnement développement
 
@@ -68,13 +68,14 @@ Installation
 
       I - Création de votre base de données
      II - Import du fichier SQL disponible dans config/structure.sql
-    III - Décompréssion de l'archive dans le dossier de votre choix
+    III - Décompression de l'archive dans sur votre serveur
      IV - Lancement de l'application, configuration
       V - Déposer le widget dans votre barre personnelle
+     VI - Enjoy \o/
 
 Webographie
 
-    Incoming
+    
 
 
 FAQ
@@ -91,16 +92,13 @@ _______________________________________________________________________________
 TODO
 _______________________________________________________________________________
 
-- Nuage de tags
 - Flux RSS / catégories
-- Recherche interne de liens
 - Implémentation thèmes
 - Forker le projet github en deux versions, une pour free.fr l'autre pour le
   reste
 - Passage à PDO
 - Affichage des dates correctes
 - Documentation digne de ce nom
-- Automatiser complétement l'installation
 - Au premier lancement de l'application un tutorial
 - Une page admin
 - Proposer une archive PHAR pour PHP 5.3
@@ -108,12 +106,9 @@ _______________________________________________________________________________
 - Gestion public/private des liens
 - Ajout de permalink
 - Détail des liens
-- Nombre de liens par page
 - Export de la BDD sous forme de SQL, XML, HTML
 - Import de liens provenant de firefox, opera, chromium
 - Support multilingues
-- Gestionnaire de version
-
 
 BUGS
 _______________________________________________________________________________
