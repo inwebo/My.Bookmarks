@@ -41,4 +41,5 @@ id =
 
 [My.Bookmarks]
 homeNomberOfUrls = 10
-version=beta02-12-2012
+version=beta03-12-2012
+serverVersion=http://my.bookmarks.free.fr/helpers/version.php

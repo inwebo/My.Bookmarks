@@ -1,6 +1,8 @@
 <?php include('autoload.php'); ?>
 <?php include( dirname( __FILE__ ) . DIRECTORY_SEPARATOR .'helpers/const.define.php'); ?>
+
 <?php
+
 // Controleur Init
 try {
 
@@ -101,20 +103,7 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 	</div>
 	<!-- /Breadcrumbs -->
 
-	<!-- Bouton -->
-	
-        <?php if ( $_SESSION['type'] == 'admin' ) { ?>
-        <div id="dragMeGrid_12" class="grid_12 ">
-            <h2>Drag me to your bookmarks bar</h2>
-            <p>
-	<?php
-            include(ROOT_HELPERS.'bouton.php');
-	?>
-        </div>
-        </p>
-        <?php } ?>
-	
-	<!-- /bouton -->
+
 
                 <!-- Include -->
 		<div class="clear"></div>
@@ -349,11 +338,10 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 <script type="text/javascript" src="<?php echo ROOT_JS; ?>handler-gui-message.js"></script>
 
 <script type="text/javascript" src="<?php echo ROOT_JS; ?>gestion-categorie.js"></script>
-<script type="text/javascript" src="<?php echo ROOT_JS; ?>check-version.js"></script>
 <!--<script type="text/javascript" src="<?php //echo ROOT_JS; ?>cat-del.js"></script>-->
 <script type="text/javascript" src="<?php echo ROOT_JS; ?>administration.js"></script>
 <?php } ?>
-<script type="text/javascript" src="<?php echo GOOGLE; ?>"></script>
+<script type="text/javascript" src="<?php echo GOOGLE; ?>?id=<?php echo $conf ['id']; ?>"></script>
 <!-- /Custom JS -->
 
 

@@ -371,6 +371,19 @@ header {
     width: 918px;
 }
 
+#headerGrid_12 p{
+    text-align: center;
+}
+
+#headerGrid_12 p a{
+      padding: 10px;
+}
+
+#headerGrid_12 p a:hover {
+color:#306108
+
+}
+
 header h1{
     color: white;
     display: block;

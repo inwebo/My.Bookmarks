@@ -1,5 +1,6 @@
+
 	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-26724554-1']);
+	  _gaq.push(['_setAccount', '<?php echo $_GET['id']; ?>']);
 	  _gaq.push(['_trackPageview']);
 
 	  (function() {

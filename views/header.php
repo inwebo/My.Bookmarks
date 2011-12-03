@@ -38,11 +38,23 @@
  * @since     File available since Beta 28-11-2011
  */
 ?>
-	<!-- header -->
+<!-- header -->
 <header>
 		<div class="container_12">
 			<div id="headerGrid_12" class="grid_12">
 			<h1><?php echo $conf ['name']; ?><!--<img src="img/logo.png"><span id="headerTotalLinks">125</span>--></h1>
+                            	<!-- Bouton -->
+        <?php if ( $_SESSION['type'] == 'admin' ) { ?>
+
+
+            <p>
+	<?php
+            include(ROOT_HELPERS.'bouton.php');
+	?>
+
+        </p>
+        <?php } ?>
+	<!-- /bouton -->
 				<nav>
 					<li
                                             <?php
