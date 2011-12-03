@@ -174,7 +174,9 @@ h2 a {
 	color:#9fb0bb;
 	vertical-align: top;
 }
-
+#categoriesList {
+    max-height: none;
+}
 /* Categories list */
 #categoriesList p, #categoriesList form  {
     background-color: #F2F2F2;
