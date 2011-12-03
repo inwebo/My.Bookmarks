@@ -46,7 +46,11 @@
                             	<!-- Bouton -->
         <?php if ( $_SESSION['type'] == 'admin' ) { ?>
 
-
+					<?php if ( $_SESSION['type'] == 'admin' ) { ?>
+					<span id="displayHelp">
+                                            <a href="">Help</a>
+					</span>
+                                        <?php } ?>
             <p>
 	<?php
             include(ROOT_HELPERS.'bouton.php');
@@ -74,11 +78,7 @@
                                         >
 						<a href="<?php echo ROOT_MAIN . 'tags/'; ?>">Tags</a>
 					</li>
-					<?php if ( $_SESSION['type'] == 'admin' ) { ?>
-					<li>
-                                            Help
-					<?php } ?>
-					</li>
+
 					<li >
 						<a href="#" id="loginClick">Login</a>
 						<div id="loginContainer">

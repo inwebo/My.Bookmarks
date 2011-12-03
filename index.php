@@ -115,7 +115,12 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 				include('views/home.php');
 			}
 			elseif( $multiViews->args[1] == "tags" ) {
-				include('views/tags.php');
+                                if( isset($multiViews->args[2]) ) {
+                                    include('views/list-tags.php');
+                                }
+                                else {
+                                    include('views/tags.php');
+                                }
 			}
 			else {
 				include('views/categorie.php');
@@ -123,141 +128,7 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 		?>
                 <!-- Breadcrumbs -->
                 
-	<!-- Unlogged categorie list -->
-         <!--
-	<div class="grid_12">
-		<h2>Incoming <span class="totalLinks">125</span></h2>
-		<ul class="listUrl">
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-		</ul>
-         
-	</div>
-	<!-- /Unlogged categorie list -->
-
-	<!--<div class="clear"></div>
-
-	<!-- Tags -->
-        <!--
-	<div class="grid_12">
-		<h2>Tags <span class="totalLinks">125</span></h2>
-		<p>
-			<a href="#" class="tags">Nom&nbsp;du&nbsp;tags<span>12</span></a>
-			<a href="#" class="tags">Nom&nbsp;du&nbsp;tags<span>12</span></a>
-			<a href="#" class="tags">Nom&nbsp;du&nbsp;tags<span>12</span></a>
-			<a href="#" class="tags">Nom&nbsp;du&nbsp;tags<span>12</span></a>
-			<a href="#" class="tags">Nom&nbsp;du&nbsp;tags<span>12</span></a>
-			<a href="#" class="tags">Nom&nbsp;du&nbsp;tags<span>12</span></a>
-			<a href="#" class="tags">Nom&nbsp;du&nbsp;tags<span>12</span></a>
-			<a href="#" class="tags">Nom&nbsp;du&nbsp;tags<span>12</span></a>
-			<a href="#" class="tags">Nom&nbsp;du&nbsp;tags<span>12</span></a>
-			<a href="#" class="tags">Nom&nbsp;du&nbsp;tags<span>12</span></a>
-		</p>
-	</div>
-	<!-- /Tags -->
-
-	<!--<div class="clear"></div>
-
-	<!-- Home urls list -->
-        <!--
-	<div class="grid_4">
-	<h2>Incoming <span class="totalLinks">125</span></h2>
-		<ul class="listUrl">
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-		</ul>
-	</div>
-	<!-- /Home urls list -->
-
-	<!-- Home urls list -->
-        <!--
-	<div class="grid_4">
-		<h2>Incoming <span class="totalLinks">125</span></h2>
-		<ul class="listUrl">
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-		</ul>
-	</div>
-	<!-- /Home urls list -->
-
-	<!-- Home urls list -->
-        <!--
-    <div class="grid_4">
-		<h2>Incoming <span class="totalLinks">125</span></h2>
-		<ul class="listUrl">
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-		</ul>
-	</div>
-	<!-- /Home urls list -->
-<!--
-	<div class="clear"></div>
-
-	<!-- Logged categories list -->
-        <!--
-        <div class="grid_4" id="categoriesList">
-	<h2>Categories <span class="totalLinks">125</span></h2>
-	<p data-id="1" id="idCategorie1">Incoming<span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></p>
-		<form>
-			<label>
-				New categorie name ?<br>
-				<input type="text"/><br><br>
-				<a href="#" class="myButton">ok</a>
-			</label>
-		</form>
-	</div>
-	<!-- /Logged categories list -->
-
-	<!-- Logged categorie -->
-        <!--
-	<div class="grid_8">
-		<h2>Incoming <span class="totalLinks">125</span></h2>
-		<ul class="listUrl">
-			<li><span class="dragMeToCat">Drag me</span><a href="" class="displayTitle">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-			<li><a href="">280</a><span class="delete"><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></li>
-		</ul>
-	</div>
-	<!-- /Logged categorie -->
+	
 
         <div class="clear"></div>
 
@@ -266,54 +137,7 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
     </div>
 	<!-- /Container -->
 
-        <!-- Setup --><!--
-	<div class="container_12">
-		<div class="grid_12">
-			<h2>Installation</h2>
-			<div class="debugOkay">
-			<h3>Félicitation</h3>
-			<p class="">
-				My.Bookmarks est correctement installé, veuillez maintenant déposé dans votre barre de favoris le bouton ci-après.<br><br>
-				<a href="" class="myButton"><link rel="shortcut icon" href="img/logo.png" />Bookmark this</a>
-			</p>
-			</div>
-			<form id="setupForm" name="setupForm" method="post" enctype="application/x-www-form-urlencoded">
-				<fieldset>
-					<legend>Site</legend>
-					<label class="inputGrid_1 inputGrid_1-first">Name : <input id="setupSiteName" name="setupSiteName" value="My.Bookmarks"/><br><span>Titre du site est contenu dans la balise H1.</span></label>
-					<label class="inputGrid_1">Tagline : <input id="setupTagLine" name="setupTagLine" value="Self hosted bookmarks"/><br><span>Slogan du site est contenu dans la balise H1.</span></label>
-				</fieldset>
-				<hr>
-				<fieldset id="containerUser">
-					<legend>User</legend>
-					<label class="inputGrid_1 inputGrid_1-first">Name : <input id="setupRoot" name="setupRoot" /><br><span>Votre nom d'utilisateur.</span></label>
-					<label class="inputGrid_1">Password : <input id="setupRoot" name="setupRoot" /><br><span>Mot de passe.</span></label>
-				</fieldset>
-				<hr>
-				<fieldset id="containerPath">
-					<legend>Path</legend>
-					<label>Root : <input id="setupRoot" name="setupRoot" value="http://"/><br><span>Chemin d'accès de l'application, typiquement copier / coller l'adresse actuelle.</span></label>
-				</fieldset>
-				<hr>
-				<fieldset id="containerDatabase">
-					<legend>Database</legend>
-					<label class="inputGrid_1 inputGrid_1-first">Server : <input id="setupDbServer" name="setupDbServer" /><br><span>Adresse du serveur sql ex : <em>sql.free.fr</em>.</span></label>
-					<label class="inputGrid_1 inputGrid_1">User : <input id="setupDbUser" name="setupDbUser" /><br><span>Nom de l'utilisateur.</span></label>
-					<label class="inputGrid_1 inputGrid_1-first">Password : <input id="setupDbPassword" name="setupPassword"/><br><span>Mot de passe.</span></label>
-					<label class="inputGrid_1 inputGrid_1">Database : <input id="setupDbDatabase" name="setupDatabase" /><br><span>Base de donnée.</span></label>
-				</fieldset>
-				<hr>
-				<fieldset>
-					<legend>Google Analytics</legend>
-					<label>Id : <input id="setupGa" name="setupGa" value="UA-XXXXX-X"/><br><span>Change UA-XXXXX-X to be your site's ID</span></label>
-				</fieldset>
-				<hr>
-				<a href="#" id="saveSetup" name="saveSetup" class="myButton">Save</a>
-				<hr>
-			</form>
-		</div>
-	</div>
-	<!-- /Setup -->
+       
 	<!-- Footer -->
         <?php include('views/footer.php'); ?>
 	<!-- /Footer -->
@@ -332,6 +156,7 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 <!-- Custom JS -->
 
 <script type="text/javascript" src="<?php echo ROOT_JS; ?>login.js"></script>
+<script type="text/javascript" src="<?php echo ROOT_JS; ?>tags-filter.js"></script>
 <?php if( $_SESSION['type'] == "admin") {?>
 <script type="text/javascript" src="<?php echo ROOT_JS; ?>init.php"></script>
 <script type="text/javascript" src="<?php echo ROOT_JS; ?>computeitem.js"></script>

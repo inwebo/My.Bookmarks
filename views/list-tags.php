@@ -76,13 +76,14 @@
 
 			<?php } ?>
                         <?php
-                            $links = $sql->query('SELECT * FROM bookmarks where category=":?" ORDER BY `dt` DESC', array($multiViews->args[1]));
+                        
+                            $links = $sql->query('SELECT * FROM bookmarks where tags LIKE \'%'.$multiViews->args[2].'%\' ORDER BY `dt` DESC');
                             $totalLinks = mysql_num_rows( $links ) ;
                         ?>
-			<h2><?php echo $multiViews->args[2]; ?><span class="totalLinks"><?php echo $totalLinks; ?></span></h2>
+                            <h2>Tags : <em><?php echo $multiViews->args[2]; ?></em><span class="totalLinks"><?php echo $totalLinks; ?></span></h2>
 			<ul class="listUrl">
 			<?php
-				$links = $sql->query('SELECT * FROM bookmarks where category=":?" ORDER BY `dt` DESC', array($multiViews->args[1]));
+				$links = $sql->query('SELECT * FROM bookmarks where tags LIKE \'%'.$multiViews->args[2].'%\' ORDER BY `dt` DESC');
 				if( !is_bool($links ) ) {
 					while ($row = mysql_fetch_assoc( $links )) {
 						//echo '<li title="'.$row['hash'].'">';

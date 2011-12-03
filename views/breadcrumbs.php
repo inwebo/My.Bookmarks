@@ -52,10 +52,8 @@ class BreadCrumbs {
 		$list = '';
 		if( is_array( $multiViews->listArgs() ) ) {
                     foreach( $multiViews->listArgs() as $value ) {
-                            if( $compteur == 0 ) {
-                                    NULL;
-                            }
-                            elseif( $compteur !== $multiViews->total - 1 ) {
+
+                            if( $compteur !== $multiViews->total - 1 ) {
                                     $list .= $value . '/';
                                     $return .= '<li>'.urldecode($value).'&nbsp;' . $conf['separator'].'&nbsp;</li>';
                             }

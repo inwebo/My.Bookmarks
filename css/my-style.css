@@ -31,12 +31,17 @@ hr{
 	line-height: 0;
 	overflow: visible;
 }
-.container_12 .grid_4 , .container_12 .grid_12, .container_12 .grid_8{
+.container_12 .grid_4 , .container_12 .grid_12, .container_12 .grid_8, .container_12 .grid_6{
     border: 1px solid #E6E6E6;
     padding: 10px;
     width: 278px;
 	background-color:#ffffff;
 	margin-bottom:20px;
+}
+
+.container_12 .grid_6 {
+
+width: 438px;
 }
 
 .container_12 .grid_12 {
@@ -47,11 +52,11 @@ hr{
 	width:598px;
 }
 
-.grid_4 h2 , .grid_12 h2, .grid_8 h2 {
+.grid_4 h2 , .grid_12 h2, .grid_8 h2, .grid_6 h2 {
     border-bottom: thin groove #35383D
 }
 
-.grid_4 h2 .totalLinks , .grid_12 h2 .totalLinks, .grid_8 h2 .totalLinks  {
+.grid_4 h2 .totalLinks , .grid_12 h2 .totalLinks, .grid_8 h2 .totalLinks, .grid_6 h2 .totalLinks  {
     border-bottom: 1px solid #E6E6E6;
     border-left: 1px solid #E6E6E6;
     border-right: 1px solid #E6E6E6;
@@ -362,9 +367,20 @@ header {
     background-color: #35383D;
     margin-bottom: 20px;
     min-height: 45px;
+
+background: #5a5e63; /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover,  #5a5e63 0%, #35383d 100%); /* FF3.6+ */
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#5a5e63), color-stop(100%,#35383d)); /* Chrome,Safari4+ */
+background: -webkit-radial-gradient(center, ellipse cover,  #5a5e63 0%,#35383d 100%); /* Chrome10+,Safari5.1+ */
+background: -o-radial-gradient(center, ellipse cover,  #5a5e63 0%,#35383d 100%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover,  #5a5e63 0%,#35383d 100%); /* IE10+ */
+background: radial-gradient(center, ellipse cover,  #5a5e63 0%,#35383d 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5a5e63', endColorstr='#35383d',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
 }
 
 #headerGrid_12 {
+    position: relative;
     background-color: transparent;
     border: medium none transparent;
     margin-bottom: 10px;
@@ -411,6 +427,14 @@ nav {
 	   margin-bottom: -10px;
 }
 
+#displayHelp{
+     background-color: red;
+    padding: 5px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
 nav li {
     display: inline-block;
     margin-bottom: -20px;
@@ -420,16 +444,8 @@ nav li {
 }
 
 nav li:hover {
-background: #3f4c6b; /* Old browsers */
-/* IE9 SVG, needs conditional override of 'filter' to 'none' */
-background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPHJhZGlhbEdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iNzUlIj4KICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMzZjRjNmIiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI4MCUiIHN0b3AtY29sb3I9IiMzNTM4M2QiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvcmFkaWFsR3JhZGllbnQ+CiAgPHJlY3QgeD0iLTUwIiB5PSItNTAiIHdpZHRoPSIxMDEiIGhlaWdodD0iMTAxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
-background: -moz-radial-gradient(center, ellipse cover,  #3f4c6b 0%, #35383d 80%); /* FF3.6+ */
-background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#3f4c6b), color-stop(80%,#35383d)); /* Chrome,Safari4+ */
-background: -webkit-radial-gradient(center, ellipse cover,  #3f4c6b 0%,#35383d 80%); /* Chrome10+,Safari5.1+ */
-background: -o-radial-gradient(center, ellipse cover,  #3f4c6b 0%,#35383d 80%); /* Opera 12+ */
-background: -ms-radial-gradient(center, ellipse cover,  #3f4c6b 0%,#35383d 80%); /* IE10+ */
-background: radial-gradient(center, ellipse cover,  #3f4c6b 0%,#35383d 80%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f4c6b', endColorstr='#35383d',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
+    background: rgba(255,255,255,0.05);
+
 }
 
 nav li:hover a:hover {
@@ -456,6 +472,18 @@ nav li:hover a:hover {
     padding: 5px;
     text-decoration: none;
 //white-space: nowrap;
+}
+
+#tagsFilterContainer {
+        float: right;
+            font-size: medium;
+}
+
+#tagsFilter {
+
+    height: 0.8em;
+    padding: 1px;
+    width: 150px;
 }
 
 .tags span{

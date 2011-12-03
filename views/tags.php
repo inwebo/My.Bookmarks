@@ -40,12 +40,35 @@
 ?>
 <!-- categorie.php -->
 <div class="grid_12">
-<h2>Tags<span class="totalLinks">125</span></h2>
-<pre>
+
 <?php
+
+	function setTagsCloud( $dataString )
+	{
+		global $getTags ;
+		global $nbrTags;
+		global $total ;
+
+		$dataString = ltrim($dataString);
+		$dataString = rtrim($dataString);
+		$temp       = explode(' ', $dataString);
+		$nbr        = substr_count($dataString, $temp[0]);
+		$getTags[]  = $temp[0];
+		$nbrTags[]  = $nbr;
+		$total     += $nbr;
+		$dataString = str_replace($temp[0], '', $dataString);
+
+		if(eregi("[[:alpha:]]+|[[:digit:]]+", $dataString) != false) {
+			setTagsCloud($dataString);
+		}
+		$answers = array($getTags, $nbrTags, $total);
+		return $answers;
+	}
+
+
 $array_tags=array();
 $filter = array(0=>'');
-$tags = $sql->query('SELECT tags FROM bookmarks');
+$tags = $sql->query('SELECT `tags` FROM `bookmarks`');
 					$buffer =array();
 					while ($row = mysql_fetch_assoc( $tags )) {
 						//echo '<p id="idCategorie'.$row['tags'].'" data-id="'.$row['id'].'">'.$row['name'].'<span data-id="'.$row['id'].'" class="delCat">del</span></p>'."\n";
@@ -69,16 +92,24 @@ $tags = $sql->query('SELECT tags FROM bookmarks');
 						}
 
 					}
+
+                                        $_datastring = implode(' ',$array_tags);
+                                        $tagsCloud = setTagsCloud( $_datastring );
+                                        
 					$display_tags = array_unique($array_tags);
 					$array_tags = array_filter($array_tags);
 
-?></pre>
+?>
+    <h2>Tags<span class="totalLinks"><?php echo $tagsCloud[2]; ?></span><label id="tagsFilterContainer">Tags filter : <input id="tagsFilter" value=""></label></h2>
+
 <p>
-	<?php
-		foreach( $display_tags as $key => $value ) {
-			echo '<a href="#" class="tags">'. str_replace(' ', '&nbsp;', $value) .'<span>(x)</span></a> ';
-		}
-	?>
+<?php
+$i = 0;
+foreach( $tagsCloud[0] as $key => $value ) {
+    echo '<a href="'. ROOT_MAIN . 'tags/' . $value . '" class="tags" data-tags="'.$value.'">'. str_replace(' ', '&nbsp;', $value) .'<span>('. $tagsCloud[1][$i] .')</span></a> ';
+    $i++;
+}
+?>
 	
 </p>
 </div>
