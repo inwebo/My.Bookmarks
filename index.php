@@ -349,6 +349,7 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 <script type="text/javascript" src="<?php echo ROOT_JS; ?>handler-gui-message.js"></script>
 
 <script type="text/javascript" src="<?php echo ROOT_JS; ?>gestion-categorie.js"></script>
+<script type="text/javascript" src="<?php echo ROOT_JS; ?>check-version.js"></script>
 <!--<script type="text/javascript" src="<?php //echo ROOT_JS; ?>cat-del.js"></script>-->
 <script type="text/javascript" src="<?php echo ROOT_JS; ?>administration.js"></script>
 <?php } ?>
