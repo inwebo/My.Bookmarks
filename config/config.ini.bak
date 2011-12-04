@@ -20,7 +20,7 @@ cache           = cache/
 scandir         = index.php
 fileInfos       = detail.php
 bookmarks       = bookmark.php
-googleAnalytics = google-analytics.js
+googleAnalytics = google-analytics.php
 
 [Cache]
 lifetime = 0

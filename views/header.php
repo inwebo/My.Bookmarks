@@ -40,46 +40,15 @@
 ?>
 <!-- header -->
 <header>
-		<div class="container_12">
-			<div id="headerGrid_12" class="grid_12">
-			<h1><?php echo $conf ['name']; ?><!--<img src="img/logo.png"><span id="headerTotalLinks">125</span>--></h1>
+    <div class="container_12">
+        <div id="headerGrid_12" class="grid_12">
+	<h1><?php echo $conf ['name']; ?><!--<img src="img/logo.png"><span id="headerTotalLinks">125</span>--></h1>
                             	<!-- Bouton -->
         <?php if ( $_SESSION['type'] == 'admin' ) { ?>
 
-					<?php if ( $_SESSION['type'] == 'admin' ) { ?>
-					<span id="displayHelp">
-                                            <a href="">Help</a>
-					</span>
-                                        <?php } ?>
-            <p>
-	<?php
-            include(ROOT_HELPERS.'bouton.php');
-	?>
-        </p>
-        <?php } ?>
-	<!-- /bouton -->
-				<nav>
-					<li
-                                            <?php
-                                                if( isset( $multiViews->total ) && $multiViews->total === 0 ) {
-                                                    echo ' class="heaederListActif" ';
-                                                }
-                                            ?>
-                                        >
-						<?php echo '<a href="'.$conf['root'].'index.php">Home</a>'; ?>
-					</li>
-					<li
-                                            <?php
-                                                if( isset($multiViews->args[1]) && $multiViews->args[1] == 'tags' ) {
-                                                    echo ' class="heaederListActif" ';
-                                                }
-                                            ?>
-                                        >
-						<a href="<?php echo ROOT_MAIN . 'tags/'; ?>">Tags</a>
-					</li>
-
-					<li >
-						<a href="#" id="loginClick">Login</a>
+            <?php if ( $_SESSION['type'] == 'admin' ) { ?>
+            <span id="displayHelp">
+            <a href="#" id="#loginClick">Login</a>
 						<div id="loginContainer">
 							<form name="item-1" method="post" enctype="application/x-www-form-urlencoded" action="<?php echo $conf['root']; ?>" id="loginFieldset">
 								<label>Login <br>
@@ -93,6 +62,33 @@
 									<a class="myButton logmeout" href="?q">Exit</a>-->
 							</form>
 						</div>
+            </span>
+            <?php } ?>
+            <p>
+            <?php
+                include(ROOT_HELPERS.'bouton.php');
+            ?>
+            </p>
+        <?php } ?>
+	<!-- /bouton -->
+            <nav>
+		<li
+                <?php
+                    if( isset( $multiViews->total ) && $multiViews->total === 0 ) {
+                        echo ' class="heaederListActif" ';
+                    }
+                ?>
+                >
+		<?php echo '<a href="'.$conf['root'].'index.php">Home</a>'; ?>
+		</li>
+					<li
+                                            <?php
+                                                if( isset($multiViews->args[1]) && $multiViews->args[1] == 'tags' ) {
+                                                    echo ' class="heaederListActif" ';
+                                                }
+                                            ?>
+                                        >
+						<a href="<?php echo ROOT_MAIN . 'tags/'; ?>">Tags</a>
 					</li>
 				</nav>
 			</div>

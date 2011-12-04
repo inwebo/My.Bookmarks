@@ -94,15 +94,15 @@ while( isset( $grid[++$iterator] ) ) {
     // Un container
 
         if( $totalCategorie == 1 ) {
-            $output .= '<div class="grid_12">';
+            $output .= '<div class="grid_12 gridHome">';
             $modulo += 3;
         }
         elseif( $totalCategorie == 2 ) {
-            $output .= '<div class="grid_6">';
+            $output .= '<div class="grid_6 gridHome">';
             $modulo += 2;
         }
         else {
-            $output .= '<div class="grid_4">';
+            $output .= '<div class="grid_4 gridHome">';
         }
 
         $output .='<h2>

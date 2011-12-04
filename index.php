@@ -106,7 +106,7 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 
                 <!-- Include -->
 		<div class="clear"></div>
-                <div class="gridHome">
+                <div class="">
 		<?php
 			if( !is_file('config/config.ini') ) {
 				include('views/setup.php');
