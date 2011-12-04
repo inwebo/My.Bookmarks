@@ -75,6 +75,14 @@
         <div class="container_12">
             <div class="grid_12">
                 <!-- New -->
+                <?php
+                /* @todo : Check version
+                    if ( version_compare( PHP_VERSION, '5.3.0' ) >= 0 ) {
+                        echo 'il faut au moins php 5.3.0!';
+                        }
+                 
+                 */
+                ?>
                     <h2>Installation</h2>
 			<div class="debugOkay" id="continue">
 			<h3>Félicitation</h3>

@@ -39,7 +39,7 @@ Pour ma part ce n'est tout bonnement pas possible :
        
 Démonstration
 
-    - http://my.bookmarks.free.fr/
+    - http://bookmarks.inwebo.net/
 
 Download
 
@@ -48,14 +48,14 @@ Download
 
 Environnement développement
 
-    - PHP 5.1 +
+    - PHP 5.2
     - jQuery 1.6.4
     - jQuery-ui 1.8.16
     - MySQL
     - HTML5 / CSS3
     - Boilerplate
     - 960 grid system
-    - Hébergement free.fr / localhost
+    - Hébergement free.fr / OVH / Localhost
     - GitHub
     - Approche MVC
     - Url rewriting même chez free.fr
@@ -71,7 +71,7 @@ Installation
     III - Décompression de l'archive dans sur votre serveur
      IV - Lancement de l'application, configuration
       V - Déposer le widget dans votre barre personnelle
-     VI - Enjoy \o/
+     VI - Enjoy
 
 Webographie
 
@@ -88,6 +88,13 @@ _______________________________________________________________________________
   R : Il faut vous rendre dans Php my admin dans la table users, éditer le
       champs `password` avec le md5 de votre nouveau mot de passe.
 
+- Q : J'ai une page blanche ou une erreur 503 ?
+      N'oubliez pas d'activer PHP 5.3 sur ovh mettez dans le .htaccess
+
+                     SetEnv PHP_VER 5_3
+
+      Pour free.fr
+                     php 5
 
 TODO
 _______________________________________________________________________________

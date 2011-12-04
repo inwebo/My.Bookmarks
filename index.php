@@ -1,3 +1,10 @@
+<?php
+			if( !is_file('config/config.ini') ) {
+				include('views/setup.php');
+                                exit();
+			}
+                        ini_set('display_errors', 0);
+?>
 <?php include('autoload.php'); ?>
 <?php include( dirname( __FILE__ ) . DIRECTORY_SEPARATOR .'helpers/const.define.php'); ?>
 <?php
@@ -108,9 +115,7 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 		<div class="clear"></div>
                 <div class="">
 		<?php
-			if( !is_file('config/config.ini') ) {
-				include('views/setup.php');
-			}
+
                         
 			if( $multiViews->args == NULL ) {
 				include('views/home.php');

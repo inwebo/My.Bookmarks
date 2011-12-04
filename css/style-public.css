@@ -33,7 +33,7 @@
 	}
 
 /* Whole container */
-#bookmarkContainer {
+#bookmarkContainer, #bookmarkContainerReponse {
 	font-family: sans-serif Verdana;
 	color:black;
 	size:1em;
@@ -50,10 +50,16 @@
     position: fixed;
     top: 50%;
     width: 350px;
-	height: 518px;
+	
 	margin-top:-259px;
     z-index: 999999;
     vertical-align:top;
+}
+
+#bookmarkContainerReponse {
+margin: 0;
+margin-left: -175px;
+text-align: center;
 }
 
 /* Form */

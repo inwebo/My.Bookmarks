@@ -429,7 +429,7 @@ header h1{
     display: block;
     font-family: 'Lobster',cursive;
     font-size: 5em;
-    margin-top: 0;
+   margin-top: -10px;
     text-align: center;
 
 	text-shadow: 2px 2px 0 #9E9E9E;
@@ -444,6 +444,9 @@ header #headerTotalLinks {
 
 .noticeBouton{
   color: white;
+  margin-bottom: 0;
+   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+	filter: dropshadow(color=#9E9E9E, offx=1, offy=1);
 }
 
 header h1 img {
