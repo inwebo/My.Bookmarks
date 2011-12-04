@@ -42,56 +42,82 @@
 <header>
     <div class="container_12">
         <div id="headerGrid_12" class="grid_12">
-	<h1><?php echo $conf ['name']; ?><!--<img src="img/logo.png"><span id="headerTotalLinks">125</span>--></h1>
-                            	<!-- Bouton -->
-        <?php if ( $_SESSION['type'] == 'admin' ) { ?>
-
-            <?php if ( $_SESSION['type'] == 'admin' ) { ?>
-            <span id="displayHelp">
-            <a href="#" id="#loginClick">Login</a>
-						<div id="loginContainer">
-							<form name="item-1" method="post" enctype="application/x-www-form-urlencoded" action="<?php echo $conf['root']; ?>" id="loginFieldset">
-								<label>Login <br>
-									<input type="text" id="item-4" name="login">
-								</label>
-									<br><label>Password <br><input type="password" id="item-5" name="password"><br></label>
-									<br>
-									<input type="submit" id="item-7">
-									<?php	if( $_SESSION['type'] == "admin" ) { echo '<a href="?q"  class="myButton logmeout" id="unLog">Exit</a>'; } ?>
-									<!--<a class="myButton logme" href="?q">Logme</a>
-									<a class="myButton logmeout" href="?q">Exit</a>-->
-							</form>
-						</div>
+        <h1><?php echo $conf ['name']; ?><!--<img src="img/logo.png"><span id="headerTotalLinks">125</span>--></h1>
+            <!--<p id="totalLinksHeader">
+                1000 bookmarks
+            </p>-->
+            <?php if ($_SESSION['type'] != 'admin') { ?>
+                <span id="boutonTop">
+                    <a href="#" id="loginClick">Login</a>
+                    <div id="loginContainer">
+                        <form name="item-1" method="post" enctype="application/x-www-form-urlencoded" action="<?php echo $conf['root']; ?>" id="loginFieldset">
+                            <label>Login <br>
+                                <input type="text" id="item-4" name="login">
+                            </label>
+                            <br><label>Password <br><input type="password" id="item-5" name="password"><br></label>
+                            <br>
+                            <input type="submit" id="item-7">
+                    </form>
+                </div>
             </span>
+            <?php } else { ?>
+                <span id="boutonTop">
+                    <a href="?q" id="loginClick">Exit</a>
+                </span>
             <?php } ?>
-            <p>
-            <?php
-                include(ROOT_HELPERS.'bouton.php');
-            ?>
-            </p>
-        <?php } ?>
-	<!-- /bouton -->
-            <nav>
-		<li
+
+
+            <?php if ($_SESSION['type'] == 'admin') { ?>
+                <p class="noticeBouton">
+                    Déposez le bouton dans votre barre de favoris.<br>&darr;
+                </p>
+
+                <p>
                 <?php
-                    if( isset( $multiViews->total ) && $multiViews->total === 0 ) {
-                        echo ' class="heaederListActif" ';
-                    }
+                    include(ROOT_HELPERS . 'bouton.php');
                 ?>
-                >
-		<?php echo '<a href="'.$conf['root'].'index.php">Home</a>'; ?>
-		</li>
-					<li
-                                            <?php
-                                                if( isset($multiViews->args[1]) && $multiViews->args[1] == 'tags' ) {
-                                                    echo ' class="heaederListActif" ';
-                                                }
-                                            ?>
-                                        >
-						<a href="<?php echo ROOT_MAIN . 'tags/'; ?>">Tags</a>
-					</li>
-				</nav>
-			</div>
-		</div>
-    </header>
+                </p>
+            <?php } ?>
+            <!-- /bouton -->
+            <nav>
+                <li
+                <?php
+                if ( (isset( $multiViews->total) && $multiViews->total === 0) || $multiViews->args[1] == 'categorie' ) {
+                    echo ' class="heaederListActif" ';
+                }
+                ?>
+                    >
+                <?php echo '<a href="' . $conf['root'] . 'index.php">Categories</a>'; ?>
+                </li>
+                <li
+                <?php
+                if (isset($multiViews->args[1]) && $multiViews->args[1] == 'tags') {
+                    echo ' class="heaederListActif" ';
+                }
+                ?>
+                    >
+                    <a href="<?php echo ROOT_MAIN . 'tags/'; ?>">Tags</a>
+                </li>
+                <li
+                <?php
+                if ((isset($multiViews->args[1]) && $multiViews->args[1] == 'help') ) {
+                    echo ' class="heaederListActif" ';
+                }
+                ?>
+                    >
+                    <a href="<?php echo ROOT_MAIN . 'help/'; ?>">Help</a>
+                </li>
+                <li
+                <?php
+                if ($multiViews->args[1] == 'about' ) {
+                    echo ' class="heaederListActif" ';
+                }
+                ?>
+                    >
+                    <a href="<?php echo ROOT_MAIN . 'about/'; ?>">About</a>
+                </li>
+            </nav>
+        </div>
+    </div>
+</header>
 <!-- /header -->

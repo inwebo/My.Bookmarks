@@ -47,7 +47,7 @@
 					$i=0;
 					$links = $sql->query('SELECT * FROM categories ORDER BY `name` ASC ');
 					while ($row = mysql_fetch_assoc( $links )) {
-						echo '<p id="idCategorie'.$row['id'].'" data-id="'.$row['id'].'"><a href="' . ROOT_MAIN . $row['id'] . '/' . $row['name'] . '">'.$row['name'].'</a><span class="delete" data-id="'.$row['id'].'" data-category="'.$row['name'].'" ><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></p>'."\n";
+						echo '<p id="idCategorie'.$row['id'].'" data-id="'.$row['id'].'"><a href="' . ROOT_MAIN .'categorie/'. $row['name'] . '/' . $row['id'] . '">'.$row['name'].'</a><span class="delete" data-id="'.$row['id'].'" data-category="'.$row['name'].'" ><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></p>'."\n";
 						$i++;
 					}
 				?>
@@ -76,22 +76,16 @@
 
 			<?php } ?>
                         <?php
-                            $links = $sql->query('SELECT * FROM bookmarks where category=":?" ORDER BY `dt` DESC', array($multiViews->args[1]));
+                            $links = $sql->query('SELECT * FROM bookmarks where category=":?" ORDER BY `dt` DESC', array($multiViews->args[3]));
                             $totalLinks = mysql_num_rows( $links ) ;
                         ?>
-			<h2><?php echo $multiViews->args[2]; ?><span class="totalLinks"><?php echo $totalLinks; ?></span></h2>
+			<h2><?php echo urldecode($multiViews->args[2]); ?><span class="totalLinks"><?php echo $totalLinks; ?></span></h2>
 			<ul class="listUrl">
 			<?php
-				$links = $sql->query('SELECT * FROM bookmarks where category=":?" ORDER BY `dt` DESC', array($multiViews->args[1]));
+				$links = $sql->query('SELECT * FROM bookmarks where category=":?" ORDER BY `dt` DESC', array($multiViews->args[3]));
 				if( !is_bool($links ) ) {
 					while ($row = mysql_fetch_assoc( $links )) {
-						//echo '<li title="'.$row['hash'].'">';
-						/*if( $_SESSION['type'] == 'admin' ) {
-							echo '<span class="dragMeToCat" title="'.$row['hash'].'">Drag me</span>';
-							echo '<span class="close"><a href="#" title="DELETE" data-id="'. $row['id'] .'" data-title="'. $row['title'] .'">x</a></span>';
-						}*
-						echo'<a href="' . $row['url'] . '" title="'.$row['description'].'">'. stripslashes($row['title']) . '</a><span class="clear"></span></li>'."\n";*/
-                                                
+
                                                 echo '<li>';
                                                 
                                                 if( $_SESSION['type'] == 'admin' ) {

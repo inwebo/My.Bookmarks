@@ -4,28 +4,28 @@
  *
  * LICENCE
  *
- * Vous êtes libre de :
+ * Vous ï¿½tes libre de :
  *
  * Partager : reproduire, distribuer et communiquer l'oeuvre
  * Remixer  : adapter l'oeuvre 
  *
  * Selon les conditions suivantes :
  *
- * Attribution : Vous devez attribuer l'oeuvre de la manière indiquée par 
- * l'auteur de l'oeuvre ou le titulaire des droits (mais pas d'une manière
- * qui suggérerait qu'ils vous soutiennent ou approuvent votre utilisation 
+ * Attribution : Vous devez attribuer l'oeuvre de la maniï¿½re indiquï¿½e par 
+ * l'auteur de l'oeuvre ou le titulaire des droits (mais pas d'une maniï¿½re
+ * qui suggï¿½rerait qu'ils vous soutiennent ou approuvent votre utilisation 
  * de l'oeuvre). 
  *
- * Pas d’Utilisation Commerciale : Vous n'avez pas le droit d'utiliser cette
- * oeuvre à des fins commerciales. 
+ * Pas dï¿½Utilisation Commerciale : Vous n'avez pas le droit d'utiliser cette
+ * oeuvre ï¿½ des fins commerciales. 
  *
- * Partage à l'Identique : Si vous modifiez, transformez ou adaptez cette
- * oeuvre, vous n'avez le droit de distribuer votre création que sous une
- * licence identique ou similaire à celle-ci.
+ * Partage ï¿½ l'Identique : Si vous modifiez, transformez ou adaptez cette
+ * oeuvre, vous n'avez le droit de distribuer votre crï¿½ation que sous une
+ * licence identique ou similaire ï¿½ celle-ci.
  *
- * Remarque : A chaque réutilisation ou distribution de cette oeuvre, vous 
- * devez faire apparaître clairement au public la licence selon laquelle elle
- * est mise à disposition. La meilleure manière de l'indiquer est un lien vers
+ * Remarque : A chaque rï¿½utilisation ou distribution de cette oeuvre, vous 
+ * devez faire apparaï¿½tre clairement au public la licence selon laquelle elle
+ * est mise ï¿½ disposition. La meilleure maniï¿½re de l'indiquer est un lien vers
  * cette page web. 
  *
  * @category  My.Framworks
@@ -40,8 +40,8 @@
 ?>
 <?php
 /**
- * Connection à la base de donnée, envoie une requête, et peut récupere
- * le résultat dans un tableau associatif
+ * Connection ï¿½ la base de donnï¿½e, envoie une requï¿½te, et peut rï¿½cupere
+ * le rï¿½sultat dans un tableau associatif
  *
  * @copyright  Inwebo
  * @license    http://creativecommons.org/licenses/by-nc-sa/2.0/fr/
@@ -53,11 +53,11 @@
 class MySql {
 
 	/**
-	 * Prends en paramètre un fichier ini à parser
+	 * Prends en paramï¿½tre un fichier ini ï¿½ parser
 	 *
-	 * @arguments 	: STRING 	$iniFile : fichier à parser
+	 * @arguments 	: STRING 	$iniFile : fichier ï¿½ parser
 	 *
-	 * @return 		: STRING 	Message erreur si le fichier n'est pas trouvé
+	 * @return 		: STRING 	Message erreur si le fichier n'est pas trouvï¿½
 	 *				  BOOL		Sinon retourne 1
 	 */
 
@@ -72,7 +72,7 @@ class MySql {
 		$this->error    = NULL;
 		$this->query    = NULL;
 
-		if((@$this->dbLink = mysql_connect($this->server, $this->user, $this->password)) == FALSE) {
+		if((@$this->dbLink = mysql_connect($this->host, $this->user, $this->password)) == FALSE) {
 			throw new Exception('Failed to connect host');
 		}
 		else {
@@ -88,7 +88,7 @@ class MySql {
 	 *
 	 * @arguments 	: STRING 	$query : Requete SQL
 	 *
-	 * @return 		: STRING	Message erreur si le fichier n'est pas trouvé
+	 * @return 		: STRING	Message erreur si le fichier n'est pas trouvï¿½
 	 *				  BOOL		Sinon retourne 1
 	 */
 	function query( $_query, $_arrayArgs = NULL ) {
@@ -111,12 +111,12 @@ class MySql {
 	}
 
 	/**
-	 * Remplace tous les tokens $this->token présents dans la requêtes
+	 * Remplace tous les tokens $this->token prï¿½sents dans la requï¿½tes
 	 * $query.
 	 *
 	 * @arguments   : STRING 	$query : Requete SQL
 	 *
-	 * @return      : STRING	Message erreur si le fichier n'est pas trouvé
+	 * @return      : STRING	Message erreur si le fichier n'est pas trouvï¿½
 	 *                BOOL		Sinon retourne 1
 	 */
 	protected function prepare( $query, $replace ) {

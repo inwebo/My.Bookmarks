@@ -86,7 +86,7 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 </head>
 
 <body>
-
+    <a name="top"></a>
   <div id="container" >
     <?php include('views/header.php'); ?>
     <div id="main" role="main">
@@ -111,19 +111,23 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 			if( !is_file('config/config.ini') ) {
 				include('views/setup.php');
 			}
+                        
 			if( $multiViews->args == NULL ) {
 				include('views/home.php');
 			}
+			elseif( $multiViews->args[1] == "categorie" ) {
+                               include('views/categorie.php');
+                        }
 			elseif( $multiViews->args[1] == "tags" ) {
-                                if( isset($multiViews->args[2]) ) {
+                                if( isset( $multiViews->args[2] ) ) {
                                     include('views/list-tags.php');
                                 }
                                 else {
                                     include('views/tags.php');
                                 }
 			}
-			else {
-				include('views/categorie.php');
+			elseif( $multiViews->args[1] == "about" ) {
+                                    include( 'views/about.php' );
 			}
 		?>
                 </div>

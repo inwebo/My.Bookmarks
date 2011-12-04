@@ -59,7 +59,7 @@
                                         <?php // if( $update ) { ?>
                                         <!--<a href="https://github.com/inwebo/My.Bookmarks/zipball/master" target="_blank"  class="myButton">v <?php echo $a; ?> available!</a>-->
                                         <?php //} ?>
-                                        - par <a href="http://hannotin.julien.is.free.fr" title="Julien Hannotin portfolio">Julien 'Jool' Hannotin</a> - <a title="Creative Commons 2" href="http://creativecommons.org/licenses/by-nc-sa/2.0/fr/">cc2</a> - <a href="https://github.com/inwebo/My.Bookmarks" target="_blank" title="Latsest release repository">Github Repository</a>
+                                        - par <a href="http://hannotin.julien.is.free.fr" title="Julien Hannotin portfolio">Julien 'Jool' Hannotin</a> - <a title="Creative Commons 2" href="http://creativecommons.org/licenses/by-nc-sa/2.0/fr/">cc2</a> - <a href="https://github.com/inwebo/My.Bookmarks" target="_blank" title="Latsest release repository">Github Repository</a> - <a href="#top">top</a>
 				</p>
 			</div>
 		</div>
