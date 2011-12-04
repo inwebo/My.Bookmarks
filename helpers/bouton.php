@@ -74,4 +74,4 @@ javascript:(function(){
 })();
 
 
-" class="myButton myButtonHeadline">&hearts; this !<link rel="shortcut icon" href="<?php echo ROOT_IMG; ?>favicon.png"></a>
+" class="myButton myButtonHeadline">this ! <link rel="shortcut icon" href="favicon.png"></a>

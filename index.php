@@ -89,7 +89,7 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
     <script type="text/javascript" src="<?php echo ROOT_JS; ?>libs/modernizr-2.0.6.min.js"></script>
 
-    <link rel="shortcut icon" href="images/favicon.png">
+   
 </head>
 
 <body>
