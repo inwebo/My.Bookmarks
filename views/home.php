@@ -98,7 +98,7 @@ while( isset( $grid[++$iterator] ) ) {
         }
         elseif( $totalCategorie == 2 ) {
             $output .= '<div class="grid_6 gridHome">';
-            $modulo += 2;
+            $modulo += 3;
         }
         else {
             $output .= '<div class="grid_4 gridHome">';
