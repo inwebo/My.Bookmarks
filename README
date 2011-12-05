@@ -1,10 +1,7 @@
-HOME
-_______________________________________________________________________________
-   
-Présentation
+My.Boomarks
 
 My.Bookmarks est une application PHP5 permettant la sauvegarde de vos sites
-favoris en ligne.
+favoris sur internet.
 
 Si comme moi vous :
 
@@ -12,30 +9,27 @@ Si comme moi vous :
             - Jonglez avec plusieurs navigateurs.
             - Perdez vos favoris suite à un formatage de DD.
             - Souhaitez partager vos dernières découvertes avec vos amis.
-            - Voulez garder vos données en VOTRE possession.
+            - Voulez rester maitre de vos données.
            
 My.Bookmarks est fait pour vous. Grâce à un simple widget ( un composant d'in-
--terface graphique, un élément visuel d'une interface graphique (bouton, ascens
--eur, liste déroulante, etc.)), déposé dans votre barre de favoris (CTRL+B dans
+-terface graphique), déposé dans votre barre de favoris (CTRL+B dans
 firefox pour l'afficher), vous pouvez enregistrer la page que vous êtes en train
-de visualiser directement sur votre espace web.
+de visualiser directement sur <u>votre</u> espace web.
 
 Le logiciel va extraire :
 
     - L'url courant
     - Le titre de la page en cours
-    - Les mots clefs associés
-    - La description associée
+    - Les mots clefs associés (balise meta)
+    - La description associée (balise meta)
 
 Libre à vous bien sûr d'éditer toutes ces informations si elles ne vous sembles
 pas pertinentes.
 
 Il est vrai qu'il existe déjà des services comparables : xmark, firefox sync...
-Voulez vous vraiment donner accès à toutes vos données à une société tierce ?
-Pour ma part ce n'est tout bonnement pas possible :
-
-    - Je livre MA vie à une société qui fais du business avec
-    - Et je ne touche rien dessus, mouais ...
+Services gratuits le plus souvent, mais si une de ces sociétés ou association
+ferme, que vont devenir vos données ?
+Le plus sage serait l'autonomie !
        
 Démonstration
 
@@ -67,8 +61,8 @@ Compatibilité
 Installation
 
       I - Création de votre base de données
-     II - Import du fichier SQL disponible dans config/structure.sql
-    III - Décompression de l'archive dans sur votre serveur
+     II - Décompression de l'archive dans sur votre serveur
+    III - Import du fichier SQL disponible dans config/sql
      IV - Lancement de l'application, configuration
       V - Déposer le widget dans votre barre personnelle
      VI - Enjoy
@@ -89,11 +83,12 @@ _______________________________________________________________________________
       champs `password` avec le md5 de votre nouveau mot de passe.
 
 - Q : J'ai une page blanche ou une erreur 503 ?
-      N'oubliez pas d'activer PHP 5.3 sur ovh mettez dans le .htaccess
+      N'oubliez pas d'activer PHP 5.X dans le .htaccess à la racine de votre site
 
+      Pour ovh :
                      SetEnv PHP_VER 5_3
 
-      Pour free.fr
+      Pour free.fr :
                      php 5
 
 TODO
