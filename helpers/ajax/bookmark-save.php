@@ -68,19 +68,20 @@ $_GET['title'] = sanitize( $_GET['title'] );
 $_GET['tags'] = sanitize( $_GET['tags'] );
 $_GET['desc'] = sanitize( $_GET['desc'] );
 
-$new =$sql->query("	INSERT INTO `bookmarks` (hash,url,title,tags,description, category)
+$new =$sql->query("	INSERT INTO `bookmarks` (hash,url,title,tags,description, category, public)
 				VALUES (
 					\":?\",
 					\":?\",
 					\":?\",
 					\":?\",
 					\":?\",
+					\":?\",
 					\":?\"
-				)", array( md5($_GET['url']), $_GET['url'], $_GET['title'], $_GET['tags'], $_GET['desc'], $_GET['id'] ) );
+				)", array( md5($_GET['url']), $_GET['url'], $_GET['title'], $_GET['tags'], $_GET['desc'], $_GET['id'], $_GET['public'] ) );
 
 if( $new ) {
         $totalLinks = $sql->query('SELECT COUNT(*) FROM `bookmarks`');
-         $totalLinks = mysql_result($totalLinks, 0);
+        $totalLinks = mysql_result($totalLinks, 0);
         
         
 	$message = 'You\'ve got ' . $totalLinks . ' bookmarks in database';

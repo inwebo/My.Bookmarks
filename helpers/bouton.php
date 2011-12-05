@@ -74,4 +74,4 @@ javascript:(function(){
 })();
 
 
-" class="myButton myButtonHeadline">this ! <link rel="shortcut icon" href="favicon.png"></a>
+" class="myButton myButtonHeadline">&hearts; this !</a>

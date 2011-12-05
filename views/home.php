@@ -51,7 +51,14 @@ $output = '';
 while ( $oneCategorie = mysql_fetch_assoc( $allCategories ) ) {
 
     // All categories
-    $listItemOneCategory = $sql->query('SELECT * FROM `bookmarks` WHERE `category`=' . $oneCategorie['id'] . ' ORDER BY `dt` DESC LIMIT 0,' . $conf['homeNomberOfUrls']);
+    if($_SESSION['type'] == 'admin') {
+        $listItemOneCategory = $sql->query('SELECT * FROM `bookmarks` WHERE `category`=' . $oneCategorie['id'] . ' ORDER BY `dt` DESC LIMIT 0,' . $conf['homeNomberOfUrls']);
+    }
+    else {
+        $listItemOneCategory = $sql->query('SELECT * FROM `bookmarks` WHERE `category`=' . $oneCategorie['id'] . ' AND `public`="1" ORDER BY `dt` DESC LIMIT 0,' . $conf['homeNomberOfUrls']);
+        //echo $sql->query;
+    }
+    
 
     // How many links in categorie
     $totalListItemOneCategory = mysql_num_rows( $listItemOneCategory );
