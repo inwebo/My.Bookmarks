@@ -1,1 +1,4 @@
 Options All -Indexes
+<Files config.ini >
+  Deny from all
+</Files>
