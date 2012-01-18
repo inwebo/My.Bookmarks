@@ -2,7 +2,7 @@
 /**
  * My.Framworks
  *
- * LICENCE
+ * LICENCE 
  *
  * Vous êtes libre de :
  *
