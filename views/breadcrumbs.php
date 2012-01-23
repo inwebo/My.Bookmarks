@@ -46,7 +46,7 @@ class BreadCrumbs {
 		global $conf;
 		global $multiViews;
 		$return = '<ul>';
-		$return .= '<li><a href="'.$conf['root'].'index.php">Home</a>&nbsp;' . $conf['separator'].'&nbsp;</li>';
+		$return .= '<li><a href="'.$conf['root'].'index.php">Home</a>&nbsp;</li>';
 		$count = count( $multiViews->listArgs() );
 		$compteur = 0;
 		$list = '';
@@ -55,11 +55,11 @@ class BreadCrumbs {
 
                             if( $compteur !== $multiViews->total - 1 ) {
                                     $list .= $value . '/';
-                                    $return .= '<li>'.urldecode($value).'&nbsp;' . $conf['separator'].'&nbsp;</li>';
+                                    $return .= '<li>&nbsp;'.urldecode($value).'&nbsp;</li>';
                             }
                             else {
                                     $list .= $value ;
-                                    $return .= '<li>&nbsp;'.urldecode($value).'</li>';
+                                    $return .= '<li class="breadcrumbs-last-item">&nbsp;'.urldecode($value).'</li>';
                             }
                             $compteur++;
                     }

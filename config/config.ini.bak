@@ -34,12 +34,12 @@ publicKey =
 debug = 1
 
 [BreadCrumbs]
-separator = »
+
 
 [GOOGLE ANALYTICS]
 id =
 
 [My.Bookmarks]
 homeNomberOfUrls = 10
-version=03-12-2011
+version=01-01-2012
 serverVersion=http://my.bookmarks.free.fr/helpers/version.php

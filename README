@@ -38,11 +38,11 @@ Démonstration
 Download
 
     - Git Hub : https://github.com/inwebo/My.Bookmarks (uptodate)
-    - PHPcs   : @todo
+    - PHPcs   : http://www.phpcs.com/codes/MY-BOOKMARKS_53833.aspx
 
 Environnement développement
 
-    - PHP 5.2
+    - PHP 5.3
     - jQuery 1.6.4
     - jQuery-ui 1.8.16
     - MySQL
@@ -96,8 +96,8 @@ _______________________________________________________________________________
 
 - Flux RSS / catégories
 - Implémentation thèmes
-- Forker le projet github en deux versions, une pour free.fr l'autre pour le
-  reste
+- <del>Forker le projet github en deux versions, une pour free.fr l'autre pour le
+  reste</del>
 - Passage à PDO
 - Affichage des dates correctes
 - Documentation digne de ce nom
@@ -105,12 +105,13 @@ _______________________________________________________________________________
 - Une page admin
 - Proposer une archive PHAR pour PHP 5.3
 - Test avec IE 6, 7, 8, 9 (pffffff)
-- Gestion public/private des liens
+- <del>Gestion public/private des liens</del>
 - Ajout de permalink
 - Détail des liens
 - Export de la BDD sous forme de SQL, XML, HTML
 - Import de liens provenant de firefox, opera, chromium
 - Support multilingues
+- Meilleur gestion des keywords, remplacer les ',' par un espace
 
 BUGS
 _______________________________________________________________________________

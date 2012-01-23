@@ -381,6 +381,14 @@ nav li a.myButton {
     margin: 0;
 }
 
+#breadCrumbs ul li:after {
+    content: "\00BB";
+}
+
+#breadCrumbs .breadcrumbs-last-item:after {
+    content: "";
+}
+
 /* HEADER */
 /* ---- */
 header {
