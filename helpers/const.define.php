@@ -49,6 +49,8 @@ else {
 	exit();
 }
 
+$enigma = new MyCrypt( md5( $conf['user'] ) );
+
 $mainRoot = $conf['root'] . 'index.php/';
 define('ROOT_MAIN', $mainRoot);
 
@@ -80,7 +82,7 @@ $ajax = $conf['root'] . ROOT_HELPERS . 'ajax/';
 define('ROOT_AJAX', $ajax);
 
 try {
-	$sql = new MySql($conf['server'],$conf['user'], $conf['password'],$conf['database']);
+	$sql = new MySql($conf['server'],$conf['user'], $enigma->decode( $conf['password'] ),$conf['database']);
 }
 catch(Exception $e) {
 	if( $conf['debug'] == 1 ) {
