@@ -96,8 +96,6 @@ _______________________________________________________________________________
 
 - Flux RSS / catégories
 - Implémentation thèmes
-- <del>Forker le projet github en deux versions, une pour free.fr l'autre pour le
-  reste</del>
 - Passage à PDO
 - Affichage des dates correctes
 - Documentation digne de ce nom
@@ -105,7 +103,6 @@ _______________________________________________________________________________
 - Une page admin
 - Proposer une archive PHAR pour PHP 5.3
 - Test avec IE 6, 7, 8, 9 (pffffff)
-- <del>Gestion public/private des liens</del>
 - Ajout de permalink
 - Détail des liens
 - Export de la BDD sous forme de SQL, XML, HTML
