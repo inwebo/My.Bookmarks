@@ -55,18 +55,19 @@ $new = $sql->query("INSERT INTO `bookmarks` (
                                         `public`
                                 )
 				VALUES (
-					'?',
-					'?',
-					'?',
-					'?',
-					'?',
-					'?',
-					'?'
+					?,
+					?,
+					?,
+					?,
+					?,
+					?,
+					?
 				)", array( md5($_GET['url']), $_GET['url'], $_GET['title'], $_GET['tags'], $_GET['desc'], $_GET['id'], $_GET['public'] ) );
 
-if( $sql->countRows == '1' ) {
+if( $sql->countRows === 1 ) {
         $totalLinks = $sql->query('SELECT COUNT(*) FROM `bookmarks`');      
-	$message = 'You\'ve got ' . $totalLinks[0] . ' bookmarks in database';
+	$message = 'Url saved. You\'ve got ' . $totalLinks[0]['COUNT(*)'] . ' bookmarks in database';
+        
 }
 else {
 	$message = 'Already in the database !';
@@ -96,11 +97,11 @@ function displayMessage(str)
 
     // The message will auto-hide in 3 seconds:
 
-	setTimeout(function(){
+	setTimeout( function(){
 		try{
 			document.body.removeChild(d);
 		}	catch(error){}
-	},3000);
+	}, 3000 );
 }
 
 <?php
