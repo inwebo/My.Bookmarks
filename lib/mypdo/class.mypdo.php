@@ -71,7 +71,3 @@ class MyPdo extends PDO {
     }
 
 }
-
-$temp = new MyPdo('localhost', 'inwebourl', 'root', 'root');
-$a = $temp->query( 'INSERT INTO categories (`name`) VALUES (?)', array('prout') );
-echo( $temp->countRows );
