@@ -42,11 +42,10 @@ catch( Exception $e ) {
 
 }
 
-if( isset($_POST['login']) && isset($_POST['password']) ) {
-	$userExists = $sql->query('SELECT *  from `users` WHERE login=":?" AND password=":?"', array( $_POST['login'], md5($_POST['password']) ));
-	if( is_resource( $userExists ) && ( @mysql_result( $userExists, 0 ) ) !== FALSE ) {
+if( isset( $_POST['login'] ) && isset( $_POST['password'] ) ) {
+	$userExists = $sql->query( 'SELECT *  from `users` WHERE login=? AND password=?', array( $_POST['login'], md5( $_POST['password'] ) ) );
+        if( isset ( $userExists[0] ) ) {
 		$sessions->setParams('type','admin');
-		//echo "<meta http-equiv='refresh' content='0';URL=". $conf['root'] ."'>";
 	}
 }
 

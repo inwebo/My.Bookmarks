@@ -82,7 +82,8 @@ $ajax = $conf['root'] . ROOT_HELPERS . 'ajax/';
 define('ROOT_AJAX', $ajax);
 
 try {
-	$sql = new MySql($conf['server'],$conf['user'], $enigma->decode( $conf['password'] ),$conf['database']);
+	//$sql = new MySql($conf['server'],$conf['user'], $enigma->decode( $conf['password'] ),$conf['database']);
+	$sql = new MyPdo( $conf['server'], $conf['database'], $conf['user'], $enigma->decode( $conf['password'] ) );
 }
 catch(Exception $e) {
 	if( $conf['debug'] == 1 ) {

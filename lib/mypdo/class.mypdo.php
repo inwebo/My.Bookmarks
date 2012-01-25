@@ -28,7 +28,7 @@
  */
 
 /**
- * Etends PDO
+ * Requête préparées
  *
  * @copyright  Inwebo
  * @license    http://creativecommons.org/licenses/by-nc-sa/2.0/fr/
@@ -38,8 +38,40 @@
  */
 class MyPdo extends PDO {
 
-    public function __construct() {
+    public $host;
+    public $dbName;
+    public $user;
+    public $password;
+
+    public $lastQuery;
+    public $countRows;
+
+    private $connect;
+
+    public function __construct( $_host, $_dbName, $_user, $_password ) {
+	$this->connect = new PDO( 'mysql:host='.$_host.';dbname='.$_dbName, $_user, $_password );
+    }
+
+    public function query( $_query, $_params = NULL, $_options = PDO::FETCH_ASSOC ) {
+        $this->countRows = 0;
+        $this->lastQuery = $_query;
+        $query = $this->connect->prepare($_query);
+
+        if( !is_null( $_params ) && is_array( $_params ) ) {
+            $query->execute( $_params );
+        }
+        else {
+            $query->execute();
+        }
+
+        $this->countRows = $query->rowCount();
+        $query = $query->fetchAll( $_options );
+	return $query ;
 
     }
+
 }
-?>
+
+$temp = new MyPdo('localhost', 'inwebourl', 'root', 'root');
+$a = $temp->query( 'INSERT INTO categories (`name`) VALUES (?)', array('prout') );
+echo( $temp->countRows );

@@ -44,47 +44,29 @@ chdir('..');
 chdir('..');
 include('autoload.php');
 include( 'helpers/const.define.php');
-?><?php
 
-function sanitize($str)
-{
-	if(ini_get('magic_quotes_gpc'))
-		$str = stripslashes($str);
-
-	$str = strip_tags($str);
-	$str = trim($str);
-	$str = htmlspecialchars($str);
-	$str = mysql_real_escape_string($str);
-
-	return $str;
-}
-
-// Validating the input data
-
-//var_dump($_GET);
-// Sanitizing the variables
-$_GET['url']   = sanitize( $_GET['url'] );
-$_GET['title'] = sanitize( $_GET['title'] );
-$_GET['tags'] = sanitize( $_GET['tags'] );
-$_GET['desc'] = sanitize( $_GET['desc'] );
-
-$new =$sql->query("	INSERT INTO `bookmarks` (hash,url,title,tags,description, category, public)
+$new = $sql->query("INSERT INTO `bookmarks` (
+                                        `hash`,
+                                        `url`,
+                                        `title`,
+                                        `tags`,
+                                        `description`,
+                                        `category`,
+                                        `public`
+                                )
 				VALUES (
-					\":?\",
-					\":?\",
-					\":?\",
-					\":?\",
-					\":?\",
-					\":?\",
-					\":?\"
+					'?',
+					'?',
+					'?',
+					'?',
+					'?',
+					'?',
+					'?'
 				)", array( md5($_GET['url']), $_GET['url'], $_GET['title'], $_GET['tags'], $_GET['desc'], $_GET['id'], $_GET['public'] ) );
 
-if( $new ) {
-        $totalLinks = $sql->query('SELECT COUNT(*) FROM `bookmarks`');
-        $totalLinks = mysql_result($totalLinks, 0);
-        
-        
-	$message = 'You\'ve got ' . $totalLinks . ' bookmarks in database';
+if( $sql->countRows == '1' ) {
+        $totalLinks = $sql->query('SELECT COUNT(*) FROM `bookmarks`');      
+	$message = 'You\'ve got ' . $totalLinks[0] . ' bookmarks in database';
 }
 else {
 	$message = 'Already in the database !';
@@ -124,6 +106,6 @@ function displayMessage(str)
 <?php
 
 // Adding a line that will call the JavaScript function:
-echo 'displayMessage("'.$message.'");';
+echo 'displayMessage("' . $message . '");';
 
 ?>

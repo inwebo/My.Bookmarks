@@ -46,7 +46,8 @@
 				<?php
 					$i=0;
 					$links = $sql->query('SELECT * FROM categories ORDER BY `name` ASC ');
-					while ($row = mysql_fetch_assoc( $links )) {
+					//while ($row = mysql_fetch_assoc( $links )) {
+					foreach( $links as $row ) {
 						echo '<p id="idCategorie'.$row['id'].'" data-id="'.$row['id'].'"><a href="' . ROOT_MAIN . $row['id'] . '/' . $row['name'] . '">'.$row['name'].'</a><span class="delete" data-id="'.$row['id'].'" data-category="'.$row['name'].'" ><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></p>'."\n";
 						$i++;
 					}
@@ -78,14 +79,15 @@
                         <?php
                         
                             $links = $sql->query('SELECT * FROM bookmarks where tags LIKE \'%'.$multiViews->args[2].'%\' ORDER BY `dt` DESC');
-                            $totalLinks = mysql_num_rows( $links ) ;
+                            $totalLinks = count( $links ) ;
                         ?>
                             <h2>Tags : <em><?php echo $multiViews->args[2]; ?></em><span class="totalLinks"><?php echo $totalLinks; ?></span></h2>
 			<ul class="listUrl">
 			<?php
 				$links = $sql->query('SELECT * FROM bookmarks where tags LIKE \'%'.$multiViews->args[2].'%\' ORDER BY `dt` DESC');
-				if( !is_bool($links ) ) {
-					while ($row = mysql_fetch_assoc( $links )) {
+				if( count($links ) != 0 ) {
+					//while ($row = mysql_fetch_assoc( $links )) {
+					foreach ( $links as $row ) {
 						//echo '<li title="'.$row['hash'].'">';
 						/*if( $_SESSION['type'] == 'admin' ) {
 							echo '<span class="dragMeToCat" title="'.$row['hash'].'">Drag me</span>';

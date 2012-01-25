@@ -48,8 +48,8 @@ $i      = 0;
 $clear  = 0;
 $output = '';
 
-while ( $oneCategorie = mysql_fetch_assoc( $allCategories ) ) {
-
+//while ( $oneCategorie = mysql_fetch_assoc( $allCategories ) ) {
+foreach( $allCategories as $oneCategorie ){
     // All categories
     if($_SESSION['type'] == 'admin') {
         $listItemOneCategory = $sql->query('SELECT * FROM `bookmarks` WHERE `category`=' . $oneCategorie['id'] . ' ORDER BY `dt` DESC LIMIT 0,' . $conf['homeNomberOfUrls']);
@@ -61,14 +61,17 @@ while ( $oneCategorie = mysql_fetch_assoc( $allCategories ) ) {
     
 
     // How many links in categorie
-    $totalListItemOneCategory = mysql_num_rows( $listItemOneCategory );
+    //$totalListItemOneCategory = mysql_num_rows( $listItemOneCategory );
+    $totalListItemOneCategory = count( $listItemOneCategory );
 
 
     // Not empty
-    if( $totalListItemOneCategory != false ) {
+    //if( $totalListItemOneCategory != false ) {
+    if( $totalListItemOneCategory != false || $totalListItemOneCategory != 0 ) {
         $li = array();
         // Can print
-        while ( $row = mysql_fetch_assoc( $listItemOneCategory ) ) {
+        //while ( $row = mysql_fetch_assoc( $listItemOneCategory ) ) {
+        foreach( $listItemOneCategory as $row ) {
             $li[] = array('url'=>$row['url'],'tags'=>$row['description'], 'hash'=>$row['hash'], 'title'=>$row['title']);
         }
 

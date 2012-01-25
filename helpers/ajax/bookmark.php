@@ -62,7 +62,8 @@ include( 'helpers/const.define.php');
 	<?php
 		$categoriesJavascript = "";
 		$categories = $sql->query('SELECT * FROM `categories`');
-		while ($row = mysql_fetch_assoc( $categories )) {
+		//while ($row = mysql_fetch_assoc( $categories )) {
+		foreach ( $categories as $row) {
 		$categoriesJavascript .= "
 			var elOptNew = document.createElement('option');
 			elOptNew.text = '".$row['name']."';
