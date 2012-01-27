@@ -42,10 +42,7 @@
 <header>
     <div class="container_12">
         <div id="headerGrid_12" class="grid_12">
-        <h1><?php echo $conf ['name']; ?><!--<img src="img/logo.png"><span id="headerTotalLinks">125</span>--></h1>
-            <!--<p id="totalLinksHeader">
-                1000 bookmarks
-            </p>-->
+        <h1><?php echo $conf ['name']; ?></h1>
             <?php if ($_SESSION['type'] != 'admin') { ?>
                 <span id="boutonTop">
                     <a href="#" id="loginClick">Login</a>
