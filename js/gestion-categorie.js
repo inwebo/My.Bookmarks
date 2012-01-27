@@ -12,27 +12,23 @@ $('#addCategory').click( function() {
 			success:function(data) {
 				if(data != "FALSE") {
 					$('#addResponse').html('added');
-					//$('#addNewcat').before('<p id="idCategorie'+$.trim(data)+'" data-id="'+$.trim(data)+'" class="ui-droppable">'+$('#inputCat').val()+'<span data-id="'+$.trim(data)+'" class="delCat">del</span></p>');
-					  $('#addNewcat').before('<p id="idCategorie'+$.trim(data)+'" data-id="'+$.trim(data)+'">'+$('#inputCat').val()+'<span class="delete" data-id="'+$.trim(data)+'" data-category="'+$.trim(data)+'" ><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></p>');
-                                          addMssg('warning', 'host ' + hostRoot);
+					$('#addNewcat').before('<p id="idCategorie'+$.trim(data)+'" data-id="'+$.trim(data)+'"><a href="'+rootMain+'categorie/'+$('#inputCat').val()+'/'+data+'">'+$('#inputCat').val()+'</a><span class="delete" data-id="'+$.trim(data)+'" data-category="'+$.trim(data)+'" ><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></p>');
+                                        addMssg('Okay', 'News category ' + $('#inputCat').val() + ' added');
                                         $.ajaxSetup({async: false});
 					$.getScript(hostJS+'computeitem.js');
 					$.getScript(hostJS+'cat-del.js');
 					$.ajaxSetup({async: true});
 				}
 				else {
-					//$('#addResponse').html('Already exists');
                                         addMssg('warning','Categorie already exists');
 				}
 				$('#inputCat').val('');
 			},
 			error:function() {
-				//alert('Une erreur est survenue essayer plus tard');
                                 addMssg('error','Une erreur est survenue essayer plus tard');
 			}
 		});
 
     }
 	$('#addResponse').delay(2500).slideUp(300);
-
 });

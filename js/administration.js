@@ -20,9 +20,8 @@
                     beforeSend:function() {
                     },
                     success:function(data) {
-                        var categorieName = i.parent('.delete').attr('data-category');
-                        i.parent('p').slideUp(300);
-                        
+                        var categorieName = i.attr('data-category');
+                        i.parent('p').slideUp(300);   
                         addMssg( 'okay', 'Categorie ' + categorieName + ' deleted.' );
                     },
                     error:function() {

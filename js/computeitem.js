@@ -53,7 +53,7 @@
                     }
                 });
 
-                $element.parent().slideUp(300);
+                $element.parent().parent().slideUp(300);
             },
             accept: '#newItems ul li span.dragMeToCat',
             greedy: false
@@ -71,7 +71,7 @@
                         },
                     success:function(data) {
                         //alert('ok');
-                        $(actualLiItem).parent('span').parent('li').slideUp(300);
+                        $(actualLiItem).parent().parent().parent('li').slideUp(300);
                         addMssg('okay', 'Element <em>'+ $(actualLiItem).attr('data-title') + '</em> deleted.' );
                     },
                     error:function() {
