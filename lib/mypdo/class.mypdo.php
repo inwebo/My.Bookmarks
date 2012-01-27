@@ -49,7 +49,7 @@ class MyPdo extends PDO {
     private $connect;
 
     public function __construct( $_host, $_dbName, $_user, $_password ) {
-	$this->connect = new PDO( 'mysql:host='.$_host.';dbname='.$_dbName, $_user, $_password );
+	$this->connect = new PDO( 'mysql:host='.$_host.';dbname='.$_dbName, $_user, $_password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")  );
     }
 
     public function query( $_query, $_params = NULL, $_options = PDO::FETCH_ASSOC ) {
