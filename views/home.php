@@ -109,7 +109,7 @@ while( isset( $grid[++$iterator] ) ) {
 
         $output .='<h2>
                        <a href="' . ROOT_MAIN . 'categorie/' . $grid[$iterator]['title'] . '/' . $grid[$iterator]['id'] . '">' . $grid[$iterator]['title'] . '</a>
-                       <span class="totalLinks">' . $grid[$iterator]['total'] . '</span>
+                       <!--<span class="totalLinks">' . $grid[$iterator]['total'] . '</span>-->
                     </h2>
 			<ul class="listUrl">' . "\n";
         foreach($grid[$iterator]['li'] as $key => $value) {
