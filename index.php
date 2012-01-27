@@ -77,10 +77,10 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
-
+  <link rel="shortcut icon" href="<?php echo ROOT; ?>favicon.png" type="image/png" />
   <!-- CSS: implied media=all -->
   <!-- CSS concatenated and minified via ant build script-->
-	<link rel="stylesheet" href="<?php echo ROOT_CSS; ?>my-style.css">
+  <link rel="stylesheet" href="<?php echo ROOT_CSS; ?>my-style.css">
   <!-- end CSS-->
 
   <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
