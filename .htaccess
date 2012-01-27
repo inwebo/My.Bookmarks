@@ -1,1 +1,4 @@
 php 5
+<Files config.ini >
+  Deny from all
+</Files>
