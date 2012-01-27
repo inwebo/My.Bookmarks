@@ -67,16 +67,14 @@ Installation
       V - Déposer le widget dans votre barre personnelle
      VI - Enjoy
 
-Webographie
-
-    
-
-
 FAQ
 _______________________________________________________________________________
 
-- Q : Comment remttre à zéro ma configuration de site sans perdre mes données ?
+- Q : Comment remettre à zéro ma configuration de site sans perdre mes données ?
   R : Supprimer simplement config.ini se situant dans config/config.ini
+
+- Q : Comment mettre à jour ma version de my.bookmarks ?
+  R : Supprimer tous les fichiers contenu dans votre dossier d'installation.
   
 - Q : J'ai perdu mon mot de passe que faire ?
   R : Il faut vous rendre dans Php my admin dans la table users, éditer le
@@ -96,7 +94,6 @@ _______________________________________________________________________________
 
 - Flux RSS / catégories
 - Implémentation thèmes
-- Passage à PDO
 - Affichage des dates correctes
 - Documentation digne de ce nom
 - Au premier lancement de l'application un tutorial
@@ -108,7 +105,7 @@ _______________________________________________________________________________
 - Export de la BDD sous forme de SQL, XML, HTML
 - Import de liens provenant de firefox, opera, chromium
 - Support multilingues
-- Meilleur gestion des keywords, remplacer les ',' par un espace
+- Support favicon
 
 BUGS
 _______________________________________________________________________________
