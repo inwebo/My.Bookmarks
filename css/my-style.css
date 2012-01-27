@@ -683,5 +683,39 @@ footer .grid_12 p .myButton {
 
 .listUrl li a.displayTitle {
     display: inline-block;
-    max-width: 65%;
+    max-width: 95%;
+}
+
+
+/* Item */
+
+.listUrl h3 {
+    font-size: 1.1em;
+}
+
+.itemLeft {
+    /*background-color: red;*/
+    width: 160px;
+    float: left;
+}
+
+.itemMain {
+    /*background-color: black;*/
+    width: 420px;
+    float: right;
+}
+
+.itemMain ul {
+    margin-bottom: 5px;
+}
+
+.itemMain ul li {
+    background-color: transparent;
+    display: inline-block;
+    padding: 0;
+}
+
+.itemMain ul li:nth-child(2n+1), .itemMain ul li:nth-child(2n)  {
+    background-color: transparent;
+
 }
