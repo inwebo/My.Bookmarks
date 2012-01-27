@@ -6,8 +6,8 @@
         function totalItem() {
             var total = parseInt($('.totalLinks').html());
             total--;
-            $('.totalLinks').html(total);
-            addMssg('informations', 'it exists ' + total + ' links in ' + $('.totalLinks').parent('h2').html() );
+            $('.totalLinks').html(total + ' links');
+            //addMssg('informations', 'it exists ' + total + ' links in ' + $('.totalLinks').parent('h2').html() );
         }
 
         $( "#newItems ul li span.dragMeToCat" ).draggable({
@@ -45,7 +45,7 @@
                     url: hostRoot + "update-url.php",
                     data: "id="+ $(containerIdData).attr("data-id") +"&hash="+ $element.attr("title"),
                     success:function(data) {
-                        addMssg( 'okay', $element.attr("title") + ' moved.' );
+                        addMssg( 'Moved', $element.attr("data-display") + ' moved.' );
                         totalItem() ;
                     },
                     error:function() {
