@@ -1,4 +1,4 @@
 Options All -Indexes
-<Files config.ini >
+<Files *.*>
   Deny from all
 </Files>
