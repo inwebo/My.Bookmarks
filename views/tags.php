@@ -104,7 +104,9 @@ $array_tags = array_filter($array_tags);
 <?php
 $i = 0;
 foreach( $tagsCloud[0] as $key => $value ) {
-    echo '<a href="'. ROOT_MAIN . 'tags/' . $value . '" class="tags" data-tags="'.$value.'">'. str_replace(' ', '&nbsp;', $value) .'<span>('. $tagsCloud[1][$i] .')</span></a> ';
+    if(strlen($value) != 1) {
+        echo '<a href="'. ROOT_MAIN . 'tags/' . $value . '" class="tags" data-tags="'.$value.'">'. str_replace(' ', '&nbsp;', $value) .'<span>('. $tagsCloud[1][$i] .')</span></a> ';
+    }
     $i++;
 }
 ?>
