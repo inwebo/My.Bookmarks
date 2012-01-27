@@ -51,6 +51,9 @@ else {
 
 $enigma = new MyCrypt( md5( $conf['user'] ) );
 
+$root = $conf['root'];
+define('ROOT', $root);
+
 $mainRoot = $conf['root'] . 'index.php/';
 define('ROOT_MAIN', $mainRoot);
 
