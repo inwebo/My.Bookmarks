@@ -120,17 +120,21 @@
                                                 if ($_SESSION['type'] == 'admin') {
                                                     echo '<div class="itemMain">';
                                                     echo '<span class="delete close">
-                                                            <a data-title="Test" data-id="37" title="DELETE" href="#">x
-                                                                <span class="deleteTxt">
-                                                                    <span class="deleteTriangle"></span>
-                                                                    Delete
-                                                                </span>
-                                                            </a>
+<a href="#" title="DELETE" data-id="'. $row['id'] .'" data-title="'. $row['title'] .'">x
+                                                        <span class="deleteTxt">
+                                                           <span class="deleteTriangle"></span>
+                                                           Delete
+                                                        </span>
+                                                        </a>
                                                         </span>';
                                                 }
                                                 echo'<h3><a href="' . $row['url'] . '" title="'.$row['description'].'" class="displayTitle">'. stripslashes($row['title']) . '</a></h3>';
                                                 echo '<p>'. stripslashes($row['title']) . '</p>';
                                                 echo '<div class="itemTags"><ul>';
+
+                                                
+
+
                                                 echo '</ul></div>';
                                                 if ($_SESSION['type'] == 'admin') {
                                                     echo '</div>';
