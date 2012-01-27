@@ -42,6 +42,8 @@
 <?php if ( $_SESSION['type'] == 'admin' ) { ?>
 
 			<div id="categoriesList" class="grid_4">
+
+
                             <h2>Categories</h2>
 				<?php
 					$i=0;
@@ -77,26 +79,27 @@
 
 			<?php } ?>
                         <?php
-                            $links = $sql->query('SELECT * FROM bookmarks where category=":?" ORDER BY `dt` DESC', array($multiViews->args[3]));
+                            $links = $sql->query('SELECT * FROM bookmarks where category=? ORDER BY `dt` DESC', array($multiViews->args[3]));
                             $totalLinks = count( $links ) ;
                         ?>
-			<h2><?php echo urldecode($multiViews->args[2]); ?><span class="totalLinks"><?php echo $totalLinks; ?></span></h2>
-			<ul class="listUrl">
+			<h2><?php echo urldecode($multiViews->args[2]); ?><span class="totalLinks"><?php echo $totalLinks; ?> links</span></h2>
+
+                        <ul class="listUrl">
 			<?php
-				$links = $sql->query('SELECT * FROM bookmarks where category=":?" ORDER BY `dt` DESC', array($multiViews->args[3]));
+				$links = $sql->query('SELECT * FROM bookmarks where category=? ORDER BY `dt` DESC', array($multiViews->args[3]));
 				//if( !is_bool($links ) ) {
 				if( count($links ) != 0 ) {
 					//while ($row = mysql_fetch_assoc( $links )) {
 					foreach ( $links  as $row ) {
 
                                                 echo '<li>';
-                                                
+
                                                 if( $_SESSION['type'] == 'admin' ) {
-                                                    echo '<span class="dragMeToCat" title="'.$row['hash'].'">Drag me</span>';
+                                                   // echo '<span class="dragMeToCat" title="'.$row['hash'].'" data-display="'.stripslashes($row['title']).'">Drag me</span>';
                                                 }
-                                                echo'<a href="' . $row['url'] . '" title="'.$row['description'].'" class="displayTitle">'. stripslashes($row['title']) . '</a>';
+                                               // echo'<a href="' . $row['url'] . '" title="'.$row['description'].'" class="displayTitle">'. stripslashes($row['title']) . '</a>';
                                                 if( $_SESSION['type'] == 'admin' ) {
-                                                    echo'
+                                                    /*echo'
                                                     <span class="delete close">
                                                         <a href="#" title="DELETE" data-id="'. $row['id'] .'" data-title="'. $row['title'] .'">x
                                                         <span class="deleteTxt">
@@ -104,27 +107,79 @@
                                                            Delete
                                                         </span>
                                                         </a>
-                                                    </span>';
+                                                    </span>';*/
                                                 }
-                                                echo '</li>';
+
+                                                // -------------------------------------- //
+                                                if( $_SESSION['type'] == 'admin' ) {
+                                                    echo '<div class="itemLeft">';
+                                                    echo '<span class="dragMeToCat" title="'.$row['hash'].'" data-display="'.stripslashes($row['title']).'">Drag me</span>';
+                                                    echo '</div>';
+                                                }
                                                 
-                                                //<li>
-                                                    //<span class="dragMeToCat">Drag me</span>
-                                                    //<a href="">Nom du len</a>
-                                                    //<span class="delete">
-                                                        //<a href="#">x
-                                                        //<span class="deleteTxt">
-                                                            //<span class="deleteTriangle"></span>
-                                                            //Delete</span>
-                                                        //</a>
-                                                    //</span>
-                                                //</li>
+                                                if ($_SESSION['type'] == 'admin') {
+                                                    echo '<div class="itemMain">';
+                                                    echo '<span class="delete close">
+                                                            <a data-title="Test" data-id="37" title="DELETE" href="#">x
+                                                                <span class="deleteTxt">
+                                                                    <span class="deleteTriangle"></span>
+                                                                    Delete
+                                                                </span>
+                                                            </a>
+                                                        </span>';
+                                                }
+                                                echo'<h3><a href="' . $row['url'] . '" title="'.$row['description'].'" class="displayTitle">'. stripslashes($row['title']) . '</a></h3>';
+                                                echo '<p>'. stripslashes($row['title']) . '</p>';
+                                                echo '<div class="itemTags"><ul>';
+                                                echo '</ul></div>';
+                                                if ($_SESSION['type'] == 'admin') {
+                                                    echo '</div>';
+                                                }
+
+
+                                                // -------------------------------------- //
+                                                
+                                                echo '<div class="clear"></div></li>';
 					}
 				}
 				else {
 					echo '<li>Empty</li>'."\n";
 				}
-			?>
+			?><!--
+                            <li>
+                                <div class="itemLeft"><span data-display="Git Tag Mini Cheat Sheet Revisited - Ariejan.net" title="cfd6fd9538079584acc9eca7168ff33e" class="dragMeToCat ui-draggable">Drag me</span></div>
+                                <div class="itemMain">
+                                    <span class="delete close">
+                                    <a data-title="Test" data-id="37" title="DELETE" href="#">x
+                                        <span class="deleteTxt">
+                                            <span class="deleteTriangle"></span>
+                                            Delete
+                                        </span>
+                                    </a>
+                                </span>
+                                    <h3><a class="displayTitle" title="About Software Engineering, Ruby on Rails, Java, Git and the Cloud - by Ariejan" href="http://ariejan.net/2009/09/05/git-tag-mini-cheat-sheet-revisited/">Test</a></h3>
+                                    
+                                    <p>item description</p>
+                                    <div class="itemTags">
+                                        <ul>
+                                            <li><a href="">Tags 1</a></li>
+                                            <li><a href="">Tags 1</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+
+                                
+                                <span data-display="Git Tag Mini Cheat Sheet Revisited - Ariejan.net" title="cfd6fd9538079584acc9eca7168ff33e" class="dragMeToCat ui-draggable">Drag me</span><a class="displayTitle" title="About Software Engineering, Ruby on Rails, Java, Git and the Cloud - by Ariejan" href="http://ariejan.net/2009/09/05/git-tag-mini-cheat-sheet-revisited/">Test</a>
+                                <span class="delete close">
+                                    <a data-title="Test" data-id="37" title="DELETE" href="#">x
+                                        <span class="deleteTxt">
+                                            <span class="deleteTriangle"></span>
+                                            Delete
+                                        </span>
+                                    </a>
+                                </span>
+                            </li>-->
 			</ul>
 			</div>
 <!-- /categorie.php -->
