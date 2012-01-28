@@ -44,6 +44,14 @@ javascript:(function(){
 	var description;
 	var keywords;
 
+var favicon = document.evaluate('//*[contains(@rel,\'shortcut icon\')]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+
+        if( favicon.snapshotLength == 0 ) {
+            favicon ='empty';
+        }
+        else {
+            favicon=favicon.snapshotItem(0).getAttribute('href') ;
+        }
 	var metas = document.getElementsByTagName('meta');
 	for (var x=0,y=metas.length; x<y; x++) {
 	  if (metas[x].name.toLowerCase() == 'description') {
@@ -66,7 +74,7 @@ javascript:(function(){
 
 	var jsScript=document.createElement('script');
 	jsScript.setAttribute('type','text/javascript');
-	jsScript.setAttribute('src', '<?php echo ROOT_AJAX; ?>bookmark.php?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title) +'&amp;tags=' + keywords.content +'&amp;desc=' + description.content);
+	jsScript.setAttribute('src', '<?php echo ROOT_AJAX; ?>bookmark.php?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title) +'&amp;tags=' + keywords.content +'&amp;desc=' + description.content +'&amp;favicon='+ encodeURIComponent(favicon) );
 	document.getElementsByTagName('head')[0].appendChild(jsScript);
 
 
