@@ -176,3 +176,11 @@ text-align: center;
 		top: 0;
 		width: 0;
 	}
+
+#labelUrl input {
+    margin-right: 10px;
+    width: 80%;
+}
+#labelUrl img {
+    max-width:32px;
+}
