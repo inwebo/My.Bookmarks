@@ -80,8 +80,9 @@ include( 'helpers/const.define.php');
 		}
 		echo $categoriesJavascript;
 	?>
-
-
+        var newFav = document.createElement('img');
+        newFav.setAttribute('src','<?php echo $_GET['favicon'];?>');
+        document.getElementById('labelUrl').appendChild( newFav );
 
 	var newTags = document.createElement('input');
 	newTags.setAttribute('id','tags');
@@ -113,7 +114,7 @@ function saveContent() {
 
 	var jsScript=document.createElement('script');
 	jsScript.setAttribute('type','text/javascript');
-	jsScript.setAttribute('src', '<?php echo ROOT_AJAX; ?>bookmark-save.php?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(getTitle.value)+'&tags='+encodeURIComponent(getTags.value)+'&desc='+encodeURIComponent(getDesc.value)+'&id='+encodeURIComponent(idCat)+'&public='+encodeURIComponent(getPublic) );
+	jsScript.setAttribute('src', '<?php echo ROOT_AJAX; ?>bookmark-save.php?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(getTitle.value)+'&tags='+encodeURIComponent(getTags.value)+'&desc='+encodeURIComponent(getDesc.value)+'&id='+encodeURIComponent(idCat)+'&public='+encodeURIComponent(getPublic)+'&favicon=<?php echo $_GET['favicon'];?>' );
 	document.getElementsByTagName('head')[0].appendChild(jsScript);
 }
 //-->
