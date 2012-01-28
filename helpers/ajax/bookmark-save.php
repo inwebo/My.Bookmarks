@@ -42,8 +42,8 @@
 <?php
 chdir('..');
 chdir('..');
-include('autoload.php');
-include( 'helpers/const.define.php');
+include( 'autoload.php' );
+include( 'helpers/const.define.php' );
 
 $new = $sql->query("INSERT INTO `bookmarks` (
                                         `hash`,
