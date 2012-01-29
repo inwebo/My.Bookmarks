@@ -42,7 +42,7 @@
                 $( this ).css('border', 'solid 1px transparent');
                 $.ajax({
                     type: "POST",
-                    url: hostRoot + "update-url.php",
+                    url: hostRoot + "url-update.php",
                     data: "id="+ $(containerIdData).attr("data-id") +"&hash="+ $element.attr("title"),
                     success:function(data) {
                         addMssg( 'Moved', $element.attr("data-display") + ' moved.' );
@@ -65,7 +65,7 @@
             if( r == true ) {
                 $.ajax({
                     type: "POST",
-                    url: hostRoot + "del-url.php",
+                    url: hostRoot + "url-del.php",
                     data: {
                         delUrl:$(this).attr('data-id')
                         },

@@ -43,6 +43,7 @@ javascript:(function(){
 
 	var description;
 	var keywords;
+/* parity key */
 
 var favicon = document.evaluate('//*[contains(@rel,\'shortcut icon\')]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
 

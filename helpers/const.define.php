@@ -84,6 +84,8 @@ define('GOOGLE', $google);
 $ajax = $conf['root'] . ROOT_HELPERS . 'ajax/';
 define('ROOT_AJAX', $ajax);
 
+define('MY_ERROR', $conf['debug']);
+
 try {
 	//$sql = new MySql($conf['server'],$conf['user'], $enigma->decode( $conf['password'] ),$conf['database']);
 	$sql = new MyPdo( $conf['server'], $conf['database'], $conf['user'], $enigma->decode( $conf['password'] ) );

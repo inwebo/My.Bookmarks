@@ -3,12 +3,11 @@
 				include('views/setup.php');
                                 exit();
 			}
-                        ini_set('display_errors', 0);
 ?>
 <?php include('autoload.php'); ?>
 <?php include( dirname( __FILE__ ) . DIRECTORY_SEPARATOR .'helpers/const.define.php'); ?>
 <?php
-
+ini_set('display_errors', MY_ERROR);
 // Controleur Init
 try {
 

@@ -243,7 +243,7 @@
 	<ul id="displayMssg">
 
 	</ul>
-<div>
+</div>
 <!-- /Display debug -->
 <!-- /setup.php -->
 </body>

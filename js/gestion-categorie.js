@@ -6,7 +6,7 @@ $('#addCategory').click( function() {
     else {
 		$.ajax({
 			type: "POST",
-			url: hostRoot+"add-categorie.php",
+			url: hostRoot+"categorie-add.php",
 			data: "inputCat="+$('#inputCat').val(),
 			dataType: "text",
 			success:function(data) {

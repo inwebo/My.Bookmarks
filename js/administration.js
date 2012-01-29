@@ -12,7 +12,7 @@
                 $.ajax({
                     type: "POST",
                     // URL script PHP
-                    url: hostRoot+"del-categorie.php",
+                    url: hostRoot+"categorie-del.php",
                     data: {
                         delCat: $(this).attr('data-id')
                     },

@@ -80,9 +80,10 @@ include( 'helpers/const.define.php');
 		}
 		echo $categoriesJavascript;
 	?>
-        var newFav = document.createElement('img');
-        newFav.setAttribute('src','<?php echo $_GET['favicon'];?>');
-        document.getElementById('labelUrl').appendChild( newFav );
+        //var newFav = document.createElement('img');
+        //newFav.setAttribute('src','<?php echo $_GET['favicon'];?>');
+        var newFav = document.getElementById('url');
+        newFav.setAttribute( 'style','background-image: url(<?php echo $_GET['favicon'];?>);' );
 
 	var newTags = document.createElement('input');
 	newTags.setAttribute('id','tags');

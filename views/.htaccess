@@ -1,4 +1,0 @@
-Options All -Indexes
-<Files *.*>
-  Deny from all
-</Files>

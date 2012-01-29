@@ -178,8 +178,12 @@ text-align: center;
 	}
 
 #labelUrl input {
-    margin-right: 10px;
-    width: 80%;
+    /* TODO parametres dans bookmark.php */
+    /*background-image: url('http://cdn.sstatic.net/stackoverflow/img/favicon.ico');*/
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    text-indent: 1.5em;
+    width: 96%;
 }
 #labelUrl img {
     max-width:32px;

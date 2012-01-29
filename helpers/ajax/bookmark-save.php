@@ -45,6 +45,10 @@ chdir('..');
 include( 'autoload.php' );
 include( 'helpers/const.define.php' );
 
+
+
+
+
 $new = $sql->query("INSERT INTO `bookmarks` (
                                         `hash`,
                                         `url`,
@@ -67,6 +71,19 @@ $new = $sql->query("INSERT INTO `bookmarks` (
 if( $sql->countRows === 1 ) {
         $totalLinks = $sql->query('SELECT COUNT(*) FROM `bookmarks`');      
 	$message = 'Url saved. You\'ve got ' . $totalLinks[0]['COUNT(*)'] . ' bookmarks in database';
+        /* Prepare favicon */
+        if(stristr( $_GET['favicon'], 'http') === FALSE ) {
+            $_GET['favicon'] = $_GET['url'] . $_GET['favicon'];
+        }
+        $from = fopen($_GET['favicon'],'rb');
+        if( $from != FALSE ) {
+         $data='';
+        while(!feof($from))
+            $data.=fread($from,1024);
+        fclose($from );
+        $to = fopen('images/'.  md5($_GET['url']),'w+');
+        fwrite($to, $data);
+        }
         
 }
 else {
