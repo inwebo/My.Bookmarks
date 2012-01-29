@@ -7,7 +7,7 @@ $('#tagsFilter').keyup(function() {
     }
     else {
         $.each( $('.tags:not([data-tags^="'+$('#tagsFilter').val()+'"])'), function(index, value){
-            console.log(this);
+            //console.log(this);
             $(this).fadeOut('fast');
         });
 }

@@ -180,7 +180,7 @@
 	});
 
 	$( '#saveSetup' ).click(function() {
-                console.log( $( '#setupRoot' ).val() );
+                //console.log( $( '#setupRoot' ).val() );
 		if( $( '#setupRoot' ).val() == '' ) {
 			//$('#containerPath').css('border', 'groove 2px red');
 		}

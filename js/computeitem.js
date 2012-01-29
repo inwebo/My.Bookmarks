@@ -34,7 +34,7 @@
             },
             drop: function( event, ui ) {
                 if( debug == true ) {
-                    console.log('drop!');
+                    //console.log('drop!');
                 }
                 var $element = ui.draggable;
                 var containerIdData = this;
