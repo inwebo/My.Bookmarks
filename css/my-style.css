@@ -719,3 +719,20 @@ footer .grid_12 p .myButton {
     background-color: transparent;
 
 }
+
+#sommaire {
+    border: 1px solid #D6D6D6;
+    float: right;
+    margin-left: 20px;
+    width: 200px;
+    background-color: white;
+}
+#sommaire li{
+    list-style: disc inside none;
+    margin-left: 5px;
+}
+.about p img {
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
