@@ -1,25 +1,26 @@
--Flux RSS / catégories
--Implémentation thèmes
--Affichage des dates correctes
--Documentation digne de ce nom
--Au premier lancement de l'application un tutorial
--Une page admin
--Proposer une archive PHAR pour PHP 5.3
--Test avec IE 6, 7, 8, 9 (pffffff)
--Ajout de permalink
++Flux RSS / catégories
++Implémentation thèmes
++Affichage des dates correctes
++Documentation digne de ce nom
++Au premier lancement de l'application un tutorial
++Une page admin
++Proposer une archive PHAR pour PHP 5.3
++Test avec IE 6, 7, 8, 9 (pffffff)
++Ajout de permalink
 -Détail des liens
--Export de la BDD sous forme de SQL, XML, HTML
--Import de liens provenant de firefox, opera, chromium
--Support multilingues
-+Support favicon
++Export de la BDD sous forme de SQL, XML, HTML
++Import de liens provenant de firefox, opera, chromium
++Support multilingues
 +constantes php -> variables globales javascript
 -Sauvegarde des favicons si possible
 +owasp sanitize
 -Meilleur organisation des fichiers
-+régler probléme branche github
-+text présentation
+-régler probléme branche github
+-Page about
 +Full object
 +Object lien
-+Todo list
+-Todo list
 +Affichage par jour
 +Clef de parité
++Préfix des tables sql
++Lors du setup création de toutes les tables nécessaires
