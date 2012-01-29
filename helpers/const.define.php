@@ -86,6 +86,8 @@ define('ROOT_AJAX', $ajax);
 
 define('MY_ERROR', $conf['debug']);
 
+define('PUBLIC_KEY', $conf['publicKey']);
+
 try {
 	//$sql = new MySql($conf['server'],$conf['user'], $enigma->decode( $conf['password'] ),$conf['database']);
 	$sql = new MyPdo( $conf['server'], $conf['database'], $conf['user'], $enigma->decode( $conf['password'] ) );

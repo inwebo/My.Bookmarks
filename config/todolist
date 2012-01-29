@@ -11,11 +11,11 @@
 +Export de la BDD sous forme de SQL, XML, HTML
 +Import de liens provenant de firefox, opera, chromium
 +Support multilingues
-+constantes php -> variables globales javascript
++Constantes php -> variables globales javascript
 -Sauvegarde des favicons si possible
 +owasp sanitize
 -Meilleur organisation des fichiers
--régler probléme branche github
+-Régler probléme branche github
 -Page about
 +Full object
 +Object lien

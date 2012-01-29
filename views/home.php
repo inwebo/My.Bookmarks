@@ -55,7 +55,7 @@ foreach( $allCategories as $oneCategorie ){
         $listItemOneCategory = $sql->query('SELECT * FROM `bookmarks` WHERE `category`=' . $oneCategorie['id'] . ' ORDER BY `dt` DESC LIMIT 0,' . $conf['homeNomberOfUrls']);
     }
     else {
-        $listItemOneCategory = $sql->query('SELECT * FROM `bookmarks` WHERE `category`=' . $oneCategorie['id'] . ' AND `public`="1" ORDER BY `dt` DESC LIMIT 0,' . $conf['homeNomberOfUrls']);
+        $listItemOneCategory = $sql->query('SELECT * FROM `bookmarks` WHERE `category`=' . $oneCategorie['id'] . ' ORDER BY `dt` DESC LIMIT 0,' . $conf['homeNomberOfUrls']);
         //echo $sql->query;
     }
     

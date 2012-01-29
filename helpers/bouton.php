@@ -43,7 +43,6 @@ javascript:(function(){
 
 	var description;
 	var keywords;
-/* parity key */
 
 var favicon = document.evaluate('//*[contains(@rel,\'shortcut icon\')]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
 
@@ -75,7 +74,7 @@ var favicon = document.evaluate('//*[contains(@rel,\'shortcut icon\')]', documen
 
 	var jsScript=document.createElement('script');
 	jsScript.setAttribute('type','text/javascript');
-	jsScript.setAttribute('src', '<?php echo ROOT_AJAX; ?>bookmark.php?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title) +'&amp;tags=' + keywords.content +'&amp;desc=' + description.content +'&amp;favicon='+ encodeURIComponent(favicon) );
+	jsScript.setAttribute('src', '<?php echo ROOT_AJAX; ?>bookmark.php?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title) +'&amp;tags=' + keywords.content +'&amp;desc=' + description.content +'&amp;favicon='+ encodeURIComponent(favicon) + '&amp;publicKey=<?php echo PUBLIC_KEY; ?>' );
 	document.getElementsByTagName('head')[0].appendChild(jsScript);
 
 

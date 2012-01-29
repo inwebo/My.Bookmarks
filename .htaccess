@@ -1,4 +1,4 @@
 Options All -Indexes
-<Files *.log>
+<Files *.ini>
   Deny from all
 </Files>

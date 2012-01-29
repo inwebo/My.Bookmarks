@@ -50,11 +50,11 @@ $dbPassword = "\"".$enigma->code( $_POST['setupDbPassword'] )."\"";
 $create = file( 'config/sql' );
 $create = implode($create);
 
-//echo $create;
 
 $return = '';
 try {
 	$tempSql = new MySql( $_POST['setupDbServer'] ,$_POST['setupDbUser'], $_POST['setupDbPassword'],$_POST['setupDbDatabase']);
+        $tempSql->query( $create );
         $tempSql->query('INSERT INTO `users` VALUES ("","'.$_POST['setupUserName'].'", MD5(\'md5+' . $_POST['setupUserName'] . '+key\'),1,"",MD5(\'' .$_POST['setupUserName'] .'\' ))');
         //echo $tempSql->query;
 	$newConfig = new MyLog('config/config.ini.bak');

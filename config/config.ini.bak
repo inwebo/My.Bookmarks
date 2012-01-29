@@ -42,4 +42,13 @@ id =
 [My.Bookmarks]
 homeNomberOfUrls = 10
 version=01-01-2012
-serverVersion=http://my.bookmarks.free.fr/helpers/version.php
+serverVersion=http://bookmarks.inwebo.net/helpers/version.php
+
+[Database prefix]
+databasePrefix=my_bookmarks_
+
+[Grab favicon]
+grabFavicon = 0
+
+[Path iconfav]
+iconfavpath=iconfav/

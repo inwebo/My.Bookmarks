@@ -44,6 +44,23 @@ chdir('..');
 chdir('..');
 include('autoload.php');
 include( 'helpers/const.define.php');
+
+if( 
+        ( count($_GET)== 0 ) ||
+        !isset($_GET['publicKey']) ||
+        !isset($_GET['url']) ||
+        !isset($_GET['title']) ||
+        !isset($_GET['tags']) ||
+        !isset($_GET['favicon']) ||
+        !isset($_GET['desc']) 
+  ){
+    exit('Error GET');
+}
+
+if( $_GET['publicKey'] != PUBLIC_KEY ) {
+    exit('Error');
+}
+
 ?>
 <!--
 	var fileCss=document.createElement("link");
@@ -115,7 +132,7 @@ function saveContent() {
 
 	var jsScript=document.createElement('script');
 	jsScript.setAttribute('type','text/javascript');
-	jsScript.setAttribute('src', '<?php echo ROOT_AJAX; ?>bookmark-save.php?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(getTitle.value)+'&tags='+encodeURIComponent(getTags.value)+'&desc='+encodeURIComponent(getDesc.value)+'&id='+encodeURIComponent(idCat)+'&public='+encodeURIComponent(getPublic)+'&favicon=<?php echo $_GET['favicon'];?>' );
+	jsScript.setAttribute('src', '<?php echo ROOT_AJAX; ?>bookmark-save.php?publicKey=<?php echo $_GET['publicKey']; ?>&url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(getTitle.value)+'&tags='+encodeURIComponent(getTags.value)+'&desc='+encodeURIComponent(getDesc.value)+'&id='+encodeURIComponent(idCat)+'&public='+encodeURIComponent(getPublic)+'&favicon='+document.domain );
 	document.getElementsByTagName('head')[0].appendChild(jsScript);
 }
 //-->

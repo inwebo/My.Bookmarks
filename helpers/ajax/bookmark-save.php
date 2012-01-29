@@ -45,9 +45,24 @@ chdir('..');
 include( 'autoload.php' );
 include( 'helpers/const.define.php' );
 
+//var_dump($_GET);
 
+if(
+        ( count( $_GET ) == 0 ) ||
+        !isset($_GET['publicKey']) ||
+        !isset($_GET['url']) ||
+        !isset($_GET['title']) ||
+        !isset($_GET['tags']) ||
+        !isset($_GET['favicon']) ||
+        !isset($_GET['id']) ||
+        !isset($_GET['desc'])
+  ){
+    exit('Error GET');
+}
 
-
+if( $_GET['publicKey'] != PUBLIC_KEY ) {
+    exit('Error');
+}
 
 $new = $sql->query("INSERT INTO `bookmarks` (
                                         `hash`,
@@ -71,18 +86,16 @@ $new = $sql->query("INSERT INTO `bookmarks` (
 if( $sql->countRows === 1 ) {
         $totalLinks = $sql->query('SELECT COUNT(*) FROM `bookmarks`');      
 	$message = 'Url saved. You\'ve got ' . $totalLinks[0]['COUNT(*)'] . ' bookmarks in database';
-        /* Prepare favicon */
-        if(stristr( $_GET['favicon'], 'http') === FALSE ) {
-            $_GET['favicon'] = $_GET['url'] . $_GET['favicon'];
-        }
-        $from = fopen($_GET['favicon'],'rb');
+
+        $from = fopen( 'http://www.google.com/s2/favicons?domain='.$_GET['favicon'],'rb');
+        
         if( $from != FALSE ) {
-         $data='';
-        while(!feof($from))
-            $data.=fread($from,1024);
-        fclose($from );
-        $to = fopen('images/'.  md5($_GET['url']),'w+');
-        fwrite($to, $data);
+             $data='';
+            while(!feof($from))
+                $data.=fread($from,1024);
+            fclose($from );
+            $to = fopen('images/favicon/' .  md5($_GET['url']),'w+');
+            fwrite($to, $data);
         }
         
 }

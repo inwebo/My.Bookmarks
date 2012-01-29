@@ -132,6 +132,9 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 			elseif( $multiViews->args[1] == "about" ) {
                                     include( 'views/about.php' );
 			}
+                        else {
+                            include('views/home.php');
+                        }
 		?>
                 </div>
                 <!-- Breadcrumbs -->
