@@ -59,7 +59,7 @@ Le plus sage serait <strong>l'autonomie</strong> !
     <h2>Téléchargements</h2>
     <dd>
         <dl>La version la plus à jour se trouve sur Github.<dt><a href="https://github.com/inwebo/My.Bookmarks">https://github.com/inwebo/My.Bookmarks</a></dt></dl>
-        <dl>La dernière version stable sur PHPcs.<dt><a href="http://www.phpcs.com/codes/MY-BOOKMARKS_53833.aspx">http://www.phpcs.com/codes/MY-BOOKMARKS_53833.aspx</a></dt></dl>
+        <dl>La dernière version stable :<dt><a href="http://bookmarks.inwebo.net/download/my.bookmarks.zip">version 01-02-2012</a></dt></dl>
     </dd>
     <a name="Installation"></a>
     <h2>Installation</h2>
@@ -85,11 +85,11 @@ Le plus sage serait <strong>l'autonomie</strong> !
     <h2>Foire aux questions</h2>
     <dd>
     <dl>
-        Q :Comment remettre à zéro ma configuration de site sans perdre mes données ?<dt>R : Supprimer simplement config.ini se situant dans config/config.ini</dt>
+        Q : Comment remettre à zéro ma configuration de site sans perdre mes données ?<dt>R : Supprimer simplement config.ini se situant dans config/config.ini</dt>
     </dl>
     <dl>Q : Comment mettre à jour ma version de my.bookmarks ?<dt> R : Supprimer tous les fichiers contenu dans votre dossier d'installation.</dt></dl>
     <dl>Q : J'ai perdu mon mot de passe que faire ?<dt> R : Il faut vous rendre dans Php my admin dans la table users, éditer le champs `password` avec le md5 de votre nouveau mot de passe.</dt></dl>
-    <dl>Q: J'ai une page blanche ou une erreur 503 ?<dt>R : N'oubliez pas d'activer PHP 5.3 dans le .htaccess à la racine de votre site</dt>
+    <dl>Q : J'ai une page blanche ou une erreur 503 ?<dt>R : N'oubliez pas d'activer PHP 5.3 dans le .htaccess à la racine de votre site</dt>
         <pre>
             Pour ovh :
             SetEnv PHP_VER 5_3
