@@ -3,6 +3,7 @@ server   =
 database =
 user     =
 password =
+dbPrefix = my_tables_
 
 [Path]
 root            =
@@ -17,6 +18,7 @@ public          = public/
 views           = views/
 logs            = logs/
 cache           = cache/
+iconfav         = favicon/
 scandir         = index.php
 fileInfos       = detail.php
 bookmarks       = bookmark.php
@@ -26,29 +28,14 @@ googleAnalytics = google-analytics.php
 lifetime = 0
 
 [Site]
-name      = My.Bookmarks
-tagline   = Self hosted bookmarks
-publicKey =
-
-[Debug]
-debug = 1
-
-[BreadCrumbs]
-
+name             = My.Bookmarks
+tagline          = Self hosted bookmarks
+publicKey        =
+debug            = 1
+homeNomberOfUrls = 10
+version          = 01-01-2012
+serverVersion    = http://bookmarks.inwebo.net/helpers/version.php
+saveFavicon      = 0
 
 [GOOGLE ANALYTICS]
 id =
-
-[My.Bookmarks]
-homeNomberOfUrls = 10
-version=01-01-2012
-serverVersion=http://bookmarks.inwebo.net/helpers/version.php
-
-[Database prefix]
-databasePrefix=my_bookmarks_
-
-[Grab favicon]
-grabFavicon = 0
-
-[Path iconfav]
-iconfavpath=iconfav/
