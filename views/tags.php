@@ -112,27 +112,6 @@ foreach( $tagsCloud[0] as $key => $value ) {
 ?>
 	
 </p>
-<script type="text/javascript">
-    tagsArray = new Array(
-    <?php
-        $iterator = 0;
-        $totalLinks = count($tagsCloud[0]);
-        $output = '';
-        foreach( $tagsCloud[0] as $key => $value ) {
-            if($iterator != $totalLinks - 1) {
-                echo '"'.$value.'",';
-            }
-            else {
-                echo '"'.$value.'"';
-            }
-            ++$iterator;
-        }
-        
 
-            
-        
-    ?>
-    );
-</script>
 </div>
 <!-- /categorie.php -->
