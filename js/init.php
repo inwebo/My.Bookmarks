@@ -4,7 +4,7 @@ chdir('../');
 include('autoload.php');
 include('helpers/const.define.php');
 
-$output = 'hostRoot="'.$conf['root'].$conf['ajax'].'";' ."\n";
+$output = 'hostRoot="'.ROOT_AJAX.'";' ."\n";
 $output .= 'rootMain="'.ROOT_MAIN.'";' ."\n";
 $output .= 'hostJS="'.ROOT_JS.'";' ."\n";
 $output .= 'publicKey="'.$conf['publicKey'].'";' ."\n";

@@ -26,7 +26,7 @@
     <ul>
         <li>Utilisez plusieurs postes différents dans une journée.</li>
         <li>Jonglez avec plusieurs navigateurs.</li>
-        <li>Perdez vos favoris suite à un formatage de DD. (la loose je sais).</li>
+        <li>Perdez vos favoris suite à un formatage de disque dur. (la lose je sais).</li>
         <li>Souhaitez partager vos dernières découvertes avec vos amis.</li>
         <li>Voulez rester maitre de vos données.</li>
     </ul>

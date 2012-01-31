@@ -1,6 +1,6 @@
 <?php
 /**
- * My Bookmarks
+ * My.Bookmarks
  *
  * LICENCE
  *
@@ -38,15 +38,25 @@
  * @since     File available since Beta 28-11-2011
  */
 ?>
+<!-- home.php -->
+<div class="grid_12 about">
+    <h2>Backup</h2>
+
+    <?php
+    try {
+        $backup = $sql->query('SELECT * INTO DUMPFILE \'backup.bak\'');
+        var_dump($backup);
+    }
+    catch(Exception $e) {
+        echo 'error';
+    }
+    ?>
+    
+    <p>
+        
+    </p>
+</div>
 <?php
-chdir('..');
-chdir('..');
-include('autoload.php');
-include( 'helpers/const.define.php');
-$newCat = $sql->query( 'DELETE FROM `bookmarks` WHERE id=?', array( $_POST['delUrl'] ) ) ;
-if( count($newCat) ) {
-	echo 'FALSE';
-}
-else {
-	echo 'Del';
-}
+
+?>
+<!-- /home.php -->

@@ -49,6 +49,8 @@ else {
 	exit();
 }
 
+define('DEBUG', $conf['debug']);
+
 $enigma = new MyCrypt( md5( $conf['user'] ) );
 
 $root = $conf['root'];
@@ -81,10 +83,8 @@ define('ROOT_INFOS', $infos);
 $google =  $conf['root'] . ROOT_HELPERS . $conf['googleAnalytics'];
 define('GOOGLE', $google);
 
-$ajax = $conf['root'] . ROOT_HELPERS . 'ajax/';
+$ajax = ROOT_JS . 'ajax/';
 define('ROOT_AJAX', $ajax);
-
-define('MY_ERROR', $conf['debug']);
 
 define('PUBLIC_KEY', $conf['publicKey']);
 

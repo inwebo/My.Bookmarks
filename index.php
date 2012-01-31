@@ -7,7 +7,7 @@
 <?php include('autoload.php'); ?>
 <?php include( dirname( __FILE__ ) . DIRECTORY_SEPARATOR .'helpers/const.define.php'); ?>
 <?php
-ini_set('display_errors', MY_ERROR);
+ini_set('display_errors', DEBUG);
 // Controleur Init
 try {
 
@@ -133,6 +133,9 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 			elseif( $multiViews->args[1] == "about" ) {
                                     include( 'views/about.php' );
 			}
+			elseif( $multiViews->args[1] == "backup" ) {
+                                    include( 'views/backup.php' );
+			}
                         else {
                             include('views/home.php');
                         }
@@ -171,13 +174,10 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 <script type="text/javascript" src="<?php echo ROOT_JS; ?>tags-filter.js"></script>
 <?php if( $_SESSION['type'] == "admin") {?>
 <script type="text/javascript" src="<?php echo ROOT_JS; ?>init.php"></script>
-<script type="text/javascript" src="<?php echo ROOT_JS; ?>computeitem.js"></script>
-<script type="text/javascript" src="<?php echo ROOT_JS; ?>handler-gui-message.js"></script>
-
-<script type="text/javascript" src="<?php echo ROOT_JS; ?>gestion-categorie.js"></script>
-<!--<script type="text/javascript" src="<?php //echo ROOT_JS; ?>cat-del.js"></script>-->
-<script type="text/javascript" src="<?php echo ROOT_JS; ?>administration.js"></script>
-<script type="text/javascript" src="<?php echo ROOT_JS; ?>handler-help.js"></script>
+<script type="text/javascript" src="<?php echo ROOT_JS; ?>admin-items.js"></script>
+<script type="text/javascript" src="<?php echo ROOT_JS; ?>admin-categories.js"></script>
+<script type="text/javascript" src="<?php echo ROOT_JS; ?>gui-infos-bulles.js"></script>
+<script type="text/javascript" src="<?php echo ROOT_JS; ?>gui-help.js"></script>
 <?php } ?>
 <script type="text/javascript" src="<?php echo GOOGLE; ?>?id=<?php echo $conf ['id']; ?>"></script>
 <!-- /Custom JS -->
