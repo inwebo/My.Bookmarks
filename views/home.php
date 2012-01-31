@@ -113,7 +113,13 @@ while( isset( $grid[++$iterator] ) ) {
                     </h2>
 			<ul class="listUrl">' . "\n";
         foreach($grid[$iterator]['li'] as $key => $value) {
-            $output .= '<li><a href="' . $value['url'] . '" title="' . $value['title'] . '" data-tags="' .$value['tags'] . '">' . stripslashes($value['title']) . '</a></li>' . "\n";
+                if( file_exists( 'images/favicon/'.  md5( $value['url'] ) ) ){
+                    $output .= '<li><img src="images/favicon/' . md5( $value['url'] ) . '"/>&nbsp;<a href="' . $value['url'] . '" title="' . $value['title'] . '" data-tags="' .$value['tags'] . '">' . stripslashes($value['title']) . '</a></li>' . "\n";
+                }
+                else {
+                    $output .= '<li><a href="' . $value['url'] . '" title="' . $value['title'] . '" data-tags="' .$value['tags'] . '">' . stripslashes($value['title']) . '</a></li>' . "\n";
+                }
+            
         }
         $output .= '</ul></div>' . "\n";
 

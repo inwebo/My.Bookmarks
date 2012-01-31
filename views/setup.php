@@ -96,11 +96,15 @@
 					<legend>Site</legend>
 					<label class="inputGrid_1 inputGrid_1-first">Name : <input id="setupSiteName" name="setupSiteName" value="My.Bookmarks"/><br><span>Titre du site est contenu dans la balise H1.</span></label>
 					<label class="inputGrid_1">Tagline : <input id="setupTagLine" name="setupTagLine" value="Self hosted bookmarks"/><br><span>Slogan du site est contenu dans la balise H1.</span></label>
+                                        <label class="inputGrid_1 inputGrid_1-first">Debug activé ? : <select id="setupDebug" name="setupDebug"><option value="0">non</option><option value="1">oui</option></select><br><span>Conseillé non.</span></label>
+					<label class="inputGrid_1">Nombre de lien par catégorie sur la page d'accueil : <select id="setupTotalUrls" name="setupTotalUrls"><option value="10">10</option><option value="20">20</option></select><br><span>Conseillé 10.</span></label>
+                                        <label class="inputGrid_1 inputGrid_1-first">Sauvegarde des favicons ? : <select id="setupFavicon" name="setupFavicon"><option value="0">non</option><option value="1">oui</option></select><br><span>Dégrade les performances.</span></label>
+                                        <label class="inputGrid_1">Liens public par défaut ? : <select id="setupPublic" name="setupPublic"><option value="0">non</option><option value="1">oui</option></select><br><span>Conseillé Oui.</span></label>
 				</fieldset>
 				<hr>
 				<fieldset id="containerUser">
 					<legend>User</legend>
-					<label class="inputGrid_1 inputGrid_1-first">Name : <input id="setupUserName" name="setupUserName" /><br><span>Votre nom d'utilisateur.</span></label>
+					<label class="inputGrid_1 inputGrid_1-first">Name : <input id="setupUserName" name="setupUserName" value="inwebo"/><br><span>Votre nom d'utilisateur.</span></label>
 					<label class="inputGrid_1">Password : <input id="setupUserPassword" name="setupUserPassword" /><br><span>Mot de passe.</span></label>
 				</fieldset>
 				<hr>
@@ -111,11 +115,13 @@
 				<hr>
 				<fieldset id="containerDatabase">
 					<legend>Database</legend>
-					<label class="inputGrid_1 inputGrid_1-first">Server : <input id="setupDbServer" name="setupDbServer" /><br><span>Adresse du serveur sql ex : <em>sql.free.fr</em>.</span></label>
-                                        <label class="inputGrid_1 inputGrid_1">Database : <input id="setupDbDatabase" name="setupDatabase" /><br><span>Base de donnée.</span></label>
-					<label class="inputGrid_1 inputGrid_1-first">User : <input id="setupDbUser" name="setupDbUser" /><br><span>Nom de l'utilisateur.</span></label>
-					<label class="inputGrid_1 inputGrid_1">Password : <input id="setupDbPassword" name="setupPassword"/><br><span>Mot de passe.</span></label>
-					
+					<label class="inputGrid_1 inputGrid_1-first">Server : <input id="setupDbServer" name="setupDbServer" value="localhost"/><br><span>Adresse du serveur sql ex : <em>sql.free.fr</em>.</span></label>
+                                        <label class="inputGrid_1 inputGrid_1">Database : <input id="setupDbDatabase" name="setupDatabase" value="t" /><br><span>Base de donnée.</span></label>
+					<label class="inputGrid_1 inputGrid_1-first">User : <input id="setupDbUser" name="setupDbUser" value="inwebo"/><br><span>Nom de l'utilisateur.</span></label>
+					<label class="inputGrid_1 inputGrid_1">Password : <input id="setupDbPassword" name="setupPassword" value="inwebo"/><br><span>Mot de passe.</span></label>
+                                        
+					<label>Table prefixe : <input id="setupDbPrefix" name="setupDbPrefix" value="my_tables_"/><br><span>Prefix d'organisation des tables.</span></label>
+                                        <a id="databaseTest" href="#" onclick="return false;" class="myButton">Test de connexion</a>
 				</fieldset>
 				<hr>
 				<fieldset>
@@ -127,50 +133,49 @@
 				<hr>
 			</form>
                 <!-- /New -->
-                
-<!-- old --><!---
-<h1>Install My.Bookmarks</h1>
-<form id="setupForm" name="setupForm" method="post" enctype="application/x-www-form-urlencoded">
-	<fieldset>
-		<legend>Site</legend>
-		<label>Name : <input id="setupSiteName" name="setupSiteName" value="My.Bookmarks"/></label><br>
-		<label>Tagline : <input id="setupTagLine" name="setupTagLine" value="Self hosted bookmarks"/></label>
-	</fieldset>
-	<fieldset id="containerPath">
-		<legend>Path</legend>
-		<label>Root : <input id="setupRoot" name="setupRoot" /></label>
-	</fieldset>
-	<fieldset id="containerDatabase">
-		<legend>Database</legend>
-		<label>Server : <input id="setupDbServer" name="setupDbServer" /></label><br>
-		<label>User : <input id="setupDbUser" name="setupDbUser" /></label><br>
-		<label>Password : <input id="setupDbPassword" name="setupPassword"/></label><br>
-		<label>Database : <input id="setupDbDatabase" name="setupDatabase" /></label><br>
-	</fieldset>
-	<fieldset>
-		<legend>Google Analytics</legend>
-		<label>Id : <input id="setupGa" name="setupGa" /></label>
-	</fieldset>
-	<a href="#" id="saveSetup" name="saveSetup">Save</a>
-</form>
 
-<p id="getIt">
-	D&eacute;placer le lien suivant dans votre barre de favoris.
-	<?php
-		//include('helpers/bouton.php');
-	?>
-	<br>
-	<br>
-
-</p>
-<a href="#" id="continue">Continue</a>-->
-         <script type="text/javascript" src="js/handler-gui-message.js"></script>
-<script>
+         <script type="text/javascript" src="js/gui-infos-bulles.js"></script>
+<script type="text/javascript" >
 <?php
-	echo 'var hostRoot="helpers/ajax/setup.php";'  . "\n";
+        // @todo buffer config
+	echo 'var hostRoot="js/ajax/setup.php";'  . "\n";
+	echo 'var databaseTest="js/ajax/database-test.php";'  . "\n";
 ?>
 
 ( function($){
+
+        $('#databaseTest').click(function(){
+
+$.ajax({
+				type: "POST",
+				// URL script PHP
+				url: $('#setupRoot').val()+'js/ajax/database-test.php',
+				data: {
+                                        setupRoot: $('#setupRoot').val(),
+                                        setupDbUser: $('#setupDbUser').val(),
+                                        setupDbPassword: $('#setupDbPassword').val(),
+                                        setupDbDatabase: $('#setupDbDatabase').val(),
+                                        setupDbServer: $('#setupDbServer').val(),
+                                        },
+				dataType: "text",
+				beforeSend:function() {
+					// Image loading
+				},
+				success:function(data) {
+					//data = responseText
+					if( data == 'TRUE' ) {
+						addMssg('okay','Connexion ok.');
+					}
+					else {
+						addMssg('error','Connexion error');
+					}
+				},
+				error:function() {
+                                        addMssg('error','Error 404<br>Please chek path input.');
+				}
+			});
+
+        });
 
 	$( '#getIt' ).css( 'display', 'none' );
 	$( '#continue' ).css( 'display', 'none' );
@@ -197,6 +202,11 @@
                                         setupDbPassword: $('#setupDbPassword').val(),
                                         setupDbDatabase: $('#setupDbDatabase').val(),
                                         setupDbServer: $('#setupDbServer').val(),
+                                        setupDbPrefix: $('#setupDbPrefix').val(),
+                                        setupFavicon: $('#setupFavicon option:selected').val(),
+                                        setupPublic: $('#setupPublic option:selected').val(),
+                                        setupDebug: $('#setupDebug option:selected').val(),
+                                        setupTotalUrls: $('#setupTotalUrls option:selected').val(),
                                         setupGa: $('#setupGa').val(),
                                         },
 				dataType: "text",
@@ -206,21 +216,16 @@
 				success:function(data) {
 					//data = responseText
 					if( data == 'TRUE' ) {
-						addMssg('okay','Setup is complete.');
-						//$('#containerDatabase').css('border', 'groove 2px green');
+						addMssg('okay','Bravo, l\'application s\'est instalée correctement.');
 						$('#setupForm').fadeOut('fast', function() {
 							$('#continue').fadeIn();
 						});
-                                                //addMssg('okay','Path ok');
 					}
 					else {
 						addMssg('error','Database connection failed');
-						//$('#containerDatabase').css('border', 'groove 2px red');
 					}
-					//$('#containerPath').css('border', 'groove 2px green');
 				},
 				error:function() {
-					//$('#containerPath').css('border', 'groove 2px red');
                                         addMssg('error','Error 404<br>Please chek path input.');
 				}
 			});

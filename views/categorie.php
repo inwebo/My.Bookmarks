@@ -65,7 +65,7 @@
                                     New categorie name ?<br>
                                     <input id="inputCat" name="inputCat" type="text"><br><br>
                                     <a href="#" id="addCategory" class="myButton" onclick="return false;">Add</a>
-                                    <br><span id="addResponse">&nbsp;</span>
+                                    <br>&nbsp;<span id="addResponse"></span>
                                     <input type="hidden" value="<?php echo $i; ?>" id="totalCategories" name="totalCategories">
                                 </label>
                             </form>
@@ -88,7 +88,7 @@
                             $links = $sql->query('SELECT * FROM '. DB_TABLE_PREFIX .'bookmarks where category=? ORDER BY `dt` DESC', array($multiViews->args[3]));
                             $totalLinks = count( $links ) ;
                         ?>
-			<h2><?php echo urldecode($multiViews->args[2]); ?><span class="totalLinks"><?php echo $totalLinks; ?> links</span></h2>
+			<h2><?php echo urldecode($multiViews->args[2]); ?><span class="totalLinks">&nbsp;<?php echo $totalLinks; ?> urls</span></h2>
 
                         <ul class="listUrl">
 			<?php
