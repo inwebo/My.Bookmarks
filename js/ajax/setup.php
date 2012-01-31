@@ -40,7 +40,7 @@
 ?>
 <?php
 chdir('../../');
-include('lib/mysql/class.mysql.php');
+include('lib/config/class.config.php');
 include('lib/mypdo/class.mypdo.php');
 include('lib/mylog/class.mylog.php');
 include('lib/mycrypt/class.mycrypt.php');
@@ -51,25 +51,36 @@ $dbPassword = "\"".$enigma->code( $_POST['setupDbPassword'] )."\"";
 $create = file( 'config/sql' );
 $create = implode($create);
 
+$create = str_replace('bookmarks', $_POST['setupDbPrefix'] . 'bookmarks', $create);
+$create = str_replace('users', $_POST['setupDbPrefix'] . 'users', $create);
+$create = str_replace('categories', $_POST['setupDbPrefix'] . 'categories', $create);
+$create = str_replace('role', $_POST['setupDbPrefix'] . 'role', $create);
+
+//echo $create;
 
 $return = '';
 try {
 	$tempSql = new MyPdo( $_POST['setupDbServer'],$_POST['setupDbDatabase'] ,$_POST['setupDbUser'], $_POST['setupDbPassword']);
-        //$tempSql->query( $create );
+        $tempSql->query( $create );
 
         // @todo tables prefixes
-        $tempSql->query('INSERT INTO `users` VALUES ("","'.$_POST['setupUserName'].'", MD5(\'' . $_POST['setupUserName'] . '\'),1,"",MD5(\'' .$_POST['setupUserName'] .'+key\' ))');
-        //echo $tempSql->query;
-	$newConfig = new MyLog('config/config.ini.bak');
-	$newConfig->setLine(2, $newConfig->getLine(2) . $_POST['setupDbServer'] );
-	$newConfig->setLine(3, $newConfig->getLine(3) . $_POST['setupDbDatabase'] );
-	$newConfig->setLine(4, $newConfig->getLine(4) . $_POST['setupDbUser'] );
-	$newConfig->setLine(5, $newConfig->getLine(5) . $dbPassword );
-	$newConfig->setLine(8, $newConfig->getLine(8) . $_POST['setupRoot'] );
-	$newConfig->setLine(31, $newConfig->getLine(31) . md5( $_POST['setupUserName'].'+key') );
-	$newConfig->setLine(40, $newConfig->getLine(40) . $_POST['setupGa'] );
-	$newConfig->file='config/config.ini';
-	$newConfig->save();
+        $tempSql->query('INSERT INTO `'.$_POST['setupDbPrefix'].'users` VALUES ("","'.$_POST['setupUserName'].'", MD5(\'' . $_POST['setupUserName'] . '\'),1,"",MD5(\'' .$_POST['setupUserName'] .'+key\' ))');
+        $tempConf = config::get('config/config.ini.bak');
+        $tempConf['root'] = $_POST['setupRoot'];
+        $tempConf['server'] = $_POST['setupDbServer'];
+        $tempConf['database'] = $_POST['setupDbDatabase'];
+        $tempConf['user'] = $_POST['setupDbUser'];
+        $tempConf['password'] = $dbPassword;
+        $tempConf['dbPrefix'] = $_POST['setupDbPrefix'];
+        $tempConf['debug'] = $_POST['setupDebug'];
+        $tempConf['homeNomberOfUrls'] = $_POST['setupTotalUrls'];
+        $tempConf['saveFavicon'] = $_POST['setupFavicon'];
+        $tempConf['visibility'] = $_POST['setupPublic'];
+        $tempConf['publicKey'] = md5( $_POST['setupRoot'] .  time() );
+        $tempConf['id'] = $_POST['setupGa'];
+
+        config::save($tempConf, "config/config.ini");
+
 	$return = 'TRUE';
 
 }
