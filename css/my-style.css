@@ -637,10 +637,14 @@ footer .grid_12 p .myButton {
     margin-bottom: 5px;
 	font-weight: bold;
 }
-
-#setupForm input, #setupForm textarea, #setupForm select{
+         #setupForm select {
+            width:453px;
+            padding: 5px;
+        }
+        
+#setupForm input, #setupForm textarea{
     width: 906px;
-	padding: 5px;
+    padding: 5px;
 }
 
 	#setupForm input:focus, #setupForm textarea:focus {
@@ -657,6 +661,8 @@ footer .grid_12 p .myButton {
 		float: left;
 		width: 453px;
 	}
+
+
 
 	#setupForm label {
 		width:100%;
