@@ -42,7 +42,7 @@ catch( Exception $e ) {
 }
 
 if( isset( $_POST['login'] ) && isset( $_POST['password'] ) ) {
-	$userExists = $sql->query( 'SELECT *  from `users` WHERE login=? AND password=?', array( $_POST['login'], md5( $_POST['password'] ) ) );
+	$userExists = $sql->query( 'SELECT *  from `'. DB_TABLE_PREFIX .'users` WHERE login=? AND password=?', array( $_POST['login'], md5( $_POST['password'] ) ) );
         //var_dump( isset ( $userExists[0] ) );
         if( isset ( $userExists[0] ) ) {
 		$sessions->setParams('type','admin');
