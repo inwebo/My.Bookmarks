@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: localhost
--- Généré le : Sam 03 Décembre 2011 à 18:20
+-- Généré le : Mar 31 Janvier 2012 à 16:43
 -- Version du serveur: 5.1.54
--- Version de PHP: 5.3.5-1ubuntu7.3
+-- Version de PHP: 5.3.5-1ubuntu7.4
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -16,7 +16,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `my.bookmarks`
+-- Base de données: `my_structure`
 --
 
 -- --------------------------------------------------------
@@ -34,21 +34,16 @@ CREATE TABLE IF NOT EXISTS `bookmarks` (
   `description` text COLLATE utf8_bin NOT NULL,
   `dt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `category` int(11) NOT NULL DEFAULT '1',
-  `public` tinyint(1) NOT NULL DEFAULT '0',
+  `public` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `hash` (`hash`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Contenu de la table `bookmarks`
 --
 
-INSERT INTO `bookmarks` (`id`, `hash`, `url`, `title`, `tags`, `description`, `dt`, `category`, `public`) VALUES
-(1, '6a02292852c9f429a13ac6c50bb9bdec', 'https://github.com/inwebo/My.Bookmarks', 'GitHub - My Bookmarks', 'github', 'My.Bookmarks - Self hosted bookmarks application, stay tune!', '2011-12-03 18:15:45', 1, 0),
-(2, '05465b06396eaa76c3a68979a4f1cb11', 'http://hannotin.julien.is.free.fr/', 'Julien Hannotin : Curriculum vitæ en ligne', 'hannotin julien css php php5 html netbeans cv xml', 'Julien Hannotin artisan du ouaib.', '2011-12-03 18:17:35', 1, 0),
-(3, '9fc5409d08d8f14ff581848b9ab2ddae', 'http://www.phpcs.com/', 'PHPCS.com | PHP CodeS SourceS | 3361 sources PHP, Source, Code, PHP Scripts, Programmation, Cours , Script, Tutorial, Tutoriaux etc...', 'PHP Codes Sources PHP sources PHP Codes PHP Scripts PHP Script Programmation Developper Programmer Developpement Cours  Tutorial Tutoriaux aide informations PHP Windows 95 Windows 98 Windows NT4 Windows 2000 Sources Codes France Francais French', 'Beaucoup de Codes Sources pour PHP, Scripts, Script, Sources, Codes, France, Francais, French', '2011-12-03 18:18:02', 1, 0),
-(4, 'fff4ad2651b87c9a095dd30f90f3cd5a', 'https://github.com/inwebo/My.Bookmarks/wiki', 'GitHub - My.Bookmarks wiki', 'wiki', 'My.Bookmarks wiki', '2011-12-03 18:19:00', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -61,14 +56,15 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='La catégorie Buffer contient liens orphelins, Trash effacés' AUTO_INCREMENT=3 ;
 
 --
 -- Contenu de la table `categories`
 --
 
 INSERT INTO `categories` (`id`, `name`) VALUES
-(1, 'Incoming');
+(1, 'Incoming'),
+(2, 'Poubelle');
 
 -- --------------------------------------------------------
 
@@ -84,31 +80,6 @@ CREATE TABLE IF NOT EXISTS `role` (
 
 --
 -- Contenu de la table `role`
---
-
-
--- --------------------------------------------------------
-
---
--- Structure de la table `trash`
---
-
-CREATE TABLE IF NOT EXISTS `trash` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `hash` varchar(32) COLLATE utf8_bin NOT NULL,
-  `url` text COLLATE utf8_bin NOT NULL,
-  `title` text COLLATE utf8_bin NOT NULL,
-  `tags` text COLLATE utf8_bin NOT NULL,
-  `description` text COLLATE utf8_bin NOT NULL,
-  `dt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `category` int(11) NOT NULL DEFAULT '1',
-  `public` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `hash` (`hash`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
-
---
--- Contenu de la table `trash`
 --
 
 
