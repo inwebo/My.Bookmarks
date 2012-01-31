@@ -384,7 +384,7 @@ nav li a.myButton {
 }
 
 #breadCrumbs ul{
-    margin: 0;
+margin: 20px 0 0;
     padding: 0;
 }
 #breadCrumbs ul li {
@@ -473,10 +473,20 @@ header h1 img {
 	margin-right: 10px;
 }
 nav {
+    border-bottom: 1px solid #E6E6E6;
+    border-top: 1px solid #555555;
+    background-color: #F2F2F2;
     display: inline-block;
     float: right;
-	   margin-bottom: -10px;
-           margin-right: -10px;
+    height: 50px;
+    line-height: 50px;
+
+    width: 100%;
+}
+
+.headerNav {
+text-align: right;
+    
 }
 
 #boutonTop,#loginClick {
@@ -499,10 +509,14 @@ nav {
 
 nav li {
     display: inline-block;
-    margin-bottom: -20px;
-    margin-top: 5px;
-    padding: 10px;
-    position: relative;
+margin-right: 20px;
+padding: 0 5px;
+    min-width: 50px;
+    text-align: center;
+}
+
+nav li a{
+    text-decoration: none;
 }
 
 nav li:hover {
@@ -517,6 +531,9 @@ nav li:hover a:hover {
 .heaederListActif,  .heaederListActif:hover{
 	background: #FAFAFA;
 	text-decoration:none;
+        height: 51px;
+        border-left: 1px solid #E6E6E6;
+        border-right: 1px solid #E6E6E6;
 }
 
 .heaederListActif:hover a {

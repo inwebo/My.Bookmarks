@@ -43,7 +43,7 @@ chdir('..');
 chdir('..');
 include('autoload.php');
 include( 'helpers/const.define.php');
-$newCat = $sql->query( 'DELETE FROM `bookmarks` WHERE id=?', array( $_POST['delUrl'] ) ) ;
+$newCat = $sql->query( 'DELETE FROM `'. DB_TABLE_PREFIX .'bookmarks` WHERE id=?', array( $_POST['delUrl'] ) ) ;
 if( count($newCat) ) {
 	echo 'FALSE';
 }

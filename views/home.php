@@ -41,7 +41,7 @@
 <!-- home.php -->
 <?php
 
-$allCategories = $sql->query('SELECT `id`, `name` FROM `categories`');
+$allCategories = $sql->query('SELECT `id`, `name` FROM `'. DB_TABLE_PREFIX .'categories`');
 
 $grid   = array();
 $i      = 0;
@@ -52,10 +52,10 @@ $output = '';
 foreach( $allCategories as $oneCategorie ){
     // All categories
     if($_SESSION['type'] == 'admin') {
-        $listItemOneCategory = $sql->query('SELECT * FROM `bookmarks` WHERE `category`=' . $oneCategorie['id'] . ' ORDER BY `dt` DESC LIMIT 0,' . $conf['homeNomberOfUrls']);
+        $listItemOneCategory = $sql->query('SELECT * FROM `'. DB_TABLE_PREFIX .'bookmarks` WHERE `category`=' . $oneCategorie['id'] . ' ORDER BY `dt` DESC LIMIT 0,' . $conf['homeNomberOfUrls']);
     }
     else {
-        $listItemOneCategory = $sql->query('SELECT * FROM `bookmarks` WHERE `category`=' . $oneCategorie['id'] . ' ORDER BY `dt` DESC LIMIT 0,' . $conf['homeNomberOfUrls']);
+        $listItemOneCategory = $sql->query('SELECT * FROM `'. DB_TABLE_PREFIX .'bookmarks` WHERE `category`=' . $oneCategorie['id'] . ' ORDER BY `dt` DESC LIMIT 0,' . $conf['homeNomberOfUrls']);
         //echo $sql->query;
     }
     

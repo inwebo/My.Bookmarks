@@ -76,7 +76,12 @@
                 </p>
             <?php } ?>
             <!-- /bouton -->
-            <nav>
+            
+        </div>
+
+    </div>
+<nav>
+    <div class="container_12 headerNav">
                 <li
                 <?php
                 if ( (isset( $multiViews->total) && $multiViews->total === 0) || $multiViews->args[1] == 'categorie' ) {
@@ -113,8 +118,7 @@
                     >
                     <a href="<?php echo ROOT_MAIN . 'about/'; ?>">About</a>
                 </li>
-            </nav>
-        </div>
     </div>
+            </nav>
 </header>
 <!-- /header -->

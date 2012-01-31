@@ -37,5 +37,8 @@ version          = 01-01-2012
 serverVersion    = http://bookmarks.inwebo.net/helpers/version.php
 saveFavicon      = 0
 
+[Default urls visibility]
+visibility = 1
+
 [GOOGLE ANALYTICS]
 id =

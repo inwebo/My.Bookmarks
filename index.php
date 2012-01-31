@@ -172,7 +172,7 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 
 <script type="text/javascript" src="<?php echo ROOT_JS; ?>login.js"></script>
 <script type="text/javascript" src="<?php echo ROOT_JS; ?>tags-filter.js"></script>
-<?php if( $_SESSION['type'] == "admin") {?>
+<?php if( $_SESSION['type'] == "admin") { ?>
 <script type="text/javascript" src="<?php echo ROOT_JS; ?>init.php"></script>
 <script type="text/javascript" src="<?php echo ROOT_JS; ?>admin-items.js"></script>
 <script type="text/javascript" src="<?php echo ROOT_JS; ?>admin-categories.js"></script>

@@ -68,7 +68,7 @@
 
 $array_tags=array();
 $filter = array( 0 => '' );
-$tags = $sql->query('SELECT `tags` FROM `bookmarks`');
+$tags = $sql->query('SELECT `tags` FROM `'. DB_TABLE_PREFIX .'bookmarks`');
 
 $buffer = array();
 

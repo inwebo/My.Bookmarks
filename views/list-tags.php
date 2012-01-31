@@ -45,7 +45,7 @@
                             <h2>Categories</h2>
 				<?php
 					$i=0;
-					$links = $sql->query('SELECT * FROM categories ORDER BY `name` ASC ');
+					$links = $sql->query('SELECT * FROM '. DB_TABLE_PREFIX .'categories ORDER BY `name` ASC ');
 					//while ($row = mysql_fetch_assoc( $links )) {
 					foreach( $links as $row ) {
 						echo '<p id="idCategorie'.$row['id'].'" data-id="'.$row['id'].'"><a href="' . ROOT_MAIN . $row['id'] . '/' . $row['name'] . '">'.$row['name'].'</a><span class="delete" data-id="'.$row['id'].'" data-category="'.$row['name'].'" ><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></p>'."\n";
@@ -78,13 +78,13 @@
 			<?php } ?>
                         <?php
                         
-                            $links = $sql->query('SELECT * FROM bookmarks where tags LIKE \'%'.$multiViews->args[2].'%\' ORDER BY `dt` DESC');
+                            $links = $sql->query('SELECT * FROM '. DB_TABLE_PREFIX .'bookmarks where tags LIKE \'%'.$multiViews->args[2].'%\' ORDER BY `dt` DESC');
                             $totalLinks = count( $links ) ;
                         ?>
                             <h2>Tags : <em><?php echo $multiViews->args[2]; ?></em><span class="totalLinks"><?php echo $totalLinks; ?></span></h2>
 			<ul class="listUrl">
 			<?php
-				$links = $sql->query('SELECT * FROM bookmarks where tags LIKE \'%'.$multiViews->args[2].'%\' ORDER BY `dt` DESC');
+				$links = $sql->query('SELECT * FROM '. DB_TABLE_PREFIX .'bookmarks where tags LIKE \'%'.$multiViews->args[2].'%\' ORDER BY `dt` DESC');
 				if( count($links ) != 0 ) {
 					//while ($row = mysql_fetch_assoc( $links )) {
 					foreach ( $links as $row ) {

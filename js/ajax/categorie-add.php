@@ -43,12 +43,12 @@ chdir('..');
 chdir('..');
 include('autoload.php');
 include( 'helpers/const.define.php');
-$newCat = $sql->query( 'INSERT INTO `categories` (`name`) VALUES (?)', array( $_POST['inputCat'] ) ) ;
+$newCat = $sql->query( 'INSERT INTO `'.DB_TABLE_PREFIX.'categories` (`name`) VALUES (?)', array( $_POST['inputCat'] ) ) ;
 
 if( $sql->countRows == 0 ) {
 	echo 'FALSE';
 }
 else {
-	$newIdCat = $sql->query( 'SELECT `id` FROM `categories` WHERE `name`=?', array( $_POST['inputCat'] ) ) ;
+	$newIdCat = $sql->query( 'SELECT `id` FROM `'. DB_TABLE_PREFIX .'categories` WHERE `name`=?', array( $_POST['inputCat'] ) ) ;
         echo $newIdCat[0]['id']."\n";
 }

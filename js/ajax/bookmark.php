@@ -78,7 +78,7 @@ if( $_GET['publicKey'] != PUBLIC_KEY ) {
 
 	<?php
 		$categoriesJavascript = "";
-		$categories = $sql->query('SELECT * FROM `categories`');
+		$categories = $sql->query('SELECT * FROM `'. DB_TABLE_PREFIX .'categories`');
 		//while ($row = mysql_fetch_assoc( $categories )) {
 		foreach ( $categories as $row) {
 		$categoriesJavascript .= "

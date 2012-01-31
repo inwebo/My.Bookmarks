@@ -67,7 +67,7 @@ if( $_GET['publicKey'] != PUBLIC_KEY ) {
     exit('Error');
 }
 
-$new = $sql->query("INSERT INTO `bookmarks` (
+$new = $sql->query("INSERT INTO `".DB_TABLE_PREFIX."bookmarks` (
                                         `hash`,
                                         `url`,
                                         `title`,
@@ -87,7 +87,7 @@ $new = $sql->query("INSERT INTO `bookmarks` (
 				)", array( md5($_GET['url']), $_GET['url'], $_GET['title'], $_GET['tags'], $_GET['desc'], $_GET['id'], $_GET['public'] ) );
 
 if( $sql->countRows === 1 ) {
-        $totalLinks = $sql->query('SELECT COUNT(*) FROM `bookmarks`');      
+        $totalLinks = $sql->query('SELECT COUNT(*) FROM `'. DB_TABLE_PREFIX .'bookmarks`');
 	$message = 'Url saved. You\'ve got ' . $totalLinks[0]['COUNT(*)'] . ' bookmarks in database';
 
         $from = fopen( 'http://www.google.com/s2/favicons?domain='.$_GET['favicon'],'rb');

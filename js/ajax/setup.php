@@ -56,6 +56,8 @@ $return = '';
 try {
 	$tempSql = new MyPdo( $_POST['setupDbServer'],$_POST['setupDbDatabase'] ,$_POST['setupDbUser'], $_POST['setupDbPassword']);
         //$tempSql->query( $create );
+
+        // @todo tables prefixes
         $tempSql->query('INSERT INTO `users` VALUES ("","'.$_POST['setupUserName'].'", MD5(\'' . $_POST['setupUserName'] . '\'),1,"",MD5(\'' .$_POST['setupUserName'] .'+key\' ))');
         //echo $tempSql->query;
 	$newConfig = new MyLog('config/config.ini.bak');
