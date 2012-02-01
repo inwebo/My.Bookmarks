@@ -115,12 +115,11 @@ h2 a {
 }
 
 /* Del */
-.delete {
-	float:right;
+.gui-item-button {
+    float:right;
 }
 
-.delete a {
-    background-color: #BF0202;
+.gui-item-button {
     border-radius: 2px 2px 2px 2px;
     color: white;
     display: block;
@@ -130,10 +129,33 @@ h2 a {
     position: relative;
     text-align: center;
     text-decoration: none;
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-	margin-top: 0.2em;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    margin-top: 0.2em;
+}
+
+.gui-item-button a {
+    color:white;
+    text-decoration: none;
+    font-variant: small-caps;
+}
+
+.close {
+    background-color: #BF0202;
+}
+
+.edit {
+    background-color: green;
+}
+
+.save {
+    background-color: blue;
+}
+
+.edit, .save {
+    margin-right: 5px;
+    background-color: rgba(119, 212, 42, 0.7);
 }
 
 .delete a .deleteTxt {
@@ -509,10 +531,14 @@ text-align: right;
 
 nav li {
     display: inline-block;
-margin-right: 20px;
-padding: 0 5px;
+    margin-right: 20px;
+    padding: 0 5px;
     min-width: 50px;
     text-align: center;
+    position: relative;
+}
+nav li:last-child {
+    margin-right: 0;
 }
 
 nav li a{
@@ -534,6 +560,11 @@ nav li:hover a:hover {
         height: 51px;
         border-left: 1px solid #E6E6E6;
         border-right: 1px solid #E6E6E6;
+        
+}
+
+.heaederListActif a {
+    
 }
 
 .heaederListActif:hover a {
@@ -758,4 +789,42 @@ footer .grid_12 p .myButton {
     float: left;
     margin-bottom: 10px;
     margin-right: 10px;
+}
+
+.itemEdit {
+    /*display: none;*/
+}
+
+.editItem {
+background-color: #E0E5E9;
+    border: 1px solid #BECAD1;
+    border-radius: 5px 5px 5px 5px;
+    bottom: -10px;
+    color: #9FB0BB;
+    cursor: move;
+    display: inline-block;
+    left: -10px;
+    line-height: 36px;
+    margin-right: 20px;
+    margin-top: 5px;
+    padding: 2px;
+    text-align: center;
+    vertical-align: top;
+    width: 45px;
+}
+.itemSaveSpan {
+    display:none;
+}
+
+@font-face {
+    font-family: "IconicStroke";
+    src: local("IconicStroke"), url("font/iconic_stroke.otf") format("opentype");
+}
+.iconic {
+    display: inline-block;
+    font-family: 'IconicStroke';
+}
+
+.logo:before {
+    content:'\e02b';
 }

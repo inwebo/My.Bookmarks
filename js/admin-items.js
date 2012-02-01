@@ -81,5 +81,24 @@
             }
         });
 
+
+        $('.itemEditSpan a').click(function(){
+            //Retourne un objet jQuery
+            container = $( this ).parents('div').eq(0);
+
+            if( $(this).html() == 'edit' ) { $(this).html('save') } else { $(this).html('edit')  };            
+
+            actuel = $(container).children();
+            form = $(container).next('div');
+
+            $( actuel ).html( $( form ).html() ) ;
+            $( form ).html( $( actuel ).html() ) ;
+
+            console.log( container.html() );
+            console.log( actuel.html() );
+            console.log( form.html() );
+            console.log( $(this).html() );
+        });
+
     });
 })(jQuery);

@@ -42,7 +42,7 @@
 <header>
     <div class="container_12">
         <div id="headerGrid_12" class="grid_12">
-        <h1><?php echo $conf ['name']; ?></h1>
+        <h1><?php echo $conf ['name']; ?><span class="iconic logo">&nbsp;</span></h1>
             <?php if ($_SESSION['type'] != 'admin') { ?>
                 <span id="boutonTop">
                     <a href="#" id="loginClick">Login</a>
@@ -100,15 +100,7 @@
                     >
                     <a href="<?php echo ROOT_MAIN . 'tags/'; ?>">Tags</a>
                 </li>
-                <li
-                <?php
-                if ((isset($multiViews->args[1]) && $multiViews->args[1] == 'help') ) {
-                    echo ' class="heaederListActif" ';
-                }
-                ?>
-                    >
-                    <a href="<?php echo ROOT_MAIN . 'help/'; ?>">Help</a>
-                </li>
+
                 <li
                 <?php
                 if ($multiViews->args[1] == 'about' ) {
