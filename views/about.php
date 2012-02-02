@@ -64,17 +64,15 @@ Le plus sage serait <strong>l'autonomie</strong> !
     <a name="Installation"></a>
     <h2>Installation</h2>
     <ol>
-        <li>Création de votre base de données</li>
         <li>Décompression de l'archive dans sur votre serveur</li>
-        <li>Import du fichier SQL disponible dans config/sql</li>
-        <li>Lancement de l'application, configuration</li>
+        <li>Configuration de l'application</li>
         <li>Déposer le widget dans votre barre personnelle</li>
         <li>Enjoy</li>
     </ol>
     <a name="Setup"></a>
     <h2>Setup</h2>
     <p>
-
+        Détail à faire
     </p>
     <a name="Readme"></a>
     <h2>Readme</h2>

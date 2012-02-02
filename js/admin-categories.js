@@ -19,7 +19,7 @@ $('#addCategory').click( function() {
 			success:function(data) {
 				if(data != "FALSE") {
 					$('#addResponse').html('added');
-					$('#addNewcat').before('<p id="idCategorie'+$.trim(data)+'" data-id="'+$.trim(data)+'"><a href="'+rootMain+'categorie/'+$('#inputCat').val()+'/'+data+'">'+$('#inputCat').val()+'</a><span class="delete" data-id="'+$.trim(data)+'" data-category="'+$.trim(data)+'" ><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></p>');
+					$('#addNewcat').before('<p id="idCategorie'+$.trim(data)+'" data-id="'+$.trim(data)+'"><a href="'+rootMain+'categorie/'+$('#inputCat').val()+'/'+data+'">'+$('#inputCat').val()+'</a><span class="gui-item-button close" data-id="'+$.trim(data)+'" data-category="'+$.trim(data)+'" ><a href="#" title="Delete" onclick="return false;">x</a></p>');
                                         addMssg('Okay', 'News category ' + $('#inputCat').val() + ' added');
                                         $.ajaxSetup({async: false});
 					$.getScript(hostJS+'admin-items.js');

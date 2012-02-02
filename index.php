@@ -135,6 +135,10 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 			}
 			elseif( $multiViews->args[1] == "backup" ) {
                                     include( 'views/backup.php' );
+			
+			}
+			elseif( $multiViews->args[1] == "test" ) {
+                                    include( 'views/test.php' );
 			}
                         else {
                             include('views/home.php');

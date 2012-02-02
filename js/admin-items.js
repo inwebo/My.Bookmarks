@@ -71,7 +71,7 @@
                         },
                     success:function(data) {
                         //alert('ok');
-                        $(actualLiItem).parent().parent().parent('li').slideUp(300);
+                        $(actualLiItem).closest('li').slideUp(300);
                         addMssg('okay', 'Element <em>'+ $(actualLiItem).attr('data-title') + '</em> deleted.' );
                     },
                     error:function() {
@@ -80,25 +80,107 @@
                 });
             }
         });
-
+/* Médiocre  
+        function toggleButton( _obj ) {
+            $(_obj).children('span.itemSaveSpan').toggle();
+        }
 
         $('.itemEditSpan a').click(function(){
             //Retourne un objet jQuery
-            container = $( this ).parents('div').eq(0);
+            container = $( this ).parents('li').eq(0);
 
-            if( $(this).html() == 'edit' ) { $(this).html('save') } else { $(this).html('edit')  };            
+  if( $(this).html() == 'edit' ) { $(this).html('save') } else { $(this).html('edit')  };
 
-            actuel = $(container).children();
-            form = $(container).next('div');
+            display = $(container).children('div.itemMain');
+            form = $(container).children('div.itemMain+div');
 
-            $( actuel ).html( $( form ).html() ) ;
-            $( form ).html( $( actuel ).html() ) ;
+toggleButton( this );
 
-            console.log( container.html() );
-            console.log( actuel.html() );
-            console.log( form.html() );
-            console.log( $(this).html() );
+            display.toggle();
+            form.toggle();
+
+            if( $(this).html('save') ) {
+
+                var _itemHash = $(this).attr('data-hash');
+                var _itemTitle = $('form[data-hash*='+ _itemHash + '] input').val();
+                var _itemDescription = $('form[data-hash*='+ _itemHash + '] textarea').val();
+
+                // Ajax
+                $.ajax({
+                    type: "POST",
+                    url: hostRoot + "bookmark-edit.php",
+                    data: {
+                            itemHash:_itemHash,
+                            itemTitle:_itemTitle,
+                            itemDescription:_itemDescription,
+                            itemPublicKey:publicKey
+                        },
+                    success:function(data) {
+                        addMssg('okay', 'Element <em>edited</em> deleted.' );
+                    },
+                    error:function() {
+                        addMssg('error', 'Cannot delete <em>edited</em>, please try later.' );
+                    }
+
+                });
+
+            console.log(  'save' );
+        }
+        else {
+                    console.log(  'edit' );
+        }
+            console.log(  $(this).html() );
+            //if( $(this).html() == 'edit' ) { $(this).html('save') } else { $(this).html('edit')  };
+          
+ 
         });
+ Médiocre  */
+
+
+
+        function toggleDisplay( _obj ) {
+            t = _obj.children('.edit, .save');
+            r = _obj.children('div.itemMain, div.itemMain+div');
+            t.toggle();
+            r.toggle();
+        }
+
+        $( '.save a' ).click( function () {
+
+        container = $( this ).parents('li').eq(0);
+        var _itemHash = $(this).attr('data-hash');
+        var _itemTitle = $('form[data-hash*='+ _itemHash + '] input').val();
+        var _itemDescription = $('form[data-hash*='+ _itemHash + '] textarea').val();
+        
+                $.ajax({
+                    type: "POST",
+                    url: hostRoot + "bookmark-edit.php",
+                    data: {
+                            itemHash:_itemHash,
+                            itemTitle:_itemTitle,
+                            itemDescription:_itemDescription,
+                            itemPublicKey:publicKey
+                        },
+                    dataType: "text",
+                    success:function(data) {
+                        addMssg('okay', 'Element <em>'+ _itemTitle +'</em> edited.' );
+                        $('li[data-hash*= ' + _itemHash +  '] div.itemDisplay h3 a ').html(_itemTitle);
+                        $('li[data-hash*= ' + _itemHash +  '] div.itemDisplay p ').html(_itemDescription);
+                    },
+                    error:function() {
+                        addMssg('error', 'Cannot edit, please try later.' );
+                    }
+
+                });
+        });
+
+
+
+        $('.edit a, .save a').click(function() {
+            container = $( this ).parents('li').eq(0);
+            toggleDisplay( $(container) );
+        });
+
 
     });
 })(jQuery);

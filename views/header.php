@@ -42,75 +42,100 @@
 <header>
     <div class="container_12">
         <div id="headerGrid_12" class="grid_12">
-        <h1><?php echo $conf ['name']; ?><span class="iconic logo">&nbsp;</span></h1>
-            <?php if ($_SESSION['type'] != 'admin') { ?>
+            <h1><?php echo $conf ['name']; ?></h1>
+            <?php if ($_SESSION['type'] != 'admin') {
+ ?>
                 <span id="boutonTop">
-                    <a href="#" id="loginClick">Login</a>
+                    <a href="#" id="loginClick" class="loginClick">Login</a>
+
+                </span>
                     <div id="loginContainer">
                         <form name="item-1" method="post" enctype="application/x-www-form-urlencoded" action="<?php echo $conf['root']; ?>" id="loginFieldset">
-                            <label>Login <br>
+                            <label>
                                 <input type="text" id="item-4" name="login">
                             </label>
-                            <br><label>Password <br><input type="password" id="item-5" name="password"><br></label>
-                            <br>
+                            <label><input type="password" id="item-5" name="password"></label>
                             <input type="submit" id="item-7">
-                    </form>
-                </div>
-            </span>
-            <?php } else { ?>
+                        </form>
+                    </div>
+<?php } else { ?>
                 <span id="boutonTop">
-                    <a href="?q" id="loginClick">Exit</a>
+                    <a href="?q" id="loginClick" class="loginClickExit">Exit</a>
                 </span>
-            <?php } ?>
+<?php } ?>
 
 
-            <?php if ($_SESSION['type'] == 'admin') { ?>
+<?php if ($_SESSION['type'] == 'admin') { ?>
                 <p class="noticeBouton">
                     Déposez le bouton dans votre barre de favoris.<br>&darr;
                 </p>
 
                 <p>
                 <?php
-                    include(ROOT_HELPERS . 'bouton.php');
+                include(ROOT_HELPERS . 'bouton.php');
                 ?>
-                </p>
-            <?php } ?>
+            </p>
+<?php } ?>
             <!-- /bouton -->
-            
+
         </div>
 
     </div>
-<nav>
-    <div class="container_12 headerNav">
+    <div class="menu_wrap">
+        <nav>
+
+            <div class="container_12 headerNav">
                 <li
-                <?php
-                if ( (isset( $multiViews->total) && $multiViews->total === 0) || $multiViews->args[1] == 'categorie' ) {
-                    echo ' class="heaederListActif" ';
-                }
-                ?>
-                    >
-                <?php echo '<a href="' . $conf['root'] . 'index.php">Categories</a>'; ?>
-                </li>
-                <li
-                <?php
-                if (isset($multiViews->args[1]) && $multiViews->args[1] == 'tags') {
-                    echo ' class="heaederListActif" ';
-                }
-                ?>
-                    >
-                    <a href="<?php echo ROOT_MAIN . 'tags/'; ?>">Tags</a>
+                <?php if ((isset($multiViews->total) && $multiViews->total === 0) || $multiViews->args[1] == 'categorie') { ?>
+                    class="heaederListActif"
+                <?php } ?>>
+                <?php if ((isset($multiViews->total) && $multiViews->total === 0) || $multiViews->args[1] == 'categorie') { ?>
+                    <div class="headerActif_wrap">
+                <?php } ?>        
+                    <a href="<?php echo $conf['root']; ?>index.php">Categories</a>
+                <?php if ((isset($multiViews->total) && $multiViews->total === 0) || $multiViews->args[1] == 'categorie') { ?>
+                    </div>
+                <?php } ?>
                 </li>
 
-                <li
+                    <li
                 <?php
-                if ($multiViews->args[1] == 'about' ) {
-                    echo ' class="heaederListActif" ';
-                }
+                        if (isset($multiViews->args[1]) && $multiViews->args[1] == 'tags') {
+                            echo ' class="heaederListActif" ';
+                        }
                 ?>
-                    >
-                    <a href="<?php echo ROOT_MAIN . 'about/'; ?>">About</a>
+                            >
+                <?php if (isset($multiViews->args[1]) && $multiViews->args[1] == 'tags') { ?>
+                    <div class="headerActif_wrap">
+                <?php } ?>       
+
+
+                            <a href="<?php echo ROOT_MAIN . 'tags/'; ?>">Tags</a>
+                <?php if (isset($multiViews->args[1]) && $multiViews->args[1] == 'tags') { ?>
+                    </div>
+                <?php } ?>
+                        </li>
+
+                        <li
+                <?php
+                        if (isset($multiViews->args[1]) && $multiViews->args[1] == 'about') {
+                            echo ' class="heaederListActif" ';
+                        }
+                ?>
+                            >
+                <?php  if (isset($multiViews->args[1]) && $multiViews->args[1] == 'about') { ?>
+                    <div class="headerActif_wrap">
+                <?php } ?> 
+                            <a href="<?php echo ROOT_MAIN . 'about/'; ?>">About</a>
+                <?php if (isset($multiViews->args[1]) && $multiViews->args[1] == 'about') { ?>
+                    </div>
+                <?php } ?>
                 </li>
+            </div>
+
+        </nav>
+        <div class="clear"></div>
     </div>
-            </nav>
+
 </header>
 <!-- /header -->

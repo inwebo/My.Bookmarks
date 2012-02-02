@@ -70,4 +70,7 @@ class MyPdo extends PDO {
 
     }
 
+    // Debug
+    public function debug() {}
+
 }

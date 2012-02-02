@@ -22,5 +22,7 @@
 -Todo list
 +Affichage par jour
 -Clef de parité
-+Préfix des tables sql
-+Lors du setup création de toutes les tables nécessaires
+-Préfix des tables sql
+-Lors du setup création de toutes les tables nécessaires
++Gestion des dates
++Préfix database pour toutes les requêtes.

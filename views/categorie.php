@@ -54,7 +54,7 @@
                                                 echo '<p id="idCategorie'.$row['id'].'" data-id="'.$row['id'].'"><a href="' . ROOT_MAIN .'categorie/'. $row['name'] . '/' . $row['id'] . '">'.$row['name'].'</a></p>'."\n";
                                             }
                                             else {
-                                                echo '<p id="idCategorie'.$row['id'].'" data-id="'.$row['id'].'"><a href="' . ROOT_MAIN .'categorie/'. $row['name'] . '/' . $row['id'] . '">'.$row['name'].'</a><span class="delete" data-id="'.$row['id'].'" data-category="'.$row['name'].'" ><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></p>'."\n";
+                                                echo '<p id="idCategorie'.$row['id'].'" data-id="'.$row['id'].'"><a href="' . ROOT_MAIN .'categorie/'. $row['name'] . '/' . $row['id'] . '">'.$row['name'].'</a><span class="gui-item-button close" data-id="'.$row['id'].'" data-category="'.$row['name'].'" ><a href="#">x</a></p>'."\n";
                                             }
 						
 						$i++;
@@ -90,42 +90,49 @@
 				if( count($links ) != 0 ) {
 					foreach ( $links  as $row ) {
 
-                                                echo '<li>';
+                                                
 
                                                 // -------------------------------------- //
                                                 if( $_SESSION['type'] == 'admin' ) {
+                                                    echo '<li data-hash="'.$row['hash'].'">';
                                                     echo '<div class="itemLeft">';
                                                     echo '<span class="dragMeToCat" title="'.$row['hash'].'" data-display="'.stripslashes($row['title']).'">Drag me</span>';
                                                     
                                                     
                                                     echo '</div>';
                                                 }
+                                                else {
+                                                    echo '<li>';
+                                                }
                                                 
                                                 if ($_SESSION['type'] == 'admin') {
-                                                    echo '<div class="itemMain">';
-                                                    echo '<span class="gui-item-button close">
-                                                        <a href="#" title="DELETE" data-id="'. $row['id'] .'" data-title="'. $row['title'] .'">x
+                                                    echo '<span class="gui-item-button close"><a href="#" title="DELETE" data-id="'. $row['id'] .'" data-title="'. $row['title'] .'">x</a></span>';
+                                                    echo '<span class="gui-item-button edit itemEditSpan" data-hash="'.$row['hash'].'" data-display="'.stripslashes($row['title']).'"><a href="#" onclick="return false;"data-hash="'.$row['hash'].'" >edit</a></span>';
+                                                    echo '<span class="gui-item-button save itemSaveSpan" data-hash="'.$row['hash'].'" data-display="'.stripslashes($row['title']).'"><a href="#" onclick="return false;"data-hash="'.$row['hash'].'" >save</a></span>';
 
-                                                        </a>
-                                                        </span>';
-                                                    echo '<span class="gui-item-button edit itemEditSpan" data-hash="'.$row['hash'].'" data-display="'.stripslashes($row['title']).'"><a href="#" onclick="return false;">edit</a></span>';
-                                                    echo '<span class="gui-item-button save itemSaveSpan" data-hash="'.$row['hash'].'" data-display="'.stripslashes($row['title']).'"><a href="#" onclick="return false;">save</a></span>';
+                                                    echo '<div class="itemMain">';
                                                 }
 
-                                                echo'<h3><a href="' . $row['url'] . '" title="'.$row['description'].'" class="displayTitle">'. stripslashes($row['title']) . '</a></h3>';
+                                                echo'<div class="itemDisplay"><h3><a href="' . $row['url'] . '" title="'.$row['description'].'" data-hash="'.$row['hash'].'"  class="displayTitle">'. stripslashes($row['title']) . '</a></h3>';
                                                 echo '<p>'. stripslashes($row['description']) . '</p>';
                                                 echo '<div class="itemTags"><ul>';
+                                                    //<!-- Tags -->
 
-                                                
+                                                $tags = new MyTags($row['tags']);
+                                                $cloud = $tags->asArray();
 
+                                                $k=-1;
+                                                while( isset( $cloud[++$k] ) ) {
+                                                    echo '<li><a class="tags" href="'.ROOT_MAIN.'tags/'. $cloud[$k] .'">'. $cloud[$k] .'</a><li>';
+                                                }
 
-                                                echo '</ul></div>';
+                                                echo '</ul></div></div>';
                                                 if ($_SESSION['type'] == 'admin') {
                                                     echo '</div>';
-                                                    echo '<div class="itemEdit itemMain">';
-                                                    echo '<form id="'. $row['id'] .'" name="'. $row['id'] .'">';
-                                                    echo '<input id="item-title" name="item-title" value="'. $row['title'] .'"><br>';
-                                                    echo '<textarea id="item-title" name="item-title">'. $row['description'] .'</textarea><br>';
+                                                    echo '<div class="itemEdit">';
+                                                    echo '<form id="id'. $row['id'] .'" name="id'. $row['id'] .'"  data-hash="'.$row['hash'].'" data-id="'.$row['id'].'" >';
+                                                    echo '<input id="item-title" name="item-title" value="'. $row['title'] .'" ><br>';
+                                                    echo '<textarea id="item-title" name="item-title" value="">'. $row['description'] .'</textarea><br>';
                                                     echo'</form>';
                                                     echo '</div>';
                                                 }

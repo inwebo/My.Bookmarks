@@ -40,6 +40,7 @@ hr{
     width: 278px;
     background-color:#ffffff;
     margin-bottom:20px;
+
 }
 
 .container_12 .grid_6 {
@@ -48,6 +49,7 @@ hr{
 
 .container_12 .grid_12 {
 	width: 918px;
+        
 }
 
 .container_12 .grid_8 {
@@ -406,7 +408,7 @@ nav li a.myButton {
 }
 
 #breadCrumbs ul{
-margin: 20px 0 0;
+margin: 0;
     padding: 0;
 }
 #breadCrumbs ul li {
@@ -511,14 +513,15 @@ text-align: right;
     
 }
 
-#boutonTop,#loginClick {
-    background-color:#BBDBE0;
-    padding: 5px;
+#boutonTop {
+    margin-top: 0;
     position: absolute;
     right: 0;
     top: 0;
-
+       z-index: 2;
 }
+
+
 
 #loginClick .debugError {
  background-color:#FFECCE;
@@ -526,6 +529,10 @@ text-align: right;
 
 #boutonTop a {
     color: white;
+    display: inline-block;
+    height: 23px;
+    line-height: 22px;
+    padding: 2px;
     text-decoration: none;
 }
 
@@ -560,6 +567,7 @@ nav li:hover a:hover {
         height: 51px;
         border-left: 1px solid #E6E6E6;
         border-right: 1px solid #E6E6E6;
+        border-bottom: 1px solid #FAFAFA;
         
 }
 
@@ -620,16 +628,18 @@ margin-left: 10px;
     border-right: 1px solid #E6E6E6;
     border-style: solid;
     border-width: 1px;
-    padding: 10px;
+    padding: 0;
     position: absolute;
     right: 0;
-    top: 30px;
-    z-index: 9999;
+    top:0px;
+    z-index: 1;
+
 }
 
-#loginClick {
-    background-color: red;
+#loginContainer input{
+
 }
+
 /* FOOTER */
 /* ---- */
 footer {
@@ -737,7 +747,7 @@ footer .grid_12 p .myButton {
 
 .listUrl li a.displayTitle {
     display: inline-block;
-    max-width: 67%;
+    max-width: 85%;
 }
 
 
@@ -755,8 +765,8 @@ footer .grid_12 p .myButton {
 
 .itemMain {
     /*background-color: black;*/
-    width: 420px;
-    float: right;
+    width: 375px;
+    float: left;
 }
 
 .itemMain ul {
@@ -792,7 +802,7 @@ footer .grid_12 p .myButton {
 }
 
 .itemEdit {
-    /*display: none;*/
+    display: none;
 }
 
 .editItem {
@@ -827,4 +837,59 @@ background-color: #E0E5E9;
 
 .logo:before {
     content:'\e02b';
+}
+
+.menu_wrap {
+    border-bottom: 1px solid white;
+}
+
+.headerActif_wrap{
+   border: 1px solid white;
+   border-bottom: transparent;
+   margin-left: -5px;
+   margin-right: -5px;
+   padding: inherit;
+}
+
+.grid_wrap {
+    border:1px solid white;
+}
+
+#loginClick {
+    padding:inherit;
+}
+
+.loginClick {
+    background-color: green;
+}
+
+.loginClickExit {
+    background-color: red;
+}
+
+
+
+.gui-url-wrapper {
+
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    top: -25px;
+}
+
+#gui-url-wrapper p {
+    margin:0;
+}
+
+#gui-url-wrapper p a {
+    background-color: red;
+    float: right;
+    margin-top: 2em;
+    padding: 2px;
+}
+
+#loginFieldset {
+    //background-color: SandyBrown;
+    padding-right: 42px;
 }
