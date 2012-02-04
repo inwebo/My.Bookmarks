@@ -18,11 +18,11 @@
 
 $("#boutonTop a").mouseenter(function() {
 //    $(this).find("a").text("mouse on");
-    $(this).animate({ backgroundColor: "orange" }, 'fast');
+    $(this).animate({ backgroundColor: "orange" }, 300);
 
 }).mouseleave(function() {
   //$(this).find("a").text("mouse leave");
- $(this).animate({ backgroundColor: "green" }, 'fast');
+ $(this).animate({ backgroundColor: "green" }, 300);
 });
     </script>
 </div>

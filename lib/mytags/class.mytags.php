@@ -13,7 +13,7 @@ class MyTags {
     }
 
     public function asArray() {
-		return $this->buffer;
+	return $this->buffer;
     }
 
 }

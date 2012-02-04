@@ -114,10 +114,10 @@ while( isset( $grid[++$iterator] ) ) {
 			<ul class="listUrl">' . "\n";
         foreach($grid[$iterator]['li'] as $key => $value) {
                 if( file_exists( 'images/favicon/'.  md5( $value['url'] ) ) ){
-                    $output .= '<li><img src="images/favicon/' . md5( $value['url'] ) . '"/>&nbsp;<a href="' . $value['url'] . '" title="' . $value['title'] . '" data-tags="' .$value['tags'] . '">' . stripslashes($value['title']) . '</a></li>' . "\n";
+                    $output .= '<li><img src="images/favicon/' . md5( $value['url'] ) . '"/>&nbsp;<a href="' . $value['url'] . '" title="' . $value['title'] . '" data-tags="' .$value['tags'] . '">' . stripslashes($value['title']) . '</a><span class="gui-item-button close">x</span></li>' . "\n";
                 }
                 else {
-                    $output .= '<li><a href="' . $value['url'] . '" title="' . $value['title'] . '" data-tags="' .$value['tags'] . '">' . stripslashes($value['title']) . '</a></li>' . "\n";
+                    $output .= '<li><a href="' . $value['url'] . '" title="' . $value['title'] . '" data-tags="' .$value['tags'] . '">' . stripslashes($value['title']) . '</a><span class="gui-item-button close">x</span></li>' . "\n";
                 }
             
         }

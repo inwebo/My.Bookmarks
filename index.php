@@ -112,10 +112,7 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 
                 <!-- Include -->
 		<div class="clear"></div>
-                <div class="">
 		<?php
-
-                        
 			if( $multiViews->args == NULL ) {
 				include('views/home.php');
 			}
@@ -144,8 +141,7 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
                             include('views/home.php');
                         }
 		?>
-                </div>
-                <!-- Breadcrumbs -->
+                <!-- Include -->
                 
 	
 

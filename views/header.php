@@ -43,11 +43,9 @@
     <div class="container_12">
         <div id="headerGrid_12" class="grid_12">
             <h1><?php echo $conf ['name']; ?></h1>
-            <?php if ($_SESSION['type'] != 'admin') {
- ?>
+            <?php if ($_SESSION['type'] != 'admin') {?>
                 <span id="boutonTop">
                     <a href="#" id="loginClick" class="loginClick">Login</a>
-
                 </span>
                     <div id="loginContainer">
                         <form name="item-1" method="post" enctype="application/x-www-form-urlencoded" action="<?php echo $conf['root']; ?>" id="loginFieldset">
@@ -58,11 +56,14 @@
                             <input type="submit" id="item-7">
                         </form>
                     </div>
-<?php } else { ?>
+            <?php } else { ?>
                 <span id="boutonTop">
                     <a href="?q" id="loginClick" class="loginClickExit">Exit</a>
                 </span>
-<?php } ?>
+            <?php } ?>
+
+            <!-- New login -->
+            <!-- /New login -->
 
 
 <?php if ($_SESSION['type'] == 'admin') { ?>

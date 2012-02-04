@@ -26,3 +26,6 @@
 -Lors du setup création de toutes les tables nécessaires
 +Gestion des dates
 +Préfix database pour toutes les requêtes.
++Catégorie menu déroulant contenant toutes les catégories
++Function translate (voir drupal)
++Gestion des droits sur les fichiers

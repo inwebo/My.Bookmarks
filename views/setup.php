@@ -215,6 +215,7 @@ $.ajax({
 				},
 				success:function(data) {
 					//data = responseText
+                                        //console.log(data);
 					if( data == 'TRUE' ) {
 						addMssg('okay','Bravo, l\'application s\'est instalée correctement.');
 						$('#setupForm').fadeOut('fast', function() {
@@ -225,7 +226,8 @@ $.ajax({
 						addMssg('error','Database connection failed');
 					}
 				},
-				error:function() {
+				error:function(data) {
+                                        //console.log(data);
                                         addMssg('error','Error 404<br>Please chek path input.');
 				}
 			});

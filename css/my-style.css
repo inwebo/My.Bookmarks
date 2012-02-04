@@ -81,7 +81,7 @@ hr{
     min-height: 100%;
 }
 h2 a {
-    color:#555555;
+    //color:highlight;
     text-decoration: none;
 }
 
@@ -887,9 +887,90 @@ background-color: #E0E5E9;
     float: right;
     margin-top: 2em;
     padding: 2px;
+    
 }
 
 #loginFieldset {
     //background-color: SandyBrown;
     padding-right: 42px;
+}
+
+.listUrl li span {
+    //right: -50px;
+    position: relative;
+}
+
+
+
+        #loginContainer {
+            background-color: #3AAFC1;
+            height:40px;
+            top: -35px;
+            position: relative;
+            text-align: center;
+        }
+
+        #loginContainer form {
+            margin-bottom: 0;
+        }
+
+        #loginContainer p {
+            background-color: #3AAFC1;
+            float: right;
+            padding: 5px;
+            position: relative;
+            width: 40px;
+            margin-top: 0px;
+            top: 0px;
+        }
+
+        #loginContainer p a {
+            color:white;
+            color: white;
+            display: block;
+            font-size: small;
+            font-variant: small-caps;
+            text-align: center;
+            text-decoration: none;
+            width: inherit;
+            position: relative;
+            z-index: 9998;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        #loginContainer input {
+            border: 1px solid #3EC8DD;
+            color: #c9c9c9;
+            margin-top: 5px;
+            padding: 5px;
+            margin-left: 10px;
+        }
+
+                #loginContainer input[type*=submit] {
+                    color:black;
+                }
+
+                #loginContainer input:focus {
+                    color:#454A4F;
+                }
+
+.ribbon {
+    border-top: 20px solid #3AAFC1;
+    border-bottom: 20px solid transparent;
+    border-left: 25px solid  #3AAFC1;
+    border-right: 25px solid #3AAFC1;
+
+}
+
+.ribbon {
+    display: block;
+    height: 0;
+    left: 0;
+    margin-left: 0;
+    margin-right: 20px;
+    margin-top: -15px;
+    position: absolute;
 }
