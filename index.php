@@ -114,32 +114,34 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 		<div class="clear"></div>
 		<?php
 			if( $multiViews->args == NULL ) {
-				include('views/home.php');
-                                $views->display('home');
+				//include('views/home.php');
+                                $views->display( 'home' );
 			}
 			elseif( $multiViews->args[1] == "categorie" ) {
-                               include('views/categorie.php');
+                               //include('views/categorie.php');
+                                $views->display( 'categorie' );
                         }
 			elseif( $multiViews->args[1] == "tags" ) {
                                 if( isset( $multiViews->args[2] ) ) {
-                                    include('views/list-tags.php');
+                                    //include('views/list-tags.php');
+                                    $views->display( 'list-tags' );
                                 }
                                 else {
-                                    include('views/tags.php');
+                                    //include('views/tags.php');
+                                    $views->display('tags');
                                 }
 			}
 			elseif( $multiViews->args[1] == "about" ) {
-                                    include( 'views/about.php' );
-			}
-			elseif( $multiViews->args[1] == "backup" ) {
-                                    include( 'views/backup.php' );
-			
+                                    //include( 'views/about.php' );
+                                    $views->display('about');
 			}
 			elseif( $multiViews->args[1] == "test" ) {
-                                    include( 'views/test.php' );
+                                    //include( 'views/test.php' );
+                                    $views->display('test');
 			}
                         else {
-                            include('views/home.php');
+                            //include('views/home.php');
+                            $views->display( 'home' );
                         }
 		?>
                 <!-- Include -->

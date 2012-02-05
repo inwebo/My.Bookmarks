@@ -43,8 +43,9 @@
 
 <?php
 
-	function setTagsCloud( $dataString )
-	{
+extract( $GLOBALS );
+
+	function setTagsCloud( $dataString ) {
 		global $getTags ;
 		global $nbrTags;
 		global $total ;

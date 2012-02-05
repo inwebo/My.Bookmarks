@@ -1,3 +1,6 @@
+<?php
+    extract( $GLOBALS );
+?>
 <!-- About -->
 <div class="grid_12 about">
 

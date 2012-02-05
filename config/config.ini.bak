@@ -1,3 +1,5 @@
+test = prout
+
 [Data Base]
 db_server   =
 db_database =
@@ -15,10 +17,11 @@ images          = images/
 js              = js/
 lib             = lib/
 public          = public/
-path_views           = views/
+path_views      = views/
 logs            = logs/
 cache           = cache/
 iconfav         = favicon/
+template        = tpl/
 bookmarks       = bookmark-form.php
 googleAnalytics = google-analytics.php
 widget          = widget.php

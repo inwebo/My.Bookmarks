@@ -22,32 +22,15 @@ class Config
 	 * 			  Voir la fonction php parse_ini_file();
 	 */
 	public static function get( $configFile, $process_sections = FALSE ) {
-		if( (self::$get = parse_ini_file($configFile, $process_sections)) == false ) {
-			throw new Exception('ini file not founds.');
+		if( ( self::$get = parse_ini_file( $configFile, $process_sections ) ) == false ) {
+			throw new Exception('File not found.');
 		}
 		return self::$get;
 	}
 
-        public static function save( $_from, $_to ) {
-            if(is_array($_from)) {
-                $assoc_arr = $_from;
-            }
-            else {
-                $assoc_arr = parse_ini_file($_from, FALSE);
-            }
-            
-                    $content='';
-                    foreach ($assoc_arr as $key=>$elem) {
-                        if(is_array($elem))
-                        {
-                            for($i=0;$i<count($elem);$i++)
-                            {
-                                $content .= $key."[] = \"".$elem[$i]."\"\n";
-                            }
-                        }
-                        else if($elem=="") $content .= $key." = \n";
-                        else $content .= $key." = \"".$elem."\"\n";
-                    }
+        public static function save( $_from, $_to, $_align = 20 ) {
+
+            $content = self::format( $_from );
 
                   if (!$handle = fopen($_to, 'w+')) {
                         return false;
@@ -56,9 +39,34 @@ class Config
                         return false;
                     }
                     fclose($handle);
-   }
+        }
+
+        public function format( $ini_file ) {
+            
+            $format = self::get( $ini_file, TRUE );
+            $return = '';
+
+            foreach( $format as $key => $value ) {
+
+                if(is_array($value) ) {
+                    $return .= "\n" . '[ ' . $key . ' ]' . "\n";
+                    foreach( $value as $_key => $_value ) {
+                        ob_start();
+                        $return .= sprintf("%-20s", $_key);
+                        $return .= '= ';
+                        $return .= ' ' . $_value . "\n";
+                        ob_end_flush();
+                    }
+                }
+                else {
+                    $return .= $key . '=' . $value . "\n";
+                }
+
+            }
+            
+            return $return;
+        }
+
+
 }
 
-// print_r( config::get('config.ini') );
-//config::save(array('test'=>'test'),'config.ini.bak.a');
-?>

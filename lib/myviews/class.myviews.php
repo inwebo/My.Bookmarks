@@ -11,9 +11,7 @@ class MyViews {
 
     public function display( $view ) {
         $display = $this->templatePath . $view . '.php';
-        var_dump( file_exists( $display ) );
         include(  $display );
     }
     
 }
-?>

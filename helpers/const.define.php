@@ -100,14 +100,19 @@ define( 'PATH_VIEWS', $pathViews );
 
 define( 'PUBLIC_KEY', $conf['publicKey'] );
 
-$pathWidget =  $conf['helpers'].$conf['path_widget'];
+$pathWidget =  PATH_HELPERS.$conf['path_widget'];
 define( 'PATH_WIDGET', $pathWidget );
+
+$pathTemplate =  PATH_VIEWS . $conf['template'];
+define( 'PATH_TEMPLATE', $pathTemplate );
 
 try {
 	$sql = new MyPdo( DB_SERVER, DB_DATABASE, DB_USER, $enigma->decode( DB_PASSWORD ) );
-        $views = new MyViews( 'views/' );
+        $views = new MyViews( PATH_VIEWS );
+        $template = new MyViews( PATH_TEMPLATE );
 }
 catch(Exception $e) {
+    
 	if( DEBUG == 1 ) {
 		echo $e->getMessage();
 	}

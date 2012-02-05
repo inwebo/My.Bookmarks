@@ -1,4 +1,5 @@
 <?php
+
 /**
  * My.Bookmarks
  *
@@ -40,6 +41,8 @@
 ?>
 <!-- home.php -->
 <?php
+
+extract($GLOBALS);
 
 $allCategories = $sql->query('SELECT `id`, `name` FROM `'. DB_TABLE_PREFIX .'categories`');
 

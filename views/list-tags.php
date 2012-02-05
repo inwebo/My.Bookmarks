@@ -38,50 +38,23 @@
  * @since     File available since Beta 28-11-2011
  */
 ?>
-<!-- categorie.php -->
-<?php if ( $_SESSION['type'] == 'admin' ) { ?>
+<!-- list-tags.php -->
+<?php
 
-			<div id="categoriesList" class="grid_4">
-                            <h2>Categories</h2>
-				<?php
-					$i=0;
-					$links = $sql->query('SELECT * FROM '. DB_TABLE_PREFIX .'categories ORDER BY `name` ASC ');
-					//while ($row = mysql_fetch_assoc( $links )) {
-					foreach( $links as $row ) {
-						echo '<p id="idCategorie'.$row['id'].'" data-id="'.$row['id'].'"><a href="' . PATH_INDEX . $row['id'] . '/' . $row['name'] . '">'.$row['name'].'</a><span class="delete" data-id="'.$row['id'].'" data-category="'.$row['name'].'" ><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></p>'."\n";
-						$i++;
-					}
-				?>
-                            <form id="addNewcat">
-                                <label>
-                                    New categorie name ?<br>
-                                    <input id="inputCat" name="inputCat" type="text"><br><br>
-                                    <a href="#" id="addCategory" class="myButton" onclick="return false;">Add</a>
-                                    <br><span id="addResponse">&nbsp;</span>
-                                    <input type="hidden" value="<?php echo $i; ?>" id="totalCategories" name="totalCategories">
-                                </label>
-                            </form>
-                           <!-- <p id="addNewcat" class="containerCat">
-				<label>Nom de la nouvelle catégorie :
-				<input type="text" id="inputCat" name="inputCat"></label><br><br>
-				<a href="#" id="addCategory" class="button" onclick="return false;">Add</a>
-				<br><span id="addResponse">&nbsp;</span>
-                            </p>-->
-                            <input type="hidden" value="<?php echo $i; ?>" id="totalCategories" name="totalCategories">
-			</div>
+extract($GLOBALS);
 
-			<div id="newItems" class="grid_8">
-			<?php } else {?>
+?>
 
-			<div id="newItems" class="grid_12">
-
-			<?php } ?>
+<?php
+    $template = new MyViews( PATH_TEMPLATE );
+    $template->display('categories-list');
+?>
                         <?php
                         
                             $links = $sql->query('SELECT * FROM '. DB_TABLE_PREFIX .'bookmarks where tags LIKE \'%'.$multiViews->args[2].'%\' ORDER BY `dt` DESC');
                             $totalLinks = count( $links ) ;
                         ?>
-                            <h2>Tags : <em><?php echo $multiViews->args[2]; ?></em><span class="totalLinks"><?php echo $totalLinks; ?></span></h2>
+                        <h2>Tags : <em><?php echo $multiViews->args[2]; ?></em><span class="totalLinks"><?php echo $totalLinks; ?></span></h2>
 			<ul class="listUrl">
 			<?php
 				$links = $sql->query('SELECT * FROM '. DB_TABLE_PREFIX .'bookmarks where tags LIKE \'%'.$multiViews->args[2].'%\' ORDER BY `dt` DESC');
