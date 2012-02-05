@@ -77,7 +77,7 @@ Le plus sage serait <strong>l'autonomie</strong> !
     <a name="Readme"></a>
     <h2>Readme</h2>
     <p>
-        Un fichier <a href="<?php echo ROOT ?>README">readme</a> est disponible pour un lecture hors-ligne.
+        Un fichier <a href="<?php echo PATH_ROOT ?>README">readme</a> est disponible pour un lecture hors-ligne.
     </p>
     <a name="Faq"></a>
     <h2>Foire aux questions</h2>
@@ -114,7 +114,7 @@ Le plus sage serait <strong>l'autonomie</strong> !
     <a name="Technique"></a>
     <h2>Aspect technique</h2>
     <p>
-        <img src="<?php echo ROOT_IMG.'system/dinosaures.jpg'; ?>"> My.Bookmarks est
+        <img src="<?php echo PATH_IMG.'system/dinosaures.jpg'; ?>"> My.Bookmarks est
         une application riche ! Elle nécessite donc un navigateur moderne ainsi qu'un
         serveur digne de ce nom. Ainsi Internet Explorer n'est pas supporté (et ne le
         sera probablement jamais). La compatibilité avec l'hébergeur free.fr est terminée.

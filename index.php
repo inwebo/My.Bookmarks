@@ -21,7 +21,7 @@ try {
 catch( Exception $e ) {
 
 	// Display Error ?
-	if( $conf['debug'] == 1 ) {
+	if( $conf['JS_DEBUG'] == 1 ) {
 		echo $e->getMessage();
 	}
 	else {
@@ -33,7 +33,7 @@ catch( Exception $e ) {
 		}
 		// Display it
 		catch(Exception $e) {
-			if( $conf['debug'] == 1 ) {
+			if( $conf['JS_DEBUG'] == 1 ) {
 				echo $e->getMessage();
 			}
 		}
@@ -77,16 +77,16 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
-  <link rel="shortcut icon" href="<?php echo ROOT; ?>favicon.png" type="image/png" />
+  <link rel="shortcut icon" href="<?php echo PATH_ROOT; ?>favicon.png" type="image/png" />
   <!-- CSS: implied media=all -->
   <!-- CSS concatenated and minified via ant build script-->
-  <link rel="stylesheet" href="<?php echo ROOT_CSS; ?>my-style.css">
+  <link rel="stylesheet" href="<?php echo PATH_CSS; ?>my-style.css">
   <!-- end CSS-->
 
   <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="<?php echo ROOT_JS; ?>libs/modernizr-2.0.6.min.js"></script>
+    <script type="text/javascript" src="<?php echo PATH_JS; ?>libs/modernizr-2.0.6.min.js"></script>
 
    
 </head>
@@ -115,6 +115,7 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 		<?php
 			if( $multiViews->args == NULL ) {
 				include('views/home.php');
+                                $views->display('home');
 			}
 			elseif( $multiViews->args[1] == "categorie" ) {
                                include('views/categorie.php');
@@ -160,26 +161,26 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
   </div>
 <!--! end of #container -->
 
-<!-- Display debug -->
+<!-- Display JS_DEBUG -->
 <div id="debugOutPut">
 	<ul id="displayMssg">
 
 	</ul>
 <div>
-<!-- /Display debug -->
+<!-- /Display JS_DEBUG -->
 
 <!-- Custom JS -->
 
-<script type="text/javascript" src="<?php echo ROOT_JS; ?>login.js"></script>
-<script type="text/javascript" src="<?php echo ROOT_JS; ?>tags-filter.js"></script>
+<script type="text/javascript" src="<?php echo PATH_JS; ?>login.js"></script>
+<script type="text/javascript" src="<?php echo PATH_JS; ?>tags-filter.js"></script>
 <?php if( $_SESSION['type'] == "admin") { ?>
-<script type="text/javascript" src="<?php echo ROOT_JS; ?>init.php"></script>
-<script type="text/javascript" src="<?php echo ROOT_JS; ?>admin-items.js"></script>
-<script type="text/javascript" src="<?php echo ROOT_JS; ?>admin-categories.js"></script>
-<script type="text/javascript" src="<?php echo ROOT_JS; ?>gui-infos-bulles.js"></script>
-<script type="text/javascript" src="<?php echo ROOT_JS; ?>gui-help.js"></script>
+    <script type="text/javascript" src="<?php echo PATH_JS_CONST; ?>"></script>
+    <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-bookmarks.js"></script>
+    <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-categories.js"></script>
+    <script type="text/javascript" src="<?php echo PATH_JS; ?>gui-infos-bulles.js"></script>
+    <script type="text/javascript" src="<?php echo PATH_JS; ?>gui-help.js"></script>
 <?php } ?>
-<script type="text/javascript" src="<?php echo GOOGLE; ?>?id=<?php echo $conf ['id']; ?>"></script>
+<script type="text/javascript" src="<?php echo PATH_GOOGLE_ANALYTICS; ?>?id=<?php echo $conf ['id']; ?>"></script>
 <!-- /Custom JS -->
 
 

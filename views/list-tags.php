@@ -48,7 +48,7 @@
 					$links = $sql->query('SELECT * FROM '. DB_TABLE_PREFIX .'categories ORDER BY `name` ASC ');
 					//while ($row = mysql_fetch_assoc( $links )) {
 					foreach( $links as $row ) {
-						echo '<p id="idCategorie'.$row['id'].'" data-id="'.$row['id'].'"><a href="' . ROOT_MAIN . $row['id'] . '/' . $row['name'] . '">'.$row['name'].'</a><span class="delete" data-id="'.$row['id'].'" data-category="'.$row['name'].'" ><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></p>'."\n";
+						echo '<p id="idCategorie'.$row['id'].'" data-id="'.$row['id'].'"><a href="' . PATH_INDEX . $row['id'] . '/' . $row['name'] . '">'.$row['name'].'</a><span class="delete" data-id="'.$row['id'].'" data-category="'.$row['name'].'" ><a href="#">x<span class="deleteTxt"><span class="deleteTriangle"></span>Delete</span></a></span></p>'."\n";
 						$i++;
 					}
 				?>

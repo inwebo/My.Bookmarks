@@ -73,7 +73,7 @@
 
                 <p>
                 <?php
-                include(ROOT_HELPERS . 'bouton.php');
+                    include( PATH_WIDGET );
                 ?>
             </p>
 <?php } ?>
@@ -111,7 +111,7 @@
                 <?php } ?>       
 
 
-                            <a href="<?php echo ROOT_MAIN . 'tags/'; ?>">Tags</a>
+                            <a href="<?php echo PATH_INDEX . 'tags/'; ?>">Tags</a>
                 <?php if (isset($multiViews->args[1]) && $multiViews->args[1] == 'tags') { ?>
                     </div>
                 <?php } ?>
@@ -127,7 +127,7 @@
                 <?php  if (isset($multiViews->args[1]) && $multiViews->args[1] == 'about') { ?>
                     <div class="headerActif_wrap">
                 <?php } ?> 
-                            <a href="<?php echo ROOT_MAIN . 'about/'; ?>">About</a>
+                            <a href="<?php echo PATH_INDEX . 'about/'; ?>">About</a>
                 <?php if (isset($multiViews->args[1]) && $multiViews->args[1] == 'about') { ?>
                     </div>
                 <?php } ?>

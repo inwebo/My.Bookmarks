@@ -13,17 +13,17 @@ $('#addCategory').click( function() {
     else {
 		$.ajax({
 			type: "POST",
-			url: hostRoot+"categorie-add.php",
+			url: JS_PATH_AJAX+"categorie-add.php",
 			data: "inputCat="+$('#inputCat').val(),
 			dataType: "text",
 			success:function(data) {
 				if(data != "FALSE") {
 					$('#addResponse').html('added');
-					$('#addNewcat').before('<p id="idCategorie'+$.trim(data)+'" data-id="'+$.trim(data)+'"><a href="'+rootMain+'categorie/'+$('#inputCat').val()+'/'+data+'">'+$('#inputCat').val()+'</a><span class="gui-item-button close" data-id="'+$.trim(data)+'" data-category="'+$.trim(data)+'" ><a href="#" title="Delete" onclick="return false;">x</a></p>');
+					$('#addNewcat').before('<p id="idCategorie'+$.trim(data)+'" data-id="'+$.trim(data)+'"><a href="'+JS_PATH_INDEX+'categorie/'+$('#inputCat').val()+'/'+data+'">'+$('#inputCat').val()+'</a><span class="gui-item-button close" data-id="'+$.trim(data)+'" data-category="'+$.trim(data)+'" ><a href="#" title="Delete" onclick="return false;">x</a></p>');
                                         addMssg('Okay', 'News category ' + $('#inputCat').val() + ' added');
                                         $.ajaxSetup({async: false});
-					$.getScript(hostJS+'admin-items.js');
-					$.getScript(hostJS+'admin-categories.js');
+					$.getScript(JS_PATH_JS+'admin-bookmarks.js');
+					$.getScript(JS_PATH_JS+'admin-categories.js');
 					$.ajaxSetup({async: true});
 				}
 				else {
@@ -49,7 +49,7 @@ $('#addCategory').click( function() {
                 $.ajax({
                     type: "POST",
                     // URL script PHP
-                    url: hostRoot+"categorie-del.php",
+                    url: JS_PATH_AJAX+"categorie-del.php",
                     data: {
                         delCat: $(this).attr('data-id')
                     },

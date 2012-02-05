@@ -1,9 +1,9 @@
 [Data Base]
-server   =
-database =
-user     =
-password =
-dbPrefix = my_tables_
+db_server   =
+db_database =
+db_user     =
+db_password =
+db_table_prefix = my_tables_
 
 [Path]
 root            =
@@ -15,19 +15,18 @@ images          = images/
 js              = js/
 lib             = lib/
 public          = public/
-views           = views/
+path_views           = views/
 logs            = logs/
 cache           = cache/
 iconfav         = favicon/
-scandir         = index.php
-fileInfos       = detail.php
-bookmarks       = bookmark.php
+bookmarks       = bookmark-form.php
 googleAnalytics = google-analytics.php
+widget          = widget.php
 
 [Cache]
 lifetime = 0
 
-[Site]
+[Application]
 name             = My.Bookmarks
 tagline          = Self hosted bookmarks
 publicKey        =
@@ -36,9 +35,10 @@ homeNomberOfUrls = 10
 version          = 01-01-2012
 serverVersion    = http://bookmarks.inwebo.net/helpers/version.php
 saveFavicon      = 0
+visibility       = 1
 
-[Default urls visibility]
-visibility = 1
-
-[GOOGLE ANALYTICS]
+[Google analytics id]
 id =
+
+[JS]
+path_js_const = js.const.define.php

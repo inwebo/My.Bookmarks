@@ -51,10 +51,10 @@
 					//while ( $row = mysql_fetch_assoc( $links ) ) {
 					foreach ( $links as $row ) {
                                             if( $row['id'] == 1 || $row['id'] == 2) {
-                                                echo '<p id="idCategorie'.$row['id'].'" data-id="'.$row['id'].'"><a href="' . ROOT_MAIN .'categorie/'. $row['name'] . '/' . $row['id'] . '">'.$row['name'].'</a></p>'."\n";
+                                                echo '<p id="idCategorie'.$row['id'].'" data-id="'.$row['id'].'"><a href="' . PATH_INDEX .'categorie/'. $row['name'] . '/' . $row['id'] . '">'.$row['name'].'</a></p>'."\n";
                                             }
                                             else {
-                                                echo '<p id="idCategorie'.$row['id'].'" data-id="'.$row['id'].'"><a href="' . ROOT_MAIN .'categorie/'. $row['name'] . '/' . $row['id'] . '">'.$row['name'].'</a><span class="gui-item-button close" data-id="'.$row['id'].'" data-category="'.$row['name'].'" ><a href="#">x</a></p>'."\n";
+                                                echo '<p id="idCategorie'.$row['id'].'" data-id="'.$row['id'].'"><a href="' . PATH_INDEX .'categorie/'. $row['name'] . '/' . $row['id'] . '">'.$row['name'].'</a><span class="gui-item-button close" data-id="'.$row['id'].'" data-category="'.$row['name'].'" ><a href="#">x</a></p>'."\n";
                                             }
 						
 						$i++;
@@ -123,7 +123,7 @@
 
                                                 $k=-1;
                                                 while( isset( $cloud[++$k] ) ) {
-                                                    echo '<li><a class="tags" href="'.ROOT_MAIN.'tags/'. $cloud[$k] .'">'. $cloud[$k] .'</a><li>';
+                                                    echo '<li><a class="tags" href="'.PATH_INDEX.'tags/'. $cloud[$k] .'">'. $cloud[$k] .'</a><li>';
                                                 }
 
                                                 echo '</ul></div></div>';

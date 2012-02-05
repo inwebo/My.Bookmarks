@@ -49,62 +49,76 @@ else {
 	exit();
 }
 
-define('DEBUG', $conf['debug']);
+//@todo renommer les varibles du config.ini correctement
+//@todo construire à la volée, les constantes avec les données du .ini
 
-$enigma = new MyCrypt( md5( $conf['user'] ) );
+/**
+ * The short description
+ *
+ */
+define( 'DEBUG', $conf['debug'] );
+
+define( 'DB_SERVER', $conf['db_server'] );
+define( 'DB_DATABASE', $conf['db_database'] );
+define( 'DB_TABLE_PREFIX', $conf['db_table_prefix'] );
+define( 'DB_USER', $conf['db_user'] );
+define( 'DB_PASSWORD', $conf['db_password'] );
+$enigma = new MyCrypt( md5( DB_USER ) );
 
 $root = $conf['root'];
-define('ROOT', $root);
+define('PATH_ROOT', $root);
 
-$mainRoot = $conf['root'] . 'index.php/';
-define('ROOT_MAIN', $mainRoot);
+$mainRoot = PATH_ROOT . 'index.php/';
+define('PATH_INDEX', $mainRoot);
 
-$publicRoot = $conf['root'] . $conf['public'];
-define('ROOT_PUBLIC', $publicRoot);
+$publicCSS = PATH_ROOT . $conf['css'];
+define('PATH_CSS', $publicCSS);
 
-$publicCSS = $conf['root'] . $conf['css'];
-define('ROOT_CSS', $publicCSS);
+$publicJS = PATH_ROOT . $conf['js'];
+define('PATH_JS', $publicJS);
 
-$publicJS = $conf['root'] . $conf['js'];
-define('ROOT_JS', $publicJS);
+$ajax = PATH_JS . 'ajax/';
+define( 'PATH_AJAX', $ajax );
 
-$publicImg = $conf['root'] . $conf['images'];
-define('ROOT_IMG', $publicImg);
+$publicImg = PATH_ROOT . $conf['images'];
+define('PATH_IMG', $publicImg );
 
 $publicHelpers = $conf['helpers'];
-define('ROOT_HELPERS', $publicHelpers);
+define('PATH_HELPERS', $publicHelpers );
 
-$scan = $conf['root'] . $conf['scandir'] . '/' . $conf['public'];
-define('ROOT_SCANDIR', $scan);
+$google =  PATH_ROOT . PATH_HELPERS . $conf['googleAnalytics'];
+define( 'PATH_GOOGLE_ANALYTICS', $google );
 
-$infos = $conf['root'] . $conf['fileInfos'] . '/' . $conf['public'];
-define('ROOT_INFOS', $infos);
+$googleId =  $conf['id'];
+define( 'GA_ID', $googleId );
 
-$google =  $conf['root'] . ROOT_HELPERS . $conf['googleAnalytics'];
-define('GOOGLE', $google);
+$pathJsConst =  PATH_JS . $conf['path_js_const'];
+define( 'PATH_JS_CONST', $pathJsConst );
 
-$ajax = ROOT_JS . 'ajax/';
-define('ROOT_AJAX', $ajax);
+$pathViews =  $conf['path_views'];
+define( 'PATH_VIEWS', $pathViews );
 
-define('PUBLIC_KEY', $conf['publicKey']);
+define( 'PUBLIC_KEY', $conf['publicKey'] );
 
-define('DB_TABLE_PREFIX', $conf['dbPrefix']);
+$pathWidget =  $conf['helpers'].$conf['path_widget'];
+define( 'PATH_WIDGET', $pathWidget );
 
 try {
-	$sql = new MyPdo( $conf['server'], $conf['database'], $conf['user'], $enigma->decode( $conf['password'] ) );
+	$sql = new MyPdo( DB_SERVER, DB_DATABASE, DB_USER, $enigma->decode( DB_PASSWORD ) );
+        $views = new MyViews( 'views/' );
 }
 catch(Exception $e) {
-	if( $conf['debug'] == 1 ) {
+	if( DEBUG == 1 ) {
 		echo $e->getMessage();
 	}
 	else {
 		try {
-			$myLog = new MyLog($conf['logs'].'exceptions.log');
+			$myLog = new MyLog( $conf['logs']. 'exceptions.log' );
 			$myLog->line( $e->getMessage() );
 			$myLog->save();
 		}
-		catch(Exception $e) {
-			if( $conf['debug'] == 1 ) {
+		catch( Exception $e ) {
+			if( DEBUG == 1 ) {
 				echo $e->getMessage();
 			}
 		}

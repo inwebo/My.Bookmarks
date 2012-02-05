@@ -138,7 +138,7 @@
 <script type="text/javascript" >
 <?php
         // @todo buffer config
-	echo 'var hostRoot="js/ajax/setup.php";'  . "\n";
+	echo 'var JS_PATH_AJAX="js/ajax/setup-save.php";'  . "\n";
 	echo 'var databaseTest="js/ajax/database-test.php";'  . "\n";
 ?>
 
@@ -193,7 +193,7 @@ $.ajax({
 			$.ajax({
 				type: "POST",
 				// URL script PHP
-				url: $('#setupRoot').val() + hostRoot,
+				url: $('#setupRoot').val() + JS_PATH_AJAX,
 				data: {
                                         setupRoot: $('#setupRoot').val(),
                                         setupUserName: $('#setupUserName').val(),

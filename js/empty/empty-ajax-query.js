@@ -2,7 +2,7 @@
 		$.ajax({
 			type: "POST",
 			// URL script PHP
-			url: hostRoot+"add-categorie.php",
+			url: JS_PATH_AJAX+"add-categorie.php",
 			data: { postVar:'theValue1', postVar2:'theValue2' },
 			dataType: "text",
 			beforeSend:function() {

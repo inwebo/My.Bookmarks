@@ -48,11 +48,11 @@ include( 'lib/sanitize/class.sanitize.php' );
 
 
 
-//$_GET['publicKey'] = $sanitize->sanitize_paranoid_string($_GET['publicKey']);
+//$_GET['JS_PUBLIC_KEY'] = $sanitize->sanitize_paranoid_string($_GET['JS_PUBLIC_KEY']);
 
 if(
         ( count( $_GET ) == 0 ) ||
-        !isset($_GET['publicKey']) ||
+        !isset($_GET['JS_PUBLIC_KEY']) ||
         !isset($_GET['url']) ||
         !isset($_GET['title']) ||
         !isset($_GET['tags']) ||
@@ -63,7 +63,7 @@ if(
     exit('Error GET');
 }
 
-if( $_GET['publicKey'] != PUBLIC_KEY ) {
+if( $_GET['JS_PUBLIC_KEY'] != PUBLIC_KEY ) {
     exit('Error');
 }
 
