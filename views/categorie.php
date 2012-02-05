@@ -60,60 +60,12 @@ $template->display('categories-list');
                         <ul class="listUrl">
 			<?php
 				$links = $sql->query('SELECT * FROM '. DB_TABLE_PREFIX .'bookmarks where category=? ORDER BY `dt` DESC', array($multiViews->args[3]));
+
 				if( count($links ) != 0 ) {
 					foreach ( $links  as $row ) {
-
-                                                
-
-                                                // -------------------------------------- //
-                                                if( $_SESSION['type'] == 'admin' ) {
-                                                    echo '<li data-hash="'.$row['hash'].'">';
-                                                    echo '<div class="itemLeft">';
-                                                    echo '<span class="dragMeToCat" title="'.$row['hash'].'" data-display="'.stripslashes($row['title']).'">Drag me</span>';
-                                                    
-                                                    
-                                                    echo '</div>';
-                                                }
-                                                else {
-                                                    echo '<li>';
-                                                }
-                                                
-                                                if ($_SESSION['type'] == 'admin') {
-                                                    echo '<span class="gui-item-button close"><a href="#" title="DELETE" data-id="'. $row['id'] .'" data-title="'. $row['title'] .'">x</a></span>';
-                                                    echo '<span class="gui-item-button edit itemEditSpan" data-hash="'.$row['hash'].'" data-display="'.stripslashes($row['title']).'"><a href="#" onclick="return false;"data-hash="'.$row['hash'].'" >edit</a></span>';
-                                                    echo '<span class="gui-item-button save itemSaveSpan" data-hash="'.$row['hash'].'" data-display="'.stripslashes($row['title']).'"><a href="#" onclick="return false;"data-hash="'.$row['hash'].'" >save</a></span>';
-
-                                                    echo '<div class="itemMain">';
-                                                }
-
-                                                echo'<div class="itemDisplay"><h3><a href="' . $row['url'] . '" title="'.$row['description'].'" data-hash="'.$row['hash'].'"  class="displayTitle">'. stripslashes($row['title']) . '</a></h3>';
-                                                echo '<p>'. stripslashes($row['description']) . '</p>';
-                                                echo '<div class="itemTags"><ul>';
-                                                    //<!-- Tags -->
-
-                                                $tags = new MyTags($row['tags']);
-                                                $cloud = $tags->asArray();
-
-                                                $k=-1;
-                                                while( isset( $cloud[++$k] ) ) {
-                                                    echo '<li><a class="tags" href="'.PATH_INDEX.'tags/'. $cloud[$k] .'">'. $cloud[$k] .'</a><li>';
-                                                }
-
-                                                echo '</ul></div></div>';
-                                                if ($_SESSION['type'] == 'admin') {
-                                                    echo '</div>';
-                                                    echo '<div class="itemEdit">';
-                                                    echo '<form id="id'. $row['id'] .'" name="id'. $row['id'] .'"  data-hash="'.$row['hash'].'" data-id="'.$row['id'].'" >';
-                                                    echo '<input id="item-title" name="item-title" value="'. $row['title'] .'" ><br>';
-                                                    echo '<textarea id="item-title" name="item-title" value="">'. $row['description'] .'</textarea><br>';
-                                                    echo'</form>';
-                                                    echo '</div>';
-                                                }
-
-
-                                                // -------------------------------------- //
-                                                
-                                                echo '<div class="clear"></div></li>';
+                                                $_SESSION['row'] = $row;
+                                                $template->display('bookmark');
+                                                $_SESSION['row'] = NULL;
 					}
 				}
 				else {

@@ -21,7 +21,7 @@ try {
 catch( Exception $e ) {
 
 	// Display Error ?
-	if( $conf['JS_DEBUG'] == 1 ) {
+	if( DEBUG == 1 ) {
 		echo $e->getMessage();
 	}
 	else {
@@ -33,7 +33,7 @@ catch( Exception $e ) {
 		}
 		// Display it
 		catch(Exception $e) {
-			if( $conf['JS_DEBUG'] == 1 ) {
+			if( DEBUG == 1 ) {
 				echo $e->getMessage();
 			}
 		}
@@ -52,7 +52,7 @@ if( isset( $_POST['login'] ) && isset( $_POST['password'] ) ) {
 if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 	$sessions->destroy();
 	$sessions->setParams('type','guest');
-	echo "<meta http-equiv='refresh' content='0';URL=". $conf['root'] ."'>";
+	echo "<meta http-equiv='refresh' content='0';URL=". PATH_ROOT ."'>";
 }
 ?>
 <!doctype html>

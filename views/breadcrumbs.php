@@ -46,7 +46,7 @@ class BreadCrumbs {
 		global $conf;
 		global $multiViews;
 		$return = '<ul>';
-		$return .= '<li><a href="'.$conf['root'].'index.php">Home</a>&nbsp;</li>';
+		$return .= '<li><a href="'.PATH_ROOT.'index.php">Home</a>&nbsp;</li>';
 		$count = count( $multiViews->listArgs() );
 		$compteur = 0;
 		$list = '';

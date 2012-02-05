@@ -1,15 +1,13 @@
-test = prout
-
 [Data Base]
-db_server   =
-db_database =
-db_user     =
-db_password =
+db_server       =
+db_database     =
+db_user         =
+db_password     =
 db_table_prefix = my_tables_
 
 [Path]
-root            =
-config          = config/
+path_root       =
+path_config     = config/
 css             = css/
 helpers         = helpers/
 ajax            = ajax/
@@ -24,7 +22,7 @@ iconfav         = favicon/
 template        = tpl/
 bookmarks       = bookmark-form.php
 googleAnalytics = google-analytics.php
-widget          = widget.php
+path_widget     = widget.php
 
 [Cache]
 lifetime = 0

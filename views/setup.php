@@ -85,10 +85,9 @@
                 ?>
                     <h2>Installation</h2>
 			<div class="debugOkay" id="continue">
-			<h3>Félicitation</h3>
+			<h3>Yeah!</h3>
 			<p class="">
-				My.Bookmarks est correctement installé                                
-                                Et rejoindre votre <a href="#">page d'accueil</a>.
+				My.Bookmarks est installé, veuillez rejoindre votre <a href="#">page d'accueil</a>.
 			</p>
 			</div>
 			<form id="setupForm" name="setupForm" method="post" enctype="application/x-www-form-urlencoded">

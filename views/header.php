@@ -48,7 +48,7 @@
                     <a href="#" id="loginClick" class="loginClick">Login</a>
                 </span>
                     <div id="loginContainer">
-                        <form name="item-1" method="post" enctype="application/x-www-form-urlencoded" action="<?php echo $conf['root']; ?>" id="loginFieldset">
+                        <form name="item-1" method="post" enctype="application/x-www-form-urlencoded" action="<?php echo PATH_ROOT; ?>" id="loginFieldset">
                             <label>
                                 <input type="text" id="item-4" name="login">
                             </label>
@@ -93,7 +93,7 @@
                 <?php if ((isset($multiViews->total) && $multiViews->total === 0) || $multiViews->args[1] == 'categorie') { ?>
                     <div class="headerActif_wrap">
                 <?php } ?>        
-                    <a href="<?php echo $conf['root']; ?>index.php">Categories</a>
+                    <a href="<?php echo PATH_ROOT; ?>index.php">Categories</a>
                 <?php if ((isset($multiViews->total) && $multiViews->total === 0) || $multiViews->args[1] == 'categorie') { ?>
                     </div>
                 <?php } ?>

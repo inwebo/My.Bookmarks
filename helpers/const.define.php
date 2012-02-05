@@ -49,7 +49,7 @@ else {
 	exit();
 }
 
-//@todo renommer les varibles du config.ini correctement
+//@todo renommer les variables du config.ini correctement
 //@todo construire à la volée, les constantes avec les données du .ini
 
 /**
@@ -65,7 +65,7 @@ define( 'DB_USER', $conf['db_user'] );
 define( 'DB_PASSWORD', $conf['db_password'] );
 $enigma = new MyCrypt( md5( DB_USER ) );
 
-$root = $conf['root'];
+$root = $conf['path_root'];
 define('PATH_ROOT', $root);
 
 $mainRoot = PATH_ROOT . 'index.php/';

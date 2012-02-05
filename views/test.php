@@ -9,7 +9,7 @@
             <a href="#">Login</a>
         </p>
 
-                <form name="item-1" method="post" enctype="application/x-www-form-urlencoded" action="<?php echo $conf['root']; ?>" id="loginFieldset">
+                <form name="item-1" method="post" enctype="application/x-www-form-urlencoded" action="<?php echo PATH_ROOT; ?>" id="loginFieldset">
                             <label>Login <input type="text" id="item-4" name="login"></label>
                             <label>Password<input type="password" id="item-5" name="password"></label>
                             

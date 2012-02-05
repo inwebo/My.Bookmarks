@@ -28,42 +28,50 @@ class Config
 		return self::$get;
 	}
 
-        public static function save( $_from, $_to, $_align = 20 ) {
-
+        public static function save( $_from, $_to ) {
+            
             $content = self::format( $_from );
 
-                  if (!$handle = fopen($_to, 'w+')) {
+            //$content = self::get( $_from, TRUE );
+
+                  if ( !$handle = fopen( $_to, 'w+' ) ) {
                         return false;
                     }
-                    if (!fwrite($handle, $content)) {
+                    if ( !fwrite( $handle, $content ) ) {
                         return false;
                     }
-                    fclose($handle);
+                    fclose( $handle );
         }
 
         public function format( $ini_file ) {
-            
-            $format = self::get( $ini_file, TRUE );
             $return = '';
-
-            foreach( $format as $key => $value ) {
-
-                if(is_array($value) ) {
-                    $return .= "\n" . '[ ' . $key . ' ]' . "\n";
-                    foreach( $value as $_key => $_value ) {
-                        ob_start();
-                        $return .= sprintf("%-20s", $_key);
-                        $return .= '= ';
-                        $return .= ' ' . $_value . "\n";
-                        ob_end_flush();
-                    }
-                }
-                else {
-                    $return .= $key . '=' . $value . "\n";
-                }
+            if ( is_array( $ini_file ) ) {
+                $format = $ini_file;
+            }
+            elseif( is_file( $ini_file ) ) {
+                $format = self::get( $ini_file, TRUE );
 
             }
-            
+
+
+                foreach( $format as $key => $value ) {
+
+                    if(is_array($value) ) {
+                        $return .= "\n" . '[' . $key . ']' . "\n";
+                        foreach( $value as $_key => $_value ) {
+                            ob_start();
+                            $return .= sprintf("%-20s", $_key);
+                            $return .= '=';
+                            $return .= ' "' . $_value . '"' . "\n";
+                            ob_end_flush();
+                        }
+                    }
+                    else {
+                        $return .= $key . '=' . $value . "\n";
+                    }
+
+                }
+
             return $return;
         }
 

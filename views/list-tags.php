@@ -40,70 +40,32 @@
 ?>
 <!-- list-tags.php -->
 <?php
-
 extract($GLOBALS);
-
 ?>
 
 <?php
-    $template = new MyViews( PATH_TEMPLATE );
-    $template->display('categories-list');
+$template = new MyViews(PATH_TEMPLATE);
+$template->display('categories-list');
 ?>
-                        <?php
-                        
-                            $links = $sql->query('SELECT * FROM '. DB_TABLE_PREFIX .'bookmarks where tags LIKE \'%'.$multiViews->args[2].'%\' ORDER BY `dt` DESC');
-                            $totalLinks = count( $links ) ;
-                        ?>
-                        <h2>Tags : <em><?php echo $multiViews->args[2]; ?></em><span class="totalLinks"><?php echo $totalLinks; ?></span></h2>
-			<ul class="listUrl">
-			<?php
-				$links = $sql->query('SELECT * FROM '. DB_TABLE_PREFIX .'bookmarks where tags LIKE \'%'.$multiViews->args[2].'%\' ORDER BY `dt` DESC');
-				if( count($links ) != 0 ) {
-					//while ($row = mysql_fetch_assoc( $links )) {
-					foreach ( $links as $row ) {
-						//echo '<li title="'.$row['hash'].'">';
-						/*if( $_SESSION['type'] == 'admin' ) {
-							echo '<span class="dragMeToCat" title="'.$row['hash'].'">Drag me</span>';
-							echo '<span class="close"><a href="#" title="DELETE" data-id="'. $row['id'] .'" data-title="'. $row['title'] .'">x</a></span>';
-						}*
-						echo'<a href="' . $row['url'] . '" title="'.$row['description'].'">'. stripslashes($row['title']) . '</a><span class="clear"></span></li>'."\n";*/
-                                                
-                                                echo '<li>';
-                                                
-                                                if( $_SESSION['type'] == 'admin' ) {
-                                                    echo '<span class="dragMeToCat" title="'.$row['hash'].'">Drag me</span>';
-                                                }
-                                                echo'<a href="' . $row['url'] . '" title="'.$row['description'].'" class="displayTitle">'. stripslashes($row['title']) . '</a>';
-                                                if( $_SESSION['type'] == 'admin' ) {
-                                                    echo'
-                                                    <span class="delete close">
-                                                        <a href="#" title="DELETE" data-id="'. $row['id'] .'" data-title="'. $row['title'] .'">x
-                                                        <span class="deleteTxt">
-                                                           <span class="deleteTriangle"></span>
-                                                           Delete
-                                                        </span>
-                                                        </a>
-                                                    </span>';
-                                                }
-                                                echo '</li>';
-                                                
-                                                //<li>
-                                                    //<span class="dragMeToCat">Drag me</span>
-                                                    //<a href="">Nom du len</a>
-                                                    //<span class="delete">
-                                                        //<a href="#">x
-                                                        //<span class="deleteTxt">
-                                                            //<span class="deleteTriangle"></span>
-                                                            //Delete</span>
-                                                        //</a>
-                                                    //</span>
-                                                //</li>
-					}
-				}
-				else {
-					echo '<li>Empty</li>'."\n";
-				}
-			?>
-			</ul>
-			</div>
+<?php
+$links = $sql->query('SELECT * FROM ' . DB_TABLE_PREFIX . 'bookmarks where tags LIKE \'%' . $multiViews->args[2] . '%\' ORDER BY `dt` DESC');
+$totalLinks = count($links);
+?>
+<h2>Tags : <em><?php echo $multiViews->args[2]; ?></em><span class="totalLinks"><?php echo $totalLinks; ?></span></h2>
+<ul class="listUrl">
+<?php
+$links = $sql->query('SELECT * FROM ' . DB_TABLE_PREFIX . 'bookmarks where tags LIKE \'%' . $multiViews->args[2] . '%\' ORDER BY `dt` DESC');
+if (count($links) != 0) {
+    //while ($row = mysql_fetch_assoc( $links )) {
+    foreach ($links as $row) {
+        $_SESSION['row'] = $row;
+        $template->display('bookmark');
+        $_SESSION['row'] = NULL;
+    }
+} else {
+    echo '<li>Empty</li>' . "\n";
+}
+?>
+</ul>
+</div>
 <!-- /categorie.php -->

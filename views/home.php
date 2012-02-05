@@ -1,5 +1,4 @@
 <?php
-
 /**
  * My.Bookmarks
  *
@@ -41,48 +40,42 @@
 ?>
 <!-- home.php -->
 <?php
-
 extract($GLOBALS);
 
-$allCategories = $sql->query('SELECT `id`, `name` FROM `'. DB_TABLE_PREFIX .'categories`');
+$allCategories = $sql->query('SELECT `id`, `name` FROM `' . DB_TABLE_PREFIX . 'categories`');
 
-$grid   = array();
-$i      = 0;
-$clear  = 0;
+$grid = array();
+$i = 0;
+$clear = 0;
 $output = '';
 
 //while ( $oneCategorie = mysql_fetch_assoc( $allCategories ) ) {
-foreach( $allCategories as $oneCategorie ){
+foreach ($allCategories as $oneCategorie) {
     // All categories
-    if($_SESSION['type'] == 'admin') {
-        $listItemOneCategory = $sql->query('SELECT * FROM `'. DB_TABLE_PREFIX .'bookmarks` WHERE `category`=' . $oneCategorie['id'] . ' ORDER BY `dt` DESC LIMIT 0,' . $conf['homeNomberOfUrls']);
+    if ($_SESSION['type'] == 'admin') {
+        $listItemOneCategory = $sql->query('SELECT * FROM `' . DB_TABLE_PREFIX . 'bookmarks` WHERE `category`=' . $oneCategorie['id'] . ' ORDER BY `dt` DESC LIMIT 0,' . $conf['homeNomberOfUrls']);
+    } else {
+        $listItemOneCategory = $sql->query('SELECT * FROM `' . DB_TABLE_PREFIX . 'bookmarks` WHERE `category`=' . $oneCategorie['id'] . ' ORDER BY `dt` DESC LIMIT 0,' . $conf['homeNomberOfUrls']);
     }
-    else {
-        $listItemOneCategory = $sql->query('SELECT * FROM `'. DB_TABLE_PREFIX .'bookmarks` WHERE `category`=' . $oneCategorie['id'] . ' ORDER BY `dt` DESC LIMIT 0,' . $conf['homeNomberOfUrls']);
-        //echo $sql->query;
-    }
-    
+
 
     // How many links in categorie
-    //$totalListItemOneCategory = mysql_num_rows( $listItemOneCategory );
-    $totalListItemOneCategory = count( $listItemOneCategory );
+    $totalListItemOneCategory = count($listItemOneCategory);
 
 
     // Not empty
-    //if( $totalListItemOneCategory != false ) {
-    if( $totalListItemOneCategory != false || $totalListItemOneCategory != 0 ) {
+    if ($totalListItemOneCategory != false || $totalListItemOneCategory != 0) {
         $li = array();
         // Can print
-        //while ( $row = mysql_fetch_assoc( $listItemOneCategory ) ) {
-        foreach( $listItemOneCategory as $row ) {
-            $li[] = array('url'=>$row['url'],'tags'=>$row['description'], 'hash'=>$row['hash'], 'title'=>$row['title']);
+        foreach ($listItemOneCategory as $row) {
+            $li[] = array('url' => $row['url'], 'tags' => $row['description'], 'hash' => $row['hash'], 'title' => $row['title']);
         }
 
-        $grid[] = array( 'total' => $totalListItemOneCategory, 'title'=>$oneCategorie['name'], 'id'=>$oneCategorie['id'],'li'=>$li);
+        $grid[] = array('total' => $totalListItemOneCategory, 'title' => $oneCategorie['name'], 'id' => $oneCategorie['id'], 'li' => $li);
     }
 }
 
-$gridSize = count( $grid );
+$gridSize = count($grid);
 $output = '';
 $iterator = 0;
 
@@ -94,45 +87,43 @@ $iterator = -1;
 
 $modulo = 0;
 
-while( isset( $grid[++$iterator] ) ) {
+while (isset($grid[++$iterator])) {
 
-    // Un container
+    if ($totalCategorie == 1) { ?>
+       <div class="grid_12 gridHome">
+        <?php $modulo += 3;
+    } elseif ($totalCategorie == 2) { ?>
+        <div class="grid_6 gridHome">
+        <?php $modulo += 3;
+    } else { ?>
+        <div class="grid_4 gridHome">
+    <?php } ?>
 
-        if( $totalCategorie == 1 ) {
-            $output .= '<div class="grid_12 gridHome">';
-            $modulo += 3;
-        }
-        elseif( $totalCategorie == 2 ) {
-            $output .= '<div class="grid_6 gridHome">';
-            $modulo += 3;
-        }
-        else {
-            $output .= '<div class="grid_4 gridHome">';
-        }
+    <h2>
+        <a href="<?php echo PATH_INDEX; ?>categorie/<?php echo $grid[$iterator]['title']; ?>/<?php echo $grid[$iterator]['id']; ?>"><?php echo $grid[$iterator]['title']; ?></a>
+    </h2>
+    <ul class="listUrl">
+    <?php
+        // Un container
 
-        $output .='<h2>
-                       <a href="' . PATH_INDEX . 'categorie/' . $grid[$iterator]['title'] . '/' . $grid[$iterator]['id'] . '">' . $grid[$iterator]['title'] . '</a>
-                       <!--<span class="totalLinks">' . $grid[$iterator]['total'] . '</span>-->
-                    </h2>
-			<ul class="listUrl">' . "\n";
-        foreach($grid[$iterator]['li'] as $key => $value) {
-                if( file_exists( 'images/favicon/'.  md5( $value['url'] ) ) ){
-                    $output .= '<li><img src="images/favicon/' . md5( $value['url'] ) . '"/>&nbsp;<a href="' . $value['url'] . '" title="' . $value['title'] . '" data-tags="' .$value['tags'] . '">' . stripslashes($value['title']) . '</a><span class="gui-item-button close">x</span></li>' . "\n";
-                }
-                else {
-                    $output .= '<li><a href="' . $value['url'] . '" title="' . $value['title'] . '" data-tags="' .$value['tags'] . '">' . stripslashes($value['title']) . '</a><span class="gui-item-button close">x</span></li>' . "\n";
-                }
-            
+        foreach ( $grid[$iterator]['li'] as $key => $value) {
+            $_SESSION['key'] = $key;
+            $_SESSION['value'] = $value;
+            $template->display('bookmark-simple');
         }
-        $output .= '</ul></div>' . "\n";
+            $_SESSION['key'] = null;
+            $_SESSION['value'] = null;
+    ?>
+    </ul>
 
+    <?php
     $modulo++;
     //print_r( $grid[$iterator]);
-    if ($modulo % 3 == 0 && $modulo != 0) {
-        $output .= '<div class="clear"></div>' . "\n";
-    }
-    
+    if ($modulo % 3 == 0 && $modulo != 0) { ?>
+        <div class="clear"></div>
+    <?php }
+
 }
-echo $output;
 ?>
+
 <!-- /home.php -->
