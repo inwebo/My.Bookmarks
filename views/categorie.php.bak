@@ -57,7 +57,7 @@ $template->display('categories-list');
                         ?>
 			<h2><?php echo urldecode($multiViews->args[2]); ?><span class="totalLinks">&nbsp;<?php echo $totalLinks; ?> urls</span></h2>
 
-                        <ul class="bookmarks-list">
+                        <ul class="listUrl">
 			<?php
 				$links = $sql->query('SELECT * FROM '. DB_TABLE_PREFIX .'bookmarks where category=? ORDER BY `dt` DESC', array($multiViews->args[3]));
 

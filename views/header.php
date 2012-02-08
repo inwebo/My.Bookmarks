@@ -40,30 +40,33 @@
 ?>
 <!-- header -->
 <header>
-    <div class="container_12">
-        <div id="headerGrid_12" class="grid_12">
-            <h1><?php echo $conf ['name']; ?></h1>
+    <!-- New login -->
             <?php if ($_SESSION['type'] != 'admin') {?>
-                <span id="boutonTop">
-                    <a href="#" id="loginClick" class="loginClick">Login</a>
-                </span>
                     <div id="loginContainer">
                         <form name="item-1" method="post" enctype="application/x-www-form-urlencoded" action="<?php echo PATH_ROOT; ?>" id="loginFieldset">
-                            <label>
-                                <input type="text" id="item-4" name="login">
-                            </label>
-                            <label><input type="password" id="item-5" name="password"></label>
+                            <input type="text" id="item-4" name="login" value="Login">
+                            <input type="password" id="item-5" name="password" value="Password">
                             <input type="submit" id="item-7">
                         </form>
+                        <p>
+                            <a href="#" id="loginClick" class="loginClick">Login</a><span class="ribbon"></span>
+                        </p>
+                        <div class="clear"></div>
                     </div>
             <?php } else { ?>
                 <span id="boutonTop">
                     <a href="?q" id="loginClick" class="loginClickExit">Exit</a>
                 </span>
             <?php } ?>
+    <!-- /New login -->
 
-            <!-- New login -->
-            <!-- /New login -->
+    <div class="container_12">
+        <div id="headerGrid_12" class="grid_12">
+            <h1><?php echo $conf ['app_name']; ?></h1>
+
+
+            
+            
 
 
 <?php if ($_SESSION['type'] == 'admin') { ?>

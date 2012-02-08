@@ -117,10 +117,10 @@ Le plus sage serait <strong>l'autonomie</strong> !
     <a name="Technique"></a>
     <h2>Aspect technique</h2>
     <p>
-        <img src="<?php echo PATH_IMG.'system/dinosaures.jpg'; ?>"> My.Bookmarks est
+        My.Bookmarks est
         une application riche ! Elle nécessite donc un navigateur moderne ainsi qu'un
-        serveur digne de ce nom. Ainsi Internet Explorer n'est pas supporté (et ne le
-        sera probablement jamais). La compatibilité avec l'hébergeur free.fr est terminée.
+        serveur digne de ce nom. Internet Explorer n'est pas supporté (et ne le
+        sera probablement jamais). Pourquoi ne pas essayé Opéra, firefox, ou chromium ?
         
     </p>
     <div class="clear"></div>
@@ -132,11 +132,14 @@ Le plus sage serait <strong>l'autonomie</strong> !
         <li>jQuery 1.6.4</li>
         <li>jQuery-ui 1.8.16</li>
         <li>MySQL 5</li>
-        <li>HTML5 / CSS3<ul><li>Firefox 6+</li><li>Opera 11.52+</li><li>Chromium 14+</li></ul></li>
+        <li>HTML5 / CSS3</li>
         <li>Boilerplate</li>
         <li>960 grid system</li>
         <li>GitHub</li>
         <li>Approche MVC</li>
+        <li>Firefox 6+</li>
+        <li>Opera 11.52+</li>
+        <li>Chromium 14+</li>
     </ul>
     <a name="Demo"></a>
     <h2>Démo</h2>

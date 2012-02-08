@@ -114,10 +114,10 @@
 				<hr>
 				<fieldset id="containerDatabase">
 					<legend>Database</legend>
-					<label class="inputGrid_1 inputGrid_1-first">Server : <input id="setupDbServer" name="setupDbServer" value="localhost"/><br><span>Adresse du serveur sql ex : <em>sql.free.fr</em>.</span></label>
-                                        <label class="inputGrid_1 inputGrid_1">Database : <input id="setupDbDatabase" name="setupDatabase" value="t" /><br><span>Base de donnée.</span></label>
-					<label class="inputGrid_1 inputGrid_1-first">User : <input id="setupDbUser" name="setupDbUser" value="inwebo"/><br><span>Nom de l'utilisateur.</span></label>
-					<label class="inputGrid_1 inputGrid_1">Password : <input id="setupDbPassword" name="setupPassword" value="inwebo"/><br><span>Mot de passe.</span></label>
+					<label class="inputGrid_1 inputGrid_1-first">Server : <input id="setupDbServer" name="setupDbServer" value=""/><br><span>Adresse du serveur sql ex : <em>sql.free.fr</em>.</span></label>
+                                        <label class="inputGrid_1 inputGrid_1">Database : <input id="setupDbDatabase" name="setupDatabase" value="" /><br><span>Base de donnée.</span></label>
+					<label class="inputGrid_1 inputGrid_1-first">User : <input id="setupDbUser" name="setupDbUser" value=""/><br><span>Nom de l'utilisateur.</span></label>
+					<label class="inputGrid_1 inputGrid_1">Password : <input id="setupDbPassword" name="setupPassword" value=""/><br><span>Mot de passe.</span></label>
                                         
 					<label>Table prefixe : <input id="setupDbPrefix" name="setupDbPrefix" value="my_tables_"/><br><span>Prefix d'organisation des tables.</span></label>
                                         <a id="databaseTest" href="#" onclick="return false;" class="myButton">Test de connexion</a>

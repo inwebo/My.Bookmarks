@@ -4,21 +4,32 @@
         JS_DEBUG = true;
         isDragging = 0;
         /* Edition Bookmark */
+        var state = 0;
+        $('.bookmarks-edit').click(function() {
+                var plugin = this;
+
+                if( state == 0 ) {
+                    $(this).parent().parent().children('.bookmarks-main').fadeOut('slow', function(){$(plugin).parent().parent().children('form').fadeIn('slow')} );
+                    state = 1;
+                }
+                else {
+                    $(this).parent().parent().children('form').fadeOut('slow', function(){$(plugin).parent().parent().children('.bookmarks-main').fadeIn('slow')} );
+                    state = 0;
+                }
+
+        });
 
         $('.xfolkentry').hover(
             function() {
                 if( isDragging == 0 ) {
-                    $(this).children('.bookmarks-boutons').animate({top : '60%',opacity:1}, 'slow', 'easeInOutQuart' );
-                    
+                $(this).children('.bookmarks-boutons').animate({top : '78%',opacity:1}, 'slow', 'easeInOutQuart' );
                 }
 
             },
             function() {
                 if( isDragging == 0 ) {
-                    $(this).children('.bookmarks-boutons').animate({top : '100%',opacity:0}, 'slow', 'easeInOutQuart');
-
+                $(this).children('.bookmarks-boutons').animate({top : '100%',opacity:0}, 'slow', 'easeInOutQuart');
                 }
-                    $(this).animate({'min-height' : 'auto'}, 'slow', 'easeInOutQuart' );
             }
         );
         /* Edition Bookmark */
@@ -31,7 +42,7 @@
             //addMssg('informations', 'it exists ' + total + ' links in ' + $('.totalLinks').parent('h2').html() );
         }
 
-        $( "span.dragMeToCat" ).draggable({
+        $( "#newItems ul li span.dragMeToCat" ).draggable({
             opacity: 0.7,
             helper: "clone",
             cursorAt: {
@@ -41,18 +52,11 @@
             },
             start: function(event, ui) {
                 isDragging = 1;
-                data_id = $(this).closest('li').attr('data-id');
-                data_hash = $(this).closest('li').attr('data-hash');
-                data_title = $(this).closest('li').attr('data-title');
-                //$(this).closest('li').css('overflow', 'auto');
-                console.log(data_id);
-                console.log(data_hash);
-                console.log(data_title);
-                //console.log(values);
+                var values = $(this).closest('li').attr('data-id');
+                console.log(values);
             },
             stop: function(event, ui) {
                 isDragging = 0;
-                //$(this).closest('li').css('overflow', 'hidden');
             },
             revert:'invalid'
         });
@@ -70,29 +74,28 @@
                 }
                 var $element = ui.draggable;
                 var containerIdData = this;
-                cat_data_id = $(this).attr('data-id');
                 $( this ).effect( "highlight" );
                 $( this ).css('border', 'solid 1px transparent');
                 $.ajax({
                     type: "POST",
                     url: JS_PATH_AJAX + "url-update.php",
-                    data: "id="+ cat_data_id +"&hash="+ data_hash,
+                    data: "id="+ $(containerIdData).attr("data-id") +"&hash="+ $element.attr("title"),
                     success:function(data) {
-                        addMssg( 'Moved', data_title + ' moved.' );
+                        addMssg( 'Moved', $element.attr("data-display") + ' moved.' );
                         totalItem() ;
                     },
                     error:function() {
-                        addMssg( 'error', 'Can\'t moved ' + data_title + ' !' );
+                        addMssg( 'error', 'Can\'t moved ' +$element.attr("title") + ' !' );
                     }
                 });
 
-                $element.closest('li').slideUp(300);
+                $element.parent().parent().slideUp(300);
             },
             accept: '#newItems ul li span.dragMeToCat',
             greedy: false
         });
 
-        $('.bookmarks-delete').click(function() {
+        $('span.close a').click(function() {
             var actualLiItem = this;
             var r = confirm('Delete url (id='+$(this).attr('data-id')+') : '+"\n"+'✗' + $(this).attr('data-title') +' ?'+"\n");
             if( r == true ) {
@@ -100,7 +103,7 @@
                     type: "POST",
                     url: JS_PATH_AJAX + "url-del.php",
                     data: {
-                        delUrl:$(this).closest('li').attr('data-id')
+                        delUrl:$(this).attr('data-id')
                         },
                     success:function(data) {
                         //alert('ok');
@@ -113,48 +116,21 @@
                 });
             }
         });
-        /*$('.bookmarks-edit').click(function() {
-                var plugin = this;
-                $(plugin).closest('li').find('.bookmarks-main').fadeOut('slow', function(){$(plugin).find('form').fadeIn('slow')} );
-        });
-        $('.bookmarks-save').click(function() {
-                    var plugin = this;
-                    $(this).closest('li').find('form').fadeOut('slow', function(){$(plugin).find('.bookmarks-main').fadeIn('slow')} );
-        });*/
 
-        $( '.bookmarks-edit' ).click( function () {
-                var plugin = this;
-                $(this).fadeOut('slow', function() {
-                    $(this).closest('li').find('.bookmarks-save').fadeIn('slow');
-                });
-                $(plugin).closest('li').animate({'min-height' : '260px'}, 'slow', 'easeInOutQuart' );
-                $(plugin).closest('li').find('.bookmarks-main').fadeOut('slow', function(){$(plugin).closest('li').find('form').fadeIn('slow')} );
-                $(plugin).closest('li').find('.bookmarks-boutons').fadeOut();
-        });
-        $( '.bookmarks-save' ).click( function () {
-                var plugin = this;
-                $(this).fadeOut('slow', function() {
-                    $(this).closest('li').find('.bookmarks-edit').fadeIn('slow');
-                });
-                $(plugin).closest('li').animate({'min-height' : '150px'}, 'slow', 'easeInOutQuart' );
+        function toggleDisplay( _obj ) {
+            t = _obj.children('.edit, .save');
+            r = _obj.children('div.itemMain, div.itemMain+div');
+            t.toggle();
+            r.toggle();
+        }
 
-                $(plugin).closest('li').find('form').fadeOut('slow', function(){$(plugin).closest('li').find('.bookmarks-main').fadeIn('slow')} );
+        $( '.save a' ).click( function () {
 
-                container = $( this ).parents('li').eq(0);
-
-                var _itemHash = $(this).closest('li').attr('data-hash');
-               console.log(_itemHash);
-                var _itemId = $(this).closest('li').attr('data-id');
-               console.log(_itemId);
-                var _itemTitle = $(container).find('form input').val();
-                console.log(_itemTitle);
-
-                var _itemDescription = $(container).find('textarea').val();
-                console.log(_itemDescription);
-
-                var _itemTags = $(container).find('label input').val();
-                console.log(_itemTags);
-
+        container = $( this ).parents('li').eq(0);
+        var _itemHash = $(this).attr('data-hash');
+        var _itemTitle = $('form[data-hash*='+ _itemHash + '] input').val();
+        var _itemDescription = $('form[data-hash*='+ _itemHash + '] textarea').val();
+        
                 $.ajax({
                     type: "POST",
                     url: JS_PATH_AJAX + "bookmark-edit.php",
@@ -162,24 +138,27 @@
                             itemHash:_itemHash,
                             itemTitle:_itemTitle,
                             itemDescription:_itemDescription,
-                            itemTags:_itemTags,
                             itemPublicKey:JS_PUBLIC_KEY
                         },
                     dataType: "text",
                     success:function(data) {
                         addMssg('okay', 'Element <em>'+ _itemTitle +'</em> edited.' );
-                        $(container).find('h3 a').html(_itemTitle);
-                        $(container).find('p.description').html(_itemDescription);
-                        $(container).animate({'min-height' : 'auto'}, 'slow', 'easeInOutQuart' );
+                        $('li[data-hash*= ' + _itemHash +  '] div.itemDisplay h3 a ').html(_itemTitle);
+                        $('li[data-hash*= ' + _itemHash +  '] div.itemDisplay p ').html(_itemDescription);
                     },
                     error:function() {
                         addMssg('error', 'Cannot edit, please try later.' );
                     }
 
                 });
-$(plugin).closest('li').find('.bookmarks-boutons').fadeIn();
         });
 
+
+
+        $('.edit a, .save a').click(function() {
+            container = $( this ).parents('li').eq(0);
+            toggleDisplay( $(container) );
+        });
 
 
     });

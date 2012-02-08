@@ -41,8 +41,15 @@
 <!-- home.php -->
 <?php
 extract($GLOBALS);
+    if ($_SESSION['type'] == 'admin') {
+        $allCategories = $sql->query('SELECT `id`, `name` FROM `' . DB_TABLE_PREFIX . 'categories`');
+    } else {
+        $allCategories = $sql->query('SELECT `id`, `name` FROM `' . DB_TABLE_PREFIX . 'categories` WHERE `id` NOT IN (SELECT `id` FROM  `' . DB_TABLE_PREFIX . 'categories` WHERE `id`=\'2\')');
+    }
+//$allCategories = $sql->query('SELECT `id`, `name` FROM `' . DB_TABLE_PREFIX . 'categories`');
+//$allCategories = $sql->query('SELECT `id`, `name` FROM `' . DB_TABLE_PREFIX . 'categories` WHERE `id` NOT IN (SELECT `id` FROM  `' . DB_TABLE_PREFIX . 'categories` WHERE `id`=\'2\')');
 
-$allCategories = $sql->query('SELECT `id`, `name` FROM `' . DB_TABLE_PREFIX . 'categories`');
+
 
 $grid = array();
 $i = 0;
@@ -58,13 +65,20 @@ foreach ($allCategories as $oneCategorie) {
         $listItemOneCategory = $sql->query('SELECT * FROM `' . DB_TABLE_PREFIX . 'bookmarks` WHERE `category`=' . $oneCategorie['id'] . ' ORDER BY `dt` DESC LIMIT 0,' . $conf['homeNomberOfUrls']);
     }
 
+        //if( count( $listItemOneCategory) == 0 ) {
+            //$li[0] = array('url' => '#', 'tags' => 'forever-alone', 'hash' => 'arf', 'title' => 'forever-alone');
+            //$grid[] = array('total' => '1', 'title' => 'Empty', 'id' => 'NULL', 'li' => $li);
+            //var_dump($listItemOneCategory);
+        //}
 
     // How many links in categorie
     $totalListItemOneCategory = count($listItemOneCategory);
-
+    //echo $totalListItemOneCategory;
+    //var_dump($totalListItemOneCategory);
+    //var_dump($listItemOneCategory);
 
     // Not empty
-    if ($totalListItemOneCategory != false || $totalListItemOneCategory != 0) {
+    if ($totalListItemOneCategory != false && $totalListItemOneCategory != 0 ) {
         $li = array();
         // Can print
         foreach ($listItemOneCategory as $row) {
@@ -73,7 +87,14 @@ foreach ($allCategories as $oneCategorie) {
 
         $grid[] = array('total' => $totalListItemOneCategory, 'title' => $oneCategorie['name'], 'id' => $oneCategorie['id'], 'li' => $li);
     }
+    /*else {
+        $grid[0] = array('total' => '1', 'title' => 'Empty', 'id' => 'forever-alone', 'li' => $li);
+    }*/
+
 }
+
+
+
 
 $gridSize = count($grid);
 $output = '';
@@ -82,6 +103,12 @@ $iterator = 0;
 $totalCategorie = count($grid);
 
 
+
+if( empty($totalListItemOneCategory) ) {
+  $li[0] = array('url' => '#', 'tags' => 'forever-alone', 'hash' => 'arf', 'title' => 'forever-alone');
+  $grid[0] = array('total' => '1', 'title' => 'Empty', 'id' => 'forever-alone', 'li' => $li);
+  $totalCategorie = 1;
+}
 
 $iterator = -1;
 
@@ -115,7 +142,7 @@ while (isset($grid[++$iterator])) {
             $_SESSION['value'] = null;
     ?>
     </ul>
-
+        </div>
     <?php
     $modulo++;
     //print_r( $grid[$iterator]);

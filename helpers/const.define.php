@@ -98,13 +98,15 @@ define( 'PATH_JS_CONST', $pathJsConst );
 $pathViews =  $conf['path_views'];
 define( 'PATH_VIEWS', $pathViews );
 
-define( 'PUBLIC_KEY', $conf['publicKey'] );
+define( 'PUBLIC_KEY', $conf['public_key'] );
 
 $pathWidget =  PATH_HELPERS.$conf['path_widget'];
 define( 'PATH_WIDGET', $pathWidget );
 
 $pathTemplate =  PATH_VIEWS . $conf['template'];
 define( 'PATH_TEMPLATE', $pathTemplate );
+
+define( 'APP_NAME', $conf['app_name']);
 
 try {
 	$sql = new MyPdo( DB_SERVER, DB_DATABASE, DB_USER, $enigma->decode( DB_PASSWORD ) );

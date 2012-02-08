@@ -28,8 +28,8 @@ path_widget     = widget.php
 lifetime = 0
 
 [Application]
-name             = My.Bookmarks
-tagline          = Self hosted bookmarks
+app_name             = My.Bookmarks
+app_tagline          = Self hosted bookmarks
 publicKey        =
 debug            = 1
 homeNomberOfUrls = 10

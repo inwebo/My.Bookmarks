@@ -46,7 +46,7 @@ include('lib/mylog/class.mylog.php');
 include('lib/mycrypt/class.mycrypt.php');
 
 $enigma = new MyCrypt( md5( $_POST['setupDbUser'] ) );
-$dbPassword = "\"".$enigma->code( $_POST['setupDbPassword'] )."\"";
+$dbPassword = $enigma->code( $_POST['setupDbPassword'] );
 
 $create = file( 'config/sql' );
 $create = implode($create);
@@ -78,7 +78,7 @@ try {
         $tempConf['Application']['homeNomberOfUrls'] = $_POST['setupTotalUrls'];
         $tempConf['Application']['saveFavicon']      = $_POST['setupFavicon'];
         $tempConf['Application']['visibility']       = $_POST['setupPublic'];
-        $tempConf['Application']['publicKey']    = md5( $_POST['setupRoot'] .  time() );
+        $tempConf['Application']['public_key']    = md5( $_POST['setupRoot'] .  time() );
         $tempConf['Google analytics id']['id']               = $_POST['setupGa'];
 
         config::save( $tempConf, "config/config.ini");

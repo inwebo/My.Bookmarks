@@ -49,7 +49,8 @@ extract( $GLOBALS );
 		global $getTags ;
 		global $nbrTags;
 		global $total ;
-
+                //var_dump($dataString);
+                (empty($dataString)) ? $dataString = 'empty' : NULL;
 		$dataString = ltrim($dataString);
 		$dataString = rtrim($dataString);
 		$temp       = explode(' ', $dataString);
@@ -59,7 +60,7 @@ extract( $GLOBALS );
 		$total     += $nbr;
 		$dataString = str_replace($temp[0], '', $dataString);
 
-		if(eregi("[[:alpha:]]+|[[:digit:]]+", $dataString) != false) {
+		if(@eregi("[[:alpha:]]+|[[:digit:]]+", $dataString) != false) {
 			setTagsCloud($dataString);
 		}
 		$answers = array($getTags, $nbrTags, $total);

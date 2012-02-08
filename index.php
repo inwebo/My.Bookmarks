@@ -69,7 +69,7 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
        More info: h5bp.com/b/378 -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title><?php echo $conf['name']; ?></title>
+  <title><?php echo APP_NAME; ?></title>
   <meta name="description" content="Self hosted bookmarklet service.">
   <meta name="author" content="inwebo">
 
