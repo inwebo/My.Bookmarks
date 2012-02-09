@@ -7,7 +7,7 @@
 @import url("960.css");
 
 body {
-	background-color: #fafafa;
+	background-color: #E8E8E8;
 	color: #555555;
 }
 
@@ -40,8 +40,11 @@ hr{
     width: 278px;
     background-color:#ffffff;
     margin-bottom:20px;
+    background-color: #FCFCFC;
 
 }
+
+
 
 .container_12 .grid_6 {
     width: 438px;
@@ -63,7 +66,8 @@ hr{
 }
 
 .grid_4 h2 , .grid_12 h2, .grid_8 h2, .grid_6 h2 {
-    border-bottom: thin groove #35383D
+    border-bottom: thin groove #35383D;
+    height: 2em;
 }
 
 .grid_4 h2 .totalLinks , .grid_12 h2 .totalLinks, .grid_8 h2 .totalLinks, .grid_6 h2 .totalLinks  {
@@ -187,7 +191,20 @@ h2 a {
 
 #categoriesList {
     max-height: none;
+
 }
+
+#main .grid_12 {}
+
+#categoriesList, #newItems, .gridHome {
+    border: 1px solid #CFCFCF;
+-webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 1);
+-moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 1);
+box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 1);
+background-color: #F9F9F9;
+
+}
+
 /* Categories list */
 #categoriesList p, #categoriesList form  {
     background-color: #F2F2F2;
@@ -521,6 +538,8 @@ nav li {
     min-width: 50px;
     text-align: center;
     position: relative;
+    min-height: 51px;
+    top: 0;
 }
 nav li:last-child {
     margin-right: 0;
@@ -528,6 +547,7 @@ nav li:last-child {
 
 nav li a{
     text-decoration: none;
+    color: darkSlateGray;
 }
 
 nav li:hover {
@@ -540,17 +560,18 @@ nav li:hover a:hover {
 }
 
 .heaederListActif,  .heaederListActif:hover{
-	background: #FAFAFA;
+	background: #E8E8E8;
 	text-decoration:none;
         height: 51px;
         border-left: 1px solid #E6E6E6;
         border-right: 1px solid #E6E6E6;
-        border-bottom: 1px solid #FAFAFA;
+        border-top: 1px solid #FAFAFA;
+        border-bottom: transparent;
         
 }
 
 .heaederListActif a {
-    
+   
 }
 
 .heaederListActif:hover a {
@@ -828,6 +849,7 @@ background-color: #E0E5E9;
    margin-left: -5px;
    margin-right: -5px;
    padding: inherit;
+
 }
 
 .grid_wrap {
@@ -961,21 +983,40 @@ ul.bookmarks-list{
     margin: 0;
     padding: 0;
 }
-.bookmarks-list li.xfolkentry:nth-child( odd ) {
+/*.bookmarks-list li.xfolkentry:nth-child( odd ) {
 	background-color:#f2f2f2;
 }
 
 .bookmarks-list li.xfolkentry:nth-child( even ) {
 	background-color:#fbfbfb;
-}
+}*/
 .xfolkentry {
     //background-color: green;
     //overflow: hidden;
     padding: 5px;
     position: relative;
-    width: 588px;
+    //width: 588px;
     margin: 0;
-list-style: none outside none;
+    list-style: none outside none;
+    border-bottom: 1px solid #E6E6E6;
+    border-top: 1px solid white;
+}
+
+.listUrl li {
+     border-top: 1px solid white;
+       border-bottom: 1px solid #E6E6E6;
+}
+
+.listUrl li a {
+    text-decoration: none;
+}
+
+.xfolkentry:first-child, .listUrl li:first-child {
+  border-top: 1px solid transparent;
+}
+
+.xfolkentry:last-child , .listUrl li:last-child{
+      border-bottom: 1px solid transparent;
 }
 
 .bookmarks-main, .xfolkentry form {
@@ -984,6 +1025,11 @@ list-style: none outside none;
     position: relative;
     display: inline-block;
     width: 100%;
+}
+
+.bookmarks-main {
+    width:60%;
+    border-left: 1px solid #EFEFEF;
 }
 
 .xfolkentry form {
@@ -1037,10 +1083,11 @@ padding-left: 5px;
 .bookmarks-main h3 {
     margin-top: 0;
     margin-bottom: 0;
+    font-size: 1.1em;
 }
 .bookmarks-main h3 + p {
     text-indent: 20px;
-    font-size: small;
+    font-size: x-small;
 }
 .bookmarks-main h3 + p + p{
     text-align: justify;
@@ -1058,6 +1105,7 @@ padding-left: 5px;
     top:100%;
     text-align: right;
     opacity:0;
+        display: inline-block;
 }
 /* Drag Me */
 .dragMeToCat, .bookmarks-edit, .bookmarks-delete {
@@ -1083,20 +1131,25 @@ padding-left: 5px;
     color: black;
     float: right;
     height: 16px;
-    line-height: 15px;
+line-height: 13px;
     padding: 0;
-    position: absolute;
+    //position: absolute;
     text-decoration: none;
     width: 30px;
     z-index: 9999;
     text-decoration: none;
     right: 5px;
     border-radius:0;
+    margin-left: 5px;
 }
 .dragMeToCat  {
+    background-color: #FFD86F;
+    border: solid 1px #FFA200;
     width: 151px;
     height:16px;
     box-shadow: 0 0 1px 0 #FFFFFF inset;
+    float:left;
+    color:peru;
 }
 .bookmarks-edit:hover, .bookmarks-delete:hover, .bookmarks-save:hover {
     color:white;
@@ -1143,6 +1196,9 @@ padding-left: 5px;
 }
 .bookmarks-container-bouton {
     text-align: right;
+    display: inline-block;
+    width: 25%;
+    border-right: 1px solid white;
 }
 
 /* ---------------------/Bookmarks Container -------------------------------- */

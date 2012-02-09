@@ -15,14 +15,15 @@ $cloud = $tags->asArray();
 <?php if ($_SESSION['type'] == 'admin') { ?>
 <li class="xfolkentry"  data-id="<?php echo $row['id'];?>" data-hash="<?php echo $row['hash'];?>" data-title="<?php echo $row['title'];?>">
             <div class="bookmarks-container-bouton">
-                <span class="dragMeToCat ui-draggable" title="Drag me into another categorie">Drag me</span>
+             <a class="bookmarks-delete" title="Delete" href="#"  onclick="return false;"><div class="bookmarks-delete-wrapper">x</div></a>
                 <a class="bookmarks-edit" title="Edit" onclick="return false;" href="#"><div class="bookmarks-edit-wrapper">edit</div></a>
-            <a class="bookmarks-delete" title="Delete" href="#"  onclick="return false;"><div class="bookmarks-delete-wrapper">x</div></a>
+            
             <a class="bookmarks-save" title="Save" href="#"  onclick="return false;"><div class="bookmarks-save-wrapper">save</div></a>
+
+            <span class="dragMeToCat ui-draggable" title="Drag me into another categorie">Drag and drop me</span>
             
             </div>
-            <div class="clear"></div>
-            <hr>
+            
 <?php } else { ?>
 <li class="xfolkentry" >
 <?php } ?>
@@ -32,7 +33,7 @@ $cloud = $tags->asArray();
 <?php } ?>
         <h3><img src="<?php echo PATH_ROOT; ?>images/favicon/<?php echo $row['hash']; ?>"/>&nbsp;<a class="taggedlink displayTitle" title="<?php echo $row['title'];?>" href="<?php echo $row['url'];?>"><?php echo $row['title'];?></a></h3>
         <p>
-            Ajouté le <?php echo $row['dt'];?> par Anon. <span><!-- ★★★&bull;&bull; --></span>
+            Ajouté le <?php echo $row['dt'];?><span><!-- ★★★&bull;&bull; --></span>
         </p>
         <p class="description">
             <?php echo $row['description'];?>

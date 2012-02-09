@@ -50,6 +50,7 @@ if(
         !isset($_POST['itemPublicKey']) ||
         !isset($_POST['itemDescription']) ||
         !isset($_POST['itemHash']) ||
+        !isset($_POST['itemTags']) ||
         !isset($_POST['itemTitle']) 
   ){
     exit('Error Post baby');
@@ -59,9 +60,9 @@ if( $_POST['itemPublicKey'] != PUBLIC_KEY ) {
     exit('Error');
 }
 // @ todo prefix table bdd
-$a ="UPDATE  `". DB_TABLE_PREFIX ."bookmarks` SET  `title` =  ?,`description` =  ? WHERE  `hash` = ?";
+$a ="UPDATE  `". DB_TABLE_PREFIX ."bookmarks` SET  `title` =  ?,`description` =  ?, `tags`=? WHERE  `hash` = ?";
 
-$b = array( $_POST['itemTitle'], $_POST['itemDescription'], $_POST['itemHash'] );
+$b = array( $_POST['itemTitle'], $_POST['itemDescription'], $_POST['itemTags'] , $_POST['itemHash'] );
 
 
 $new = $sql->query( $a, $b );

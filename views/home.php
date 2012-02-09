@@ -49,7 +49,7 @@ extract($GLOBALS);
 //$allCategories = $sql->query('SELECT `id`, `name` FROM `' . DB_TABLE_PREFIX . 'categories`');
 //$allCategories = $sql->query('SELECT `id`, `name` FROM `' . DB_TABLE_PREFIX . 'categories` WHERE `id` NOT IN (SELECT `id` FROM  `' . DB_TABLE_PREFIX . 'categories` WHERE `id`=\'2\')');
 
-
+//var_dump($sql);
 
 $grid = array();
 $i = 0;
@@ -64,7 +64,7 @@ foreach ($allCategories as $oneCategorie) {
     } else {
         $listItemOneCategory = $sql->query('SELECT * FROM `' . DB_TABLE_PREFIX . 'bookmarks` WHERE `category`=' . $oneCategorie['id'] . ' ORDER BY `dt` DESC LIMIT 0,' . $conf['homeNomberOfUrls']);
     }
-
+    $isEmpty = $sql->countRows;
         //if( count( $listItemOneCategory) == 0 ) {
             //$li[0] = array('url' => '#', 'tags' => 'forever-alone', 'hash' => 'arf', 'title' => 'forever-alone');
             //$grid[] = array('total' => '1', 'title' => 'Empty', 'id' => 'NULL', 'li' => $li);
@@ -103,16 +103,34 @@ $iterator = 0;
 $totalCategorie = count($grid);
 
 
-
-if( empty($totalListItemOneCategory) ) {
-  $li[0] = array('url' => '#', 'tags' => 'forever-alone', 'hash' => 'arf', 'title' => 'forever-alone');
-  $grid[0] = array('total' => '1', 'title' => 'Empty', 'id' => 'forever-alone', 'li' => $li);
-  $totalCategorie = 1;
+//var_dump(empty($totalListItemOneCategory));
+if( $isEmpty == 0 ) {
+  //$li[0] = array('url' => '#', 'tags' => 'forever-alone', 'hash' => 'arf', 'title' => 'forever-alone');
+  //$grid[0] = array('total' => '1', 'title' => 'Empty', 'id' => 'forever-alone', 'li' => $li);
+  //$totalCategorie = 1;
 }
 
 $iterator = -1;
 
 $modulo = 0;
+
+
+if( $totalCategorie == 0 ) {
+
+?>
+<div class="grid_12 gridHome">
+    <h2>No bookmarks saved yet</h2>
+    <ul>
+        <ul class="listUrl">
+            <li>
+                Empty
+            </li>
+        </ul>
+    </ul>
+</div>
+
+<?php
+}
 
 while (isset($grid[++$iterator])) {
 
@@ -125,6 +143,7 @@ while (isset($grid[++$iterator])) {
     } else { ?>
         <div class="grid_4 gridHome">
     <?php } ?>
+
 
     <h2>
         <a href="<?php echo PATH_INDEX; ?>categorie/<?php echo $grid[$iterator]['title']; ?>/<?php echo $grid[$iterator]['id']; ?>"><?php echo $grid[$iterator]['title']; ?></a>
