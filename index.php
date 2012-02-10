@@ -175,6 +175,7 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 
 <script type="text/javascript" src="<?php echo PATH_JS; ?>login.js"></script>
 <script type="text/javascript" src="<?php echo PATH_JS; ?>tags-filter.js"></script>
+<script type="text/javascript" src="<?php echo PATH_JS; ?>display-type.js"></script>
 <?php if( $_SESSION['type'] == "admin") { ?>
     <script type="text/javascript" src="<?php echo PATH_JS_CONST; ?>"></script>
     <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-bookmarks.js"></script>

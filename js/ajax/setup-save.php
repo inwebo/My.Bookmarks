@@ -66,23 +66,22 @@ try {
         // @todo tables prefixes
         $tempSql->query('INSERT INTO `'.$_POST['setupDbPrefix'].'users` VALUES ("","'.$_POST['setupUserName'].'", MD5(\'' . $_POST['setupUserName'] . '\'),1,"",MD5(\'' .$_POST['setupUserName'] .'+key\' ))');
         
-        $tempConf                     = config::get('config/config.ini.bak', TRUE);
-        
-        $tempConf['Path']['path_root']             = $_POST['setupRoot'];
-        $tempConf['Data Base']['db_server']           = $_POST['setupDbServer'];
-        $tempConf['Data Base']['db_database']         = $_POST['setupDbDatabase'];
-        $tempConf['Data Base']['db_user']             = $_POST['setupDbUser'];
-        $tempConf['Data Base']['db_password']         = $dbPassword;
-        $tempConf['Data Base']['db_table_prefix']         = $_POST['setupDbPrefix'];
+        $tempConf                                    = config::get('config/config.ini.bak', TRUE);
+        $tempConf['Path']['path_root']               = $_POST['setupRoot'];
+        $tempConf['Data Base']['db_server']          = $_POST['setupDbServer'];
+        $tempConf['Data Base']['db_database']        = $_POST['setupDbDatabase'];
+        $tempConf['Data Base']['db_user']            = $_POST['setupDbUser'];
+        $tempConf['Data Base']['db_password']        = $dbPassword;
+        $tempConf['Data Base']['db_table_prefix']    = $_POST['setupDbPrefix'];
         $tempConf['Application']['debug']            = $_POST['setupDebug'];
         $tempConf['Application']['homeNomberOfUrls'] = $_POST['setupTotalUrls'];
         $tempConf['Application']['saveFavicon']      = $_POST['setupFavicon'];
         $tempConf['Application']['visibility']       = $_POST['setupPublic'];
-        $tempConf['Application']['public_key']    = md5( $_POST['setupRoot'] .  time() );
-        $tempConf['Google analytics id']['id']               = $_POST['setupGa'];
+        $tempConf['Application']['public_key']       = md5( $_POST['setupRoot'] .  time() );
+        $tempConf['Google analytics id']['id']       = $_POST['setupGa'];
 
         config::save( $tempConf, "config/config.ini");
-
+        
 	$return = 'TRUE';
 
 }

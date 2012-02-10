@@ -78,6 +78,7 @@ hr{
     font-size: x-small;
     margin-top: -1em;
     padding: 2px;
+    margin-right: 3px;
 }
 #container {
 
@@ -194,16 +195,16 @@ h2 a {
 
 }
 
-#main .grid_12 {}
-
-#categoriesList, #newItems, .gridHome {
+#categoriesList, #newItems, .gridHome, #main .grid_4, #main .grid_6, footer .container_12 .grid_12, #main .about, #main .container_12 .gridHome, #main .container_12 clear + .grid_12,
+#main .container_12 .grid_12{
     border: 1px solid #CFCFCF;
--webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 1);
--moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 1);
-box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 1);
-background-color: #F9F9F9;
+    -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 1);
+    -moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 1);
+    box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 1);
+    background-color: #F9F9F9;
 
 }
+
 
 /* Categories list */
 #categoriesList p, #categoriesList form  {
@@ -393,13 +394,14 @@ nav li a.myButton {
 	background-color:#ce0100;
 }
 /* Breadcrumbs */
-#breadCrumbs {
+#main #breadCrumbs {
     background-color: transparent;
-    border: medium none transparent;
+    border: transparent;
     margin-bottom: 20px;
     padding-bottom: 0;
     padding-left: 0;
     padding-top: 0;
+    box-shadow:none;
 }
 
 #breadCrumbs ul{
@@ -468,12 +470,10 @@ header h1{
     display: block;
     font-family: 'Lobster',cursive;
     font-size: 5em;
-   margin-top: -10px;
+    margin-top: -10px;
     text-align: center;
-
-	text-shadow: 2px 2px 0 #9E9E9E;
-	filter: dropshadow(color=#9E9E9E, offx=2, offy=2);
-
+    text-shadow: 2px 2px 0 black;
+    filter: dropshadow(color=black, offx=2, offy=2);
 }
 
 header #headerTotalLinks {
@@ -567,15 +567,16 @@ nav li:hover a:hover {
         border-right: 1px solid #E6E6E6;
         border-top: 1px solid #FAFAFA;
         border-bottom: transparent;
+        color:#008EE8;
         
 }
 
 .heaederListActif a {
-   
+   color:#008EE8;
 }
 
 .heaederListActif:hover a {
-	color:#008ee8;
+	//color:#008ee8;
 
 }
 
@@ -1027,9 +1028,12 @@ ul.bookmarks-list{
     width: 100%;
 }
 
-.bookmarks-main {
-    width:60%;
-    border-left: 1px solid #EFEFEF;
+.bookmarks-main, .xfolkentry form {
+    border-left: 1px solid #efefef;
+    margin-left: 5px;
+    padding-left: 5px;
+        display: inline-block;
+    width: 420px;
 }
 
 .xfolkentry form {
@@ -1037,13 +1041,14 @@ ul.bookmarks-list{
     //background-color: yellowgreen;
     margin-bottom: 0;
     //margin-top: -20px;
+    border:none;
 }
 
 
 .xfolkentry form input, .xfolkentry form textarea{
     margin-bottom: 20px;
     padding: 5px;
-    width: 84%;
+    width: 75%;
     border:solid 1px #E6E6E6;
     background-color: white;
 }
@@ -1092,7 +1097,7 @@ padding-left: 5px;
 .bookmarks-main h3 + p + p{
     text-align: justify;
     max-height: 115px;
-    min-height: 115px;
+    //min-height: 115px;
     overflow: auto;
 }
 .bookmarks-boutons {
@@ -1145,11 +1150,13 @@ line-height: 13px;
 .dragMeToCat  {
     background-color: #FFD86F;
     border: solid 1px #FFA200;
-    width: 151px;
+    width: 148px;
     height:16px;
     box-shadow: 0 0 1px 0 #FFFFFF inset;
-    float:left;
+    //float:left;
     color:peru;
+    height:40px;
+    line-height:40px;
 }
 .bookmarks-edit:hover, .bookmarks-delete:hover, .bookmarks-save:hover {
     color:white;
@@ -1167,6 +1174,7 @@ line-height: 13px;
    background-color: yellowgreen;
    right: 40px;
    border:solid 1px green;
+   margin-right: 5px;
 }
 
 .bookmarks-edit-wrapper {
@@ -1177,6 +1185,9 @@ line-height: 13px;
 .bookmarks-delete {
    background-color: #FF3F3F;
     border:solid 1px #AF0000;
+        position:relative;
+    z-index:9999;
+    margin-left:5px;
 }
 
 .bookmarks-delete-wrapper {
@@ -1184,11 +1195,13 @@ line-height: 13px;
 }
 
 .bookmarks-save {
-    right: 45px;
+    //right: 45px;
     background-color: #FFD68F;;
     border:solid 1px #EFA82C;
     display:none;
-
+    position:relative;
+    z-index:9999;
+    //margin-right:5px;
 }
 .bookmarks-save-wrapper {
     border: 1px solid #FFE8BF;
@@ -1198,7 +1211,10 @@ line-height: 13px;
     text-align: right;
     display: inline-block;
     width: 25%;
-    border-right: 1px solid white;
+    //border-right: 1px solid blue;
+    vertical-align: top;
+    background-color: blue;
+    width:150px;
 }
 
 /* ---------------------/Bookmarks Container -------------------------------- */

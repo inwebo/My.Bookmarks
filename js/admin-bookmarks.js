@@ -127,9 +127,9 @@
                 $(this).fadeOut('slow', function() {
                     $(this).closest('li').find('.bookmarks-save').fadeIn('slow');
                 });
-                $(plugin).closest('li').animate({'min-height' : '260px'}, 'slow', 'easeInOutQuart' );
-                $(plugin).closest('li').find('.bookmarks-main').fadeOut('slow', function(){$(plugin).closest('li').find('form').fadeIn('slow')} );
-                $(plugin).closest('li').find('.bookmarks-boutons').fadeOut();
+                //$(plugin).closest('li').animate({'min-height' : '260px'}, 'slow', 'easeInOutQuart' );
+                $(plugin).closest('li').find('h3,p,ul').fadeOut('slow', function(){$(plugin).closest('li').find('form').fadeIn('slow')} );
+                //$(plugin).closest('li').find('.bookmarks-boutons').fadeOut();
         });
         $( '.bookmarks-save' ).click( function () {
                 var plugin = this;
@@ -138,7 +138,7 @@
                 });
                 $(plugin).closest('li').animate({'min-height' : '150px'}, 'slow', 'easeInOutQuart' );
 
-                $(plugin).closest('li').find('form').fadeOut('slow', function(){$(plugin).closest('li').find('.bookmarks-main').fadeIn('slow')} );
+                $(plugin).closest('li').find('form').fadeOut('slow', function(){$(plugin).closest('li').find('h3,p,ul').fadeIn('slow')} );
 
                 container = $( this ).parents('li').eq(0);
 
@@ -177,7 +177,7 @@
                     }
 
                 });
-$(plugin).closest('li').find('.bookmarks-boutons').fadeIn();
+$(plugin).closest('li').find('h3,p,ul').fadeIn();
         });
 
 
