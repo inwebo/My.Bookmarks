@@ -2,6 +2,15 @@
 extract( $GLOBALS );
 ?>
 <!-- About -->
+<div class="grid_12" class="grid-download">
+    <h3>My.Bookmark est libre</h3>
+    <p>
+        <a href="#">Download</a>
+    </p>
+    <p class="heart">
+        &hearts;
+    </p>
+</div>
 <div class="grid_12 about">
 
     <ul id="sommaire">

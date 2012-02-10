@@ -64,7 +64,7 @@ try {
         $tempSql->query( $create );
 
         // @todo tables prefixes
-        $tempSql->query('INSERT INTO `'.$_POST['setupDbPrefix'].'users` VALUES ("","'.$_POST['setupUserName'].'", MD5(\'' . $_POST['setupUserName'] . '\'),1,"",MD5(\'' .$_POST['setupUserName'] .'+key\' ))');
+        $tempSql->query('INSERT INTO `'.$_POST['setupDbPrefix'].'users` VALUES ("","'.$_POST['setupUserName'].'", MD5(\'' . $_POST['setupUserPassword'] . '\'),1,"",MD5(\'' .$_POST['setupUserName'] .'+key\' ))');
         
         $tempConf                                    = config::get('config/config.ini.bak', TRUE);
         $tempConf['Path']['path_root']               = $_POST['setupRoot'];

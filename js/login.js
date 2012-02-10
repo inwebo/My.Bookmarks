@@ -1,11 +1,3 @@
-/*(function($){
-	$('#loginContainer').hide();
-	$('#loginClick').click(function() {
-		$('#loginContainer').fadeToggle('fast');
-	});
-})(jQuery)*/
-
-
         (function($){
 
         state = 0;
@@ -22,7 +14,6 @@
         });
 
 $('#loginContainer input[type*=text]').focus(function(){
-        console.log( $(this).val() );
         if( $(this).val() == "Login") {
             $(this).val('');
             $(this).text('');
@@ -30,7 +21,6 @@ $('#loginContainer input[type*=text]').focus(function(){
 });
 
 $('#loginContainer input[type*=text]').blur(function(){
-        console.log( $(this).val() );
         if( $(this).val() == "") {
             $(this).val('Login');
             $(this).text('Login');
@@ -38,7 +28,6 @@ $('#loginContainer input[type*=text]').blur(function(){
 });
 
 $('#loginContainer input[type*=password]').focus(function(){
-        console.log( $(this).val() );
         if( $(this).val() == "Password") {
             $(this).val('');
             $(this).text('');
@@ -46,7 +35,6 @@ $('#loginContainer input[type*=password]').focus(function(){
 });
 
 $('#loginContainer input[type*=password]').blur(function(){
-        console.log( $(this).val() );
         if( $(this).val() == "") {
             $(this).val('Password');
             $(this).text('Password');

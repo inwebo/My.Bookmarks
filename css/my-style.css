@@ -1034,8 +1034,11 @@ ul.bookmarks-list{
     padding-left: 5px;
         display: inline-block;
     width: 420px;
+    min-height: 40px;
 }
-
+.heart {
+    
+}
 .xfolkentry form {
     display:none;
     //background-color: yellowgreen;
@@ -1215,6 +1218,15 @@ line-height: 13px;
     vertical-align: top;
     background-color: blue;
     width:150px;
+}
+
+.gui-display-shaddy {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: block;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    display: none;
 }
 
 /* ---------------------/Bookmarks Container -------------------------------- */

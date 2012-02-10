@@ -34,7 +34,14 @@ $cloud = $tags->asArray();
 <?php } ?>
         <h3><img src="<?php echo PATH_ROOT; ?>images/favicon/<?php echo $row['hash']; ?>"/>&nbsp;<a class="taggedlink displayTitle" title="<?php echo $row['description'];?>" href="<?php echo $row['url'];?>"><?php echo $row['title'];?></a></h3>
         <p>
-            Ajouté le <?php echo $row['dt'];?><span><!-- ★★★&bull;&bull; --></span>
+            <?php
+                $buffer = explode(' ', $row['dt']);
+                $buffer[0] = implode('-',array_reverse( explode( '-', $buffer[0] ) ));
+                $buffer = implode( ' à ', $buffer );
+                //print_r($buffer);
+            ?>
+
+            Ajouté le <?php echo $buffer;?><span><!-- ★★★&bull;&bull; --></span>
         </p>
         <p class="description">
             <?php echo $row['description'];?>

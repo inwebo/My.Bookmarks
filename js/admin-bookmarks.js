@@ -1,8 +1,6 @@
 (function($) {
     $(function() {
-        // Active le JS_DEBUG, sortie dans la console JS
-        JS_DEBUG = true;
-        isDragging = 0;
+         isDragging = 0;
         /* Edition Bookmark */
 
         $('.xfolkentry').hover(
@@ -25,10 +23,7 @@
 
 
         function totalItem() {
-            var total = parseInt($('.totalLinks').html());
-            total--;
-            $('.totalLinks').html(total + ' links');
-            //addMssg('informations', 'it exists ' + total + ' links in ' + $('.totalLinks').parent('h2').html() );
+            $('span.totalLinks').html( --$('.bookmarks-list li.xfolkentry').length + ' links');
         }
 
         $( "span.dragMeToCat" ).draggable({
@@ -41,18 +36,12 @@
             },
             start: function(event, ui) {
                 isDragging = 1;
-                data_id = $(this).closest('li').attr('data-id');
-                data_hash = $(this).closest('li').attr('data-hash');
+                data_id    = $(this).closest('li').attr('data-id');
+                data_hash  = $(this).closest('li').attr('data-hash');
                 data_title = $(this).closest('li').attr('data-title');
-                //$(this).closest('li').css('overflow', 'auto');
-                console.log(data_id);
-                console.log(data_hash);
-                console.log(data_title);
-                //console.log(values);
             },
             stop: function(event, ui) {
                 isDragging = 0;
-                //$(this).closest('li').css('overflow', 'hidden');
             },
             revert:'invalid'
         });
@@ -65,9 +54,6 @@
                 $( this ).css('border', 'solid 1px transparent');
             },
             drop: function( event, ui ) {
-                if( JS_DEBUG == true ) {
-                    //console.log('drop!');
-                }
                 var $element = ui.draggable;
                 var containerIdData = this;
                 cat_data_id = $(this).attr('data-id');
@@ -103,7 +89,6 @@
                         delUrl:$(this).closest('li').attr('data-id')
                         },
                     success:function(data) {
-                        //alert('ok');
                         $(actualLiItem).closest('li').slideUp(300);
                         addMssg('okay', 'Element <em>'+ $(actualLiItem).attr('data-title') + '</em> deleted.' );
                     },
@@ -113,23 +98,13 @@
                 });
             }
         });
-        /*$('.bookmarks-edit').click(function() {
-                var plugin = this;
-                $(plugin).closest('li').find('.bookmarks-main').fadeOut('slow', function(){$(plugin).find('form').fadeIn('slow')} );
-        });
-        $('.bookmarks-save').click(function() {
-                    var plugin = this;
-                    $(this).closest('li').find('form').fadeOut('slow', function(){$(plugin).find('.bookmarks-main').fadeIn('slow')} );
-        });*/
 
         $( '.bookmarks-edit' ).click( function () {
                 var plugin = this;
                 $(this).fadeOut('slow', function() {
                     $(this).closest('li').find('.bookmarks-save').fadeIn('slow');
                 });
-                //$(plugin).closest('li').animate({'min-height' : '260px'}, 'slow', 'easeInOutQuart' );
                 $(plugin).closest('li').find('h3,p,ul').fadeOut('slow', function(){$(plugin).closest('li').find('form').fadeIn('slow')} );
-                //$(plugin).closest('li').find('.bookmarks-boutons').fadeOut();
         });
         $( '.bookmarks-save' ).click( function () {
                 var plugin = this;
@@ -143,18 +118,10 @@
                 container = $( this ).parents('li').eq(0);
 
                 var _itemHash = $(this).closest('li').attr('data-hash');
-               console.log(_itemHash);
                 var _itemId = $(this).closest('li').attr('data-id');
-               console.log(_itemId);
                 var _itemTitle = $(container).find('form input').val();
-                console.log(_itemTitle);
-
                 var _itemDescription = $(container).find('textarea').val();
-                console.log(_itemDescription);
-
                 var _itemTags = $(container).find('label input').val();
-                console.log(_itemTags);
-
                 $.ajax({
                     type: "POST",
                     url: JS_PATH_AJAX + "bookmark-edit.php",
@@ -177,10 +144,7 @@
                     }
 
                 });
-$(plugin).closest('li').find('h3,p,ul').fadeIn();
+				$(plugin).closest('li').find('h3,p,ul').fadeIn();
         });
-
-
-
     });
 })(jQuery);

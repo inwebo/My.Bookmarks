@@ -92,6 +92,9 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 </head>
 
 <body>
+    <div class="gui-display-shaddy">
+        &nbsp;dd
+    </div>
     <a name="top"></a>
   <div id="container" >
     <?php include('views/header.php'); ?>
