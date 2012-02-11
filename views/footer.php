@@ -38,31 +38,17 @@
  * @since     File available since Beta 28-11-2011
  */
 ?>
-<?php
-/*
-    $a = @file_get_contents($conf['serverVersion']);
-    $update = false;
-    ( isset ( $conf['version'] ) && $conf['version'] != $a ) ? $update = true : $update = false ;
 
-
-    echo $a;
-    echo $conf['version'];
- 
- */
-?>
-	<!-- Footer -->
-    <footer>
-		<div class="container_12">
-			<div class="grid_12">
-				<p>
-                                    <span class="mini-logo">My.Bookmarks</span><br>
-                                        <?php // if( $update ) { ?>
-                                        <!--<a href="https://github.com/inwebo/My.Bookmarks/zipball/master" target="_blank"  class="myButton">v <?php echo $a; ?> available!</a>-->
-                                        <?php //} ?>
-                                        <a href="http://hannotin.julien.is.free.fr" title="Julien Hannotin portfolio" class="">Jool</a> | <a title="Creative Commons 2" href="http://creativecommons.org/licenses/by-nc-sa/2.0/fr/">creative commons 2</a> | <a href="https://github.com/inwebo/My.Bookmarks" target="_blank" title="Latsest release repository">Github Repository</a> | <a href="#top">top</a>
-				</p>
-			</div>
-		</div>
-	</footer>
-	<!-- /Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container_12">
+        <div class="grid_12">
+            <p>
+                <span class="mini-logo">My.Bookmarks</span><br>
+                <a href="http://julien.hannotin.is.free.fr" title="Julien Hannotin">Jool</a> | <a title="Creative Commons 2" href="http://creativecommons.org/licenses/by-nc-sa/2.0/fr/">creative commons 2</a> | <a href="https://github.com/inwebo/My.Bookmarks" target="_blank" title="Latsest release repository">Github Repository</a> | <a href="#top">top</a>
+            </p>
+        </div>
+    </div>
+</footer>
+<!-- /Footer -->
 

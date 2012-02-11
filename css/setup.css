@@ -44,9 +44,9 @@
 }
 
 	#setupForm input:focus, #setupForm textarea:focus {
-		border:2px inset #BFDE84;
+
 		background-color:#EDFBD8;
-		border-radius: 4px;
+
 	}
 
 	#setupForm textarea {

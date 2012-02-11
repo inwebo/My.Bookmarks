@@ -109,7 +109,7 @@
 				<hr>
 				<fieldset id="containerPath">
 					<legend>Path</legend>
-                                        <label>Root : <input id="setupRoot" name="setupRoot" value="http://<?php echo $_SERVER['HTTP_HOST'].$_SERVER["REQUEST_URI"]; ?>"/><br><span>Chemin d'accès de l'application, typiquement copier / coller l'adresse actuelle.</span></label>
+                                        <label>Root : <input id="setupRoot" name="setupRoot" value="http://<?php echo $_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);?>/"/><br><span>Chemin d'accès de l'application, typiquement copier / coller l'adresse actuelle.</span></label>
 				</fieldset>
 				<hr>
 				<fieldset id="containerDatabase">

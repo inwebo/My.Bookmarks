@@ -56,7 +56,6 @@ $totalLinks = count($links);
 <?php
 $links = $sql->query('SELECT * FROM ' . DB_TABLE_PREFIX . 'bookmarks where tags LIKE \'%' . $multiViews->args[2] . '%\' ORDER BY `dt` DESC');
 if (count($links) != 0) {
-    //while ($row = mysql_fetch_assoc( $links )) {
     foreach ($links as $row) {
         $_SESSION['row'] = $row;
         $template->display('bookmark');

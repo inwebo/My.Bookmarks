@@ -42,36 +42,33 @@
 
 <!-- categorie.php -->
 <?php
-
 extract($GLOBALS);
 
 $template->display('categories-list');
-
 ?>
 
 
 
-                        <?php
-                            $links = $sql->query('SELECT * FROM '. DB_TABLE_PREFIX .'bookmarks where category=? ORDER BY `dt` DESC', array($multiViews->args[3]));
-                            $totalLinks = count( $links ) ;
-                        ?>
+<?php
+$links = $sql->query('SELECT * FROM ' . DB_TABLE_PREFIX . 'bookmarks where category=? ORDER BY `dt` DESC', array($multiViews->args[3]));
+$totalLinks = count($links);
+?>
 <h2><?php echo urldecode($multiViews->args[2]); ?><span class="totalLinks">&nbsp;<?php echo $totalLinks; ?> &hearts;&nbsp;</span><a id="display-small" href="#" class="totalLinks" onclick="return false;">Simple</a><a id="display-full" href="#" class="totalLinks" onclick="return false;">Full</a></h2>
-                        
-                        <ul class="bookmarks-list">
-			<?php
-				$links = $sql->query('SELECT * FROM '. DB_TABLE_PREFIX .'bookmarks where category=? ORDER BY `dt` DESC', array($multiViews->args[3]));
 
-				if( count($links ) != 0 ) {
-					foreach ( $links  as $row ) {
-                                                $_SESSION['row'] = $row;
-                                                $template->display('bookmark');
-                                                $_SESSION['row'] = NULL;
-					}
-				}
-				else {
-					echo '<li>Empty</li>'."\n";
-				}
-			?>
-			</ul>
-			</div>
+<ul class="bookmarks-list">
+<?php
+$links = $sql->query('SELECT * FROM ' . DB_TABLE_PREFIX . 'bookmarks where category=? ORDER BY `dt` DESC', array($multiViews->args[3]));
+
+if (count($links) != 0) {
+    foreach ($links as $row) {
+        $_SESSION['row'] = $row;
+        $template->display('bookmark');
+        $_SESSION['row'] = NULL;
+    }
+} else {
+    echo '<li>Empty</li>' . "\n";
+}
+?>
+</ul>
+</div>
 <!-- /categorie.php -->
