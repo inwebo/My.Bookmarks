@@ -2,15 +2,46 @@
 extract( $GLOBALS );
 ?>
 <!-- About -->
-<div class="grid_12" class="grid-download">
-    <h3>My.Bookmark est libre</h3>
-    <p>
-        <a href="#">Download</a>
-    </p>
-    <p class="heart">
-        &hearts;
-    </p>
+<div class="grid_4" >
+    <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/fr/"><img src="<?php echo PATH_IMG; ?>/system/cc.large.png" style="width: 278px; height: 259px;"></a>
 </div>
+<div class="grid_4 grid-download">
+    <h3>About</h3>
+    <p>
+        Ne laissez pas vos données dans la nature, elles vous appartiennent ! <br><br>L'affaire megaupload nous l'a bien rapellée. <br><br>J'ai développé cette application dans un esprit d'indépendance (oui cela comme <em>aussi</em> par là).
+    </p>
+    
+    <hr>
+    <div><a href="#" class="myButton">Download</a></div>
+</div>
+<div class="grid_4  grid-github">
+        <p class="github-rollover">
+            Meow ! Fork me i'm famous
+        </p>
+        <a href="https://github.com/inwebo/My.Bookmarks" target="_blank" title="miaou"><img src="<?php echo PATH_IMG; ?>/system/github-logo.png" style="width: 278px; height: 259px;"></a>
+</div>
+
+<div class="grid_12 about">
+    <h2>Todo</h2>
+    <ul>
+        <?
+            $todo = new MyLog('config/todolist');
+            $rows = $todo->getBuffer();
+            foreach( $rows as $value ) {
+                if($value[0] == '-') {
+                    $value = substr($value,1);
+                    echo '<li><del>'.$value.'</del></li>';
+                }
+                else {
+                    $value = substr($value,1);
+                    echo '<li>'.$value.'</li>';
+                }
+            }
+        ?>
+    </ul>
+</div>
+
+<!--
 <div class="grid_12 about">
 
     <ul id="sommaire">
@@ -160,5 +191,5 @@ Le plus sage serait <strong>l'autonomie</strong> !
     <p>
         <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/fr/">Creative commons 2.0</a>
     </p>
-</div>
+</div>-->
 <!-- About -->

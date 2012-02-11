@@ -55,11 +55,11 @@
 		<div class="container_12">
 			<div class="grid_12">
 				<p>
-					My.Bookmarks version <?php echo $conf['version']; ?>
+                                    <span class="mini-logo">My.Bookmarks</span><br>
                                         <?php // if( $update ) { ?>
                                         <!--<a href="https://github.com/inwebo/My.Bookmarks/zipball/master" target="_blank"  class="myButton">v <?php echo $a; ?> available!</a>-->
                                         <?php //} ?>
-                                        - par <a href="http://hannotin.julien.is.free.fr" title="Julien Hannotin portfolio">Julien 'Jool' Hannotin</a> - <a title="Creative Commons 2" href="http://creativecommons.org/licenses/by-nc-sa/2.0/fr/">cc2</a> - <a href="https://github.com/inwebo/My.Bookmarks" target="_blank" title="Latsest release repository">Github Repository</a> - <a href="#top">top</a>
+                                        <a href="http://hannotin.julien.is.free.fr" title="Julien Hannotin portfolio" class="">Jool</a> | <a title="Creative Commons 2" href="http://creativecommons.org/licenses/by-nc-sa/2.0/fr/">creative commons 2</a> | <a href="https://github.com/inwebo/My.Bookmarks" target="_blank" title="Latsest release repository">Github Repository</a> | <a href="#top">top</a>
 				</p>
 			</div>
 		</div>

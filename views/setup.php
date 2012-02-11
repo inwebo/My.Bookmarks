@@ -67,7 +67,7 @@
     <header>
 		<div class="container_12">
 			<div class="grid_12" id="breadCrumbs">
-			<h1>My.Bookmarks<!--<img src="img/logo.png">--></h1>
+			<h1>My.Bookmarks</h1>
 			</div>
 		</div>
     </header>

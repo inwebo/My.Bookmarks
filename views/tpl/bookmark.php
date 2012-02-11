@@ -24,13 +24,16 @@ $cloud = $tags->asArray();
     <?php if ($_SESSION['type'] == 'admin') { ?>
         <div class="bookmarks-main">
     <?php } else { ?>
-        <div class="bookmarks-main" style="width:100%;border-left-color: transparent;">
+        <div class="bookmarks-main" style="width:99%;border-left-color: transparent;">
     <?php } ?>
 
 <?php if ($_SESSION['type'] == 'admin') { ?>
-             <a class="bookmarks-delete" title="Delete" href="#"  onclick="return false;"><div class="bookmarks-delete-wrapper">x</div></a>
-             <a class="bookmarks-edit" title="Edit" onclick="return false;" href="#"><div class="bookmarks-edit-wrapper">edit</div></a>
-             <a class="bookmarks-save" title="Save" href="#"  onclick="return false;"><div class="bookmarks-save-wrapper">save</div></a>
+            <!-- <a class="bookmarks-delete" title="Delete" href="#"  onclick="return false;"><div class="bookmarks-delete-wrapper">x</div></a> -->
+             <a class="bookmarks-delete" title="Delete" href="#"  onclick="return false;">x</a>
+             <!--<a class="bookmarks-edit" title="Edit" onclick="return false;" href="#"><div class="bookmarks-edit-wrapper">edit</div></a>-->
+             <a class="bookmarks-edit" title="edit" onclick="return false;" href="#">edit</a>
+             <!--<a class="bookmarks-save" title="Save" href="#"  onclick="return false;"><div class="bookmarks-save-wrapper">save</div></a>-->
+             <a class="bookmarks-save" title="Save" href="#"  onclick="return false;">save</a>
 <?php } ?>
         <h3><img src="<?php echo PATH_ROOT; ?>images/favicon/<?php echo $row['hash']; ?>"/>&nbsp;<a class="taggedlink displayTitle" title="<?php echo $row['description'];?>" href="<?php echo $row['url'];?>"><?php echo $row['title'];?></a></h3>
         <p>
@@ -51,7 +54,7 @@ $cloud = $tags->asArray();
             <?php
                 $k = -1;
                 while (isset($cloud[++$k])) { ?>
-                    <li><a href="<?php echo PATH_INDEX . 'tags/' . $cloud[$k]; ?>"><?php  echo $cloud[$k]; ?></a><li>
+                    <li><a href="<?php echo PATH_INDEX . 'tags/' . $cloud[$k]; ?>" class="tags"><?php  echo $cloud[$k]; ?></a><li>
                 <?php } ?>
         </ul>
         <?php if ($_SESSION['type'] == 'admin') { ?>

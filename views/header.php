@@ -49,19 +49,21 @@
                             <input type="submit" id="item-7">
                         </form>
                         <p>
-                            <a href="#" id="loginClick" class="loginClick">Login</a><span class="ribbon"></span>
+                            <a href="#" id="loginClick" class="loginClick">Login</a><!--<span class="ribbon"></span>-->
                         </p>
                         <div class="clear"></div>
                     </div>
             <?php } else { ?>
-                <span id="boutonTop">
-                    <a href="?q" id="loginClick" class="loginClickExit">Exit</a>
-                </span>
+                <div id="loginContainer">
+                    <span>
+                        <a href="?q" id="loginClick" class="loginClickExit">Exit</a>
+                    </span>
+                </div>
             <?php } ?>
     <!-- /New login -->
 
     <div class="container_12">
-        <div id="headerGrid_12" class="grid_12">
+        <div class="grid_12">
             <h1><?php echo $conf ['app_name']; ?></h1>
 
 
@@ -88,10 +90,10 @@
     <div class="menu_wrap">
         <nav>
 
-            <div class="container_12 headerNav">
+            <div class="container_12">
                 <li
                 <?php if ((isset($multiViews->total) && $multiViews->total === 0) || $multiViews->args[1] == 'categorie') { ?>
-                    class="heaederListActif"
+                    class="nav-actif"
                 <?php } ?>>
                 <?php if ((isset($multiViews->total) && $multiViews->total === 0) || $multiViews->args[1] == 'categorie') { ?>
                     <div class="headerActif_wrap">
@@ -105,7 +107,7 @@
                     <li
                 <?php
                         if (isset($multiViews->args[1]) && $multiViews->args[1] == 'tags') {
-                            echo ' class="heaederListActif" ';
+                            echo ' class="nav-actif" ';
                         }
                 ?>
                             >
@@ -123,7 +125,7 @@
                         <li
                 <?php
                         if (isset($multiViews->args[1]) && $multiViews->args[1] == 'about') {
-                            echo ' class="heaederListActif" ';
+                            echo ' class="nav-actif" ';
                         }
                 ?>
                             >

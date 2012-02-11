@@ -21,7 +21,7 @@ extract($GLOBALS);
                 if ($row['id'] == 1 || $row['id'] == 2) {
                     echo '<p id="idCategorie' . $row['id'] . '" data-id="' . $row['id'] . '"><a href="' . PATH_INDEX . 'categorie/' . $row['name'] . '/' . $row['id'] . '">' . $row['name'] . '</a></p>' . "\n";
                 } else {
-                    echo '<p id="idCategorie' . $row['id'] . '" data-id="' . $row['id'] . '"><a href="' . PATH_INDEX . 'categorie/' . $row['name'] . '/' . $row['id'] . '">' . $row['name'] . '</a><span class="gui-item-button close" data-id="' . $row['id'] . '" data-category="' . $row['name'] . '" ><a href="#">x</a></p>' . "\n";
+                    echo '<p id="idCategorie' . $row['id'] . '" data-id="' . $row['id'] . '"><a href="' . PATH_INDEX . 'categorie/' . $row['name'] . '/' . $row['id'] . '">' . $row['name'] . '</a><span class="bookmarks-delete bookmarks-delete-small" data-id="' . $row['id'] . '" data-category="' . $row['name'] . '" ><a href="#" data-id="' . $row['id'] . '" data-category="' . $row['name'] . '">x</a></p>' . "\n";
                 }
 
                 $i++;
