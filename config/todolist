@@ -1,6 +1,6 @@
 +Flux RSS / catégories
 +Implémentation thèmes
-+Affichage des dates correctes
+-Affichage des dates correctes
 +Documentation digne de ce nom
 +Au premier lancement de l'application un tutorial
 +Une page admin
@@ -24,9 +24,9 @@
 -Clef de parité
 -Préfix des tables sql
 -Lors du setup création de toutes les tables nécessaires
-+Gestion des dates
+-Gestion des dates
 +Préfix database pour toutes les requêtes.
 +Catégorie menu déroulant contenant toutes les catégories
 +Function translate (voir drupal)
 +Gestion des droits sur les fichiers
-+Choix configuration pour requetes serveur de mise à jour.
++Autorisation auto-update
