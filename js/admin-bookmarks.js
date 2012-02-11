@@ -39,9 +39,12 @@
                 data_id    = $(this).closest('li').attr('data-id');
                 data_hash  = $(this).closest('li').attr('data-hash');
                 data_title = $(this).closest('li').attr('data-title');
+                
+                $('.gui-display-shaddy').fadeIn('slow');
             },
             stop: function(event, ui) {
                 isDragging = 0;
+$('.gui-display-shaddy').fadeOut('slow');
             },
             revert:'invalid'
         });
@@ -78,7 +81,7 @@
             greedy: false
         });
 
-        $('.bookmarks-delete').click(function() {
+        $('.bookmarks-main .bookmarks-delete').click(function() {
             var actualLiItem = this;
             var r = confirm('Delete url (id='+$(this).attr('data-id')+') : '+"\n"+'✗' + $(this).attr('data-title') +' ?'+"\n");
             if( r == true ) {
@@ -111,7 +114,7 @@
                 $(this).fadeOut('slow', function() {
                     $(this).closest('li').find('.bookmarks-edit').fadeIn('slow');
                 });
-                $(plugin).closest('li').animate({'min-height' : '150px'}, 'slow', 'easeInOutQuart' );
+                //$(plugin).closest('li').animate({'min-height' : '150px'}, 'slow', 'easeInOutQuart' );
 
                 $(plugin).closest('li').find('form').fadeOut('slow', function(){$(plugin).closest('li').find('h3,p,ul').fadeIn('slow')} );
 

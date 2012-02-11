@@ -7,17 +7,17 @@ function addMssg( _lvl, _txt ) {
                             
     switch( _lvl ) {
         case 'error' :
-            buffer = '<li id="' + idPrefix + idMssg + '" style="display:none;" class="debugError"><h6>Error <span class="gui-item-button close"><a href="#">x</a></span></h6><p>' + _txt + '</p></li>';
+            buffer = '<li id="' + idPrefix + idMssg + '" style="display:none;" class="debugError"><h6>Error <span class="bookmarks-delete bookmarks-delete-small" style="float:right"><a href="#">x</a></span></h6><p>' + _txt + '</p></li>';
             break;
         case 'warning' :
-            buffer = '<li id="' + idPrefix + idMssg + '" style="display:none;" class="debugWarning"><h6>Warning <span class="gui-item-button close"><a href="#">x</a></span></h6><p>' + _txt + '</p></li>';
+            buffer = '<li id="' + idPrefix + idMssg + '" style="display:none;" class="debugWarning"><h6>Warning <span class="bookmarks-delete bookmarks-delete-small" style="float:right"><a href="#">x</a></span></h6><p>' + _txt + '</p></li>';
             break;
         default:
         case 'information' :
-            buffer = '<li id="' + idPrefix + idMssg + '" style="display:none;" class="debugInformation"><h6>Informations <span class="gui-item-button close"><a href="#">x</a></span></h6><p>' + _txt + '</p></li>';
+            buffer = '<li id="' + idPrefix + idMssg + '" style="display:none;" class="debugInformation"><h6>Informations <span class="bookmarks-delete bookmarks-delete-small" style="float:right"><a href="#">x</a></span></h6><p>' + _txt + '</p></li>';
             break;
         case 'okay' :
-            buffer = '<li id="' + idPrefix + idMssg + '" style="display:none;" class="debugOkay"><h6>Okay <span class="gui-item-button close"><a href="#">x</a></span></h6><p>' + _txt + '</p></li>';
+            buffer = '<li id="' + idPrefix + idMssg + '" style="display:none;" class="debugOkay"><h6>Okay <span class="bookmarks-delete bookmarks-delete-small" style="float:right"><a href="#">x</a></span></h6><p>' + _txt + '</p></li>';
             break;
     }
                             
