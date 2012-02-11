@@ -1,0 +1,40 @@
+/* 
+    Document   : breadcrumbs
+    Created on : 10 févr. 2012, 19:02:57
+    Author     : inwebo
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+/* Breadcrumbs */
+#main #breadCrumbs {
+    background-color: transparent;
+    border: transparent;
+    margin-bottom: 20px;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-top: 0;
+    box-shadow:none;
+}
+
+#breadCrumbs ul{
+    margin: 0;
+    padding: 0;
+}
+#breadCrumbs ul li {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0;
+}
+
+#breadCrumbs ul li:after {
+    content: "\00BB";
+}
+
+#breadCrumbs .breadcrumbs-last-item:after {
+    content: "";
+}

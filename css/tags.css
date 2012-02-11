@@ -1,0 +1,47 @@
+/* 
+    Document   : tags
+    Created on : 10 févr. 2012, 15:34:01
+    Author     : inwebo
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* Tags */
+.tags {
+    background-color: #F2F2F2;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px 5px 5px 5px;
+    line-height: 3em;
+    margin-right: 5px;
+    padding: 5px;
+    text-decoration: none;
+    box-shadow: 0 0 0 1px #FFFFFF inset;
+}
+
+ .tags span{
+
+ }
+
+#tagsFilterContainer {
+        float: right;
+            font-size: medium;
+}
+
+#tagsFilter {
+    margin-right: 10px;
+    height: 0.8em;
+    padding: 1px;
+    width: 150px;
+}
+
+.tags span{
+    color: black;
+    font-size: xx-small;
+    margin-left: 10px;
+    padding: 2px;
+    text-align: center;
+}
+
+
+.tags:hover {
+}

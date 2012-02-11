@@ -1,0 +1,104 @@
+/* 
+    Document   : about
+    Created on : 10 févr. 2012, 20:43:36
+    Author     : inwebo
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+#sommaire {
+    border: 1px solid #D6D6D6;
+    float: right;
+    margin-left: 20px;
+    width: 200px;
+    background-color: white;
+}
+#sommaire li{
+    list-style: disc inside none;
+    margin-left: 5px;
+}
+
+.github-rollover,  .github-rollover img{
+
+}
+.github-rollover {
+    font-weight: bolder;
+    letter-spacing: -1px;
+    margin-top: 50px;
+    position: absolute;
+    text-align: center;
+    width: 278px;
+    opacity:0;
+}
+
+.github-rollover+img{
+    position:relative;
+}
+
+.grid-download {
+    height: 258px;
+    position: relative;
+}
+
+.grid-download h3{
+        background-color: #3F3F3F;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.grid-download  .myButton {
+    width: 150px;
+	-moz-box-shadow:inset 0px 1px 0px 0px #fff6af;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #fff6af;
+	box-shadow:inset 0px 1px 0px 0px #fff6af;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffec64), color-stop(1, #ffab23) );
+	background:-moz-linear-gradient( center top, #ffec64 5%, #ffab23 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23');
+	background-color:#ffec64;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #ffaa22;
+	display:inline-block;
+	color:#333333;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ffee66;
+        
+} .grid-download  .myButton:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffab23), color-stop(1, #ffec64) );
+	background:-moz-linear-gradient( center top, #ffab23 5%, #ffec64 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ffec64');
+	background-color:#ffab23;
+}.grid-download  .myButton:active {
+	position:relative;
+	top:1px;
+}
+
+.grid-download hr+div {
+        bottom: 15px;
+
+    position: absolute;
+    text-align: center;
+    width: 278px;
+}
+
+.grid-download hr {
+    bottom: 55px;
+    position: absolute;
+    width: 278px;
+}
+
+.grid-download p {
+    line-height: 140%;
+    text-align: center;
+}

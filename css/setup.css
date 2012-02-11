@@ -1,0 +1,87 @@
+/* 
+    Document   : setup
+    Created on : 10 févr. 2012, 16:06:27
+    Author     : inwebo
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+
+
+
+/* Setup Form */
+#setupForm {
+
+}
+#setupForm  fieldset{
+
+}
+
+#setupForm  legend{
+    background-color: white;
+    font-size: large;
+    margin-bottom: 20px;
+}
+
+#setupForm  label {
+    display: block;
+    margin-bottom: 5px;
+	font-weight: bold;
+}
+         #setupForm select {
+            width:453px;
+            padding: 5px;
+        }
+        
+#setupForm input, #setupForm textarea{
+    width: 906px;
+    padding: 5px;
+}
+
+	#setupForm input:focus, #setupForm textarea:focus {
+		border:2px inset #BFDE84;
+		background-color:#EDFBD8;
+		border-radius: 4px;
+	}
+
+	#setupForm textarea {
+		resize:none;
+	}
+
+	#setupForm label.inputGrid_1, #setupForm label {
+		float: left;
+		width: 453px;
+	}
+
+
+
+	#setupForm label {
+		width:100%;
+	}
+
+	#setupForm label.inputGrid_1 span, #setupForm label span{
+		float: right;
+		font-size: smaller;
+		font-variant: small-caps;
+		margin-right: 10px;
+	}
+
+	#setupForm  label.inputGrid_1  input{
+		width: 433px;
+	}
+
+	.inputGrid_1-first{
+		margin-right:12px;
+	}
+
+#saveSetup {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    width: 125px;
+}

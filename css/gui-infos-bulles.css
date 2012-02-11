@@ -1,0 +1,88 @@
+/* 
+    Document   : gui-infos-bulles
+    Created on : 10 févr. 2012, 16:10:39
+    Author     : inwebo
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+
+
+/* Debug output */
+#debugOutPut {
+    margin-bottom: 5px;
+    padding: 0;
+}
+
+#debugOutPut h6 {
+	margin-bottom: 5px;
+}
+#debugOutPut ul {
+	bottom: 0;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    right: 20px;
+	width:280px;
+
+}
+#debugOutPut ul li{
+    margin: 0;
+       padding: 10px 10px 0;
+    font-weight: bold;
+    margin-bottom: 15px;
+    overflow: hidden;
+
+}
+#debugOutPut ul li.debugError, .debugError{
+	color: #E3302C;
+	background-color:#FFECCE;
+	border: 1px solid #E9C59B
+}
+#debugOutPut ul li.debugOkay, .debugOkay{
+    border: 1px solid #BFDE84;
+    color: #508600;
+	background-color:#EDFBD8;
+}
+#debugOutPut ul li.debugInformation, .debugInformation{
+    border: 1px solid #BBDBE0;
+    color: #0888C3;
+	background-color:#ECF9FF;
+}
+#debugOutPut ul li.debugWarning, .debugWarning{
+ border: 1px solid #E5E181;
+color: #666666;
+background-color:#FEFDE2;
+}
+
+.grid_12 .debugWarning, .grid_12 .debugOkay {
+	padding:10px;
+}
+
+div.debugOkay {
+	margin-bottom:20px;
+}
+.grid_12 .debugOkay p{
+	margin-bottom:0;
+	text-align: center;
+}
+
+
+.grid_12 .debugOkay a {
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+    width: 20%;
+}
+
+.grid_12 .debugOkay a:hover {
+	color:white;
+	text-shadow: 1px 1px 0 #77D42A;
+}
