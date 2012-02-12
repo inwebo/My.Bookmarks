@@ -19,6 +19,8 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Base de données: `my_structure`
 --
 
+
+
 -- --------------------------------------------------------
 
 --
@@ -38,12 +40,16 @@ CREATE TABLE IF NOT EXISTS `bookmarks` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `hash` (`hash`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=4 ;
 
 --
 -- Contenu de la table `bookmarks`
 --
 
+INSERT INTO `bookmarks` (`id`, `hash`, `url`, `title`, `tags`, `description`, `dt`, `category`, `public`) VALUES
+(1, '05465b06396eaa76c3a68979a4f1cb11', 'http://hannotin.julien.is.free.fr/', 'Jool : Curriculum vitæ en ligne', 'cv', 'Julien Hannotin artisan du ouaib', '2012-02-11 15:35:58', 1, 1),
+(2, 'f82ed97c8bbd79399529ab4b421bc1e4', 'https://github.com/inwebo', 'inwebo''s Profile - GitHub', 'network social-coding', 'Social coding', '2012-02-11 15:36:07', 1, 1),
+(3, 'bd0f04b8a19e3535d3a4b089e390e75b', 'http://www.youtube.com/watch?v=f7SNMXRZIlM', 'Hello world', 'hello-world', 'On va manger des chips', '2012-02-11 15:36:12', 1, 0);
 
 -- --------------------------------------------------------
 
