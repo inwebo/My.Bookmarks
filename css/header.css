@@ -138,3 +138,26 @@ nav li {
     border-bottom: 1px solid white;
     width: inherit;
 }
+
+#menu-categories-tab {
+    position: relative;
+}
+
+#menu-categories-tab ul {
+    display:none;
+    background-color: #E8E8E8;
+    left: 0;
+    position: absolute;
+    width: 200px;
+    border-left: solid 1px white;
+    border-right:solid 1px  white;
+    border-bottom: solid 1px  white;
+}
+#menu-categories-tab ul li{
+    display: list-item;
+    text-align: left;
+}
+
+#menu-categories-tab:hover ul {
+    display:block;
+}
