@@ -111,8 +111,6 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 	</div>
 	<!-- /Breadcrumbs -->
 
-
-
                 <!-- Include -->
 		<div class="clear"></div>
 		<?php
@@ -171,11 +169,10 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 	<ul id="displayMssg">
 
 	</ul>
-<div>
+</div>
 <!-- /Display JS_DEBUG -->
 
 <!-- Custom JS -->
-
 <script type="text/javascript" src="<?php echo PATH_JS; ?>login.js"></script>
 <script type="text/javascript" src="<?php echo PATH_JS; ?>tags-filter.js"></script>
 <script type="text/javascript" src="<?php echo PATH_JS; ?>display-type.js"></script>
