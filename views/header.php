@@ -39,6 +39,9 @@
  */
 ?>
 <!-- header -->
+<?php
+    $allCategories = $sql->query('SELECT `id`, `name` FROM `' . DB_TABLE_PREFIX . 'categories` WHERE `id` !=2 ');
+?>
 <header>
     <!-- New login -->
             <?php if ($_SESSION['type'] != 'admin') {?>
@@ -94,14 +97,23 @@
                 <li
                 <?php if ((isset($multiViews->total) && $multiViews->total === 0) || $multiViews->args[1] == 'categorie') { ?>
                     class="nav-actif"
-                <?php } ?>>
+                <?php } ?> id="menu-categories-tab">
                 <?php if ((isset($multiViews->total) && $multiViews->total === 0) || $multiViews->args[1] == 'categorie') { ?>
                     <div class="headerActif_wrap">
                 <?php } ?>        
-                    <a href="<?php echo PATH_ROOT; ?>index.php">Categories</a>
+                    <a href="<?php echo PATH_ROOT; ?>index.php" title="Categories">Categories</a>
                 <?php if ((isset($multiViews->total) && $multiViews->total === 0) || $multiViews->args[1] == 'categorie') { ?>
                     </div>
                 <?php } ?>
+                    <ul>
+                        <?php
+                            foreach( $allCategories as $value ) { ?>
+                                <a href="<?php echo PATH_INDEX; ?>categorie/<?php echo $value['name']; ?>/<?php echo $value['id']; ?>"><?php echo $value['name']; ?></a>
+                                <?php
+     
+                            }
+                        ?>
+                    </ul>
                 </li>
 
                     <li
