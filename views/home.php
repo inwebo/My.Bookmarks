@@ -47,9 +47,9 @@ extract($GLOBALS);
         $allCategories = $sql->query('SELECT `id`, `name` FROM `' . DB_TABLE_PREFIX . 'categories` WHERE `id` NOT IN (SELECT `id` FROM  `' . DB_TABLE_PREFIX . 'categories` WHERE `id`=\'2\')');
     }
 
-$grid = array();
-$i = 0;
-$clear = 0;
+$grid   = array();
+$i      = 0;
+$clear  = 0;
 $output = '';
 
 foreach ($allCategories as $oneCategorie) {
@@ -79,9 +79,6 @@ foreach ($allCategories as $oneCategorie) {
 
 
 }
-
-
-
 
 $gridSize = count($grid);
 $output = '';
