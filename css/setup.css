@@ -39,7 +39,7 @@
         }
         
 #setupForm input, #setupForm textarea{
-    width: 906px;
+    /*width: 906px;*/
     padding: 5px;
 }
 
@@ -55,7 +55,7 @@
 
 	#setupForm label.inputGrid_1, #setupForm label {
 		float: left;
-		width: 453px;
+		/*width: 453px;*/
 	}
 
 
@@ -72,7 +72,7 @@
 	}
 
 	#setupForm  label.inputGrid_1  input{
-		width: 433px;
+		width: 98%;
 	}
 
 	.inputGrid_1-first{
