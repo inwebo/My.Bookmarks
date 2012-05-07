@@ -6,40 +6,37 @@ db_password     =
 db_table_prefix = my_tables_
 
 [Path]
-path_root       =
-path_config     = config/
-css             = css/
-helpers         = helpers/
-ajax            = ajax/
-images          = images/
-js              = js/
-lib             = lib/
-public          = public/
-path_views      = views/
-logs            = logs/
-cache           = cache/
-iconfav         = favicon/
-template        = tpl/
-bookmarks       = bookmark-form.php
-googleAnalytics = google-analytics.php
-path_widget     = widget.php
+path_root          =
+path_config        = config/
+path_css           = css/
+path_helpers       = helpers/
+path_ajax          = ajax/
+path_images        = images/
+path_js            = js/
+path_lib           = lib/
+path_views         = views/
+path_logs          = logs/
+path_cache         = cache/
+path_favicon       = favicon/
+path_template      = tpl/
+path_bookmark_form = bookmark-form.php
+path_widget        = widget.php
+path_js_const      = js.const.define.php
 
 [Cache]
-lifetime = 0
+cache_lifetime = 0
 
 [Application]
-app_name         = My.Bookmarks
-app_tagline      = Self hosted bookmarks
-publicKey        =
-debug            = 1
-homeNomberOfUrls = 10
-version          = 10-02-2012
-serverVersion    = http://bookmarks.inwebo.net/helpers/version.php
-saveFavicon      = 0
-visibility       = 1
+app_name             = My.Bookmarks
+app_tagline          = Self hosted bookmarks
+app_debug            = 1
+app_front_urls       = 10
+app_version          = 
+app_update_server    = http://bookmarks.inwebo.net/helpers/version.php
+app_save_favicon     = 0
+app_bookmarks_public = 1
+app_public_key       =
 
 [Google analytics id]
-id =
-
-[JS]
-path_js_const = js.const.define.php
+ga_id           =
+ga_path_tracker = google-analytics.php
