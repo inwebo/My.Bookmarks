@@ -125,7 +125,7 @@ nav li {
 .nav-actif a {
    color:#008EE8;
 }
-.headerActif_wrap{
+.headerActif_wrap {
    border: 1px solid white;
    border-bottom: transparent;
    margin-left: -5px;
@@ -152,6 +152,7 @@ nav li {
     border-left: solid 1px white;
     border-right:solid 1px  white;
     border-bottom: solid 1px  white;
+    z-index: 99;
 }
 #menu-categories-tab ul li{
     display: list-item;
