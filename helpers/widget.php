@@ -75,7 +75,7 @@ var favicon = document.evaluate('//*[contains(@rel,\'shortcut icon\')]', documen
 
 	var jsScript=document.createElement('script');
 	jsScript.setAttribute('type','text/javascript');
-	jsScript.setAttribute('src', '<?php echo PATH_AJAX; ?>bookmark-form.php?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title) +'&amp;tags=' + keywords.content +'&amp;desc=' + description.content +'&amp;favicon='+ encodeURIComponent(favicon) + '&amp;JS_PUBLIC_KEY=<?php echo PUBLIC_KEY; ?>' );
+	jsScript.setAttribute('src', '<?php echo PATH_BOOKMARK_FORM; ?>?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title) +'&amp;tags=' + keywords.content +'&amp;desc=' + description.content +'&amp;favicon='+ encodeURIComponent(favicon) + '&amp;JS_PUBLIC_KEY=<?php echo PUBLIC_KEY; ?>' );
 	document.getElementsByTagName('head')[0].appendChild(jsScript);
 
 
