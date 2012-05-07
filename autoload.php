@@ -39,7 +39,8 @@
  */
 ?>
 <?php
-function __autoload( $class_name ) { 
+function __autoload( $class_name ) {
+    // @todo : CONST PATH_LIB
     include_once 'lib/' . strtolower( $class_name ) . '/class.' . strtolower($class_name) . '.php';
 }
 ?>
