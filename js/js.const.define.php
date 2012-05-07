@@ -8,6 +8,6 @@ $output  = 'JS_PATH_AJAX="'  . PATH_AJAX   . '";' ."\n";
 $output .= 'JS_PATH_INDEX="' . PATH_INDEX  . '";' ."\n";
 $output .= 'JS_PATH_JS="'    . PATH_JS     . '";' ."\n";
 $output .= 'JS_PUBLIC_KEY="' . PUBLIC_KEY  . '";' ."\n";
-$output .= 'JS_DEBUG='       . DEBUG       . ';'  ."\n";
+$output .= 'JS_DEBUG='       . APP_DEBUG       . ';'  ."\n";
 
 echo $output;

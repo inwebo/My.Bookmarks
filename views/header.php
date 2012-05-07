@@ -67,7 +67,7 @@
 
     <div class="container_12">
         <div class="grid_12">
-            <h1><?php echo $conf ['app_name']; ?></h1>
+            <h1><?php echo APP_NAME; ?></h1>
 
 
             
@@ -94,6 +94,20 @@
         <nav>
 
             <div class="container_12">
+                <?php if ($_SESSION['type'] == 'admin') { ?>
+                <li
+                <?php if ($multiViews->args[1] == 'admin') { ?>
+                    class="nav-actif"
+                <?php } ?> id="menu-admin-tab">
+                <?php if (isset($multiViews->args[1]) && $multiViews->args[1] == 'admin') { ?>
+                    <div class="headerActif_wrap">
+                <?php } ?>       
+                    <a href="<?php echo PATH_INDEX; ?>admin/">Administration</a>
+                <?php if (isset($multiViews->args[1]) && $multiViews->args[1] == 'admin') { ?>
+                    </div>
+                <?php } ?>      
+                </li>
+                <?php } ?>
                 <li
                 <?php if ((isset($multiViews->total) && $multiViews->total === 0) || $multiViews->args[1] == 'categorie') { ?>
                     class="nav-actif"
@@ -108,7 +122,7 @@
                     <ul>
                         <?php
                             foreach( $allCategories as $value ) { ?>
-                                <a href="<?php echo PATH_INDEX; ?>categorie/<?php echo $value['name']; ?>/<?php echo $value['id']; ?>"><?php echo $value['name']; ?></a>
+                                <li><a href="<?php echo PATH_INDEX; ?>categorie/<?php echo $value['name']; ?>/<?php echo $value['id']; ?>"><?php echo $value['name']; ?></a></li>
                                 <?php
      
                             }
@@ -134,7 +148,7 @@
                 <?php } ?>
                         </li>
 
-                        <li
+                 <li
                 <?php
                         if (isset($multiViews->args[1]) && $multiViews->args[1] == 'about') {
                             echo ' class="nav-actif" ';

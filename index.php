@@ -7,7 +7,7 @@
 <?php include('autoload.php'); ?>
 <?php include( dirname( __FILE__ ) . DIRECTORY_SEPARATOR .'helpers/const.define.php'); ?>
 <?php
-ini_set('display_errors', DEBUG);
+ini_set('display_errors', APP_DEBUG);
 // Controleur Init
 try {
 
@@ -21,19 +21,19 @@ try {
 catch( Exception $e ) {
 
 	// Display Error ?
-	if( DEBUG == 1 ) {
+	if( APP_DEBUG == 1 ) {
 		echo $e->getMessage();
 	}
 	else {
 		// Try to log in exceptions.log
 		try {
-			$myLog = new MyLog( $conf['logs'] . 'exceptions.log' );
+			$myLog = new MyLog( PATH_LOGS . 'exceptions.log' );
 			$myLog->line( $e->getMessage() );
 			$myLog->save();
 		}
 		// Display it
 		catch(Exception $e) {
-			if( DEBUG == 1 ) {
+			if( APP_DEBUG == 1 ) {
 				echo $e->getMessage();
 			}
 		}
@@ -93,7 +93,7 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 
 <body>
     <div class="gui-display-shaddy">
-        &nbsp;dd
+        &nbsp;
     </div>
     <a name="top"></a>
   <div id="container" >
@@ -115,33 +115,29 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 		<div class="clear"></div>
 		<?php
 			if( $multiViews->args == NULL ) {
-				//include('views/home.php');
                                 $views->display( 'home' );
 			}
 			elseif( $multiViews->args[1] == "categorie" ) {
-                               //include('views/categorie.php');
                                 $views->display( 'categorie' );
                         }
 			elseif( $multiViews->args[1] == "tags" ) {
                                 if( isset( $multiViews->args[2] ) ) {
-                                    //include('views/list-tags.php');
                                     $views->display( 'list-tags' );
                                 }
                                 else {
-                                    //include('views/tags.php');
                                     $views->display('tags');
                                 }
 			}
+			elseif( $multiViews->args[1] == "admin" && $_SESSION['type'] == 'admin') {
+                                    $views->display('admin');
+			}
 			elseif( $multiViews->args[1] == "about" ) {
-                                    //include( 'views/about.php' );
                                     $views->display('about');
 			}
 			elseif( $multiViews->args[1] == "test" ) {
-                                    //include( 'views/test.php' );
                                     $views->display('test');
 			}
                         else {
-                            //include('views/home.php');
                             $views->display( 'home' );
                         }
 		?>
@@ -181,10 +177,12 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
     <script type="text/javascript" src="<?php echo PATH_JS_CONST; ?>"></script>
     <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-bookmarks.js"></script>
     <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-categories.js"></script>
+    <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-categories-sort.js"></script>
+    <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-tabs.js"></script>
     <script type="text/javascript" src="<?php echo PATH_JS; ?>gui-infos-bulles.js"></script>
     <script type="text/javascript" src="<?php echo PATH_JS; ?>gui-help.js"></script>
 <?php } ?>
-<script type="text/javascript" src="<?php echo PATH_GOOGLE_ANALYTICS; ?>?id=<?php echo $conf ['id']; ?>"></script>
+<script type="text/javascript" src="<?php echo GA_PATH_TRACKER; ?>?id=<?php echo GA_ID; ?>"></script>
 <!-- /Custom JS -->
 
 

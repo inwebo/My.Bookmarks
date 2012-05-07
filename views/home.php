@@ -55,9 +55,9 @@ $output = '';
 foreach ($allCategories as $oneCategorie) {
     // All categories
     if ($_SESSION['type'] == 'admin') {
-        $listItemOneCategory = $sql->query('SELECT * FROM `' . DB_TABLE_PREFIX . 'bookmarks` WHERE `category`=' . $oneCategorie['id'] . ' ORDER BY `dt` DESC LIMIT 0,' . $conf['homeNomberOfUrls']);
+        $listItemOneCategory = $sql->query('SELECT * FROM `' . DB_TABLE_PREFIX . 'bookmarks` WHERE `category`=' . $oneCategorie['id'] . ' ORDER BY `dt` DESC LIMIT 0,' . APP_FRONT_URLS);
     } else {
-        $listItemOneCategory = $sql->query('SELECT * FROM `' . DB_TABLE_PREFIX . 'bookmarks` WHERE `category`=' . $oneCategorie['id'] . ' ORDER BY `dt` DESC LIMIT 0,' . $conf['homeNomberOfUrls']);
+        $listItemOneCategory = $sql->query('SELECT * FROM `' . DB_TABLE_PREFIX . 'bookmarks` WHERE `category`=' . $oneCategorie['id'] . ' ORDER BY `dt` DESC LIMIT 0,' . APP_FRONT_URLS);
     }
     $isEmpty = $sql->countRows;
 
