@@ -53,7 +53,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="css/my-style.css">
+    <?php $css = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']); ?>
+    <link rel="stylesheet" href="<?php echo $css;?>/css/my-style.css">
 
 <?php
 	//chdir('..');
@@ -91,6 +92,7 @@
 			</p>
 			</div>
 			<form id="setupForm" name="setupForm" method="post" enctype="application/x-www-form-urlencoded">
+
 				<fieldset>
 					<legend>Site</legend>
 					<label class="inputGrid_1 inputGrid_1-first">Name : <input id="setupSiteName" name="setupSiteName" value="My.Bookmarks"/><br><span>Titre du site est contenu dans la balise H1.</span></label>
@@ -235,15 +237,16 @@ $.ajax({
 })(jQuery)
 
 </script>
-
+    <script type="text/javascript" src="js/admin-tabs.js"></script>
             </div>
             
         </div>        
     </div>
-</div>
-<?php
+    <?php
     include('views/footer.php');
 ?>
+</div>
+
   <!-- Display debug -->
 <div id="debugOutPut">
 	<ul id="displayMssg">
