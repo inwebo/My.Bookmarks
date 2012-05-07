@@ -41,22 +41,21 @@
 <?php
 //chdir('..');
 if( is_file( 'config/config.ini' ) ) {
-	define('INI', 'config/config.ini');
-	$conf = Config::get(INI);
+	define('PATH_INI', 'config/config.ini');
+	$conf = Config::get(PATH_INI);
 }
 else {
 	include('views/setup.php');
 	exit();
 }
 
-//@todo renommer les variables du config.ini correctement
-//@todo construire à la volée, les constantes avec les données du .ini
+// @todo renommer les variables du config.ini correctement
+// @todo construire à la volée, les constantes avec les données du .ini
 
-/**
- * The short description
- *
- */
-define( 'DEBUG', $conf['debug'] );
+//var_dump($conf);
+
+
+define( 'APP_DEBUG', $conf['app_debug'] );
 
 define( 'DB_SERVER', $conf['db_server'] );
 define( 'DB_DATABASE', $conf['db_database'] );
@@ -71,25 +70,28 @@ define('PATH_ROOT', $root);
 $mainRoot = PATH_ROOT . 'index.php/';
 define('PATH_INDEX', $mainRoot);
 
-$publicCSS = PATH_ROOT . $conf['css'];
+$publicCSS = PATH_ROOT . $conf['path_css'];
 define('PATH_CSS', $publicCSS);
 
-$publicJS = PATH_ROOT . $conf['js'];
+$publicJS = PATH_ROOT . $conf['path_js'];
 define('PATH_JS', $publicJS);
 
-$ajax = PATH_JS . 'ajax/';
+$ajax = PATH_JS . $conf['path_ajax'];
 define( 'PATH_AJAX', $ajax );
 
-$publicImg = PATH_ROOT . $conf['images'];
+$path_bookmark_form = PATH_AJAX . $conf['path_bookmark_form'];
+define( 'PATH_BOOKMARK_FORM', $path_bookmark_form);
+
+$publicImg = PATH_ROOT . $conf['path_images'];
 define('PATH_IMG', $publicImg );
 
-$publicHelpers = $conf['helpers'];
+$publicHelpers = $conf['path_helpers'];
 define('PATH_HELPERS', $publicHelpers );
 
-$google =  PATH_ROOT . PATH_HELPERS . $conf['googleAnalytics'];
-define( 'PATH_GOOGLE_ANALYTICS', $google );
+$google =  PATH_ROOT . PATH_HELPERS . $conf['ga_path_tracker'];
+define( 'GA_PATH_TRACKER', $google );
 
-$googleId =  $conf['id'];
+$googleId =  $conf['ga_id'];
 define( 'GA_ID', $googleId );
 
 $pathJsConst =  PATH_JS . $conf['path_js_const'];
@@ -98,36 +100,44 @@ define( 'PATH_JS_CONST', $pathJsConst );
 $pathViews =  $conf['path_views'];
 define( 'PATH_VIEWS', $pathViews );
 
-define( 'PUBLIC_KEY', $conf['public_key'] );
+define( 'PUBLIC_KEY', $conf['app_public_key'] );
 
 $pathWidget =  PATH_HELPERS.$conf['path_widget'];
 define( 'PATH_WIDGET', $pathWidget );
 
-$pathTemplate =  PATH_VIEWS . $conf['template'];
+$pathTemplate =  PATH_VIEWS . $conf['path_template'];
 define( 'PATH_TEMPLATE', $pathTemplate );
 
+define( 'PATH_LOGS', $conf['path_logs'] );
+
 define( 'APP_NAME', $conf['app_name']);
+define( 'APP_FRONT_URLS', $conf['app_front_urls']);
+
+define( 'PATH_LIB', $conf['path_lib']);
+
 
 try {
-	$sql = new MyPdo( DB_SERVER, DB_DATABASE, DB_USER, $enigma->decode( DB_PASSWORD ) );
-        $views = new MyViews( PATH_VIEWS );
+	$sql      = new MyPdo( DB_SERVER, DB_DATABASE, DB_USER, $enigma->decode( DB_PASSWORD ) );
+        $views    = new MyViews( PATH_VIEWS );
         $template = new MyViews( PATH_TEMPLATE );
 }
 catch(Exception $e) {
     
-	if( DEBUG == 1 ) {
+	if( APP_DEBUG == 1 ) {
 		echo $e->getMessage();
 	}
 	else {
 		try {
-			$myLog = new MyLog( $conf['logs']. 'exceptions.log' );
+			$myLog = new MyLog( PATH_LOGS . 'exceptions.log' );
 			$myLog->line( $e->getMessage() );
 			$myLog->save();
 		}
 		catch( Exception $e ) {
-			if( DEBUG == 1 ) {
+			if( APP_DEBUG == 1 ) {
 				echo $e->getMessage();
 			}
 		}
 	}
 }
+
+
