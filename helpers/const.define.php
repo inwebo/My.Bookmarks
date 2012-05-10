@@ -43,16 +43,21 @@
 if( is_file( 'config/config.ini' ) ) {
 	define('PATH_INI', 'config/config.ini');
 	$conf = Config::get(PATH_INI);
+        define('APP_SETUP', FALSE);
 }
 else {
-	include('views/setup.php');
-	exit();
+	define('PATH_INI', 'config/config.ini.bak');
+	$conf = Config::get(PATH_INI);
+        define('APP_SETUP', TRUE);
+	/*include('views/setup.php');
+	exit();*/
 }
-
+define('PATH_INI_BAK', 'config/config.ini.bak');
 // @todo renommer les variables du config.ini correctement
 // @todo construire à la volée, les constantes avec les données du .ini
 
 //var_dump($conf);
+
 
 
 define( 'APP_DEBUG', $conf['app_debug'] );
@@ -117,9 +122,11 @@ define( 'PATH_LIB', $conf['path_lib']);
 
 
 try {
+
 	$sql      = new MyPdo( DB_SERVER, DB_DATABASE, DB_USER, $enigma->decode( DB_PASSWORD ) );
         $views    = new MyViews( PATH_VIEWS );
         $template = new MyViews( PATH_TEMPLATE );
+
 }
 catch(Exception $e) {
     
