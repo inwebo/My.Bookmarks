@@ -34,8 +34,9 @@
 	font-weight: bold;
 }
          #setupForm select {
-            width:453px;
+           /* width:453px; */
             padding: 5px;
+            float:right;
         }
         
 #setupForm input, #setupForm textarea{
