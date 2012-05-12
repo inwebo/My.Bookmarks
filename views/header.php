@@ -95,6 +95,7 @@
 
             <div class="container_12">
                 <?php if ($_SESSION['type'] == 'admin') { ?>
+                <li><a href="<?php echo PATH_INDEX; ?>typographie/">Typo</a></li>
                 <li
                 <?php if ($multiViews->args[1] == 'admin') { ?>
                     class="nav-actif"
