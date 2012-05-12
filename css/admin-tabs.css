@@ -1,5 +1,4 @@
 .tabs-left {
-   
     float: left;
     width: 275px;
     position: relative;
@@ -15,6 +14,9 @@
    background-color: #F2F2F2;
    position: relative;
    width: 233px;
+
+   
+
 }
 
     .tabs-left:first-child li {
@@ -28,15 +30,16 @@
        margin-left: 0;
        padding: 20px;
        border-bottom: solid 1px #CFCFCF;
+       z-index: 0;
     }
 
 .tabs-content {
     border: 1px solid #CFCFCF;
     float: right;
     margin-left: -2px;
-    padding: 1%;
+    padding: 10px;
     position: relative;
-    width: 623px;
+    width: 622px;
     min-height: 400px;
     z-index: 1;
 }
