@@ -57,7 +57,7 @@ $create = str_replace('categories', $_POST['setupDbPrefix'] . 'categories', $cre
 $create = str_replace('role', $_POST['setupDbPrefix'] . 'role', $create);
 
 //echo $create;
-
+$version = file_get_contents('helpers/version.php');
 $return = '';
 try {
 	$tempSql = new MyPdo( $_POST['setupDbServer'],$_POST['setupDbDatabase'] ,$_POST['setupDbUser'], $_POST['setupDbPassword']);
@@ -66,19 +66,20 @@ try {
         // @todo tables prefixes
         $tempSql->query('INSERT INTO `'.$_POST['setupDbPrefix'].'users` VALUES ("","'.$_POST['setupUserName'].'", MD5(\'' . $_POST['setupUserPassword'] . '\'),1,"",MD5(\'' .$_POST['setupUserName'] .'+key\' ))');
         
-        $tempConf                                    = config::get('config/config.ini.bak', TRUE);
-        $tempConf['Path']['path_root']               = $_POST['setupRoot'];
-        $tempConf['Data Base']['db_server']          = $_POST['setupDbServer'];
-        $tempConf['Data Base']['db_database']        = $_POST['setupDbDatabase'];
-        $tempConf['Data Base']['db_user']            = $_POST['setupDbUser'];
-        $tempConf['Data Base']['db_password']        = $dbPassword;
-        $tempConf['Data Base']['db_table_prefix']    = $_POST['setupDbPrefix'];
-        $tempConf['Application']['debug']            = $_POST['setupDebug'];
-        $tempConf['Application']['homeNomberOfUrls'] = $_POST['setupTotalUrls'];
-        $tempConf['Application']['saveFavicon']      = $_POST['setupFavicon'];
-        $tempConf['Application']['visibility']       = $_POST['setupPublic'];
-        $tempConf['Application']['public_key']       = md5( $_POST['setupRoot'] .  time() );
-        $tempConf['Google analytics id']['id']       = $_POST['setupGa'];
+        $tempConf                                        = config::get('config/config.ini.bak', TRUE);
+        $tempConf['Path']['path_root']                   = $_POST['setupRoot'] . '/';
+        $tempConf['Data Base']['db_server']              = $_POST['setupDbServer'];
+        $tempConf['Data Base']['db_database']            = $_POST['setupDbDatabase'];
+        $tempConf['Data Base']['db_user']                = $_POST['setupDbUser'];
+        $tempConf['Data Base']['db_password']            = $dbPassword;
+        $tempConf['Data Base']['db_table_prefix']        = $_POST['setupDbPrefix'];
+        $tempConf['Application']['app_debug']            = $_POST['setupDebug'];
+        $tempConf['Application']['app_front_urls']       = $_POST['setupTotalUrls'];
+        $tempConf['Application']['app_save_favicon']     = $_POST['setupFavicon'];
+        $tempConf['Application']['app_bookmarks_public'] = $_POST['setupPublic'];
+        $tempConf['Application']['app_public_key']       = md5( $_POST['setupRoot'] .  time() );
+        $tempConf['Application']['app_version']          = $version;
+        $tempConf['Google analytics id']['ga_id']        = $_POST['setupGa'];
 
         config::save( $tempConf, "config/config.ini");
         
