@@ -29,7 +29,7 @@ class MyCrypt {
 	 * @param string $key Clé utilisée pour générer l'encodage
 	 */
 	public function __construct($key) {
-		$this->key = sha1($key);
+		$this->key = sha1( $key );
 	}
 	
 	/**
