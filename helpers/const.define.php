@@ -122,8 +122,10 @@ define( 'PATH_LIB', $conf['path_lib']);
 
 
 try {
-
+        if(!APP_SETUP) {
 	$sql      = new MyPdo( DB_SERVER, DB_DATABASE, DB_USER, $enigma->decode( DB_PASSWORD ) );
+        }
+
         $views    = new MyViews( PATH_VIEWS );
         $template = new MyViews( PATH_TEMPLATE );
 
