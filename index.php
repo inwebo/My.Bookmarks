@@ -134,8 +134,8 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 			elseif( $multiViews->args[1] == "about" ) {
                                     $views->display('about');
 			}
-			elseif( $multiViews->args[1] == "test" ) {
-                                    $views->display('test');
+			elseif( $multiViews->args[1] == "typographie" ) {
+                                    $views->display('typographie');
 			}
                         else {
                             $views->display( 'home' );
