@@ -1,0 +1,30 @@
+#tabs * {
+    position:relative;
+}
+
+#tabs>ul{
+    border-bottom: 1px solid #CFCFCF;
+    min-height: 30px;
+    position: relative;
+    padding-left: 1em;
+    height: 41px;
+}
+#tabs>ul li {
+    background-color: #F2F2F2;
+    border-left: 1px solid #CFCFCF;
+    border-top: 1px solid #CFCFCF;
+    border-right: 1px solid #CFCFCF;
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding: 10px;
+    height:20px;
+}
+
+#tabs>ul li.active {
+    background-color: #F9F9F9;
+    height: 21px;
+    position: relative;
+    top: 0;
+    z-index: 99;
+}
