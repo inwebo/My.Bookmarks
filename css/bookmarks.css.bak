@@ -1,0 +1,357 @@
+/* 
+    Document   : bookmarks
+    Created on : 10 févr. 2012, 19:09:30
+    Author     : inwebo
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+
+/* ---------------------Bookmarks Container --------------------------------- */
+ul.bookmarks-list{
+    margin: 0;
+    padding: 0;
+}
+.bookmarks-list li.xfolkentry:nth-child( odd ) {
+	background-color:#f2f2f2;
+}
+
+.bookmarks-list li.xfolkentry:nth-child( even ) {
+	background-color:#fbfbfb;
+}
+
+
+.listUrl {
+    margin-bottom: 5px;
+    padding: 0;
+}
+
+.listUrl {
+    max-height: 440px;
+    height:440px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+#newItems .listUrl {
+    height: 100%;
+    max-height: 100%;
+}
+
+
+
+.listUrl li{
+    list-style: none outside none;
+    margin: 0;
+    padding: 5px;
+}
+
+.xfolkentry {
+    padding: 5px;
+    position: relative;
+    margin: 0;
+    list-style: none outside none;
+    border-bottom: 1px solid #E6E6E6;
+    border-top: 1px solid white;
+}
+
+.listUrl li {
+     /*border-top: 1px solid white;
+       border-bottom: 1px solid #E6E6E6;*/
+}
+
+.listUrl li a {
+    text-decoration: none;
+}
+
+.xfolkentry:first-child, .listUrl li:first-child {
+  border-top: 1px solid transparent;
+}
+
+.xfolkentry:last-child , .listUrl li:last-child{
+      border-bottom: 1px solid transparent;
+}
+
+.bookmarks-main, .xfolkentry form {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+
+}
+
+.bookmarks-main, .xfolkentry form {
+    border-left: 1px solid #efefef;
+    margin-left: 5px;
+    padding-left: 5px;
+    display: inline-block;
+    width: 420px;
+    min-height: auto;
+}
+
+.xfolkentry form {
+    display:none;
+    margin-bottom: 0;
+    border:none;
+}
+
+
+.xfolkentry form input, .xfolkentry form textarea{
+    margin-bottom: 20px;
+    padding: 5px;
+    width: 75%;
+    border:solid 1px #E6E6E6;
+    background-color: white;
+}
+.xfolkentry form input:focus, .xfolkentry form textarea:focus{
+border:dotted 1px #FFE8BF;
+}
+.xfolkentry form label {
+    font-size: small;
+}
+
+.xfolkentry form label input{
+    margin-bottom: 0;
+    width: 96%;
+}
+.xfolkentry form textarea {
+     min-height: 115px;
+     max-height: 115px;
+     overflow: auto;
+    width: 96%;
+}
+
+.xfolkentry ul.meta {
+    padding: 0;
+}
+
+.xfolkentry ul.meta li{
+display: inline-block;
+margin: 0;
+padding: 0;
+padding-left: 5px;
+}
+
+.xfolkentry ul.meta li a{
+
+}
+
+.bookmarks-main h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 1.1em;
+}
+.bookmarks-main h3 + p {
+    text-indent: 20px;
+    font-size: x-small;
+}
+.bookmarks-main h3 + p + p{
+    text-align: justify;
+    max-height: auto;
+    overflow: auto;
+}
+.bookmarks-boutons {
+    bottom: 0;
+    margin-bottom: 5px;
+    padding: 10px;
+    position: absolute;
+    width: 568px;
+    top:100%;
+    text-align: right;
+    opacity:0;
+    display: inline-block;
+}
+
+.dragMeToCat, .bookmarks-edit, .bookmarks-delete {
+    background-color: #E0E5E9;
+    border: 1px solid #BECAD1;
+    cursor: move;
+    display: inline-block;
+    height: 3em;
+    line-height: 36px;
+    padding: 2px;
+    text-align: center;
+    width: 31%;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    color:#9fb0bb;
+    vertical-align: top;
+}
+.dragMeToCat {
+    position:relative;
+    z-index: 2000px;
+}
+
+.bookmarks-edit, .bookmarks-delete, .bookmarks-save, .dragMeToCat  {
+    cursor: pointer;
+    color: white;
+    float: right;
+    height: 16px;
+    line-height: 13px;
+    padding: 0;
+    text-decoration: none;
+    width: 30px;
+    z-index: 9999;
+    text-decoration: none;
+    right: 5px;
+    border-radius:0;
+    margin-left: 5px;
+    line-height: 16px;
+}
+
+
+
+.bookmarks-delete {
+    width:17px;
+}
+
+.dragMeToCat  {
+    background-color: #FFD86F;
+    border: solid 1px #FFA200;
+    width: 148px;
+    height:16px;
+    box-shadow: 0 0 1px 0 #FFFFFF inset;
+    color:peru;
+    height:40px;
+    line-height:40px;
+}
+.bookmarks-edit:hover, .bookmarks-delete:hover, .bookmarks-save:hover {
+    color:white;
+
+}
+
+/*.bookmarks-edit-wrapper,.bookmarks-save-wrapper, .bookmarks-delete-wrapper  {
+    color: #FAFFEF;
+    height: 14px;
+    width: 28px;
+}*/
+/*
+.bookmarks-delete-wrapper {
+    width: 15px;
+}*/
+.bookmarks-edit {
+   background-color: yellowgreen;
+   right: 40px;
+   border:solid 1px green;
+   margin-right: 5px;
+      box-shadow: 0 0 0 1px #BCDF6F inset;
+}
+/*
+.bookmarks-edit-wrapper {
+      border: 1px solid #BCDF6F;
+}*/
+
+
+.bookmarks-delete {
+   background-color: #FF3F3F;
+   border:solid 1px #AF0000;
+   position:relative;
+   margin-left:5px;
+   box-shadow: 0 0 0 1px #FFAFAF inset;
+   z-index: 100;
+}
+
+/*.bookmarks-delete-wrapper {
+          border: 1px solid #FFAFAF;
+}*/
+
+.bookmarks-save {
+   box-shadow: 0 0 0 1px #FFE8BF inset;
+    background-color: #FFD68F;;
+    border:solid 1px #EFA82C;
+    display:none;
+    position:relative;
+    z-index:100;
+
+}
+/*
+.bookmarks-save-wrapper {
+    border: 1px solid #FFE8BF;
+    color:red;
+}*/
+.bookmarks-container-bouton {
+    text-align: right;
+    display: inline-block;
+    width: 25%;
+    vertical-align: top;
+    width:150px;
+}
+
+
+
+.listUrl li span {
+    position: relative;
+}
+
+.listUrl li a.displayTitle {
+    display: inline-block;
+    max-width: 85%;
+}
+
+
+/* Item */
+
+.listUrl h3 {
+    font-size: 1.1em;
+}
+
+.itemLeft {
+   bottom: 0;
+    padding: 20px;
+    position: absolute;
+    padding: 0;
+}
+
+.itemMain {
+    /*background-color: black;*/
+    //width: 375px;
+    //float: left;
+}
+
+.itemMain ul {
+    margin-bottom: 5px;
+}
+
+.itemMain ul li {
+    background-color: transparent;
+    display: inline-block;
+    padding: 0;
+}
+
+.itemMain ul li:nth-child(2n+1), .itemMain ul li:nth-child(2n)  {
+    background-color: transparent;
+
+}
+
+.bookmarks-main  .bookmarks-display-simple {
+    font-size: 100%;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+.bookmarks-main .bookmarks-display-simple a {
+    text-decoration: none;
+}
+
+
+.bookmarks-delete-small {
+    float: left;
+    font-size: x-small;
+    height: 12px;
+    line-height: 11px;
+    text-shadow: none;
+    width: 12px;
+       margin-top: 5px;
+}
+
+.bookmarks-delete-small a {
+    text-decoration: none;
+    color:white;
+}
+
+/* ---------------------/Bookmarks Container -------------------------------- */

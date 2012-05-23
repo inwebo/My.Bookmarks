@@ -40,6 +40,8 @@
 ?>
 <!-- home.php -->
 <?php
+
+// Code extrement moche à refaire
 extract($GLOBALS);
     if ($_SESSION['type'] == 'admin') {
         $allCategories = $sql->query('SELECT `id`, `name` FROM `' . DB_TABLE_PREFIX . 'categories`');
@@ -120,7 +122,9 @@ while (isset($grid[++$iterator])) {
         <div class="grid_4 gridHome">
     <?php } ?>
 
-
+	<?php
+	// Devrait provenir d'un template
+	?>
     <h2>
         <a href="<?php echo PATH_INDEX; ?>categorie/<?php echo $grid[$iterator]['title']; ?>/<?php echo $grid[$iterator]['id']; ?>"><?php echo $grid[$iterator]['title']; ?></a>
     </h2>

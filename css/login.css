@@ -31,21 +31,11 @@ border-color: transparent transparent #939393 transparent;
     text-align: center;
 }
 
-#loginContainer, .loginClickExit {
-            //background-color: Silver;
-            //height:40px;
-            //top: -35px;
-            //position: relative;
-            //text-align: center;
-}
-
 .loginClickExit {
     padding: 10px;
     position: relative;
     top: 100%;
     text-decoration: none;
-color: #E50404;
-    font-weight: bold;
 }
         #loginContainer, .loginClickExit {
             background-color: #2E3033;

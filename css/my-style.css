@@ -30,7 +30,7 @@
 
 @font-face {
     font-family: "IconicStroke";
-    src: local("IconicStroke"), url("font/iconic_stroke.otf") format("opentype");
+    src: local("IconicFill"), url("font/iconic_fill.otf") format("opentype");
 }
 
 /* --------- Test ---------*/
@@ -56,7 +56,7 @@ hr{
 	display: block;
 	position: relative;
 	padding: 0;
-	margin: 8px auto;
+	margin: 20px auto;
 	width: 100%;
 	clear: both;
 	border: none;
@@ -68,8 +68,37 @@ hr{
 }
 
 #container {
-    //height: 100%;
     min-height: 100%;
+}
+
+blockquote {
+    border-left: 4px solid #DDDDDD;
+    color: #777777;
+    padding: 0 15px;
+    font-style: italic;
+}
+
+pre, code , tt {
+	font-family: "Bitstream Vera Sans Mono","Courier",monospace;
+    font-size: 12px;
+}
+
+pre {
+	background-color: #F8F8F8;
+    border: 1px solid #EAEAEA;
+    border-radius: 3px 3px 3px 3px;
+    margin: 0 2px;
+    padding: 0 5px;
+    white-space: nowrap;
+}
+
+tt {
+	background-color: #F8F8F8;
+    border: 1px solid #EAEAEA;
+    border-radius: 3px 3px 3px 3px;
+    margin: 0 2px;
+    padding: 0 5px;
+    white-space: nowrap;
 }
 
 .ribbon {
@@ -77,7 +106,6 @@ hr{
     border-bottom: 20px solid transparent;
     border-left: 25px solid  Silver;
     border-right: 25px solid Silver;
-
 }
 
 .ribbon {
@@ -91,7 +119,6 @@ hr{
 }
 
 input, textarea{
-    //border:solid 1px red;
     background-image: linear-gradient(bottom, rgb(254,254,254) 48%, rgb(250,250,250) 74%, rgb(242,242,242) 87%);
     background-image: -o-linear-gradient(bottom, rgb(254,254,254) 48%, rgb(250,250,250) 74%, rgb(242,242,242) 87%);
     background-image: -moz-linear-gradient(bottom, rgb(254,254,254) 48%, rgb(250,250,250) 74%, rgb(242,242,242) 87%);
@@ -114,12 +141,20 @@ input:focus {
     border: 1px solid #B9CEB5;
 }
 
+select option {
+	
+}
+
 /* -----------------------------------*/
 /* ---------->>> My.Grid <<<----------*/
 /* -----------------------------------*/
 
+/*
+ * todo : 
+ */
+
 div[class*='container_12'] div[class*='grid_'] {
-    padding: 10px;
+    padding: 20px;
     margin-bottom:20px;
 }
 
@@ -129,7 +164,6 @@ div[class*='container_12'] div[class*='grid_'] {
     -moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 1);
     box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 1);
     background-color: #F9F9F9;
-
 }
 .container_12 .grid_4 {
     width: 278px;
@@ -144,7 +178,7 @@ div[class*='container_12'] div[class*='grid_'] {
 }
 
 .container_12 .grid_12 {
-	width: 918px;     
+	width: 898px;     
 }
 
 .gridHome {
@@ -156,6 +190,8 @@ div[class*='container_12'] div[class*='grid_'] {
 #main div[class*='grid_'] h2 {
     border-bottom: thin groove #35383D;
     height: 2em;
+    margin-bottom: 40px;
+    height: 49px
 }
 
     #main div[class*='grid_'] h2 .totalLinks {
@@ -174,11 +210,6 @@ div[class*='container_12'] div[class*='grid_'] {
         text-decoration: none;
     }
 
-
-
-
-
-
 /* -----------------------------------*/
 /* ----------->>> GUI <<<-------------*/
 /* -----------------------------------*/
@@ -192,4 +223,69 @@ div[class*='container_12'] div[class*='grid_'] {
     display: none;
     z-index: 1000;
 }
+
+/* -----------------------------------*/
+/* ---------->>> Code <<<-------------*/
+/* -----------------------------------*/
+
+/* -----------------------------------*/
+/* ----------->>> Colors <<<-------------*/
+/* -----------------------------------*/
+
+.triangleBR {
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid grey;
+	-moz-transform: scale(1) rotate(-225deg);
+	position:relative;
+	    bottom: -20px;
+    left: 10px;
+}
+
+#menu-categories-tab:hover .triangleBR {
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

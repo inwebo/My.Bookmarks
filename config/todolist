@@ -32,6 +32,11 @@
 +Autorisation auto-update
 +Ajouter favoris (de favoris ? ben voyons). <span>★★★&bull;&bull; </span>
 +Bug edit bookmarks, tags non mis à jour
-+Bug onglet catégorie (survol)
++Bug onglet catégories (survol)
 +Config.ini.bak, les noms de variables doivent être préfixés
 +Parser config.ini pour générer un formulaire automatiquement
++favicon par défaut.
++Ajouter microformats xfolkentry
++Formulaire identique pour l'édition et l'ajout de bookmarks.
++Re écriture des requêtes ajax (json).
++Addon Firefox, Chrome, Opera

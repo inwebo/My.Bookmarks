@@ -1,153 +1,233 @@
-(function($) {
-    $(function() {
-         isDragging = 0;
-        /* Edition Bookmark */
+;(function($) {
 
-        $('.xfolkentry').hover(
-            function() {
-                if( isDragging == 0 ) {
-                    $(this).children('.bookmarks-boutons').animate({top : '60%',opacity:1}, 'slow', 'easeInOutQuart' );
-                    
-                }
+	/*
+	* Variables
+	*/
+	// Draggable selector
+	var draggableSelector = '.bookmark-draggable';
+	// Droppable selector
+	var droppableSelector = '.categorie-droppable';
+	// Container droppable
+	var droppableContainer = '#categories-landing';
+	// Delai pour cacher le container droppable
+	var delayDroppableContainer = 1000;
 
-            },
-            function() {
-                if( isDragging == 0 ) {
-                    $(this).children('.bookmarks-boutons').animate({top : '100%',opacity:0}, 'slow', 'easeInOutQuart');
+	/*
+	 * Affiche/cache le container contenant tous les éléments droppable
+	 */
+	var displayDroppableContainer = function() {
+		$(droppableContainer).animate({
+			'top' : 0
+		}, 800, 'easeOutQuint');
+	}
+	var hideDroppableContainer = function() {
+		$(droppableContainer).delay(delayDroppableContainer).animate({
+			'top' : -140
+		}, 800, 'easeOutQuint');
+	}
+	/*
+	 * Collecte tous les attributs-data d'un bookmark
+	 */
+	var getAttrData = function(el) {
+		objBookmark = new $.myBookmark({
+			'debug'       : JS_APP_DEBUG,
+			'id'          : $(el).parents('li:first').attr('data-id'),
+			'hash'        : $(el).parents('li:first').attr('data-hash'),
+			'url'         : $(el).parents('li:first').attr('data-url'),
+			'title'       : $(el).parents('li:first').find('.data-title').html(),
+			'tags'        : $(el).parents('li:first').attr('data-tags'),
+			'description' : $(el).parents('li:first').find('.data-desc').html(),
+			'dt'          : $(el).parents('li:first').attr('data-dt'),
+			'category'    : $(el).parents('li:first').attr('data-category'),
+			'visibility'  : $(el).parents('li:first').attr('data-visibility')
+		});
+		return objBookmark;
+	}
+	/* ============= Bookmark switch categorie =============== */
 
-                }
-                    $(this).animate({'min-height' : 'auto'}, 'slow', 'easeInOutQuart' );
-            }
-        );
-        /* Edition Bookmark */
+	/*
+	 * Draggable
+	 */
+	$(draggableSelector).draggable({
+		opacity : 1,
+		helper : function(event) {
+			return $("<div class='bookmark-draggable-helper'><span class='iconic move'></span></div>");
+		},
+		start : function(event, ui) {
+			displayDroppableContainer();
+			actualBookmark = getAttrData($(this));
+		},
+		stop : function(event, ui) {
+			hideDroppableContainer();
+			actualBookmark = null;
+		},
+		revert : 'invalid'
+	});
 
+	/*
+	 * Droppable
+	 */
+	$(droppableSelector).droppable({
+		over : function(event, ui) {
+			// A voir
+		},
+		out : function(event, ui) {
+			// A voir
+		},
+		drop : function(event, ui) {
+			var tempNewId = $(this).attr('data-id');
+			// Requete ajax
+			$.ajax({
+				type : "POST",
+				url : JS_PATH_AJAX_BOOKMARK_SWITCH,
+				data : {
+					itemHash : actualBookmark.settings.hash,
+					itemId : tempNewId
+				},
+				dataType : "text",
+				success : function(data) {
+				},
+				error : function() {
+				}
+			});
+		},
+		accept : draggableSelector,
+		greedy : false
+	});
 
-        function totalItem() {
-            $('span.totalLinks').html( --$('.bookmarks-list li.xfolkentry').length + ' links');
-        }
+	/* ============= Bookmark switch categorie =============== */
 
-        $( "span.dragMeToCat" ).draggable({
-            opacity: 0.7,
-            helper: "clone",
-            cursorAt: {
-                cursor: "crosshair", 
-                top: 20, 
-                left: 90
-            },
-            start: function(event, ui) {
-                isDragging = 1;
-                data_id    = $(this).closest('li').attr('data-id');
-                data_hash  = $(this).closest('li').attr('data-hash');
-                data_title = $(this).closest('li').attr('data-title');
-                
-                $('.gui-display-shaddy').fadeIn('slow');
-            },
-            stop: function(event, ui) {
-                isDragging = 0;
-$('.gui-display-shaddy').fadeOut('slow');
-            },
-            revert:'invalid'
-        });
+	/* ============= Bookmark delete =============== */
+	// Bouton supprimer
+	var buttonDel = '.bookmark-delete';
+	
+	// @todo To refactor without unbind
+	$(buttonDel).unbind('click').click(function() {
+		var actualBookmark = getAttrData($(this));
+		var r = confirm('Delete url (id=' + actualBookmark.settings.id + ') : ' + "\n" + '✗' + actualBookmark.settings.title + ' ?' + "\n");
+		if(r == true) {
+			$.ajax({
+				type : "POST",
+				url : JS_PATH_AJAX_BOOKMARK_DEL,
+				data : {
+					delUrl : actualBookmark.settings.id
+				},
+				success : function(data) {
 
-        $( "#categoriesList p" ).droppable({
-            over: function(event, ui) {
-                $( this ).css('border', 'dotted 1px green');
-            },
-            out: function(event, ui) {
-                $( this ).css('border', 'solid 1px transparent');
-            },
-            drop: function( event, ui ) {
-                var $element = ui.draggable;
-                var containerIdData = this;
-                cat_data_id = $(this).attr('data-id');
-                $( this ).effect( "highlight" );
-                $( this ).css('border', 'solid 1px transparent');
-                $.ajax({
-                    type: "POST",
-                    url: JS_PATH_AJAX + "url-update.php",
-                    data: "id="+ cat_data_id +"&hash="+ data_hash,
-                    success:function(data) {
-                        addMssg( 'Moved', data_title + ' moved.' );
-                        totalItem() ;
-                    },
-                    error:function() {
-                        addMssg( 'error', 'Can\'t moved ' + data_title + ' !' );
-                    }
-                });
+				},
+				error : function() {
 
-                $element.closest('li').slideUp(300);
-            },
-            accept: '#newItems ul li span.dragMeToCat',
-            greedy: false
-        });
+				}
+			});
+		}
+		return false;
+	});
 
-        $('.bookmarks-main .bookmarks-delete').click(function() {
-            var actualLiItem = this;
-            var r = confirm('Delete url (id='+$(this).attr('data-id')+') : '+"\n"+'✗' + $(this).attr('data-title') +' ?'+"\n");
-            if( r == true ) {
-                $.ajax({
-                    type: "POST",
-                    url: JS_PATH_AJAX + "url-del.php",
-                    data: {
-                        delUrl:$(this).closest('li').attr('data-id')
-                        },
-                    success:function(data) {
-                        $(actualLiItem).closest('li').slideUp(300);
-                        addMssg('okay', 'Element <em>'+ $(actualLiItem).attr('data-title') + '</em> deleted.' );
-                    },
-                    error:function() {
-                        addMssg('error', 'Cannot delete <em>' + $(actualLiItem).attr('data-title') + '</em>, please try later.' );
-                    }
-                });
-            }
-        });
+	/* ============= /Bookmark delete =============== */
 
-        $( '.bookmarks-edit' ).click( function () {
-                var plugin = this;
-                $(this).fadeOut('slow', function() {
-                    $(this).closest('li').find('.bookmarks-save').fadeIn('slow');
-                });
-                $(plugin).closest('li').find('h3,p,ul').fadeOut('slow', function(){$(plugin).closest('li').find('form').fadeIn('slow')} );
-        });
-        $( '.bookmarks-save' ).click( function () {
-                var plugin = this;
-                $(this).fadeOut('slow', function() {
-                    $(this).closest('li').find('.bookmarks-edit').fadeIn('slow');
-                });
-                //$(plugin).closest('li').animate({'min-height' : '150px'}, 'slow', 'easeInOutQuart' );
+	/* =================== Bookmark Edit ============= */
+	// Selecteur du formulaire
+	var buttonEdit = '.bookmark-edit';
+	$( buttonEdit ).unbind('click').click(function() {
+		// #1 : Créer un bookmark valeur actuel
+		var actualBookmark = getAttrData($(this));
+		$('.gui-display-shaddy').fadeIn('slow');
+		// #2 : Inclure en ajax le formulaire avec les bonnes valeurs
+		$.ajax({
+			type : "POST",
+			url : JS_PATH_AJAX_BOOKMARK_EDIT_FORM,
+			data : {
+				itemHash        : actualBookmark.settings.hash,
+				itemTitle       : actualBookmark.settings.title,
+				itemDescription : actualBookmark.settings.description,
+				itemTags        : actualBookmark.settings.tags,
+				itemCategoryId  : actualBookmark.settings.category,
+				itemVisibility  : actualBookmark.settings.visibility,
+				itemPublicKey   : JS_PUBLIC_KEY
+			},
+			dataType : "text",
+			success : function(data) {
+				$('.gui-display-shaddy').append(data);
+			},
+			error : function() {
+			}
+		});
+		return false;
+	});
+	/* =================== Bookmark Edit ============= */
+	
+	/* =================== Bookmark Save ============= */
+	// Selecteur du formulaire
 
-                $(plugin).closest('li').find('form').fadeOut('slow', function(){$(plugin).closest('li').find('h3,p,ul').fadeIn('slow')} );
+		var buttonEdit = '.bookmark-edit';
+		$(buttonEdit).unbind('click').click(function() {
+			// #1 : Créer un bookmark valeur actuel
+			var actualBookmark = getAttrData($(this));
+			$('.gui-display-shaddy').fadeIn('slow');
+			// #2 : Inclure en ajax le formulaire avec les bonnes valeurs
+			$.ajax({
+				type : "POST",
+				url : JS_PATH_AJAX_BOOKMARK_EDIT_FORM,
+				data : {
+					itemHash : actualBookmark.settings.hash,
+					itemTitle : actualBookmark.settings.title,
+					itemDescription : actualBookmark.settings.description,
+					itemTags : actualBookmark.settings.tags,
+					itemCategoryId : actualBookmark.settings.category,
+					itemVisibility : actualBookmark.settings.visibility,
+					itemPublicKey : JS_PUBLIC_KEY
+				},
+				dataType : "text",
+				success : function(data) {
+					$('.gui-display-shaddy').append(data);
+				},
+				error : function() {
+				}
+			});
+			return false;
+		});
 
-                container = $( this ).parents('li').eq(0);
+		var buttonSave = '#bookmark-edit-save';
+		var formEdit = '#bookmarkForm';
+		// @todo public
+		$(buttonSave).unbind('click').live('click', function() {
+			$.ajax({
+				type : "POST",
+				url : JS_PATH_AJAX_BOOKMARK_EDIT,
+				data : {
+					itemHash        : $('#hash').val(),
+					itemTitle       : $('#title').val(),
+					itemDescription : $('#desc').val(),
+					itemTags        : $('#tags').val(),
+					itemPublic      : $('#public').prop('checked'),
+					itemPublicKey   : JS_PUBLIC_KEY
+				},
+				dataType : "text",
+				success : function(data) {
 
-                var _itemHash = $(this).closest('li').attr('data-hash');
-                var _itemId = $(this).closest('li').attr('data-id');
-                var _itemTitle = $(container).find('form input').val();
-                var _itemDescription = $(container).find('textarea').val();
-                var _itemTags = $(container).find('label input').val();
-                $.ajax({
-                    type: "POST",
-                    url: JS_PATH_AJAX + "bookmark-edit.php",
-                    data: {
-                            itemHash:_itemHash,
-                            itemTitle:_itemTitle,
-                            itemDescription:_itemDescription,
-                            itemTags:_itemTags,
-                            itemPublicKey:JS_PUBLIC_KEY
-                        },
-                    dataType: "text",
-                    success:function(data) {
-                        addMssg('okay', 'Element <em>'+ _itemTitle +'</em> edited.' );
-                        $(container).find('h3 a').html(_itemTitle);
-                        $(container).find('p.description').html(_itemDescription);
-                        $(container).animate({'min-height' : 'auto'}, 'slow', 'easeInOutQuart' );
-                    },
-                    error:function() {
-                        addMssg('error', 'Cannot edit, please try later.' );
-                    }
+				},
+				error : function() {
 
-                });
-				$(plugin).closest('li').find('h3,p,ul').fadeIn();
-        });
-    });
+				}
+			});
+		}); 
+
+	/* =================== /Bookmark Save ============= */
+	
+	/* ================== Snippet reset form ========= */
+	/*$.fn.reset = function () {
+	  $(this).each (function() { this.reset(); });
+	}*/
+	/* ================== /Snippet reset form ========= */
+	 
+	/* Reset formulaire edition bookmark */
+	var buttonReset = '#bookmark-edit-reset';
+	var form        = '#bookmarkForm';
+	$(buttonReset).live('click', function() {
+		$( form ).each (function(){
+		  this.reset();
+		});
+	});
+	/* /Reset formulaire edition bookmark */
+	
 })(jQuery);

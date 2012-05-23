@@ -71,3 +71,21 @@ a.supersize {
     font-size: 20px;
     padding: 15px 20px;
 }
+
+a.iconSize {
+	font-size:xx-small;
+	padding:2px 4px;
+	line-height: 10px;
+}
+
+a.lightGreen {
+	color:#AADE7C;
+}
+
+a.darkGreen {
+	color:#1D7D05;
+}
+
+a.lightRed {
+	color:#FF0000;
+}

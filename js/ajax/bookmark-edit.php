@@ -59,7 +59,7 @@ if(
 if( $_POST['itemPublicKey'] != PUBLIC_KEY ) {
     exit('Error');
 }
-// @ todo prefix table bdd
+
 $a ="UPDATE  `". DB_TABLE_PREFIX ."bookmarks` SET  `title` =  ?,`description` =  ?, `tags`=? WHERE  `hash` = ?";
 
 $b = array( $_POST['itemTitle'], $_POST['itemDescription'], $_POST['itemTags'] , $_POST['itemHash'] );

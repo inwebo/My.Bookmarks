@@ -63,8 +63,8 @@ extract( $GLOBALS );
         <pre>
             <?php
                 $factory = new FactoryCategories( $sql );
-                $a= $factory->getCategorieById( '2' );
-                //var_dump($a);
+                $a= $factory->getCategorie( '1' );
+                var_dump($a);
             ?>
         </pre>
     </code>

@@ -1,65 +1,78 @@
 /* -----------------------------------------*/
 /* ------------- My.bookmarks --------------*/
 /* -----------------------------------------*/
+/*
+ * Bouton save
+ * 		
+ */
+
 
 /* Buton save */
 .bookmarker {
-    background: -moz-linear-gradient(center top , #89C403 5%, #77A809 100%) repeat scroll 0 0 #89C403;
-    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #89c403), color-stop(1, #77a809) );
-    border: 1px solid #74B807;
-    border-radius: 6px 6px 6px 6px;
-    box-shadow: 0 1px 0 0 #A4E271 inset;
-    color: #FFFFFF;
-    display: inline-block;
-    font-family: arial;
-    font-size: 15px;
-    font-weight: bold;
-    padding: 6px 24px;
+    color: #6e6e6e;
+    font: bold 12px Helvetica, Arial, sans-serif;
     text-decoration: none;
-    text-shadow: 1px 1px 0 #528009;
+    padding: 7px 12px;
+    position: relative;
+    display: inline-block;
+    text-shadow: 0 1px 0 #fff;
+    -webkit-transition: border-color .218s;
+    -moz-transition: border .218s;
+    -o-transition: border-color .218s;
+    transition: border-color .218s;
+    background: #f3f3f3;
+    background: -webkit-gradient(linear,0% 40%,0% 70%,from(#F5F5F5),to(#F1F1F1));
+    background: -moz-linear-gradient(linear,0% 40%,0% 70%,from(#F5F5F5),to(#F1F1F1));
+    border: solid 1px #dcdcdc;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    margin-right: 10px;
 }
 
 	.bookmarker:hover {
-		background: -moz-linear-gradient(center top , #77A809 5%, #89C403 100%) repeat scroll 0 0 #77A809;
+	    color: #333;
+	    border-color: #999;
+	    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2) -webkit-box-shadow:0 2px 5px rgba(0, 0, 0, 0.2);
+	    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 	}
 
 	.bookmarker:active {
-		position: relative;
-		top: 1px;
+	    color: #000;
+	    border-color: #444;
 	}
 
-	#bookmarkUrl {
-		background-color: red;
-	}
 
-/* Whole container */
+/* Container principal */
 #bookmarkContainer, #bookmarkContainerReponse {
 	font-family: sans-serif Verdana;
-	color:black;
 	size:1em;
-    background-color: #F5F5F5;
-    border-radius: 10px 10px 10px 10px;
-	border: 10px solid rgba(0,0,0,0.3);
+	color:#555555;
     -moz-background-clip: border;     /* Firefox 3.6 */
     -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
     background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-    box-shadow: 0 0 15px 0 #BFBFBF;
     left: 50%;
     margin-left: -175px;
     padding: 10px;
     position: fixed;
     top: 50%;
     width: 350px;
-	
 	margin-top:-259px;
     z-index: 999999;
     vertical-align:top;
+    border: 1px solid #CFCFCF;
+    -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 1);
+    -moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 1);
+    box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 1);
+    background-color: #F9F9F9;
+    font-weight: normal;
+    -webkit-box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.5);
+	box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
+/* Container principal */
 #bookmarkContainerReponse {
-margin: 0;
-margin-left: -175px;
-text-align: center;
+	text-align: center;
 }
 
 /* Form */
@@ -67,6 +80,21 @@ text-align: center;
 
 }
 
+#labelCategories {
+	float:left;
+	width:80%;
+}
+
+#labelPublic {
+	float:right;
+	width:20%;
+}
+
+.clear {
+	clear:both;
+}
+
+/* HR */
 #bookmarkContainer hr{
 	font-size: 1px;
 	line-height: 0;
@@ -85,37 +113,62 @@ text-align: center;
 	overflow: visible;
 }
 
-
-
+/* H1 */
 #bookmarkContainer h1 {
 	margin: 0 0 20px;
 	font-size: x-large;
+	font-weight: normal;
+	background-color: #2E3033;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
 }
 
-	#bookmarkContainer h1 span{
-		float:right;
-	}
-
-	#bookmarkContainer h1 span a{
-		text-decoration:none;
-		color:red;
-		font-size:x-small;
-		vertical-align: top;
-	}
-
+/* Form */
 #bookmarkContainer input, #bookmarkContainer textarea, #bookmarkContainer select{
+	background-image: linear-gradient(bottom, rgb(254,254,254) 48%, rgb(250,250,250) 74%, rgb(242,242,242) 87%);
+    background-image: -o-linear-gradient(bottom, rgb(254,254,254) 48%, rgb(250,250,250) 74%, rgb(242,242,242) 87%);
+    background-image: -moz-linear-gradient(bottom, rgb(254,254,254) 48%, rgb(250,250,250) 74%, rgb(242,242,242) 87%);
+    background-image: -webkit-linear-gradient(bottom, rgb(254,254,254) 48%, rgb(250,250,250) 74%, rgb(242,242,242) 87%);
+    background-image: -ms-linear-gradient(bottom, rgb(254,254,254) 48%, rgb(250,250,250) 74%, rgb(242,242,242) 87%);
+    background-image: -webkit-gradient(
+            linear,
+            left bottom,
+            left top,
+            color-stop(0.48, rgb(254,254,254)),
+            color-stop(0.74, rgb(250,250,250)),
+            color-stop(0.87, rgb(242,242,242))
+    );
+    border: 1px solid #CFCFCF;
+    box-shadow: 0 0 0 1px #FFFFFF inset;
+    padding:2px;
     width: 96%;
 	padding: 5px;
+	
+	/* 
+	 *Mozilla default 
+	 */
+	line-height: normal !important;
+	text-align: start;
+	text-transform: none;
+	word-spacing: normal;
+	letter-spacing: normal;
+	cursor: text;
+    text-indent: 0;
 }
 
 	#bookmarkContainer input:focus, #bookmarkContainer textarea:focus {
-		border:solid 2px #DFEBDF;
-		border-radius: 4px;
+    	border: 1px solid #B9CEB5;
+	}
+
+	select option {
+		background-color:white;
 	}
 
 	#bookmarkContainer textarea {
 		resize:none;
 	}
+	
 #bookmarkContainer #save {
     display: block;
     margin: 0 auto;
@@ -126,65 +179,40 @@ text-align: center;
 #bookmarkContainer label {
     display: block;
     margin-bottom: 5px;
+    font-weight: normal;
 }
-
-#bookmarkContainer .copyright {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: white;
-    font-size: x-small;
-    text-align: center;
-	padding:5px;
-}
-
-	#bookmarkContainer .copyright a {
-		border-bottom: 1px dotted black;
-		color: black;
-		text-decoration: none;
-	}
-
-	#bookmarkContainer .copyright a span {
-		display:none;
-		background-color:rgba(0, 0, 0, 0.9);
-		position:absolute;
-		z-index:20;
-		left:0;
-		margin-top:20px;
-		padding: 5px;
-		color:white;
-	}
-
-	#bookmarkContainer .copyright a:hover span {
-		display:block;
-		-webkit-transition: background 300ms ease-in 200ms; /* property duration timing-function delay */
-		-moz-transition: background 300ms ease-in 200ms;
-		-o-transition: background 300ms ease-in 200ms;
-		transition: background 300ms ease-in 200ms;
-			border-color: transparent transparent rgba(0, 0, 0, 0.9);
-
-	}
-
-	#bookmarkContainer .copyright a span span{
-		background-color: transparent;
-		border-color: transparent transparent rgba(0, 0, 0, 0.9);
-		border-style: solid;
-		border-width: 15px;
-		height: 0;
-		left: 50%;
-		margin: -30px 0 0 -15px;
-		padding: 0;
-		position: absolute;
-		top: 0;
-		width: 0;
-	}
 
 #labelUrl input {
-    /* TODO parametres dans bookmark.php */
-    /*background-image: url('http://cdn.sstatic.net/stackoverflow/img/favicon.ico');*/
-    background-origin: content-box;
-    background-repeat: no-repeat;
-    text-indent: 1.5em;
-    width: 96%;
+	background-repeat: no-repeat;
+	text-indent:1.5em;
 }
-#labelUrl img {
-    max-width:32px;
+
+#toolBar {
+    background-color: #F9F9F9;
+	height:200px;
+	width:25px;
+	position:absolute;
+	right:-27px;
+	top:-1px;
+	border-top:1px solid #CFCFCF;
+	border-right: 1px solid #CFCFCF;
+	border-bottom: 1px solid #CFCFCF;
+	-webkit-box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.5);
+	box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+#toolBar a {
+	display:block;
+		text-decoration:none;
+		color:white;
+		font-size:x-small;
+		vertical-align: middle;
+		background-color: #2E3033;
+    	color: white;
+    	height:10px;
+    	width:10px;
+    	line-height:10px;
+    	margin:5px auto 5px auto;
+    	text-align:center;
+    	padding:3px;
 }

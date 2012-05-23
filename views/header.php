@@ -42,8 +42,8 @@
 <?php
     $allCategories = $sql->query('SELECT `id`, `name` FROM `' . DB_TABLE_PREFIX . 'categories` WHERE `id` !=2 ');
 ?>
-<header>
-    <!-- New login -->
+<header> 
+	    <!-- New login -->
             <?php if ($_SESSION['type'] != 'admin') {?>
                     <div id="loginContainer">
                         <form name="item-1" method="post" enctype="application/x-www-form-urlencoded" action="<?php echo PATH_ROOT; ?>" id="loginFieldset">
@@ -52,48 +52,22 @@
                             <input type="submit" id="item-7">
                         </form>
                         <p>
-                            <a href="#" id="loginClick" class="loginClick">Login</a><!--<span class="ribbon"></span>-->
+                            <a href="#" id="loginClick" class="loginClick "><span class="iconic lock_fill iconsize"></span>Login</a><!--<span class="ribbon"></span>-->
                         </p>
                         <div class="clear"></div>
                     </div>
             <?php } else { ?>
                 <div id="loginContainer">
                     <span>
-                        <a href="?q" id="loginClick" class="loginClickExit">Exit</a>
+                        <a href="?q" id="loginClick" class="loginClickExit"><span class="iconic unlock_fill iconsize"></span> Exit</a>
                     </span>
                 </div>
             <?php } ?>
     <!-- /New login -->
-
-    <div class="container_12">
-        <div class="grid_12">
-            <h1><?php echo APP_NAME; ?></h1>
-
-
-            
-            
-
-
-<?php if ($_SESSION['type'] == 'admin') { ?>
-                <p class="noticeBouton">
-                    Déposez le bouton dans votre barre de favoris.<br>&darr;
-                </p>
-
-                <p>
-                <?php
-                    include( PATH_WIDGET );
-                ?>
-            </p>
-<?php } ?>
-            <!-- /bouton -->
-
-        </div>
-
-    </div>
     <div class="menu_wrap">
+    	<div class="container_12">
+    	<h1><?php echo APP_NAME; ?><span></span></h1>
         <nav>
-
-            <div class="container_12">
                 <?php if ($_SESSION['type'] == 'admin') { ?>
                 <li><a href="<?php echo PATH_INDEX; ?>typographie/">Typo</a></li>
                 <li
@@ -103,7 +77,7 @@
                 <?php if (isset($multiViews->args[1]) && $multiViews->args[1] == 'admin') { ?>
                     <div class="headerActif_wrap">
                 <?php } ?>       
-                    <a href="<?php echo PATH_INDEX; ?>admin/">Administration</a>
+                    <a href="<?php echo PATH_INDEX; ?>admin/"><span class="iconic cog iconsize"></span> Administration</a>
                 <?php if (isset($multiViews->args[1]) && $multiViews->args[1] == 'admin') { ?>
                     </div>
                 <?php } ?>      
@@ -116,16 +90,16 @@
                 <?php if ((isset($multiViews->total) && $multiViews->total === 0) || $multiViews->args[1] == 'categorie') { ?>
                     <div class="headerActif_wrap">
                 <?php } ?>        
-                    <a href="<?php echo PATH_ROOT; ?>index.php" title="Categories">Categories</a>
+                    <a href="<?php echo PATH_ROOT; ?>index.php" title="Categories"><span class="iconic book iconsize"></span> Categories<span class="triangleBR"></span></a>
                 <?php if ((isset($multiViews->total) && $multiViews->total === 0) || $multiViews->args[1] == 'categorie') { ?>
                     </div>
                 <?php } ?>
-                    <ul>
+                <!-- @todo Info bulles sur les categories avec le nombre de lien inscrits -->
+                    <ul class="grid_12">
                         <?php
                             foreach( $allCategories as $value ) { ?>
                                 <li><a href="<?php echo PATH_INDEX; ?>categorie/<?php echo $value['name']; ?>/<?php echo $value['id']; ?>"><?php echo $value['name']; ?></a></li>
                                 <?php
-     
                             }
                         ?>
                     </ul>
@@ -140,10 +114,8 @@
                             >
                 <?php if (isset($multiViews->args[1]) && $multiViews->args[1] == 'tags') { ?>
                     <div class="headerActif_wrap">
-                <?php } ?>       
-
-
-                            <a href="<?php echo PATH_INDEX . 'tags/'; ?>">Tags</a>
+                <?php } ?>
+                            <a href="<?php echo PATH_INDEX . 'tags/'; ?>"><span class="iconic tag_fill iconsize"></span> Tags</a>
                 <?php if (isset($multiViews->args[1]) && $multiViews->args[1] == 'tags') { ?>
                     </div>
                 <?php } ?>
@@ -159,14 +131,13 @@
                 <?php  if (isset($multiViews->args[1]) && $multiViews->args[1] == 'about') { ?>
                     <div class="headerActif_wrap">
                 <?php } ?> 
-                            <a href="<?php echo PATH_INDEX . 'about/'; ?>">About</a>
+                            <a href="<?php echo PATH_INDEX . 'about/'; ?>"><span class="iconic info iconsize"></span> About</a>
                 <?php if (isset($multiViews->args[1]) && $multiViews->args[1] == 'about') { ?>
                     </div>
                 <?php } ?>
                 </li>
-            </div>
-
         </nav>
+        </div>
         <div class="clear"></div>
     </div>
 

@@ -1,53 +1,106 @@
-/* 
-    Document   : categories
-    Created on : 10 févr. 2012, 20:39:32
-    Author     : inwebo
-    Description:
-        Purpose of the stylesheet follows.
-*/
+/*
+ Document   : categories
+ Created on : 10 févr. 2012, 20:39:32
+ Author     : inwebo
+ Description:
+ Purpose of the stylesheet follows.
+ */
 
-/* 
-   TODO customize this sample style
-   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
-*/
+/*
+ TODO customize this sample style
+ Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+ */
 
 /* Categories list */
-#categoriesList p, #categoriesList form  {
-    background-color: #F2F2F2;
-    border: 1px solid #E6E6E6;
-    color: #B1BDC4;
-    padding: 20px;
-    text-align: center;
-    background-color:#f2f2f2;
+#categoriesList p, #categoriesList form {
+	background-color: #F2F2F2;
+	border: 1px solid #E6E6E6;
+	color: #B1BDC4;
+	padding: 20px;
+	text-align: center;
+	background-color: #f2f2f2;
 }
 
 #categoriesList p {
-    text-shadow: 1px 1px 0px #FFFFFF;
-    filter: dropshadow(color=#ffffff, offx=1, offy=1);
-    -webkit-box-shadow: inset 0px 0px 1px 0px rgba(255, 255, 255, 1);
-    -moz-box-shadow: inset 0px 0px 1px 0px rgba(255, 255, 255, 1);
-    box-shadow: inset 0px 0px 1px 0px rgba(255, 255, 255, 1);
-    z-index: 2000;
-    position: relative;
+	text-shadow: 1px 1px 0px #FFFFFF;
+	filter: dropshadow(color=#ffffff, offx=1, offy=1);
+	-webkit-box-shadow: inset 0px 0px 1px 0px rgba(255, 255, 255, 1);
+	-moz-box-shadow: inset 0px 0px 1px 0px rgba(255, 255, 255, 1);
+	box-shadow: inset 0px 0px 1px 0px rgba(255, 255, 255, 1);
+	z-index: 2000;
+	position: relative;
 }
 /*
-#categoriesList p:after {
+ #categoriesList p:after {
 
-    content: "←";
-    font-size: 60px;
-    left: 100%;
-    line-height: 175px;
-    position: absolute;
-}*/
+ content: "←";
+ font-size: 60px;
+ left: 100%;
+ line-height: 175px;
+ position: absolute;
+ }*/
 
-#categoriesList p:hover{
-    border: 1px solid #afccb0;
+#categoriesList p:hover {
+	border: 1px solid #afccb0;
 }
-#categoriesList p  .delete{
-    float:left;
+#categoriesList p  .delete {
+	float: left;
 }
 
 #categoriesList {
-    max-height: none;
-
+	max-height: none;
 }
+
+/* ----------------------------------------------------- */
+
+/* Categories landing */
+
+#categories-landing {
+	background-color: #2E3033;
+	position: fixed;
+	top: -140px;
+	left: 0;
+	color: grey;
+	width: 100%;
+	z-index: 9999;
+	-webkit-box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.5);
+	margin: 0 auto;
+	height: 120px;
+	z-index: 100;
+}
+
+#categories-landing h2 {
+	font-size: medium;
+	font-weight: normal;
+}
+
+#categories-landing ul {
+	margin: 0;
+	padding: 10px 0;
+	text-indent: 0;
+	overflow-x: auto;
+	width: 100%;
+	white-space: nowrap;
+	height: 50px;
+}
+
+#categories-landing ul li {
+	list-style: none;
+	padding: 20px;
+	display: inline;
+	min-width: 66px;
+	width: 66px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	background-color: rgba(255,255,255,0.1);
+	line-height: 2em;
+}
+
+/* /Categories landing */
+
+/* Categorie menu */
+.categorie-menu {
+	float:right;
+}
+/* /Categorie menu */

@@ -44,12 +44,15 @@
 <?php
 extract($GLOBALS);
 
+// N'est plus nécessaire
+// La liste des categories devrait déjà être disponible
 $template->display('categories-list');
 ?>
 
 
 
 <?php
+// Code complétement débile
 $links = $sql->query('SELECT * FROM ' . DB_TABLE_PREFIX . 'bookmarks where category=? ORDER BY `dt` DESC', array($multiViews->args[3]));
 $totalLinks = count($links);
 ?>

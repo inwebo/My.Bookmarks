@@ -10,7 +10,7 @@
 
             var index = $items.index($(this));
             $('#vtab .tabs-content div').hide().eq(index).show();
-        }).eq(1).mouseover();
+        }).eq(0).mouseover();
 
     });
 })(jQuery);

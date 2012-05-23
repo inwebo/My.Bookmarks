@@ -26,8 +26,4 @@ class Categorie {
         }
     }
 
-    public function  __toString() {
-        
-    }
-
 }

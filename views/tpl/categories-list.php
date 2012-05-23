@@ -15,6 +15,7 @@ extract($GLOBALS);
 
         <!-- Liste categorie -->
         <?php
+        	// La gestion des categories devrait se faire dans la partie admin
             $i = 0;
             $links = $sql->query('SELECT * FROM ' . DB_TABLE_PREFIX . 'categories ORDER BY `id` ASC ');
             foreach ($links as $row) {

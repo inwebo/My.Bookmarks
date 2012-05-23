@@ -12,33 +12,58 @@
 class FactoryCategories {
 
     protected $pdo;
-    protected $categoriesStorage;
-    protected $bookmarksStorage;
 
     public function  __construct( MyPdo $objectPDO  ) {
         if( is_object( $objectPDO ) ) {
-            $this->pdo               = $objectPDO;
-            $this->categoriesStorage = new SplObjectStorage();
-            $this->bookmarksStorage  = new SplObjectStorage();
+            $this->pdo = $objectPDO;
         }
         else {
             throw new Exception('No object found !');
         }
-
-        $this->getCategories();
-
-        $this->getBookmarksByCategories();
     }
 
-    protected function getCategories() {
-        $buffer = $this->pdo->query('SELECT `id`, `name` FROM `' . DB_TABLE_PREFIX . 'categories` WHERE `id` NOT IN (SELECT `id` FROM  `' . DB_TABLE_PREFIX . 'categories` WHERE `id`=\'1\')');
-        foreach ($buffer as $key => $array) {
+    public function getCategories() {
+		$buffer = new SplObjectStorage();
+        $results = $this->pdo->query('SELECT `id`, `name` FROM `' . DB_TABLE_PREFIX . 'categories`');
+		
+        foreach ($results as $key => $array) {
             $categorie = new Categorie( array( 'id'=>$array['id'], 'name'=> $array['name'] ) );
-            $this->categoriesStorage->attach( $categorie );
+            $buffer->attach( $categorie );
         }
+		return $buffer;
     }
 
-    protected function getBookmarksByCategories() {
+	public function getCategorie( $idCat ) {
+		$results = $this->pdo->query('SELECT `id`, `name` FROM `' . DB_TABLE_PREFIX . 'categories` WHERE `id`=?', array($idCat));
+		if( count( $results ) !== 0 ) {
+			return new Categorie(array( 'id'=>$results[0]['id'], 'name'=> $results[0]['name'] ));
+		}
+		else {
+			return null;
+		}
+	}
+
+	public function getBookmarksByCategorie( int $idCat ) {
+		$cat            = $this->getCategorie($idCat);
+		$arrayBookmarks = $this->pdo->query('SELECT * FROM ' . DB_TABLE_PREFIX . 'bookmarks where category=? ORDER BY `dt` DESC', array($cat->id));
+            foreach($arrayBookmarks as $key => $bookmarks) {
+                
+                $bookmark = new Bookmark( array(
+                        'hash'        => $bookmarks['hash'],
+                        'url'         => $bookmarks['url'],
+                        'title'       => $bookmarks['title'],
+                        'tags'        => $bookmarks['tags'],
+                        'description' => $bookmarks['description'],
+                        'dt'          => $bookmarks['dt'],
+                        'category'    => $bookmarks['category'],
+                        'public'      => $bookmarks['public']
+                ));
+                $cat->splObjectStorage->attach( $bookmark );
+            }
+		return $cat;
+	}
+
+    public function getBookmarksByCategories() {
 
         $this->categoriesStorage->rewind();
         while( $this->categoriesStorage->valid() ) {
@@ -62,24 +87,6 @@ class FactoryCategories {
             $this->categoriesStorage->next();
         }
 
-    }
-
-    protected function getBookmarksByCategorieId( int $id ) {
-        
-    }
-
-    public function getCategorieById( $categorieId ) {
-        $this->categoriesStorage->rewind();
-        while( $this->categoriesStorage->valid() ) {
-            if( $this->categoriesStorage->current()->id == $categorieId ) {
-                return $this->categoriesStorage->current();
-            }
-            $this->categoriesStorage->next();
-        }
-    }
-
-    public function  __toString() {
-        
     }
 
 }
