@@ -33,6 +33,7 @@ class FactoryCategories {
 		return $buffer;
     }
 
+	// @ todo ajouter visibilité categorie
 	public function getCategorie( $idCat ) {
 		$results = $this->pdo->query('SELECT `id`, `name` FROM `' . DB_TABLE_PREFIX . 'categories` WHERE `id`=?', array($idCat));
 		if( count( $results ) !== 0 ) {
@@ -43,12 +44,15 @@ class FactoryCategories {
 		}
 	}
 
-	public function getBookmarksByCategorie( int $idCat ) {
+	public function getBookmarksByCategorie( $idCat, $visibility = '1' ) {
 		$cat            = $this->getCategorie($idCat);
 		$arrayBookmarks = $this->pdo->query('SELECT * FROM ' . DB_TABLE_PREFIX . 'bookmarks where category=? ORDER BY `dt` DESC', array($cat->id));
             foreach($arrayBookmarks as $key => $bookmarks) {
-                
+                ( is_file( PATH_ROOT . 'images/favicon/'.$bookmarks['hash'] ) ) ?
+              		$favicon = PATH_ROOT . 'images/favicon/'.$bookmarks['hash'] :
+                		$favicon = PATH_DEFAULT_FAVICON ;
                 $bookmark = new Bookmark( array(
+                		'id'          => $bookmarks['id'],
                         'hash'        => $bookmarks['hash'],
                         'url'         => $bookmarks['url'],
                         'title'       => $bookmarks['title'],
@@ -56,7 +60,8 @@ class FactoryCategories {
                         'description' => $bookmarks['description'],
                         'dt'          => $bookmarks['dt'],
                         'category'    => $bookmarks['category'],
-                        'public'      => $bookmarks['public']
+                        'public'      => $bookmarks['public'],
+                        'favicon'     => $favicon
                 ));
                 $cat->splObjectStorage->attach( $bookmark );
             }
@@ -70,8 +75,11 @@ class FactoryCategories {
             $arrayBookmarks = $this->pdo->query('SELECT * FROM ' . DB_TABLE_PREFIX . 'bookmarks where category=? ORDER BY `dt` DESC', array($this->categoriesStorage->current()->id));
 
             foreach($arrayBookmarks as $key => $bookmarks) {
-                
+                ( is_file( PATH_ROOT . 'images/favicon/'.$bookmarks['hash'] ) ) ?
+              		$favicon = PATH_ROOT . 'images/favicon/'.$bookmarks['hash'] :
+                		$favicon = PATH_DEFAULT_FAVICON ;
                 $bookmark = new Bookmark( array(
+                		'id'          => $bookmarks['id'],
                         'hash'        => $bookmarks['hash'],
                         'url'         => $bookmarks['url'],
                         'title'       => $bookmarks['title'],
@@ -79,7 +87,8 @@ class FactoryCategories {
                         'description' => $bookmarks['description'],
                         'dt'          => $bookmarks['dt'],
                         'category'    => $bookmarks['category'],
-                        'public'      => $bookmarks['public']
+                        'public'      => $bookmarks['public'],
+                        'favicon'     => $favicon
                 ));
                 $this->categoriesStorage->current()->splObjectStorage->attach( $bookmark );
             }
@@ -89,4 +98,43 @@ class FactoryCategories {
 
     }
 
+
+    public function getBookmarksFront( $categoriesSplStorage ) {
+		$categoriesSplStorage->rewind();
+		$iterator = 1;
+		while( $categoriesSplStorage->valid() ) {
+			$temp = $this->getBookmarksByCategorie( $categoriesSplStorage->current()->id );
+			$categoriesSplStorage->current()->splObjectStorage->attach($temp);
+		    $iterator++;
+		    $categoriesSplStorage->next();
+		}
+		
+		return $categoriesSplStorage;
+    }
+
+	public function getBookmarksByTag( $tagToSearch ) {
+		$buffer = new SplObjectStorage();
+		$arrayBookmarks = $this->pdo->query('SELECT * FROM ' . DB_TABLE_PREFIX . 'bookmarks where tags LIKE \'%' . $tagToSearch . '%\' ORDER BY `dt` DESC' );
+			foreach($arrayBookmarks as $key => $bookmarks) {
+                ( is_file( PATH_ROOT . 'images/favicon/'.$bookmarks['hash'] ) ) ?
+              		$favicon = PATH_ROOT . 'images/favicon/'.$bookmarks['hash'] :
+                		$favicon = PATH_DEFAULT_FAVICON ;
+				$bookmark = new Bookmark( array(
+					'id'          => $bookmarks['id'],
+					'hash'        => $bookmarks['hash'],
+					'url'         => $bookmarks['url'],
+					'title'       => $bookmarks['title'],
+					'tags'        => $bookmarks['tags'],
+					'description' => $bookmarks['description'],
+					'dt'          => $bookmarks['dt'],
+					'category'    => $bookmarks['category'],
+					'public'      => $bookmarks['public'],
+					'favicon'     => $favicon
+				));
+				
+				$buffer->attach( $bookmark );
+			}
+			return $buffer;
+	}
 }
+	
