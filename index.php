@@ -1,8 +1,8 @@
 <?php
-			if( !is_file('config/config.ini') ) {
-				include('views/setup.php');
-                                exit();
-			}
+	if (!is_file('config/config.ini')) {
+		include ('views/setup.php');
+		exit();
+	}
 ?>
 <?php include('autoload.php'); ?>
 <?php include( dirname( __FILE__ ) . DIRECTORY_SEPARATOR .'helpers/const.define.php'); ?>
@@ -15,7 +15,7 @@ try {
 	$sessions = new MySessions();
 	$sessions->addParams('type', 'guest');
 
-	$multiViews   = new MyMultiviews( 'index.php' );
+	$multiViews = new MyMultiviews( 'index.php' );
         //var_dump($multiViews);
 }
 catch( Exception $e ) {
@@ -43,7 +43,6 @@ catch( Exception $e ) {
 
 if( isset( $_POST['login'] ) && isset( $_POST['password'] ) ) {
 	$userExists = $sql->query( 'SELECT *  from `'. DB_TABLE_PREFIX .'users` WHERE login=? AND password=?', array( $_POST['login'], md5( $_POST['password'] ) ) );
-        //var_dump( isset ( $userExists[0] ) );
         if( isset ( $userExists[0] ) ) {
 		$sessions->setParams('type','admin');
 	}
@@ -92,9 +91,25 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 </head>
 
 <body>
+	<?php
+	if( $_SESSION['type'] == 'admin' ) {
+	?>
     <div class="gui-display-shaddy">
         &nbsp;
     </div>
+    <div id="categories-landing">
+		<h2>Drop bookmarks into categorie</h2>
+		<ul>
+		<?php
+			$_SESSION['list-categories'] = $listCategories;
+			$views->display( 'list-categories' );
+			$_SESSION['list-categories'] = NULL;
+		?>
+		</ul>
+	</div>
+	<?php
+	}
+	?>
     <a name="top"></a>
   <div id="container" >
     <?php include('views/header.php'); ?>
@@ -173,7 +188,10 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 <script type="text/javascript" src="<?php echo PATH_JS; ?>tags-filter.js"></script>
 <script type="text/javascript" src="<?php echo PATH_JS; ?>display-type.js"></script>
 <script type="text/javascript" src="<?php echo PATH_JS; ?>about.js"></script>
+<script type="text/javascript" src="<?php echo PATH_JS; ?>js.const.define.php"></script>
+<script type="text/javascript" src="<?php echo PATH_JS; ?>admin-init.js"></script>
 <?php if( $_SESSION['type'] == "admin") { ?>
+	<script src="http://localhost/My.Bookmarks/js/plugin.bookmarks.js" type="text/javascript"></script>
     <script type="text/javascript" src="<?php echo PATH_JS_CONST; ?>"></script>
     <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-bookmarks.js"></script>
     <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-categories.js"></script>
@@ -181,6 +199,7 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
     <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-tabs.js"></script>
     <script type="text/javascript" src="<?php echo PATH_JS; ?>gui-infos-bulles.js"></script>
     <script type="text/javascript" src="<?php echo PATH_JS; ?>gui-help.js"></script>
+    <link rel="stylesheet" href="<?php echo PATH_CSS; ?>style-public.css">
 <?php } ?>
 <script type="text/javascript" src="<?php echo GA_PATH_TRACKER; ?>?id=<?php echo GA_ID; ?>"></script>
 <!-- /Custom JS -->
