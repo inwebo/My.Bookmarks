@@ -33,7 +33,13 @@ header h1 {
 }
 
 header h1 span {
-	-moz-transform: scale(1) rotate(45deg);
+
+        -moz-transform: scale(1) rotate(45deg);
+		-webkit-transform: scale(1) rotate(45deg);
+        -o-transform: scale(1) rotate(45deg);
+        -ms-transform: scale(1) rotate(45deg);
+        transform: scale(1) rotate(45deg);
+        
 	background-color: #2E3033;
 	display: block;
 	height: 10px;
@@ -132,7 +138,6 @@ nav li:hover a:hover {
 }
 
 .menu_wrap {
-	border-bottom: 1px solid white;
 	width: inherit;
 	padding-top: 5px;
 }
@@ -157,7 +162,7 @@ nav li:hover a:hover {
 	z-index: 99;
 	-webkit-box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.5);
 	box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.5);
-	top:50px;
+	top:49px;
 }
 #menu-categories-tab ul li {
 	display: inline-block;

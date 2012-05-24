@@ -49,6 +49,14 @@ a {
 	color: #008ee8;
 }
 
+a:visited {
+	color:#0F3D92;
+}
+
+a:active {
+	
+}
+
 hr{
 	font-size: 1px;
 	line-height: 0;
@@ -166,11 +174,11 @@ div[class*='container_12'] div[class*='grid_'] {
     background-color: #F9F9F9;
 }
 .container_12 .grid_4 {
-    width: 278px;
+    width: 258px;
 }
 
 .container_12 .grid_6 {
-    width: 438px;
+    width: 418px;
 }
 
 .container_12 .grid_8 {

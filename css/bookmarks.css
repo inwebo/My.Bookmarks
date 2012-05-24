@@ -127,6 +127,31 @@
 	}
 /* /Bookmark simple */
 
+/* Bookmark front */
+.bookmarks-front img, 
+.bookmarks-front p,
+.bookmarks-front ul
+{
+	display:none;
+}
+
+.bookmarks-front h3 {
+	font-size:small;
+	font-weight: normal;
+}
+
+.bookmarks-front li {
+	height:20px;
+}
+
+.bookmarks-front .oneBookmark-menu-left {
+	top:-8px;
+}
+.bookmarks-front .oneBookmark-menu-right {
+	top:0;
+}
+/* /Bookmark front */
+
 /* Bookmark draggable helper */
 
 .bookmark-draggable-helper {
