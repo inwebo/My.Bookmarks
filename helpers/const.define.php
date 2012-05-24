@@ -84,14 +84,22 @@ define('PATH_JS', $publicJS);
 $ajax = PATH_JS . $conf['path_ajax'];
 define( 'PATH_AJAX', $ajax );
 
+
+
 $path_bookmark_form = PATH_AJAX . $conf['path_bookmark_form'];
 define( 'PATH_BOOKMARK_FORM', $path_bookmark_form);
 
 $publicImg = PATH_ROOT . $conf['path_images'];
 define('PATH_IMG', $publicImg );
 
+$defaultFavicon = PATH_IMG . $conf['path_default_favicon'];
+define( 'PATH_DEFAULT_FAVICON', $defaultFavicon );
+
 $publicHelpers = $conf['path_helpers'];
 define('PATH_HELPERS', $publicHelpers );
+
+$tags = PATH_INDEX . $conf['path_tags'];
+define('PATH_TAGS', $tags );
 
 $google =  PATH_ROOT . PATH_HELPERS . $conf['ga_path_tracker'];
 define( 'GA_PATH_TRACKER', $google );
@@ -123,11 +131,15 @@ define( 'PATH_LIB', $conf['path_lib']);
 
 try {
         if(!APP_SETUP) {
-	$sql      = new MyPdo( DB_SERVER, DB_DATABASE, DB_USER, $enigma->decode( DB_PASSWORD ) );
+			$sql = new MyPdo( DB_SERVER, DB_DATABASE, DB_USER, $enigma->decode( DB_PASSWORD ) );
         }
 
         $views    = new MyViews( PATH_VIEWS );
         $template = new MyViews( PATH_TEMPLATE );
+		
+		$factoryCategories = new FactoryCategories($sql);
+		
+		$listCategories    = $factoryCategories->getCategories();
 
 }
 catch(Exception $e) {
