@@ -2,7 +2,7 @@
 extract($GLOBALS);
 ?>
 <!-- Typographie -->
-	<div class="grid_12" id="newItems">
+	<div class="grid_12 grid_front">
 		<!-- /Liste categorie -->
 
 		<h2>
@@ -12,7 +12,7 @@ extract($GLOBALS);
 				<a href="#" title="Vue compacte" class="categorie-menu-display-compact"><span class="iconic list_nested"></span></a>
 			</div>
 		</h2>
-		<ul class="bookmarks-list  bookmarks-simple">
+		<ul class="bookmarks-list bookmarks-simple">
 
 			<!-- One bookmark -->
 			<li class="oneBookmark" data-hash="qsqsdqqssdq" data-id="1" data-dt="" data-tags="tags1" data-category="2" data-visibility="1">

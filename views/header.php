@@ -96,12 +96,11 @@
                 <?php } ?>
                 <!-- @todo Info bulles sur les categories avec le nombre de lien inscrits -->
                     <ul class="grid_12">
-                        <?php
-                            foreach( $allCategories as $value ) { ?>
-                                <li><a href="<?php echo PATH_INDEX; ?>categorie/<?php echo $value['name']; ?>/<?php echo $value['id']; ?>"><?php echo $value['name']; ?></a></li>
-                                <?php
-                            }
-                        ?>
+						<?php
+							$_SESSION['list-categories'] = $listCategories;
+							$views->display( 'list-categories' );
+							$_SESSION['list-categories'] = NULL;
+						?>
                     </ul>
                 </li>
 

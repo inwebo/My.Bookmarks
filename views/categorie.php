@@ -39,39 +39,39 @@
  */
 ?>
 
-
-<!-- categorie.php -->
 <?php
-extract($GLOBALS);
-
-// N'est plus nécessaire
-// La liste des categories devrait déjà être disponible
-$template->display('categories-list');
+	extract($GLOBALS);
+	if( isset( $_SESSION['splObjectStorage'] ) ) {
+		$categorie = $_SESSION['splObjectStorage'];
+	}
+	else {
+		$categorie = $factoryCategories->getBookmarksByCategorie($multiViews->args[3]);
+	}
+	
+	(isset($_SESSION['grid_class'])) ? $grid_class      = $_SESSION['grid_class'] : $grid_class = 'grid_12';
+	(isset($_SESSION['from_front'])) ? $bookmarks_class = 'bookmarks-front' : $bookmarks_class = 'bookmarks-simple';
 ?>
-
-
-
-<?php
-// Code complétement débile
-$links = $sql->query('SELECT * FROM ' . DB_TABLE_PREFIX . 'bookmarks where category=? ORDER BY `dt` DESC', array($multiViews->args[3]));
-$totalLinks = count($links);
-?>
-<h2><?php echo urldecode($multiViews->args[2]); ?><span class="totalLinks">&nbsp;<?php echo $totalLinks; ?> &hearts;&nbsp;</span><a id="display-small" href="#" class="totalLinks" onclick="return false;">Simple</a><a id="display-full" href="#" class="totalLinks" onclick="return false;">Full</a></h2>
-
-<ul class="bookmarks-list">
-<?php
-$links = $sql->query('SELECT * FROM ' . DB_TABLE_PREFIX . 'bookmarks where category=? ORDER BY `dt` DESC', array($multiViews->args[3]));
-
-if (count($links) != 0) {
-    foreach ($links as $row) {
-        $_SESSION['row'] = $row;
-        $template->display('bookmark');
-        $_SESSION['row'] = NULL;
-    }
-} else {
-    echo '<li>Empty</li>' . "\n";
-}
-?>
-</ul>
+<!-- categorie <?php echo $categorie->name; ?> -->
+<div class="<?php echo $grid_class; ?>">
+		<h2>
+			<a href="<?php echo PATH_INDEX .'categorie/'. $categorie->name .'/'. $categorie->id; ?>"><?php echo $categorie->name; ?></a>
+			<?php if( !isset( $_SESSION['from_front'] ) ) { ?>
+			<div class="categorie-menu">
+				<a href="#" title="Vue compléte" class="categorie-menu-display-full"><span class="iconic list"></span></a>
+				<a href="#" title="Vue compacte" class="categorie-menu-display-compact"><span class="iconic list_nested"></span></a>
+			</div>
+			<?php } ?>
+		</h2>
+		<ul class="bookmarks-list <?php echo $bookmarks_class; ?>">
+			<?php
+				$categorie->splObjectStorage->rewind();
+				while( $categorie->splObjectStorage->valid() ) {
+					$_SESSION['bookmark'] = $categorie->splObjectStorage->current();
+				    $template->display('bookmark');
+					$_SESSION['bookmark'] = NULL;
+				    $categorie->splObjectStorage->next();
+				}
+			?>
+		</ul>
 </div>
-<!-- /categorie.php -->
+<!-- categorie <?php echo $categorie->name; ?> -->
