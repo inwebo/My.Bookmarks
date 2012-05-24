@@ -10,7 +10,8 @@
  * @author inwebo
  */
 class Bookmark {
-
+	
+    public $id;
     public $hash;
     public $url;
     public $title;
@@ -19,25 +20,33 @@ class Bookmark {
     public $dt;
     public $category;
     public $public;
-
+    public $favicon;
+	
     public function  __construct( $arrayArgs = NULL ) {
         if( !is_null( $arrayArgs ) ) {
+        	$tags = new MyTags( $arrayArgs['tags'] );
+			$this->id          = $arrayArgs['id'];
             $this->hash        = $arrayArgs['hash'];
             $this->url         = $arrayArgs['url'];
             $this->title       = $arrayArgs['title'];
-            $this->tags        = $arrayArgs['tags'];
+            $this->tags        = $tags->asArray();
+			$this->tagsAsString= $tags->asString();
             $this->description = $arrayArgs['description'];
             $this->dt          = $arrayArgs['dt'];
             $this->category    = $arrayArgs['category'];
             $this->public      = $arrayArgs['public'];
+			$this->favicon     = $arrayArgs['favicon'];
         }
         else {
             throw new Exception('Empty $arrayArgs');
         }
     }
-
-    public function  __toString() {
-        
-    }
+	
+	public function dateHuman() {
+		$buffer    = explode( ' ', $this->dt );
+		$buffer[0] = implode( '-', array_reverse( explode( '-', $buffer[0] ) ) );
+		$buffer    = implode( ' à ', $buffer );
+		return $buffer;
+	}
 
 }
