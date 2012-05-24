@@ -3,7 +3,7 @@
 -Affichage des dates correctes
 +Documentation digne de ce nom
 +Au premier lancement de l'application un tutorial
-+Une page admin
+-Une page admin
 +Proposer une archive PHAR pour PHP 5.3
 +Test avec IE 6, 7, 8, 9 (pffffff)
 +Ajout de permalink
@@ -18,14 +18,14 @@
 -Régler probléme branche github
 -Page about
 +Full object
-+Object lien
+-Object lien
 -Todo list
 +Affichage par jour
 -Clef de parité
 -Préfix des tables sql
 -Lors du setup création de toutes les tables nécessaires
 -Gestion des dates
-+Préfix database pour toutes les requêtes.
+-Préfix database pour toutes les requêtes.
 -Catégorie menu déroulant contenant toutes les catégories
 +Function translate (voir drupal)
 +Gestion des droits sur les fichiers
@@ -33,10 +33,14 @@
 +Ajouter favoris (de favoris ? ben voyons). <span>★★★&bull;&bull; </span>
 +Bug edit bookmarks, tags non mis à jour
 +Bug onglet catégories (survol)
-+Config.ini.bak, les noms de variables doivent être préfixés
-+Parser config.ini pour générer un formulaire automatiquement
-+favicon par défaut.
+-Config.ini.bak, les noms de variables doivent être préfixés
+-Parser config.ini pour générer un formulaire automatiquement
+-favicon par défaut.
 +Ajouter microformats xfolkentry
-+Formulaire identique pour l'édition et l'ajout de bookmarks.
+-Formulaire identique pour l'édition et l'ajout de bookmarks.
 +Re écriture des requêtes ajax (json).
 +Addon Firefox, Chrome, Opera
++Selection poubelle
++Réecriture de toutes les vues
++Permettre une visibilité public/privé sur toute une catégorie
++Mettre à jour class ahref (inutile pour l'instant)
