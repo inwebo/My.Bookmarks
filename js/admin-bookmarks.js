@@ -29,17 +29,19 @@
 	 * Collecte tous les attributs-data d'un bookmark
 	 */
 	var getAttrData = function(el) {
+		
 		objBookmark = new $.myBookmark({
 			'debug'       : JS_APP_DEBUG,
-			'id'          : $(el).parents('li:first').attr('data-id'),
-			'hash'        : $(el).parents('li:first').attr('data-hash'),
-			'url'         : $(el).parents('li:first').attr('data-url'),
-			'title'       : $(el).parents('li:first').find('.data-title').html(),
-			'tags'        : $(el).parents('li:first').attr('data-tags'),
-			'description' : $(el).parents('li:first').find('.data-desc').html(),
-			'dt'          : $(el).parents('li:first').attr('data-dt'),
-			'category'    : $(el).parents('li:first').attr('data-category'),
-			'visibility'  : $(el).parents('li:first').attr('data-visibility')
+			'id'          : $(el).closest('.oneBookmark').attr('data-id'),
+			'hash'        : $(el).closest('.oneBookmark').attr('data-hash'),
+			'url'         : $(el).closest('.oneBookmark').attr('data-url'),
+			'title'       : $(el).closest('.oneBookmark').find('.data-title').html(),
+			'tags'        : $(el).closest('.oneBookmark').attr('data-tags'),
+			'description' : $(el).closest('.oneBookmark').find('.data-desc').html(),
+			'dt'          : $(el).closest('.oneBookmark').attr('data-dt'),
+			'category'    : $(el).closest('.oneBookmark').attr('data-category'),
+			'visibility'  : $(el).closest('.oneBookmark').attr('data-visibility')
+			
 		});
 		return objBookmark;
 	}
