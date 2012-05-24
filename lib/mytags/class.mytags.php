@@ -12,9 +12,14 @@ class MyTags {
         $this->count = count( $this->buffer );
     }
 
+	// TO del
     public function asArray() {
-	return $this->buffer;
+		return $this->buffer;
     }
+	
+	public function asString(){
+		return implode(' ', $this->buffer);
+	}
 
 }
 

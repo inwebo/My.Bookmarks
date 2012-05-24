@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 class MyViews {
-
+// @ todo gestion des erreurs
     public function  __construct( $templatePath ) {
         $this->templatePath = $templatePath;
     }
