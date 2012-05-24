@@ -5,30 +5,30 @@ Class Ahref extends FormNode {
 	public function __construct( $params =array() ) {
 		parent::__construct();
 
-                $defaultParams = array(
-                                                    'id'       => NULL,
-                                                    'text'     => NULL,
-                                                    'href'     => NULL,
-                                                    'target'   => NULL,
-                                                    'title'    => NULL,
-                                                    'hreflang' => NULL,
-                                                    'rev'      => NULL,
-                                                    'shape'    => NULL,
-                                                    'rel'      => NULL
-                                                );
-
-                $params = array_merge( $defaultParams, $params );
-
+		$defaultParams = array(
+		'id'       => NULL,
+		'text'     => NULL,
+		'href'     => NULL,
+		'target'   => NULL,
+		'title'    => NULL,
+		'hreflang' => NULL,
+		'rev'      => NULL,
+		'shape'    => NULL,
+		'rel'      => NULL
+		);
+		
+		$params = array_merge( $defaultParams, $params );
+		
 		$this->addAttributs = array(
-                        "id"       => $params['id'],
-                        "text"     => $params['text'],
-			"href"     => $params['href'],
-			"target"   => $params['target'],
-			"title"    => $params['title'],
-			"hreflang" => $params['hreflang'],
-			"rev"      => $params['rev'],
-			"shape"    => $params['shape'],
-			"rel"      => $params['rel']
+		"id"       => $params['id'],
+		"text"     => $params['text'],
+		"href"     => $params['href'],
+		"target"   => $params['target'],
+		"title"    => $params['title'],
+		"hreflang" => $params['hreflang'],
+		"rev"      => $params['rev'],
+		"shape"    => $params['shape'],
+		"rel"      => $params['rel']
 		);
                 
 		$this->htmlTag        = 'a';
