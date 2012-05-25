@@ -41,6 +41,7 @@
 +Re écriture des requêtes ajax (json).
 +Addon Firefox, Chrome, Opera
 +Selection poubelle
-+Réecriture de toutes les vues
+-Réecriture de toutes les vues
 +Permettre une visibilité public/privé sur toute une catégorie
 +Mettre à jour class ahref (inutile pour l'instant)
+-Fixer la taille des carateres formulaire publique
