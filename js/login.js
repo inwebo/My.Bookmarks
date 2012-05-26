@@ -41,5 +41,11 @@ $('#loginContainer input[type*=password]').blur(function(){
         }
 });
 
+$('.login-show-form').click(function(){
+	$('.gui-display-shaddy').toggle();
+	$('#loginFieldset').toggle();
+});
+
+
         })(jQuery);
 

@@ -39,106 +39,25 @@
  */
 ?>
 <!-- header -->
-<?php
-    $allCategories = $sql->query('SELECT `id`, `name` FROM `' . DB_TABLE_PREFIX . 'categories` WHERE `id` !=2 ');
-?>
-<header> 
-	    <!-- New login -->
-            <?php if ($_SESSION['type'] != 'admin') {?>
-                    <div id="loginContainer">
-                        <form name="item-1" method="post" enctype="application/x-www-form-urlencoded" action="<?php echo PATH_ROOT; ?>" id="loginFieldset">
-                            <input type="text" id="item-4" name="login" value="Login">
-                            <input type="password" id="item-5" name="password" value="Password">
-                            <input type="submit" id="item-7">
-                        </form>
-                        <p>
-                            <a href="#" id="loginClick" class="loginClick "><span class="iconic lock_fill iconsize"></span>Login</a><!--<span class="ribbon"></span>-->
-                        </p>
-                        <div class="clear"></div>
-                    </div>
-            <?php } else { ?>
-                <div id="loginContainer">
-                    <span>
-                        <a href="?q" id="loginClick" class="loginClickExit"><span class="iconic unlock_fill iconsize"></span> Exit</a>
-                    </span>
-                </div>
-            <?php } ?>
-    <!-- /New login -->
-    <div class="menu_wrap">
-    	<div class="container_12">
-    	<h1><?php echo APP_NAME; ?><span></span></h1>
-        <nav>
-                <?php if ($_SESSION['type'] == 'admin') { ?>
-                <li><a href="<?php echo PATH_INDEX; ?>typographie/">Typo</a></li>
-                <li
-                <?php if ($multiViews->args[1] == 'admin') { ?>
-                    class="nav-actif"
-                <?php } ?> id="menu-admin-tab">
-                <?php if (isset($multiViews->args[1]) && $multiViews->args[1] == 'admin') { ?>
-                    <div class="headerActif_wrap">
-                <?php } ?>       
-                    <a href="<?php echo PATH_INDEX; ?>admin/"><span class="iconic cog iconsize"></span> Administration</a>
-                <?php if (isset($multiViews->args[1]) && $multiViews->args[1] == 'admin') { ?>
-                    </div>
-                <?php } ?>      
-                </li>
-                <?php } ?>
-                <li
-                <?php if ((isset($multiViews->total) && $multiViews->total === 0) || $multiViews->args[1] == 'categorie') { ?>
-                    class="nav-actif"
-                <?php } ?> id="menu-categories-tab">
-                <?php if ((isset($multiViews->total) && $multiViews->total === 0) || $multiViews->args[1] == 'categorie') { ?>
-                    <div class="headerActif_wrap">
-                <?php } ?>        
-                    <a href="<?php echo PATH_ROOT; ?>index.php" title="Categories"><span class="iconic book iconsize"></span> Categories<span class="triangleBR"></span></a>
-                <?php if ((isset($multiViews->total) && $multiViews->total === 0) || $multiViews->args[1] == 'categorie') { ?>
-                    </div>
-                <?php } ?>
-                <!-- @todo Info bulles sur les categories avec le nombre de lien inscrits -->
-                    <ul class="grid_12">
-						<?php
-							$_SESSION['list-categories'] = $listCategories;
-							$views->display( 'list-categories' );
-							$_SESSION['list-categories'] = NULL;
-						?>
-                    </ul>
-                </li>
-
-                    <li
-                <?php
-                        if (isset($multiViews->args[1]) && $multiViews->args[1] == 'tags') {
-                            echo ' class="nav-actif" ';
-                        }
-                ?>
-                            >
-                <?php if (isset($multiViews->args[1]) && $multiViews->args[1] == 'tags') { ?>
-                    <div class="headerActif_wrap">
-                <?php } ?>
-                            <a href="<?php echo PATH_INDEX . 'tags/'; ?>"><span class="iconic tag_fill iconsize"></span> Tags</a>
-                <?php if (isset($multiViews->args[1]) && $multiViews->args[1] == 'tags') { ?>
-                    </div>
-                <?php } ?>
-                        </li>
-
-                 <li
-                <?php
-                        if (isset($multiViews->args[1]) && $multiViews->args[1] == 'about') {
-                            echo ' class="nav-actif" ';
-                        }
-                ?>
-                            >
-                <?php  if (isset($multiViews->args[1]) && $multiViews->args[1] == 'about') { ?>
-                    <div class="headerActif_wrap">
-                <?php } ?> 
-                            <a href="<?php echo PATH_INDEX . 'about/'; ?>"><span class="iconic info iconsize"></span> About</a>
-                <?php if (isset($multiViews->args[1]) && $multiViews->args[1] == 'about') { ?>
-                    </div>
-                <?php } ?>
-                </li>
-        </nav>
-        </div>
-        <div class="clear"></div>
-    </div>
-
+<header>
+	<div class="container_12">
+		<h1><?php echo APP_NAME;?><span><!--triangle--></span></h1>
+		<!-- Navigation bar -->
+		<nav>
+			<?php if ($_SESSION['type'] == 'admin') { ?>
+			<li id="menu-admin-tab">
+				<a href="<?php echo PATH_INDEX; ?>admin/"><span class="iconic cog iconsize"></span> Administration</a>
+			</li>
+			<?php } ?>
+			<li id="menu-categories-tab">
+				<a href="<?php echo PATH_ROOT; ?>index.php" title="Categories"><span class="iconic book iconsize"></span> Categories </a>
+				<a href="#" id="menu-display-categories" ><span class="iconic arrow_down_alt1 x-small"></span></a>
+			</li>
+			<li>
+				<a href="<?php echo PATH_INDEX . 'tags/'; ?>"><span class="iconic tag_fill iconsize"></span> Tags</a>
+			</li>
+		</nav>
+	</div>
+	<div class="clear"></div>
 </header>
 <!-- /header -->

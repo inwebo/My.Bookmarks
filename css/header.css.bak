@@ -1,0 +1,176 @@
+/*
+ Document   : header
+ Created on : 10 févr. 2012, 19:48:56
+ Author     : inwebo
+ Description:
+ Purpose of the stylesheet follows.
+ */
+
+/*
+ TODO customize this sample style
+ Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+ */
+
+/* HEADER */
+/* ---- */
+header {
+	background-color: #2E3033;
+	color: #F9F9F9;
+	border-bottom: solid 1px white;
+}
+
+header h1 {
+	color: #F9F9F9;
+	display: block;
+	float: left;
+	font-family: 'Lobster', cursive;
+	font-size: 1.9em;
+	margin-bottom: 0;
+	text-align: center;
+	text-shadow: 2px 2px 0 rgba(255,255,255,0.1);
+	line-height: 45px;
+	position: relative;
+}
+
+header h1 span {
+	-moz-transform: scale(1) rotate(45deg);
+	-webkit-transform: scale(1) rotate(45deg);
+    -o-transform: scale(1) rotate(45deg);
+    -ms-transform: scale(1) rotate(45deg);
+    transform: scale(1) rotate(45deg);    
+	background-color: #2E3033;
+	display: block;
+	height: 10px;
+	left: -5px;
+	margin-left: 50%;
+	margin-top: 0px;
+	position: absolute;
+	width: 10px;
+}
+
+#container header div[class*="grid_"] {
+	position: relative;
+	background-color: transparent;
+	border: medium none transparent;
+	margin-bottom: 10px;
+	width: 918px;
+	box-shadow: 0 0 0 0 transparent inset;
+}
+
+#container header div[class*="grid_"]  p {
+	text-align: center;
+	color: white;
+	margin-bottom: 0;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+	filter: dropshadow(color=#9E9E9E, offx=1, offy=1);
+}
+
+#container header div[class*="grid_"] p a {
+	padding: 10px;
+}
+
+#container header div[class*="grid_"] a:hover {
+	color: #306108
+}
+
+nav {
+	display: inline-block;
+	float: right;
+	height: 50px;
+	line-height: 50px;
+	margin-right: 10px;
+		background-color: inherit;
+}
+
+nav div[class*='container_'] {
+	text-align: right;
+}
+
+nav li {
+	display: inline-block;
+	margin-right: 20px;
+	padding: 0 5px;
+	min-width: 50px;
+	text-align: center;
+	position: relative;
+	min-height: 51px;
+	top: 0;
+	background-color: inherit;
+}
+
+nav li a {
+	text-decoration: none;
+	color: grey;
+}
+
+nav li:hover {
+
+}
+
+nav li:last-child {
+	margin-right: 0;
+}
+
+nav li:hover a:hover {
+	color: #008ee8;
+}
+
+.nav-actif, .nav-actif:hover {
+	background: #E8E8E8;
+	text-decoration: none;
+	height: 51px;
+	border-left: 1px solid #E6E6E6;
+	border-right: 1px solid #E6E6E6;
+	border-top: 1px solid #FAFAFA;
+	border-bottom: transparent;
+	color: #F9F9F9;
+}
+
+.nav-actif a {
+	color: #008EE8;
+}
+.headerActif_wrap {
+	border: 1px solid white;
+	border-bottom: transparent;
+	margin-left: -5px;
+	margin-right: -5px;
+	padding: inherit;
+}
+
+.menu_wrap {
+	width: inherit;
+	padding-top: 5px;
+}
+
+#menu-categories-tab {
+	position: relative;
+	padding-right: 5px;
+}
+
+#menu-categories-tab ul {
+	display:none;
+	background-color: inherit;
+	color:white;
+	border-bottom: 1px solid white;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+	left: -615px;
+	margin: 0;
+	position: absolute;
+	text-indent: 0;
+	width: 938px;
+	z-index: 99;
+	-webkit-box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.5);
+	box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.5);
+	top:48px;
+}
+#menu-categories-tab ul li {
+	display: inline-block;
+	margin: 0;
+	text-align: center;
+	width: 100px;
+}
+
+#menu-categories-tab:hover ul {
+	display: block;
+}

@@ -13,107 +13,88 @@
 
 /* Login */
 
-
-
-
-#loginContainer {
-    background-color: #FAFAFA;
-border-color: transparent transparent #939393 transparent;
-    border-right: 1px solid #E6E6E6;
-    border-style: solid;
-    border-width: 1px;
-    padding: 0;
-    position: absolute;
-    right: 0;
-    top:-35px;
-    z-index: 1;
-    height:40px;
-    text-align: center;
-}
-
-.loginClickExit {
-    padding: 10px;
-    position: relative;
-    top: 100%;
-    text-decoration: none;
-}
-        #loginContainer, .loginClickExit {
-            background-color: #2E3033;
-            height:40px;
-            top: -35px;
-            position: relative;
-            text-align: center;
-
-        }
-
-        .loginClickExit, #loginContainer p {
-            border-bottom: 1px solid #939393;
-            border-left: 1px solid #939393;
-            border-right: 1px solid #939393;
-            padding-top: 0;
-            top: 38px;
-            padding-bottom: 5px;
-        }
-        #loginContainer span {
-            
-}
-
-        
-#loginContainer input{
+#loginClick {
+	height:1em;
+	line-height: 1em;
+	margin:0 auto;
+	display: block;
+	width: 120px;
+	text-align:center;
 
 }
-
-
-
-
-        #loginContainer form {
-            margin-bottom: 0;
-        }
-
-        #loginContainer p {
-            background-color: #2E3033;
-            color: white;
-            font-size: x-small;
-            margin: 0 auto;
-            padding: 1px;
-            position: relative;
-            top: 0;
-            width: 40px;
-        }
-#loginContainer p a {
-    color: white;
-    text-decoration: none;
+#loginClick span {
+	display: inline-block;
+	margin-right: 0.5em;
 }
-       /* #loginContainer p a {
-            color:whitesmoke;
-            display: block;
-            font-size: small;
-            font-variant: small-caps;
-            text-align: center;
-            text-decoration: none;
-            width: inherit;
-            position: relative;
-            z-index: 9998;
-        }*/
+.login-show-form {
+	position:fixed;
+	width: 15px;
+	height: 15px;
+	padding: 3px;
+	top:50%;
+	margin-top:-9px;
+	left:0;
+	background-color: #2E3033;
+	line-height: 1em;
+	border:solid 1px white;
+	border-left:solid 0 transparent;
+	text-align: center;
+	z-index: 1001;
+}
 
-           #loginContainer input {
-            border: 1px solid #48444D;
-            color: #c9c9c9;
-            margin-top: 5px;
-            padding: 5px;
-            margin-left: 10px;
-        }
-
-                #loginContainer input[type*=submit] {
-                    color:black;
-                }
-
-                #loginContainer input:focus {
-                    color:#454A4F;
-                }
-
+	.login-show-form a,.login-show-form a:visited {
+		color:white;
+	}
 
 
 #loginFieldset {
-    padding-right: 42px;
+	font-family: sans-serif Verdana;
+	size:1em;
+	color:#555555;
+    -moz-background-clip: border;     /* Firefox 3.6 */
+    -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+    background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+    left: 50%;
+    margin-left: -175px;
+    padding: 10px;
+    position: fixed;
+    top: 50%;
+    width: 350px;
+	margin-top:-150px;
+    z-index: 999999;
+    vertical-align:top;
+    border: 1px solid #CFCFCF;
+    -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 1);
+    -moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 1);
+    box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 1);
+    background-color: #F9F9F9;
+    font-weight: normal;
+    -webkit-box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.5);
+	box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.5);
+	font-size:medium;
+	font-weight: normal;
+	display: none;
+}
+
+#loginFieldset input {
+	padding:10px;
+}
+
+#loginFieldset input, #loginFieldset span {
+	display: inline-block;
+	margin-bottom:1em;
+}
+
+#loginFieldset span {
+	width:10%;	
+}
+
+#loginFieldset input {
+	width:80%;	
+}
+
+#loginFieldset input[type=submit] {
+	width:50%;
+	margin:0 auto;
+	display:block;
 }

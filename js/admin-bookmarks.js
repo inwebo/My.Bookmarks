@@ -17,12 +17,20 @@
 	 */
 	var displayDroppableContainer = function() {
 		$(droppableContainer).animate({
-			'top' : 0
+			'top' : 50
+		}, 800, 'easeOutQuint');
+		
+		$('h1 span').animate({
+			'margin-top' : -10
 		}, 800, 'easeOutQuint');
 	}
 	var hideDroppableContainer = function() {
 		$(droppableContainer).delay(delayDroppableContainer).animate({
 			'top' : -140
+		}, 800, 'easeOutQuint');
+		
+		$('h1 span').delay(delayDroppableContainer).animate({
+			'margin-top' : 0
 		}, 800, 'easeOutQuint');
 	}
 	/*

@@ -80,23 +80,26 @@
 	padding: 10px 0;
 	text-indent: 0;
 	overflow-x: auto;
+	overflow-y:none;
 	width: 100%;
-	white-space: nowrap;
-	height: 50px;
+	white-space: nowrap;	
 }
 
 #categories-landing ul li {
 	list-style: none;
-	padding: 20px;
-	display: inline;
-	min-width: 66px;
-	width: 66px;
+	padding: 10px;
+	display: inline-block;
+	width: 100px;
 	margin-left: 10px;
 	margin-bottom: 10px;
-	background-color: rgba(255,255,255,0.1);
+	background-color: rgba(0, 0, 0, 0.1);
 	line-height: 2em;
+	text-align:center;
 }
 
+#categories-landing ul li a, #categories-landing ul li a:visited{
+	color:white;
+}
 /* /Categories landing */
 
 /* Categorie menu */

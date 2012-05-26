@@ -2,11 +2,11 @@
 extract($GLOBALS);
 ?>
 <!-- Typographie -->
-	<div class="grid_12 grid_front">
+	<div class="grid_12">
 		<!-- /Liste categorie -->
 
 		<h2>
-			Incoming
+			Compact view
 			<div class="categorie-menu">
 				<a href="#" title="Vue compléte" class="categorie-menu-display-full"><span class="iconic list"></span></a>
 				<a href="#" title="Vue compacte" class="categorie-menu-display-compact"><span class="iconic list_nested"></span></a>
@@ -19,7 +19,7 @@ extract($GLOBALS);
 				<span class="oneBookmark-menu oneBookmark-menu-left bookmark-draggable">
 					<a href="#" class="bookmark-icon"><span class="iconic move iconSize"></span></a>
 				</span>
-				<h3><img src="../images/system/favicon-default.png" title="favicon"><span class="data-title">Titre</span></h3>
+				<h3><img src="http://localhost/My.Bookmarks/images/system/default-favicon.png" title="favicon"><span class="data-title">Titre</span></h3>
 				<p class="data-desc">Description du lien</p>
 				<ul class="meta">
 					<li title="tags1 tags2 tags3"><span class="iconic tag_fill"></span></li>
@@ -39,7 +39,76 @@ extract($GLOBALS);
 			
 		</ul>
 	</div>
-<div class="grid_12">
+	<div class="grid_12">
+		<!-- /Liste categorie -->
+
+		<h2>
+			Large view
+			<div class="categorie-menu">
+				<a href="#" title="Vue compléte" class="categorie-menu-display-full"><span class="iconic list"></span></a>
+				<a href="#" title="Vue compacte" class="categorie-menu-display-compact"><span class="iconic list_nested"></span></a>
+			</div>
+		</h2>
+		<ul class="bookmarks-list">
+
+			<!-- One bookmark -->
+			<li class="oneBookmark" data-hash="qsqsdqqssdq" data-id="1" data-dt="" data-tags="tags1" data-category="2" data-visibility="1">
+				<span class="oneBookmark-menu oneBookmark-menu-left bookmark-draggable">
+					<a href="#" class="bookmark-icon"><span class="iconic move iconSize"></span></a>
+				</span>
+				<h3><img src="http://localhost/My.Bookmarks/images/system/default-favicon.png" title="favicon"><span class="data-title">Titre</span></h3>
+				<p class="data-desc">Description du lien</p>
+				<ul class="meta">
+					<li title="tags1 tags2 tags3"><span class="iconic tag_fill"></span></li>
+					<li>
+						<a href="" class="tags">tags 1</a>
+					</li>
+					<li>
+						<a href="" class="tags">tags 1</a>
+					</li>
+				</ul>
+				<span class="oneBookmark-menu oneBookmark-menu-right">
+					<a href="#" title="Edit" class="bookmark-icon bookmark-edit"><span class="iconic pen iconSize"></span></a>
+					<a href="#" title="Delete" class="bookmark-icon bookmark-delete"><span class="iconic x_alt iconSize"></span></a>
+				</span>
+			</li>
+			<!-- /One bookmark -->
+			
+		</ul>
+	</div>
+	<div class="grid_4">
+
+		<h2>
+			Front view
+		</h2>
+		<ul class="bookmarks-list bookmarks-front">
+
+			<!-- One bookmark -->
+			<li class="oneBookmark" data-hash="qsqsdqqssdq" data-id="1" data-dt="" data-tags="tags1" data-category="2" data-visibility="1">
+				<span class="oneBookmark-menu oneBookmark-menu-left bookmark-draggable">
+					<a href="#" class="bookmark-icon"><span class="iconic move iconSize"></span></a>
+				</span>
+				<h3><img src="http://localhost/My.Bookmarks/images/system/default-favicon.png" title="favicon"><span class="data-title">Titre</span></h3>
+				<p class="data-desc">Description du lien</p>
+				<ul class="meta">
+					<li title="tags1 tags2 tags3"><span class="iconic tag_fill"></span></li>
+					<li>
+						<a href="" class="tags">tags 1</a>
+					</li>
+					<li>
+						<a href="" class="tags">tags 1</a>
+					</li>
+				</ul>
+				<span class="oneBookmark-menu oneBookmark-menu-right">
+					<a href="#" title="Edit" class="bookmark-icon bookmark-edit"><span class="iconic pen iconSize"></span></a>
+					<a href="#" title="Delete" class="bookmark-icon bookmark-delete"><span class="iconic x_alt iconSize"></span></a>
+				</span>
+			</li>
+			<!-- /One bookmark -->
+			
+		</ul>
+	</div>
+<div class="grid_12 grid_front">
 	<h2>H2</h2>
 	<p>
 		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

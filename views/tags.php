@@ -100,7 +100,7 @@ $display_tags = array_unique($array_tags);
 $array_tags = array_filter($array_tags);
 
 ?>
-    <h2>Tags<span class="totalLinks"><?php echo $tagsCloud[2]; ?></span><label id="tagsFilterContainer">Tags filter : <input id="tagsFilter" value=""></label></h2>
+    <h2>Tags (<?php echo $tagsCloud[2]; ?>)<label id="tagsFilterContainer"><span class="iconic magnifying_glass"></span> <input id="tagsFilter" value=""></label></h2>
 
 <p>
 <?php

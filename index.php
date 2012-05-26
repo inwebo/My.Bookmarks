@@ -14,9 +14,10 @@ try {
 	// Session
 	$sessions = new MySessions();
 	$sessions->addParams('type', 'guest');
-
+	if( !isset($_SESSION['type']) ) {
+		$sessions->addParams('type', 'guest');
+	}
 	$multiViews = new MyMultiviews( 'index.php' );
-        //var_dump($multiViews);
 }
 catch( Exception $e ) {
 
@@ -41,6 +42,7 @@ catch( Exception $e ) {
 
 }
 
+// Traitement login
 if( isset( $_POST['login'] ) && isset( $_POST['password'] ) ) {
 	$userExists = $sql->query( 'SELECT *  from `'. DB_TABLE_PREFIX .'users` WHERE login=? AND password=?', array( $_POST['login'], md5( $_POST['password'] ) ) );
         if( isset ( $userExists[0] ) ) {
@@ -51,7 +53,7 @@ if( isset( $_POST['login'] ) && isset( $_POST['password'] ) ) {
 if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 	$sessions->destroy();
 	$sessions->setParams('type','guest');
-	echo "<meta http-equiv='refresh' content='0';URL=". PATH_ROOT ."'>";
+	header('Location: ' . PATH_ROOT); 
 }
 ?>
 <!doctype html>
@@ -91,12 +93,8 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 </head>
 
 <body>
-	<?php
-	if( $_SESSION['type'] == 'admin' ) {
-	?>
-    <div class="gui-display-shaddy">
-        &nbsp;
-    </div>
+    <div class="gui-display-shaddy">&nbsp;</div>
+	<?php //if( $_SESSION['type'] == 'admin' ) { ?>
     <div id="categories-landing">
 		<h2>Drop bookmarks into categorie</h2>
 		<ul>
@@ -107,13 +105,13 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 		?>
 		</ul>
 	</div>
-	<?php
-	}
-	?>
+	<?php //} ?>
     <a name="top"></a>
-  <div id="container" >
+
+<div id="container">
     <?php include('views/header.php'); ?>
     <div id="main" role="main">
+
 	<!-- Container -->
 	<div class="container_12">
 
@@ -125,38 +123,62 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 	?>
 	</div>
 	<!-- /Breadcrumbs -->
-
-                <!-- Include -->
+	
+			<!-- New login -->
+	            <?php if ($_SESSION['type'] != 'admin') {?>
+					<form name="item-1" method="post" enctype="application/x-www-form-urlencoded" action="<?php echo PATH_ROOT; ?>" id="loginFieldset">
+						<h2>Login</h2>
+						<span class="iconic user iconsize"></span> <input type="text" id="item-4" name="login" value="Login"><br>
+						<span class="iconic key_fill iconsize"></span> <input type="password" id="item-5" name="password" value="Password"><br>
+						<hr>
+						<input type="submit" id="item-7">
+	                </form>
+	            <?php } else { ?>
+	                <div id="loginFieldset">
+	                	<h2>Logout</h2>
+	                	<hr>
+						<a href="?q" id="loginClick" class="button"><span class="iconic unlock_fill"></span> Exit</a>
+	                </div>
+	            <?php } ?>
+		<!-- /New login -->
+		<div class="login-show-form">
+			<?php if ($_SESSION['type'] === 'admin') {?>
+				<a href="#"><span class="iconic lock_fill"></span></a>
+			<?php } else { ?>
+				<a href="#"><span class="iconic unlock_fill"></span></a>
+			<?php } ?>
+		</div>
+        <!-- Include -->
 		<div class="clear"></div>
 		<?php
 			if( $multiViews->args == NULL ) {
-                                $views->display( 'home' );
+            	$views->display( 'home' );
 			}
 			elseif( $multiViews->args[1] == "categorie" ) {
-                                $views->display( 'categorie' );
-                        }
+            	$views->display( 'categorie' );
+			}
 			elseif( $multiViews->args[1] == "tags" ) {
-                                if( isset( $multiViews->args[2] ) ) {
-                                    $views->display( 'list-tags' );
-                                }
-                                else {
-                                    $views->display('tags');
-                                }
+				if( isset( $multiViews->args[2] ) ) {
+					$views->display( 'list-tags' );
+				}
+				else {
+					$views->display('tags');
+				}
 			}
 			elseif( $multiViews->args[1] == "admin" && $_SESSION['type'] == 'admin') {
-                                    $views->display('admin');
+				$views->display('admin');
 			}
 			elseif( $multiViews->args[1] == "about" ) {
-                                    $views->display('about');
+				$views->display('about');
 			}
 			elseif( $multiViews->args[1] == "typographie" ) {
-                                    $views->display('typographie');
+				$views->display('typographie');
 			}
-                        else {
-                            $views->display( 'home' );
-                        }
+			else {
+				$views->display( 'home' );
+			}
 		?>
-                <!-- Include -->
+ 		<!-- Include -->
                 
 	
 
@@ -172,24 +194,18 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
         <?php include('views/footer.php'); ?>
 	<!-- /Footer -->
 
-  </div>
-<!--! end of #container -->
-
-<!-- Display JS_DEBUG -->
-<div id="debugOutPut">
-	<ul id="displayMssg">
-
-	</ul>
 </div>
-<!-- /Display JS_DEBUG -->
+<!--! end of #container -->
 
 <!-- Custom JS -->
 <script type="text/javascript" src="<?php echo PATH_JS; ?>login.js"></script>
-<script type="text/javascript" src="<?php echo PATH_JS; ?>tags-filter.js"></script>
+<script type="text/javascript" src="<?php //echo PATH_JS; ?>tags-filter.js"></script>
 <script type="text/javascript" src="<?php echo PATH_JS; ?>display-type.js"></script>
 <script type="text/javascript" src="<?php echo PATH_JS; ?>about.js"></script>
 <script type="text/javascript" src="<?php echo PATH_JS; ?>js.const.define.php"></script>
 <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-init.js"></script>
+<script type="text/javascript" src="<?php echo PATH_JS; ?>gui-nav-categories-display.js"></script>
+<script type="text/javascript" src="<?php echo PATH_JS; ?>plugin.tags-filter.js"></script>
 <?php if( $_SESSION['type'] == "admin") { ?>
 	<script src="http://localhost/My.Bookmarks/js/plugin.bookmarks.js" type="text/javascript"></script>
     <script type="text/javascript" src="<?php echo PATH_JS_CONST; ?>"></script>

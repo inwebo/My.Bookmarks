@@ -4,7 +4,7 @@
 (function($) {
     $(function() {
         var $items = $('#vtab>ul>li');
-        $items.mouseover(function() {
+        $items.click(function() {
             $items.removeClass('selected');
             $(this).addClass('selected');
 

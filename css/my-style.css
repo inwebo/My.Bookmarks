@@ -182,7 +182,7 @@ div[class*='container_12'] div[class*='grid_'] {
 }
 
 .container_12 .grid_8 {
-	width:598px;
+	width:578px;
 }
 
 .container_12 .grid_12 {
@@ -194,6 +194,9 @@ div[class*='container_12'] div[class*='grid_'] {
     min-height: 500px;
 }
 
+#main {
+	padding-top: 60px;
+}
 
 #main div[class*='grid_'] h2 {
     border-bottom: thin groove #35383D;

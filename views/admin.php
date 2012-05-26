@@ -9,13 +9,29 @@ extract( $GLOBALS );
 <div class="grid_12">
     <h2>Admin</h2>
     <div id="vtab">
-        <ul class="tabs-left">
-            <li class="home">Site configuration</li>
-            <li class="login">Categories</li>
-            <li class="support">Corbeille</li>
-            <li class="journaux">Journaux</li>
-            <li class="Constantes">Constantes</li>
-        </ul>
+		<ul class="tabs-left">
+			<li class="home selected">
+				<span class="iconic wrench iconic-large"></span>Site configuration
+			</li>
+			<li class="login">
+				<span class="iconic book iconic-large"></span>Categories
+			</li>
+			<li class="support">
+				<span class="iconic trash_fill iconic-large"></span>Corbeille
+			</li>
+			<li class="journaux">
+				<span class="iconic book_alt2 iconic-large"></span>Journaux
+			</li>
+			<li class="constantes">
+				<span class="iconic beaker_alt iconic-large"></span>Constantes
+			</li>
+			<li class="typographie">
+				<span class="iconic left_quote_alt iconic-large"></span>Typographie
+			</li>
+			<li class="about">
+				<span class="iconic info iconic-large"></span>About
+			</li>
+		</ul>
         
         <div class="tabs-content">
             <div>
@@ -53,29 +69,20 @@ extract( $GLOBALS );
                     ?>
                 </code>
             </div>
+            <div>
+            	<h3>Typographie</h3>
+            	<p>
+            		<a href="<?php echo PATH_INDEX; ?>typographie/"><span class="iconic beaker_alt iconsize"></span> Page de démonstration</a>
+            	</p>
+            </div>
+            <div>
+            	<h3>About</h3>
+            	<p>
+            		
+            	</p>
+            </div>
         </div>
     </div>
 
-</div>
-<div class="grid_12">
-    <h2>SPL collection</h2>
-    <code>
-        <pre>
-            <?php
-                $factory = new FactoryCategories( $sql );
-                $a= $factory->getCategorie( '1' );
-                var_dump($a);
-            ?>
-        </pre>
-    </code>
-    <hr>
-    <code>
-        <pre>
-            <?php
-                //var_dump($factory);
-            ?>
-        </pre>
-    </code>
-    <a id="categories-weigth-save" href="#">Save</a>
 </div>
 <!-- About -->
