@@ -198,23 +198,15 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 <!--! end of #container -->
 
 <!-- Custom JS -->
-<script type="text/javascript" src="<?php echo PATH_JS; ?>login.js"></script>
-<script type="text/javascript" src="<?php //echo PATH_JS; ?>tags-filter.js"></script>
-<script type="text/javascript" src="<?php echo PATH_JS; ?>display-type.js"></script>
-<script type="text/javascript" src="<?php echo PATH_JS; ?>about.js"></script>
-<script type="text/javascript" src="<?php echo PATH_JS; ?>js.const.define.php"></script>
-<script type="text/javascript" src="<?php echo PATH_JS; ?>admin-init.js"></script>
-<script type="text/javascript" src="<?php echo PATH_JS; ?>gui-nav-categories-display.js"></script>
-<script type="text/javascript" src="<?php echo PATH_JS; ?>plugin.tags-filter.js"></script>
+<script type="text/javascript" src="<?php echo PATH_JS_CONST; ?>"></script>
+<script type="text/javascript" src="<?php echo PATH_JS; ?>init-gui.js"></script>
 <?php if( $_SESSION['type'] == "admin") { ?>
-	<script src="http://localhost/My.Bookmarks/js/plugin.bookmarks.js" type="text/javascript"></script>
-    <script type="text/javascript" src="<?php echo PATH_JS_CONST; ?>"></script>
+	<script type="text/javascript" src="<?php echo PATH_JS; ?>init-admin.js"></script>
+	<script type="text/javascript" src="<?php echo PATH_JS; ?>plugin.bookmarks.js"></script>
     <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-bookmarks.js"></script>
     <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-categories.js"></script>
     <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-categories-sort.js"></script>
     <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-tabs.js"></script>
-    <script type="text/javascript" src="<?php echo PATH_JS; ?>gui-infos-bulles.js"></script>
-    <script type="text/javascript" src="<?php echo PATH_JS; ?>gui-help.js"></script>
     <link rel="stylesheet" href="<?php echo PATH_CSS; ?>style-public.css">
 <?php } ?>
 <script type="text/javascript" src="<?php echo GA_PATH_TRACKER; ?>?id=<?php echo GA_ID; ?>"></script>
