@@ -19,11 +19,11 @@ path_logs          = logs/
 path_tags          = tags/
 path_cache         = cache/
 path_favicon       = favicon/
-path_default_favicon = "system/default-favicon.png"
+path_default_favicon = system/default-favicon.png
 path_template      = tpl/
 path_bookmark_form = bookmark-form.php
 path_widget        = widget.php
-path_js_const      = const.define.php
+path_js_const      = js.const.define.php
 
 [Cache]
 cache_lifetime = 0
