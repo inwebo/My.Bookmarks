@@ -24,7 +24,7 @@
             plugin.settings.pluginVersion  = "05-2012";
             plugin.settings.tagsList       = $( plugin.settings.tagsSelector );
             plugin.settings.tagsCount      = plugin.settings.tagsList.length;
-            $.error('test');
+            //$.error('test');
             debug( 'Construct ' + plugin.settings.pluginName + ' v' + plugin.settings.pluginVersion );
 			debug( 'Attributs' + "\n" +
         		   'inputSelector : ' + plugin.settings.inputSelector + "\n" +
