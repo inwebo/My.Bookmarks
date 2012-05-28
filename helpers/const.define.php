@@ -107,7 +107,7 @@ define( 'GA_PATH_TRACKER', $google );
 $googleId =  $conf['ga_id'];
 define( 'GA_ID', $googleId );
 
-$pathJsConst =  PATH_JS . $conf['path_js_const'];
+$pathJsConst =  PATH_ROOT . PATH_HELPERS . $conf['path_js_const'];
 define( 'PATH_JS_CONST', $pathJsConst );
 
 $pathViews =  $conf['path_views'];
