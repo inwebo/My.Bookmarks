@@ -109,20 +109,19 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
     <a name="top"></a>
 
 <div id="container">
-    <?php include('views/header.php'); ?>
+	<?php $views->display( 'header' ); ?>
     <div id="main" role="main">
 
 	<!-- Container -->
 	<div class="container_12">
 
+
 	<!-- Breadcrumbs -->
-	<div id="breadCrumbs" class="grid_12">
 	<?php
-		include('views/breadcrumbs.php');
-		BreadCrumbs::display();
+		$views->display( 'breadcrumbs' );
 	?>
-	</div>
 	<!-- /Breadcrumbs -->
+
 	
 			<!-- New login -->
 	            <?php if ($_SESSION['type'] != 'admin') {?>
@@ -191,18 +190,17 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 
        
 	<!-- Footer -->
-        <?php include('views/footer.php'); ?>
+	<?php $views->display( 'footer' ); ?>
 	<!-- /Footer -->
 
 </div>
 <!--! end of #container -->
 
 <!-- Custom JS -->
-<script type="text/javascript" src="<?php echo PATH_JS_CONST; ?>"></script>
-<script type="text/javascript" src="<?php echo PATH_JS; ?>init-gui.js"></script>
-<?php if( $_SESSION['type'] == "admin") { ?>
+<?php include( PATH_HELPERS.'js.include-gui.php' ); ?>
+<?php if( $_SESSION['type'] == "admin" ) { ?>
 	<script type="text/javascript" src="<?php echo PATH_JS; ?>init-admin.js"></script>
-	<script type="text/javascript" src="<?php echo PATH_JS; ?>plugin.bookmarks.js"></script>
+	
     <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-bookmarks.js"></script>
     <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-categories.js"></script>
     <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-categories-sort.js"></script>
