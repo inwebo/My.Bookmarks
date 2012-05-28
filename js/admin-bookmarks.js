@@ -240,4 +240,16 @@
 	});
 	/* /Reset formulaire edition bookmark */
 	
+	/*
+	 * Cache le formulaire d'edition d'un bookmark ainsi que
+	 * le fond noir transparent
+	 */
+	$('.bookmark-close').live('click',function(){
+		if( $('#bookmarkContainer') ) {
+			$('#bookmarkContainer').remove();
+			$('.gui-display-shaddy').toggle();
+		}
+	});
+	
+	
 })(jQuery);
