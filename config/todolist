@@ -45,3 +45,4 @@
 +Permettre une visibilité public/privé sur toute une catégorie
 +Mettre à jour class ahref (inutile pour l'instant)
 -Fixer la taille des carateres formulaire publique
++Fixed inode sous windows SplFileInfo::getATime(): stat failed dans js.const.define.php
