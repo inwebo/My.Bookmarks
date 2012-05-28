@@ -45,14 +45,14 @@
 		$categorie = $_SESSION['splObjectStorage'];
 	}
 	else {
-		$categorie = $factoryCategories->getBookmarksByCategorie($multiViews->args[3]);
+		$categorie = $factoryCategories->getBookmarksByCategorie( $multiViews->args[3] );
 	}
 	
-	(isset($_SESSION['grid_class'])) ? $grid_class      = $_SESSION['grid_class'] : $grid_class = 'grid_12';
-	(isset($_SESSION['from_front'])) ? $bookmarks_class = 'bookmarks-front' : $bookmarks_class = 'bookmarks-simple';
+	( isset( $_SESSION['grid_class'] ) ) ? $grid_class      = $_SESSION['grid_class'] : $grid_class      = 'grid_12';
+	( isset( $_SESSION['from_front'] ) ) ? $bookmarks_class = 'bookmarks-front'       : $bookmarks_class = 'bookmarks-simple';
 ?>
 <!-- categorie <?php echo $categorie->name; ?> -->
-<div class="<?php echo $grid_class; ?>">
+<div class="<?php echo $grid_class; ?>" data-id="<?php echo $categorie->id; ?>">
 		<h2>
 			<a href="<?php echo PATH_INDEX .'categorie/'. $categorie->name .'/'. $categorie->id; ?>"><?php echo $categorie->name; ?></a>
 			<?php if( !isset( $_SESSION['from_front'] ) ) { ?>
