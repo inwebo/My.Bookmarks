@@ -1,0 +1,83 @@
+@charset "utf-8";
+/* Styling module */
+#my-notifications {
+    bottom: 10px;
+    position: fixed;
+    right: 10px;
+    width: 350px;
+}
+
+	#my-notifications ul {
+		padding:0;
+	}
+	
+	#my-notifications li {
+		border: 1px solid lightgrey;
+		list-style: none outside none;
+		padding: 10px;
+		margin-bottom:5px;
+		background-color:white;
+ 		box-shadow: 0 0 0 1px #FFFFFF inset;
+	}
+		
+		#my-notifications li:hover {
+		 	opacity:0.6;
+		 	text-shadow: 0 0 2px #333;
+		 	color:transparent;
+		 }
+	
+	#my-notifications h6 {
+		margin-top:0;
+		font-size: medium;
+		border-bottom:solid 1px;
+		padding-bottom: 0.8em;
+		margin-bottom:0;
+	}
+	
+		#my-notifications h6 .my-notifications-close {
+			float:right;
+			text-decoration:none;
+			text-transform: small-caps;
+		}
+	
+	#my-notifications p {
+		font-size: small;
+	}
+	
+	#my-notifications .my-notifications-error {
+		background-color:#FFECCE;
+		border: 1px solid #E9C59B
+	}
+	
+			#my-notifications .my-notifications-error, #my-notifications .my-notifications-error h6 .my-notifications-close {
+				color: #E3302C;
+			}
+	
+	#my-notifications .my-notifications-okay {
+	    border: 1px solid #BFDE84;
+		background-color:#EDFBD8;
+	}
+	
+			#my-notifications .my-notifications-okay,  #my-notifications .my-notifications-okay h6 .my-notifications-close {
+				color: #508600;
+			}
+		
+	
+	#my-notifications .my-notifications-info {
+		border-color:#BBDBE0;
+		background-color:#ECF9FF;
+	}
+	
+		#my-notifications .my-notifications-info, #my-notifications .my-notifications-info .my-notifications-close {
+			color: #0888C3;
+		}
+	
+	#my-notifications .my-notifications-warning {
+		border: 1px solid #E5E181;
+		background-color:#FEFDE2;
+	}
+	
+		#my-notifications .my-notifications-warning, 	#my-notifications .my-notifications-warning .my-notifications-close {
+			color: #666666;
+		}
+	
