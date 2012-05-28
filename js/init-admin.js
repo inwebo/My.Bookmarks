@@ -1,3 +1,3 @@
 ;(function($){
-pluginNotifications.msg('prout');
+	pluginNotifications.msg('prout');
 })(jQuery);
