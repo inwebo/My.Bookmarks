@@ -78,21 +78,23 @@ Class MyInode extends SplFileInfo {
                 $this->pathInfo =$this->getPathInfo();
                 $this->pathName =$this->getPathName();
                 $this->fileName =$this->getFilename();
-                $this->lastAccess =strftime( "%d/%m/%y", $this->getATime() );
-                $this->lastChangedTime =strftime( "%d/%m/%y", $this->getCTime() );
-                $this->lastChangedContent =strftime( "%d/%m/%y", $this->getMTime() );
-                $this->permission =substr( sprintf( '%o', $this->getPerms() ), -4);
-                $this->type =$this->getType();
-                $this->writable =$this->isWritable();
-                $this->readable =$this->isReadable();
+                //@todo : commenter pour windows
+                //$this->lastAccess =strftime( "%d/%m/%y", $this->getATime() );
+                //$this->lastChangedTime =strftime( "%d/%m/%y", $this->getCTime() );
+                //$this->lastChangedContent =strftime( "%d/%m/%y", $this->getMTime() );
+                //$this->permission =substr( sprintf( '%o', $this->getPerms() ), -4);
+                //$this->type =$this->getType();
+                //$this->writable =$this->isWritable();
+                //$this->readable =$this->isReadable();
 
 
-		if( $this->type == "dir") {
+		/*if( $this->type == "dir") {*/
 			$this->size = NULL;
+		/*
 		}
 		else {
-                        $this->size =$this->getSize();
-		}
+                        //$this->size =$this->getSize();
+		}*/
 
 		//return $this->propreties;
 	}
