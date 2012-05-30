@@ -44,13 +44,13 @@ catch( Exception $e ) {
 
 // Traitement login
 if( isset( $_POST['login'] ) && isset( $_POST['password'] ) ) {
-	$userExists = $sql->query( 'SELECT *  from `'. DB_TABLE_PREFIX .'users` WHERE login=? AND password=?', array( $_POST['login'], md5( $_POST['password'] ) ) );
-        if( isset ( $userExists[0] ) ) {
+	$userExists = $sql->query( 'SELECT *  from `' . DB_TABLE_PREFIX . 'users` WHERE login=? AND password=?', array( $_POST['login'], md5( $_POST['password'] ) ) );
+	if( isset ( $userExists[0] ) ) {
 		$sessions->setParams('type','admin');
 	}
 }
 
-if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
+if( isset( $_GET['q'] ) && $_SESSION['type'] == 'admin' ) {
 	$sessions->destroy();
 	$sessions->setParams('type','guest');
 	header('Location: ' . PATH_ROOT); 
@@ -123,22 +123,22 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 	<!-- /Breadcrumbs -->
 
 	
-			<!-- New login -->
-	            <?php if ($_SESSION['type'] != 'admin') {?>
-					<form name="item-1" method="post" enctype="application/x-www-form-urlencoded" action="<?php echo PATH_ROOT; ?>" id="loginFieldset">
-						<h2>Login</h2>
-						<span class="iconic user iconsize"></span> <input type="text" id="item-4" name="login" value="Login"><br>
-						<span class="iconic key_fill iconsize"></span> <input type="password" id="item-5" name="password" value="Password"><br>
-						<hr>
-						<input type="submit" id="item-7">
-	                </form>
-	            <?php } else { ?>
-	                <div id="loginFieldset">
-	                	<h2>Logout</h2>
-	                	<hr>
-						<a href="?q" id="loginClick" class="button"><span class="iconic unlock_fill"></span> Exit</a>
-	                </div>
-	            <?php } ?>
+		<!-- New login -->
+		<?php if ($_SESSION['type'] != 'admin') {?>
+			<form name="item-1" method="post" enctype="application/x-www-form-urlencoded" action="<?php echo PATH_ROOT; ?>" id="loginFieldset">
+				<h2>Login</h2>
+				<span class="iconic user iconsize"></span> <input type="text" id="item-4" name="login" value="Login"><br>
+				<span class="iconic key_fill iconsize"></span> <input type="password" id="item-5" name="password" value="Password"><br>
+				<hr>
+				<input type="submit" id="item-7">
+			</form>
+		<?php } else { ?>
+			<div id="loginFieldset">
+				<h2>Logout</h2>
+				<hr>
+				<a href="?q" id="loginClick" class="button"><span class="iconic unlock_fill"></span> Exit</a>
+			</div>
+		<?php } ?>
 		<!-- /New login -->
 		<div class="login-show-form">
 			<?php if ($_SESSION['type'] === 'admin') {?>
@@ -197,14 +197,10 @@ if( isset($_GET['q'] ) && $_SESSION['type'] == 'admin') {
 <!--! end of #container -->
 
 <!-- Custom JS -->
-<?php include( PATH_HELPERS.'js.include-gui.php' ); ?>
+<?php include( PATH_HELPERS . 'js.include-gui.php' ); ?>
 <?php if( $_SESSION['type'] == "admin" ) { ?>
+	<?php include( PATH_HELPERS . 'js.include-admin.php' ); ?>
 	<script type="text/javascript" src="<?php echo PATH_JS; ?>init-admin.js"></script>
-	
-    <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-bookmarks.js"></script>
-    <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-categories.js"></script>
-    <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-categories-sort.js"></script>
-    <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-tabs.js"></script>
     <link rel="stylesheet" href="<?php echo PATH_CSS; ?>style-public.css">
 <?php } ?>
 <script type="text/javascript" src="<?php echo GA_PATH_TRACKER; ?>?id=<?php echo GA_ID; ?>"></script>
