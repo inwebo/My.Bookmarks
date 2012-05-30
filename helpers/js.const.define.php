@@ -11,11 +11,10 @@ foreach( $constantes as $key => $value ) {
     echo $prefix . $key . '="' . $value  . '";' ."\n";
 }
 
-$ajax_files = new MyDirectory( 'js/ajax' );
+$ajax_files = new MyDirectory( 'js/ajax/' );
 
 foreach($ajax_files->ret['Files'] as $key => $value ) {
     $toConst = str_replace('-', '_', $value->nameLessExtension);
     $toConst = strtoupper($toConst);
-	echo $toConst . "\n";
-    //echo 'JS_PATH_AJAX_'.$toConst. '="JS_PATH_AJAX_'.$value->name.'";'. "\n";
+    echo 'JS_PATH_AJAX_'.$toConst. '="'.PATH_AJAX.$value->name.'";'. "\n";
 }
