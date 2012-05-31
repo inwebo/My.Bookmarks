@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-31 03:51+0100\n"
+"POT-Creation-Date: 2012-05-31 04:21+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: inwebo <inwebo@gmail.com>\n"
 "Language-Team: inwebo veritas <inwebo@gmail.com>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Poedit-Basepath: ~/Public/www/my.bookmarks/\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: Public/www/my.bookmarks/views/header.php:63
+#: Public/www/my.bookmarks/views/header.php:56
 msgid "Categories"
-msgstr ""
+msgstr "Zob"
 

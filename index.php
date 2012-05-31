@@ -5,7 +5,16 @@
 	}
 ?>
 <?php include('autoload.php'); ?>
-<?php include( dirname( __FILE__ ) . DIRECTORY_SEPARATOR .'helpers/const.define.php'); ?>
+<?php include( dirname( __FILE__ ) . DIRECTORY_SEPARATOR .'helpers/const.define.php' ); ?>
+<?php 
+ 
+ /*
+$locale = "fr_FR";
+putenv("LC_ALL=$locale");
+setlocale(LC_ALL, $locale);
+bindtextdomain("messages",dirname( __FILE__ ) . DIRECTORY_SEPARATOR ."locale");
+textdomain("messages"); */
+?>
 <?php
 ini_set('display_errors', APP_DEBUG);
 // Controleur Init
