@@ -83,4 +83,4 @@ var favicon = document.evaluate('//*[contains(@rel,\'shortcut icon\')]', documen
 })();
 
 
-" class="myButton myButtonHeadline">&hearts; this !</a>
+" class="button darkGreen">&hearts; this !</a>
