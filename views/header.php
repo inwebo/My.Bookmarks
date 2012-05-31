@@ -37,16 +37,9 @@
  * @link      https://github.com/inwebo/My.Bookmarks
  * @since     File available since Beta 28-11-2011
  */
- 
+ extract( $GLOBALS );
 ?>
-<?php
-$locale = "en_UK";
-//if (isSet($_GET["locale"])) $locale = $_GET["locale"];
-putenv("LC_ALL=$locale");
-setlocale(LC_ALL, $locale);
-bindtextdomain("messages", PATH_ROOT . "locale");
-textdomain("messages");
-?>
+
 
 <!-- header -->
 <header>
