@@ -5,15 +5,23 @@
         var listSortable = "#sortable";
 
         $( listSortable ).sortable();
-	$( listSortable ).disableSelection();
+		$( listSortable ).disableSelection();
 
         var buttonSave = '#categories-weigth-save';
         var listItem = listSortable + ' li';
         var dataWeight = '';
 
-        $(buttonSave).click(function(){
+        $(buttonSave).unbind('click').click(function(){
+        	var totalLi = $(listItem).length;
             $(listItem).each(function(index) {
-                dataWeight += $(this).attr('data-weight') + "\n";
+            	totalLi--;
+            	if(totalLi != 0 ) {
+            		dataWeight += $(this).attr('data-weight') + "|";
+            	}
+            	else {
+            		dataWeight += $(this).attr('data-weight');
+            	}
+                
                 console.log($(this).attr('data-weight'));
             });
 
@@ -23,7 +31,7 @@
                 $.ajax({
                     type: "POST",
                     // URL script PHP
-                    url: JS_PATH_AJAX+"categorie-sort.php",
+                    url: JS_PATH_AJAX_CATEGORIE_SORT,
                     data: {
                         weight: dataWeight
                     },
@@ -31,10 +39,10 @@
                     beforeSend:function() {
                     },
                     success:function(data) {
-                        addMssg( 'okay', 'Categories sorted.' );
+
                     },
                     error:function() {
-                        addMssg( 'error', 'Cannot sort categories.' );
+
                     }
                 });
                 dataWeight = '';
