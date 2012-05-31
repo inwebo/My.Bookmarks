@@ -1,0 +1,22 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-05-31 03:51+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: inwebo <inwebo@gmail.com>\n"
+"Language-Team: inwebo veritas <inwebo@gmail.com>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: France\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: ~/Public/www/my.bookmarks/\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: Public/www/my.bookmarks/views/header.php:63
+msgid "Categories"
+msgstr ""
+
