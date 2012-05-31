@@ -86,6 +86,7 @@
 		},
 		drop : function(event, ui) {
 			var tempNewId = $(this).attr('data-id');
+			var hash = actualBookmark.settings.hash
 			// Requete ajax
 			$.ajax({
 				type : "POST",
@@ -96,6 +97,7 @@
 				},
 				dataType : "text",
 				success : function(data) {
+					window.pluginBookmarksHandler.switchBookmark(hash, tempNewId);
 				},
 				error : function() {
 				}
@@ -113,7 +115,7 @@
 	
 	// @todo To refactor without unbind
 	$(buttonDel).unbind('click').click(function() {
-		var actualBookmark = getAttrData($(this));
+		var actualBookmark = getAttrData( $(this) );
 		var r = confirm('Delete url (id=' + actualBookmark.settings.id + ') : ' + "\n" + '✗' + actualBookmark.settings.title + ' ?' + "\n");
 		if(r == true) {
 			$.ajax({
@@ -123,7 +125,7 @@
 					delUrl : actualBookmark.settings.id
 				},
 				success : function(data) {
-
+					window.pluginBookmarksHandler.remove(actualBookmark.settings.id);
 				},
 				error : function() {
 
@@ -157,7 +159,7 @@
 			},
 			dataType : "text",
 			success : function(data) {
-				$('.gui-display-shaddy').append(data);
+				$('.gui-display-shaddy').before(data);
 			},
 			error : function() {
 			}
@@ -169,33 +171,6 @@
 	/* =================== Bookmark Save ============= */
 	// Selecteur du formulaire
 
-		var buttonEdit = '.bookmark-edit';
-		$(buttonEdit).unbind('click').click(function() {
-			// #1 : Créer un bookmark valeur actuel
-			var actualBookmark = getAttrData($(this));
-			$('.gui-display-shaddy').fadeIn('slow');
-			// #2 : Inclure en ajax le formulaire avec les bonnes valeurs
-			$.ajax({
-				type : "POST",
-				url : JS_PATH_AJAX_BOOKMARK_EDIT_FORM,
-				data : {
-					itemHash : actualBookmark.settings.hash,
-					itemTitle : actualBookmark.settings.title,
-					itemDescription : actualBookmark.settings.description,
-					itemTags : actualBookmark.settings.tags,
-					itemCategoryId : actualBookmark.settings.category,
-					itemVisibility : actualBookmark.settings.visibility,
-					itemPublicKey : JS_PUBLIC_KEY
-				},
-				dataType : "text",
-				success : function(data) {
-					$('.gui-display-shaddy').append(data);
-				},
-				error : function() {
-				}
-			});
-			return false;
-		});
 
 		var buttonSave = '#bookmark-edit-save';
 		var formEdit = '#bookmarkForm';
