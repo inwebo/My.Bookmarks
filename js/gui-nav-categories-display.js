@@ -14,7 +14,8 @@ $('#menu-display-categories').click(function(){
 			'margin-top' : -10
 		}, 800, 'easeOutQuint');
 		
-		$(this).removeClass('');
+		$(this).children('span').removeClass('arrow_down_alt1');
+		$(this).children('span').addClass('arrow_up_alt1');
 		
 		dropdown = 1;
 	}
@@ -26,7 +27,10 @@ $('#menu-display-categories').click(function(){
 		$('h1 span').animate({
 			'margin-top' : 0
 		}, 800, 'easeOutQuint');
-		
+
+		$(this).children('span').removeClass('arrow_up_alt1');
+		$(this).children('span').addClass('arrow_down_alt1');
+
 		dropdown = 0;
 	}
 
