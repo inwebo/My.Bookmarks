@@ -5,68 +5,122 @@
     $(function() {
 
 // Add categorie
-$('#addCategory').click( function() {
-
-    if( $('#inputCat').val() == '' ) {
-		addMssg('warning','Empty input field');
+$('#categories-new-save').unbind('click').click( function() {
+	console.log('Edit');
+    if( $('#newCat').val() == '' ) {
+    	pluginNotifications.msg('Nope','empty string!');
     }
     else {
 		$.ajax({
 			type: "POST",
-			url: JS_PATH_AJAX+"categorie-add.php",
-			data: "inputCat="+$('#inputCat').val(),
+			url: JS_PATH_AJAX_CATEGORIE_ADD,
+			data: "inputCat="+$('#newCat').val(),
 			dataType: "text",
 			success:function(data) {
 				if(data != "FALSE") {
-					$('#addResponse').html('added');
-					$('#addNewcat').before('<p id="idCategorie'+$.trim(data)+'" data-id="'+$.trim(data)+'"><a href="'+JS_PATH_INDEX+'categorie/'+$('#inputCat').val()+'/'+data+'">'+$('#inputCat').val()+'</a><span class="bookmarks-delete bookmarks-delete-small" data-id="'+$.trim(data)+'" data-category="'+$.trim(data)+'" ><a href="#" title="Delete" onclick="return false;">x</a></p>');
-                                        addMssg('Okay', 'News category ' + $('#inputCat').val() + ' added');
-                                        $.ajaxSetup({async: false});
-					$.getScript(JS_PATH_JS+'admin-bookmarks.js');
-					$.getScript(JS_PATH_JS+'admin-categories.js');
-					$.ajaxSetup({async: true});
+					pluginNotifications.msg('Added',data);
+					
+					// #1 : copy first li
+					$pattern = $('#sortable li').filter(':first').clone();
+					$patternLeftMenu = $pattern.children('span').filter(':first').clone();
+					$patternRighttMenu = $pattern.children('span').filter(':last').clone();
+					
+					// #2 : Change attributs
+					$pattern.attr('data-id',data);
+					$pattern.attr('data-name',$('#newCat').val());
+
+					
+					var text = ' ';
+					text +=  $('#newCat').val();
+					$pattern.text(text);
+					
+					$pattern.prepend($patternLeftMenu);
+					$pattern.append($patternRighttMenu);
+					
+					// #3 : Add to DOM
+					$('#sortable').append($pattern);
+
+					// #4 : Message
+					console.log('added');
+					window.pluginCategoriesHandler.Query();
+
 				}
 				else {
-                                        addMssg('warning','Categorie already exists');
+					addMssg('warning','Categorie already exists');
 				}
 				$('#inputCat').val('');
 			},
 			error:function() {
-                                addMssg('error','Une erreur est survenue essayer plus tard');
 			}
 		});
 
     }
-	$('#addResponse').delay(2500).slideUp(300);
     });
 
 
         // Delete categorie
-        $('#categoriesList p.ui-droppable span').click(function() {
+        $('.categorie-delete').unbind('click').live('click',
+        
+        function() {
+        	var temp = $(this).closest('li');
             var i = $(this);
-            var r = confirm('Delete categorie number : ' + $(this).attr('data-category') + ' ( id='+$(this).attr('data-id')+' ) ?'+"\n");
+            var r = confirm('Delete categorie number : ' + $(temp).attr('data-id').trim() + ' ( id='+$(temp).attr('data-id').trim()+' ) ?'+"\n");
             if(r==true) {
                 $.ajax({
                     type: "POST",
-                    // URL script PHP
-                    url: JS_PATH_AJAX+"categorie-del.php",
+                    url: JS_PATH_AJAX_CATEGORIE_DEL,
                     data: {
-                        delCat: $(this).attr('data-id')
+                        delCat: $(temp).attr('data-id').trim()
                     },
                     dataType: "text",
                     beforeSend:function() {
                     },
                     success:function(data) {
-                        var categorieName = i.attr('data-category');
-                        i.parent('p').slideUp(300);
-                        addMssg( 'okay', 'Categorie ' + categorieName + ' deleted.' );
+                    	$(temp).effect('blind',function(){
+                    		$(this).remove();
+                    	});
+                    	//
                     },
                     error:function() {
-                        addMssg( 'error', 'Cannot delete element.' );
+
                     }
                 })
             }
-        });
 
+        }
+        
+        );
+        // Edit categorie
+        $('.categorie-edit').unbind('click').live('click',
+        
+        function() {
+        	var temp = $(this).closest('li');
+            var i = $(this);
+            var r = confirm('Delete categorie number : ' + $(temp).attr('data-id').trim() + ' ( id='+$(temp).attr('data-id').trim()+' ) ?'+"\n");
+            if(r==true) {
+                $.ajax({
+                    type: "POST",
+                    url: JS_PATH_AJAX_CATEGORIE_EDIT_FORM,
+                    data: {
+                        delCat: $(temp).attr('data-id').trim()
+                    },
+                    dataType: "text",
+                    beforeSend:function() {
+                    },
+                    success:function(data) {
+                    	$(temp).effect('blind',function(){
+                    		$(this).remove();
+                    	});
+                    	//
+                    },
+                    error:function() {
+
+                    }
+                })
+            }
+
+        }
+        
+        );
     });
 })(jQuery);
