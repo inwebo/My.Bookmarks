@@ -40,28 +40,33 @@ extract( $GLOBALS );
         
         <div class="tabs-content">
             <div>
-
                 <?php
                     $template->display('configuration');
                 ?>
             </div>
             <div>
+            	<h3>Add catégorie</h3>
+				<input id="newCat" name="newCat" value="" />&nbsp;<a href="#" id="categories-new-save" name="categories-new-save" class="button darkGreen lightGreenBackground" onclick="return false;"><span class="iconic plus iconsize"></span></a>
+                <br>
+                <br>
                 <h3>Categories weight</h3>
+                <p>Détermine l'ordre d'affichage des catégories sur la page d'accueil.</p>
+                <hr>
                 <ul id="sortable" class="bookmarks-list">
                 	<?php
 						$gridPattern  = $sql->query('SELECT * FROM `' . DB_TABLE_PREFIX . 'categories_weight`');
 						$gridPattern  = explode('|', $gridPattern[0]['data'] );
                 	?>
-                	
                     <?php  foreach( $gridPattern as $value ) { ?>
                     	<?php  foreach( $allCategories as $oneCat ) { ?>
                     		<?php if( $oneCat['id'] == $value ) { ?>
-								<li data-weight="<?php echo $oneCat['id']; ?>" class="oneBookmark"><?php echo $oneCat['name']; ?></li>
+								<li data-id="<?php echo $oneCat['id']; ?>" data-name="<?php echo $oneCat['name']; ?>"  class="oneBookmark"><span class="iconic move"></span>&nbsp;<?php echo $oneCat['name']; ?>
+									<span class="oneBookmark-menu oneBookmark-menu-right"> <a href="#" title="Edit" class="bookmark-icon categorie-edit"><span class="iconic pen iconSize"></span></a> <a href="#" title="Delete" class="bookmark-icon categorie-delete"><span class="iconic x_alt iconSize"></span></a> </span>
+                    			</li>
                     		<?php } ?>
                     	<?php } ?>
                     <?php } ?>
                 </ul>
-                <a id="categories-weigth-save" href="#">Save</a>
             </div>
             <div>
                 <h3>Corbeille</h3>
@@ -72,7 +77,7 @@ extract( $GLOBALS );
                 <code>
                 	<pre>
                 		<?php
-                			include(PATH_LOGS.'exceptions.log');
+                			include( PATH_LOGS . 'exceptions.log' );
 						?>
                 	</pre>
                 </code>
@@ -85,7 +90,7 @@ extract( $GLOBALS );
                         $constantes = $constantes['user'];
 						
                         foreach ($constantes as $key => $value) {
-                            echo '<strong>'.$key . '</strong> : ' . $value . '<br>';
+                            echo '<strong>'.$key . '</strong> : ' . $value . '<br>' . "\n";
                         }
                     ?>
                 </code>
