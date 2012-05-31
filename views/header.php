@@ -37,7 +37,17 @@
  * @link      https://github.com/inwebo/My.Bookmarks
  * @since     File available since Beta 28-11-2011
  */
+ 
 ?>
+<?php
+$locale = "en_UK";
+//if (isSet($_GET["locale"])) $locale = $_GET["locale"];
+putenv("LC_ALL=$locale");
+setlocale(LC_ALL, $locale);
+bindtextdomain("messages", PATH_ROOT . "locale");
+textdomain("messages");
+?>
+
 <!-- header -->
 <header>
 	<div class="container_12">
@@ -50,7 +60,7 @@
 			</li>
 			<?php } ?>
 			<li id="menu-categories-tab">
-				<a href="<?php echo PATH_ROOT; ?>index.php" title="Categories"><span class="iconic book iconsize"></span> Categories </a>
+				<a href="<?php echo PATH_ROOT; ?>index.php" title="Categories"><span class="iconic book iconsize"></span> <?php echo _('Categories'); ?> </a>
 				<a href="#" id="menu-display-categories" ><span class="iconic arrow_down_alt1 x-small"></span></a>
 			</li>
 			<li>
