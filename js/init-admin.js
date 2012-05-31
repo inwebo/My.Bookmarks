@@ -1,3 +1,5 @@
-;(function($){
-	pluginNotifications.msg('prout');
-})(jQuery);
+$(window).load(function(){
+	console.log('init admin');
+	window.pluginBookmarksHandler = new $.myBookmarksHandler();
+	
+});

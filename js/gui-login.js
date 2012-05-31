@@ -46,6 +46,5 @@ $('.login-show-form').click(function(){
 	$('#loginFieldset').toggle();
 });
 
-
-        })(jQuery);
+})(jQuery);
 
