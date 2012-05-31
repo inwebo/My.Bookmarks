@@ -1,0 +1,8 @@
+#sortable li {
+	cursor: move;
+	min-height: 20px;
+}
+
+#sortable .categories-sort-placeholder {
+	background-color: #FFECB5;
+}
