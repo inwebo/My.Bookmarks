@@ -50,5 +50,5 @@ if( $sql->countRows == 0 ) {
 }
 else {
 	$newIdCat = $sql->query( 'SELECT `id` FROM `'. DB_TABLE_PREFIX .'categories` WHERE `name`=?', array( $_POST['inputCat'] ) ) ;
-        echo $newIdCat[0]['id']."\n";
+	echo $newIdCat[0]['id']."\n";
 }
