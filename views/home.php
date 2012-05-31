@@ -50,7 +50,8 @@
 extract($GLOBALS);
 
 $grid         = $factoryCategories->getBookmarksFront( $listCategories );
-$gridPattern  = array(1,2,3,4,5,6,7,8);
+$gridPattern  = $sql->query('SELECT * FROM `' . DB_TABLE_PREFIX . 'categories_weight`');
+$gridPattern  = explode('|', $gridPattern[0]['data'] );
 $smartGrid    = new MyGrid( $grid, $gridPattern );
 $currentGrid  = $smartGrid->smartGrid();
 $iterator     = 1;
