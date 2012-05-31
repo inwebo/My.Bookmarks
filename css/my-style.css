@@ -20,6 +20,7 @@
 @import url("horizontal-tabs.css");
 @import url("gui-icons.css");
 @import url("gui-buttons.css");
+@import url("gui-categories-sortable.css");
 @import url("plugin.mynotifications.css");
 /* -----------------------------------*/
 /* ---------->>> GLOBAL <<<-----------*/
@@ -142,7 +143,7 @@ input, textarea{
     );
     border: 1px solid #CFCFCF;
     box-shadow: 0 0 0 1px #FFFFFF inset;
-    padding:2px;
+    padding:6px;
 }
 
 input:focus {
