@@ -12,9 +12,8 @@ $row = $_SESSION['bookmark'];
 	<span class="oneBookmark-menu oneBookmark-menu-left bookmark-draggable"> <a href="#" class="bookmark-icon"><span class="iconic move iconSize"></span></a> </span>
 	<?php } ?>
 	<h3><img src="<?php echo $row->favicon; ?>" title="favicon">&nbsp;<a href="<?php echo $row -> url; ?>"><span class="data-title"><?php echo $row -> title; ?></span></a></h3>
-	<p class="data-desc">
-		<?php echo $row -> description; ?>
-	</p>
+	<?php // Sur une seule ligne ! ?>
+	<p class="data-desc"><?php echo $row -> description; ?></p>
 	<ul class="meta">
 		<li title="<?php echo $row->tagsAsString ?>">
 			<span class="iconic tag_fill"></span>
