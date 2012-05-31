@@ -49,5 +49,5 @@ if( count($updateIdCategory) ) {
 	echo 'FALSE';
 }
 else {
-	echo 'Del';
+	echo 'Sorted';
 }

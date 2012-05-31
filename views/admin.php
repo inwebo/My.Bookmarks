@@ -2,12 +2,17 @@
 extract( $GLOBALS );
 ?>
 <?php
-    $allCategories = $sql->query('SELECT `id`, `name` FROM `' . DB_TABLE_PREFIX . 'categories` WHERE `id` !=2 ');
+    $allCategories = $sql->query('SELECT `id`, `name` FROM `' . DB_TABLE_PREFIX . 'categories`');
 ?>
 <!-- About -->
 
 <div class="grid_12">
     <h2>Admin</h2>
+    <p>
+    	<?php
+			include('helpers/widget.php');
+		?>
+    </p>
     <div id="vtab">
 		<ul class="tabs-left">
 			<li class="home selected">
@@ -42,9 +47,18 @@ extract( $GLOBALS );
             </div>
             <div>
                 <h3>Categories weight</h3>
-                <ul id="sortable">
-                    <?php  foreach( $allCategories as $value ) { ?>
-                        <li data-weight="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></li>
+                <ul id="sortable" class="bookmarks-list">
+                	<?php
+						$gridPattern  = $sql->query('SELECT * FROM `' . DB_TABLE_PREFIX . 'categories_weight`');
+						$gridPattern  = explode('|', $gridPattern[0]['data'] );
+                	?>
+                	
+                    <?php  foreach( $gridPattern as $value ) { ?>
+                    	<?php  foreach( $allCategories as $oneCat ) { ?>
+                    		<?php if( $oneCat['id'] == $value ) { ?>
+								<li data-weight="<?php echo $oneCat['id']; ?>" class="oneBookmark"><?php echo $oneCat['name']; ?></li>
+                    		<?php } ?>
+                    	<?php } ?>
                     <?php } ?>
                 </ul>
                 <a id="categories-weigth-save" href="#">Save</a>
@@ -55,7 +69,13 @@ extract( $GLOBALS );
             </div>
             <div>
                 <h3>Journaux</h3>
-                SUPPORT CONTENT
+                <code>
+                	<pre>
+                		<?php
+                			include(PATH_LOGS.'exceptions.log');
+						?>
+                	</pre>
+                </code>
             </div>
             <div>
                 <h3>Constantes</h3>
@@ -63,6 +83,7 @@ extract( $GLOBALS );
                     <?php
                         $constantes = get_defined_constants(true);
                         $constantes = $constantes['user'];
+						
                         foreach ($constantes as $key => $value) {
                             echo '<strong>'.$key . '</strong> : ' . $value . '<br>';
                         }
