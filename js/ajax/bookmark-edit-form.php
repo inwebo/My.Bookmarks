@@ -106,12 +106,4 @@ include ('helpers/const.define.php' );
 		<a onclick="return false;" class="button darkGreen lightGreenBackground" name="bookmark-edit-save" id="bookmark-edit-save" href="#"><span class="iconic check iconsize"></span>&nbsp;Valid</a>
 		<a onclick="return false;" class="button lightRed" name="bookmark-edit-reset" id="bookmark-edit-reset" href="#"><span class="iconic curved_arrow iconsize"></span>&nbsp;Reset</a>
 	</form>
-	<div id="toolBar">
-		<span>
-			<a title="close me" href="#" class="bookmark-close">✕</a>
-		</span>
-		<span>
-			<a href="#" class="bookmark-hide">«</a>
-		</span>
-	</div>
 </div>
