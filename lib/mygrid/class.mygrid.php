@@ -9,17 +9,18 @@ Class MyGrid {
 		$this->rest    = -1;
 		$this->gridPattern = $gridPattern;
 		$this->grid    = array_fill(1, $this->items, 'grid_4');
-		
-		// #1 : Trouve l'entier multiple de colSize le plus proche
-		$this->rest = $this->multipleNombre( $this->items, $this->colSize ) - $this->items;
-		// #2 Sil il reste 2 places sur la dernière ligne, l'element est seul
-		if($this->rest == 2) {
-			$this->grid[$this->items] = "grid_12";
-		}
-		// #2-1 : Si il reste une place sur la derniere ligne, deux elements
-		else {
-			$this->grid[$this->items-1] = "grid_6";
-			$this->grid[$this->items]   = "grid_6";
+
+		switch( $this->items%3 ) {
+			case 2:
+				$this->grid[$this->items-1] = "grid_6";
+				$this->grid[$this->items]   = "grid_6";
+
+				break;
+				
+			case 1:
+				$this->grid[$this->items] = "grid_12";
+				break;
+	
 		}
 		
 	}
@@ -38,18 +39,6 @@ Class MyGrid {
 		}
 			
 		return $buffer;
-	}
-	
-	function multipleNombre ($val,$mul) {
-		$a = ( (float) $val) / ( (float) $mul );
-		$b = intval($a);
-		if(($a-$b)<=0.5){
-			$r = $b*$mul;
-		}else{
-			$r = ($b+1)*$mul;
-		}
-		$r = max($r,$mul);
-		return $r;
 	}
 	
 	public function getGrid() {
