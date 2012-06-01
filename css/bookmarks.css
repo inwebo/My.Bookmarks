@@ -107,10 +107,29 @@
 	.bookmarks-simple h3 {
 		font-size: small;
 		width:30%;
+		vertical-align: middle;
+	}
+	
+	.bookmarks-simple h3 a{
+		display: inline-block;
+    	overflow: hidden;
+    	width: 88%;
+		vertical-align: baseline;
+		font-weight: normal;
+	}
+	
+	.bookmarks-simple h3 a span.data-title {
+		white-space: nowrap;
 	}
 	
 	.bookmarks-simple p{
-		width:65%;
+	    height: 1.1em;
+	    overflow: hidden;
+	    width: 65%;
+	}
+	
+	.bookmarks-simple img {
+		vertical-align: baseline;
 	}
 	
 	.bookmarks-simple ul{
@@ -142,6 +161,16 @@
 
 .bookmarks-front li {
 	height:20px;
+}
+
+.bookmarks-front li h3 a {
+	display: inline-block;
+    overflow: hidden;
+    width: 97%;
+}
+
+.bookmarks-front li a span.data-title {
+	white-space: nowrap;
 }
 
 .bookmarks-front .oneBookmark-menu-left {
