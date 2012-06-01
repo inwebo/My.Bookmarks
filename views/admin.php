@@ -60,7 +60,7 @@ extract( $GLOBALS );
                     <?php  foreach( $gridPattern as $value ) { ?>
                     	<?php  foreach( $allCategories as $oneCat ) { ?>
                     		<?php if( $oneCat['id'] == $value ) { ?>
-								<li data-id="<?php echo $oneCat['id']; ?>" data-name="<?php echo $oneCat['name']; ?>"  class="oneBookmark"><span class="iconic move"></span>&nbsp;<?php echo $oneCat['name']; ?>
+								<li data-id="<?php echo $oneCat['id']; ?>" data-name="<?php echo $oneCat['name']; ?>"  class="oneBookmark"><span class="iconic move"></span>&nbsp;<span class="oneCatName"><?php echo $oneCat['name']; ?></span>
 									<span class="oneBookmark-menu oneBookmark-menu-right"> <a href="#" title="Edit" class="bookmark-icon categorie-edit"><span class="iconic pen iconSize"></span></a> <a href="#" title="Delete" class="bookmark-icon categorie-delete"><span class="iconic x_alt iconSize"></span></a> </span>
                     			</li>
                     		<?php } ?>
