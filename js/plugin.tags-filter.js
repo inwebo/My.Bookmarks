@@ -24,16 +24,12 @@
             plugin.settings.pluginVersion  = "05-2012";
             plugin.settings.tagsList       = $( plugin.settings.tagsSelector );
             plugin.settings.tagsCount      = plugin.settings.tagsList.length;
-            //$.error('test');
             debug( 'Construct ' + plugin.settings.pluginName + ' v' + plugin.settings.pluginVersion );
 			debug( 'Attributs' + "\n" +
         		   'inputSelector : ' + plugin.settings.inputSelector + "\n" +
         		   'tagsSelector : ' + plugin.settings.tagsSelector + "\n" +
         		   'dataTags : ' + plugin.settings.dataTags );
-        	debug( 'Total tags : ' + plugin.settings.tagsCount );
-
-            
-            // Listener         
+        	debug( 'Total tags : ' + plugin.settings.tagsCount );       
             
             $( plugin.settings.inputSelector ).keyup( function(){
             	plugin.settings.inputVal       = $( plugin.settings.inputSelector ).val();
@@ -75,8 +71,17 @@
             	plugin.settings.hasNotTagsList.hide();
             });
     	}
-    	    	
-		// Construteur
+
+		/*
+		 * Debug
+		 */
+    	var debug = function( text ) {
+    		// Verifie que ce n'est pas internet explorer
+    		if( (window['console'] !== undefined) ){
+    			( plugin.settings.debug == true ) ? console.info( text ) : null ;
+    		}
+    	}
+
         init();
     	
     }

@@ -297,7 +297,7 @@
 		}
 	
 		/*
-		 * Debug nécessite le support de console.info()
+		 * Debug
 		 */
     	var debug = function( text ) {
     		// Verifie que ce n'est pas internet explorer
