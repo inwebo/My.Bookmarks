@@ -47,7 +47,7 @@
 	}
 
 
-#loginFieldset {
+#loginFieldset, #categorieContainer {
 	font-family: sans-serif Verdana;
 	size:1em;
 	color:#555555;
