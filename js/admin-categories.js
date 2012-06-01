@@ -18,7 +18,7 @@ $('#categories-new-save').unbind('click').click( function() {
 			dataType: "text",
 			success:function(data) {
 				if(data != "FALSE") {
-					pluginNotifications.msg('Added',data);
+					pluginNotifications.msg( 'Added', data );
 					
 					// #1 : copy first li
 					$pattern = $('#sortable li').filter(':first').clone();
@@ -46,7 +46,7 @@ $('#categories-new-save').unbind('click').click( function() {
 
 				}
 				else {
-					addMssg('warning','Categorie already exists');
+					//pluginNotifications.msg('warning','Categorie already exists');
 				}
 				$('#inputCat').val('');
 			},
@@ -69,38 +69,16 @@ $('#categories-new-save').unbind('click').click( function() {
         
         );
         
-        
-        // Edit categorie
-        $('.categorie-edit').unbind('click').live('click',
-        
-        function() {
-        	var temp = $(this).closest('li');
-            var i = $(this);
-            var r = confirm('Delete categorie number : ' + $(temp).attr('data-id').trim() + ' ( id='+$(temp).attr('data-id').trim()+' ) ?'+"\n");
-            if(r==true) {
-                $.ajax({
-                    type: "POST",
-                    url: JS_PATH_AJAX_CATEGORIE_EDIT_FORM,
-                    data: {
-                        delCat: $(temp).attr('data-id').trim()
-                    },
-                    dataType: "text",
-                    beforeSend:function() {
-                    },
-                    success:function(data) {
-                    	$(temp).effect('blind',function(){
-                    		$(this).remove();
-                    	});
-                    	//
-                    },
-                    error:function() {
-
-                    }
-                })
-            }
-
-        }
+        // Delete categorie handler
+        $('.categorie-edit').die('click').live('click',			
+			// #2 : deleteCat()
+	        function() {
+	        	var $current = $(this).closest('.oneBookmark');
+	        	var action = new $.myCategorie({'currentNode':$current});
+	        	action.editCat();
+	        }
         
         );
+
     });
 })(jQuery);
