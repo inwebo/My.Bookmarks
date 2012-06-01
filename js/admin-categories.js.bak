@@ -58,18 +58,38 @@ $('#categories-new-save').unbind('click').click( function() {
     });
 
 
-        // Delete categorie handler
-        $('.categorie-delete').die('click').live('click',			
-			// #2 : deleteCat()
-	        function() {
-	        	var $current = $(this).closest('.oneBookmark');
-	        	var action = new $.myCategorie({'currentNode':$current});
-	        	action.deleteCat();
-	        }
+        // Delete categorie
+        $('.categorie-delete').unbind('click').live('click',
+        
+        function() {
+        	var temp = $(this).closest('li');
+            var i = $(this);
+            var r = confirm('Delete categorie number : ' + $(temp).attr('data-id').trim() + ' ( id='+$(temp).attr('data-id').trim()+' ) ?'+"\n");
+            if(r==true) {
+                $.ajax({
+                    type: "POST",
+                    url: JS_PATH_AJAX_CATEGORIE_DEL,
+                    data: {
+                        delCat: $(temp).attr('data-id').trim()
+                    },
+                    dataType: "text",
+                    beforeSend:function() {
+                    },
+                    success:function(data) {
+                    	$(temp).effect('blind',function(){
+                    		$(this).remove();
+                    	});
+                    	//
+                    },
+                    error:function() {
+
+                    }
+                })
+            }
+
+        }
         
         );
-        
-        
         // Edit categorie
         $('.categorie-edit').unbind('click').live('click',
         

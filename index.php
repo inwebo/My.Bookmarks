@@ -4,17 +4,20 @@
 		exit();
 	}
 ?>
+<?php 
+
+$lang = 'fr_FR.utf8';
+$filename = 'message';
+
+putenv("LC_ALL=$lang");
+setlocale(LC_ALL, $locale);
+bindtextdomain($filename,"./locale");
+bind_textdomain_codeset($filename, "UTF-8");
+textdomain("messages"); 
+?>
 <?php include('autoload.php'); ?>
 <?php include( dirname( __FILE__ ) . DIRECTORY_SEPARATOR .'helpers/const.define.php' ); ?>
-<?php 
- 
- /*
-$locale = "fr_FR";
-putenv("LC_ALL=$locale");
-setlocale(LC_ALL, $locale);
-bindtextdomain("messages",dirname( __FILE__ ) . DIRECTORY_SEPARATOR ."locale");
-textdomain("messages"); */
-?>
+
 <?php
 ini_set('display_errors', APP_DEBUG);
 // Controleur Init
@@ -102,6 +105,7 @@ if( isset( $_GET['q'] ) && $_SESSION['type'] == 'admin' ) {
 </head>
 
 <body>
+	<?php echo _('Hello'); ?>
     <div class="gui-display-shaddy">&nbsp;</div>
 	<?php //if( $_SESSION['type'] == 'admin' ) { ?>
     <div id="categories-landing">
