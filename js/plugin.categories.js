@@ -91,6 +91,50 @@
             
 		}
 		
+		plugin.editCat = function() {
+                $.ajax({
+                    type: "POST",
+                    url: JS_PATH_AJAX_CATEGORIE_EDIT_FORM,
+                    data: {
+                        editId: plugin.settings.id,
+                        publicKey: JS_PUBLIC_KEY,
+                        editName: plugin.settings.name
+                    },
+                    dataType: "text",
+                    beforeSend:function() {
+                    },
+                    success:function(data) {
+                    	$('.gui-display-shaddy').before(data).show();
+                    	$('#categorieContainer').show();
+                    	$('#categorie-edit-save').die( 'click' ).live( 'click', function(){
+							$.ajax({
+			                    type: "POST",
+			                    url: JS_PATH_AJAX_CATEGORIE_EDIT,
+			                    data: {
+			                        editId: plugin.settings.id,
+									publicKey: JS_PUBLIC_KEY,
+			                        editName: $('#title').val()
+			                    },
+			                    dataType: "text",
+			                    beforeSend:function() {
+			                    },
+			                    success:function(data) {
+									$('#categorieContainer').hide();
+									$('.gui-display-shaddy').hide();
+			                    },
+			                    error:function() {
+			
+			                    }
+			                })      
+                    	});
+                    	
+                    },
+                    error:function() {
+
+                    }
+                })        
+		}
+		
 		/*
 		 * Modifie les attributs de l objet
 		 */
