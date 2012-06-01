@@ -210,7 +210,7 @@ if( isset( $_GET['q'] ) && $_SESSION['type'] == 'admin' ) {
 <script type="text/javascript" src="<?php echo PATH_JS; ?>init-gui.js"></script>
 <?php if( $_SESSION['type'] == "admin" ) { ?>
 	<?php include( PATH_HELPERS.'js.include-admin.php' ); ?>
-	<script type="text/javascript" src="<?php echo PATH_JS; ?>init-admin.js"></script>
+	<script type="text/javascript" src="<?php echo PATH_JS; ?>factory-admin.js"></script>
     <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-bookmarks.js"></script>
     <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-categories.js"></script>
     <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-categories-sort.js"></script>

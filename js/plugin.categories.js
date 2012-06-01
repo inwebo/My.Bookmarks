@@ -91,6 +91,52 @@
             
 		}
 		
+
+		plugin.createCat = function() {
+			var newCatVal = $('#newCat').val();
+			console.log('###');
+			// #1 : Requet ajax SQL
+			$.ajax({
+				type : "POST",
+				url : JS_PATH_AJAX_CATEGORIE_ADD,
+				data : "inputCat=" + newCatVal,
+				dataType : "text",
+				success : function(data) {
+					if (data != "FALSE") {
+						console.log('2');
+						newCatId = data;
+						pluginNotifications.msg('Addefd', newCatVal);
+
+						$.ajax({
+							type : "POST",
+							url : JS_PATH_AJAX_CATEGORIE_SORTABLE_EMPTY_PATTERN,
+							dataType : "text",
+							success : function(data) {
+								var $pattern = $(data);
+								$pattern.attr('data-id', newCatId);
+								$pattern.attr('data-name', newCatVal);
+								$pattern.children('.oneCatName').html(newCatVal);
+								$('#sortable').append($pattern);
+								window.pluginCategoriesHandler.upDateGrid();
+								console.log('3');
+								
+							},
+							error : function() {
+							}
+						});
+
+					} else {
+						console.log('elsez');
+						// Exists déjà
+						//pluginNotifications.msg('warning','Categorie already exists');
+					}
+					$('#inputCat').val('');
+				},
+				error : function() {
+				}
+			});
+		}
+		
 		plugin.editCat = function() {
                 $.ajax({
                     type: "POST",
@@ -120,7 +166,10 @@
 			                    },
 			                    success:function(data) {
 									$('#categorieContainer').hide();
-									$('.gui-display-shaddy').hide();
+									$('.gui-display-shaddy').hide();									
+									$(plugin.settings.currentNode).find( 'span.oneCatName' ).html( $('#title').val() );
+									console.log('nom changé');
+									$( '#categorieContainer' ).remove();
 			                    },
 			                    error:function() {
 			
