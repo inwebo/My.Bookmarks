@@ -44,9 +44,9 @@ chdir('..');
 include ('autoload.php');
 include ('helpers/const.define.php' );
 
-	if (!isset($_POST['itemPublicKey']) ||
-		!isset($_POST['itemTitle']) ) {
-			exit('Error Post baby');
+	if ( !isset( $_POST['editId'] ) ||
+		!isset( $_POST['editName'] ) ) {
+			exit( 'Error Post baby' );
 	}
 ?>
 <div id="categorieContainer">
@@ -54,10 +54,10 @@ include ('helpers/const.define.php' );
 	<form action="http://localhost/My.Bookmarks/js/ajax/" enctype="application/x-www-form-urlencoded" method="post" name="bookmarkForm" id="bookmarkForm">
 		<label id="labelTitle">Name :
 			<br>
-			<input type="text" value="<?php echo $_POST['itemTitle']; ?>" name="title" id="title">
+			<input type="text" value="<?php echo $_POST['editName']; ?>" name="title" id="title">
 		</label>
 		<hr>
-		<a onclick="return false;" class="button darkGreen lightGreenBackground" name="bookmark-edit-save" id="bookmark-edit-save" href="#"><span class="iconic check iconsize"></span>&nbsp;Valid</a>
+		<a onclick="return false;" class="button darkGreen lightGreenBackground" name="bookmark-edit-save" id="categorie-edit-save" href="#"><span class="iconic check iconsize"></span>&nbsp;Valid</a>
 		<a onclick="return false;" class="button lightRed" name="bookmark-edit-reset" id="bookmark-edit-reset" href="#"><span class="iconic curved_arrow iconsize"></span>&nbsp;Reset</a>
 	</form>
 </div>
