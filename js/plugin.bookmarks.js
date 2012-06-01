@@ -67,8 +67,7 @@
 			// Construction des attributs
 			plugin.settings         = $.extend({}, defaults, options);
             plugin.settings.name    = 'MyBookmark';
-            plugin.settings.version = '05-2012';
-            debug('New object bookmark');
+            plugin.settings.version = '06-2012';
 		}
 		
 		/*
@@ -86,7 +85,6 @@
 		 */
 		plugin.update = function ( options ) {
 			plugin.settings = $.extend( plugin.settings, options );
-			
 		}
 		
 		// Construteur
