@@ -539,8 +539,3 @@ extract($GLOBALS);
 
 </div>
 <link rel="stylesheet" href="<?php echo PATH_CSS; ?>style-public.css">
-<script src="http://localhost/My.Bookmarks/js/js.const.define.php" type="text/javascript"></script>
-<script src="http://localhost/My.Bookmarks/js/plugin.bookmarks.js" type="text/javascript"></script>
-<script src="http://localhost/My.Bookmarks/js/admin-bookmarks.js" type="text/javascript"></script>
-<script src="http://localhost/My.Bookmarks/js/admin-init.js" type="text/javascript"></script>
-<script src="http://localhost/My.Bookmarks/js/configuration.js" type="text/javascript"></script>
