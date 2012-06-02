@@ -207,14 +207,9 @@ if( isset( $_GET['q'] ) && $_SESSION['type'] == 'admin' ) {
 
 <!-- Custom JS -->
 <?php include( PATH_HELPERS.'js.include-gui.php' ); ?>
-<script type="text/javascript" src="<?php echo PATH_JS; ?>init-gui.js"></script>
+<script type="text/javascript" src="<?php echo PATH_JS; ?>public-factory.js"></script>
 <?php if( $_SESSION['type'] == "admin" ) { ?>
-	<?php include( PATH_HELPERS.'js.include-admin.php' ); ?>
-	<script type="text/javascript" src="<?php echo PATH_JS; ?>factory-admin.js"></script>
-    <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-bookmarks.js"></script>
-    <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-categories.js"></script>
-    <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-categories-sort.js"></script>
-    <script type="text/javascript" src="<?php echo PATH_JS; ?>admin-tabs.js"></script>
+	<?php include( PATH_HELPERS.'js.include-admin.php' ); ?>    
     <link rel="stylesheet" href="<?php echo PATH_CSS; ?>style-public.css">
 <?php } ?>
 <script type="text/javascript" src="<?php echo GA_PATH_TRACKER; ?>?id=<?php echo GA_ID; ?>"></script>
