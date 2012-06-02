@@ -10,14 +10,14 @@
 -Détail des liens
 +Export de la BDD sous forme de SQL, XML, HTML
 +Import de liens provenant de firefox, opera, chromium
-+Support multilingues
+-Support multilingues
 -Constantes php -> variables globales javascript
 -Sauvegarde des favicons si possible
 +owasp sanitize
 -Meilleur organisation des fichiers
 -Régler probléme branche github
 -Page about
-+Full object
+-Full object
 -Object lien
 -Todo list
 +Affichage par jour
@@ -27,7 +27,7 @@
 -Gestion des dates
 -Préfix database pour toutes les requêtes.
 -Catégorie menu déroulant contenant toutes les catégories
-+Function translate (voir drupal)
+-Function translate (voir drupal)
 +Gestion des droits sur les fichiers
 +Autorisation auto-update
 +Ajouter favoris (de favoris ? ben voyons). <span>★★★&bull;&bull; </span>
@@ -46,3 +46,4 @@
 +Mettre à jour class ahref (inutile pour l'instant)
 -Fixer la taille des carateres formulaire publique
 +Fixed inode sous windows SplFileInfo::getATime(): stat failed dans js.const.define.php
++Ne pas sauvegarder l'icone par default

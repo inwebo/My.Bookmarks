@@ -143,6 +143,9 @@
 	$( buttonEdit ).unbind('click').click(function() {
 		// #1 : Créer un bookmark valeur actuel
 		var actualBookmark = getAttrData($(this));
+		actualIndex = $(this).closest('.oneBookmark').index();
+		console.log(actualIndex);
+		
 		$('.gui-display-shaddy').fadeIn('slow');
 		// #2 : Inclure en ajax le formulaire avec les bonnes valeurs
 		$.ajax({
@@ -176,6 +179,7 @@
 		var formEdit = '#bookmarkForm';
 		// @todo public
 		$(buttonSave).unbind('click').live('click', function() {
+			console.log('Current index : ' + actualIndex);
 			$.ajax({
 				type : "POST",
 				url : JS_PATH_AJAX_BOOKMARK_EDIT,
@@ -189,7 +193,14 @@
 				},
 				dataType : "text",
 				success : function(data) {
+					//$('.bookmarks-list li').eq(actualIndex).remove();
+					actualIndex++;
 
+					$(".bookmarks-list li:nth-child(" + actualIndex + ")").before( $( data ) ).remove();
+					//$(".bookmarks-list li:nth-child(" + actualIndex+1 + ")").remove();
+					$('.gui-display-shaddy').hide();
+					$('#bookmarkContainer').remove();
+					$.getScript(JS_PATH_JS + 'admin-bookmarks-handler.js');
 				},
 				error : function() {
 

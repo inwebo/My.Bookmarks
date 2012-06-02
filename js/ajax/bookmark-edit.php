@@ -49,6 +49,7 @@ include( 'lib/sanitize/class.sanitize.php' );
 if(
         !isset($_POST['itemPublicKey']) ||
         !isset($_POST['itemDescription']) ||
+		!isset($_POST['itemPublic']) ||
         !isset($_POST['itemHash']) ||
         !isset($_POST['itemTags']) ||
         !isset($_POST['itemTitle']) 
@@ -67,7 +68,32 @@ $b = array( $_POST['itemTitle'], $_POST['itemDescription'], $_POST['itemTags'] ,
 
 $new = $sql->query( $a, $b );
 if( $sql->countRows == "1" ) {
-        echo 'TRUE';
+        //echo 'TRUE';
+		$a ="SELECT * FROM `". DB_TABLE_PREFIX ."bookmarks` WHERE  `hash` = ?";
+		$b = array( $_POST['itemHash'] );
+		$q = $sql->query($a, $b);
+		
+                ( is_file( PATH_ROOT . 'images/favicon/'.$q[0]['hash'] ) ) ?
+              		$favicon = PATH_ROOT . 'images/favicon/'.$q[0]['hash'] :
+                		$favicon = PATH_DEFAULT_FAVICON ;
+		
+		//var_dump($newBookmarkQuery);
+		$toSend = new Bookmark(array(
+			'id' => $q[0]['id'],
+			'hash' => $q[0]['hash'],
+			'url' => $q[0]['url'],
+			'title' => $q[0]['title'],
+			'tags' => $q[0]['tags'],
+			'description' => $q[0]['description'],
+			'dt' => $q[0]['dt'],
+			'category' => $q[0]['category'],
+			'public' => $q[0]['public'],
+			'favicon'=>$favicon
+		));
+		$_SESSION['bookmark'] = $toSend;
+		$_SESSION['type'] = 'admin';
+		$template->display('bookmark');
+		$_SESSION['bookmark'] = null;
 }
 else {
 	echo 'FALSE';

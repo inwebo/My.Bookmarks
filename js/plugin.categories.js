@@ -167,9 +167,10 @@
 			                    success:function(data) {
 									$('#categorieContainer').hide();
 									$('.gui-display-shaddy').hide();									
-									$(plugin.settings.currentNode).find( 'span.oneCatName' ).html( $('#title').val() );
-									console.log('nom changé');
+									$( plugin.settings.currentNode ).find( 'span.oneCatName' ).html( $('#title').val() );
+
 									$( '#categorieContainer' ).remove();
+									console.log('nom changé');
 			                    },
 			                    error:function() {
 			
