@@ -97,7 +97,7 @@ if( $sql->countRows === 1 ) {
             while(!feof($from))
                 $data.=fread($from,1024);
             fclose($from );
-            $to = fopen('images/favicon/' .  md5($_GET['url']),'w+');
+            $to = fopen('images/favicon/' .  md5($_GET['url']) . '.png','w+');
             fwrite($to, $data);
         }
         
