@@ -9,7 +9,7 @@
 @import url("footer.css");
 @import url("setup.css");
 @import url("widget.css");
-@import url("gui-infos-bulles.css");
+@import url("gui-notifications.css");
 @import url("login.css");
 @import url("breadcrumbs.css");
 @import url("bookmarks.css");
@@ -22,6 +22,7 @@
 @import url("gui-buttons.css");
 @import url("gui-categories-sortable.css");
 @import url("plugin.mynotifications.css");
+@import url("config.css");
 /* -----------------------------------*/
 /* ---------->>> GLOBAL <<<-----------*/
 /* -----------------------------------*/
@@ -262,42 +263,12 @@ div[class*='container_12'] div[class*='grid_'] {
 	border-bottom: 5px solid white;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.aleft {
+	float:left;
+}
+.aright {
+	float:right;
+}
+.acenter {
+	text-align:center;
+}

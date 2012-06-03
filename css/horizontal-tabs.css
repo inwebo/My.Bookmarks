@@ -19,6 +19,11 @@
     margin: 0;
     padding: 10px;
     height:20px;
+    list-style: decimal;
+}
+
+#tabs>ul li.disabled {
+	opacity:0.5;
 }
 
 #tabs>ul li.active {
