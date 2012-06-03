@@ -8,11 +8,10 @@ extract( $GLOBALS );
 
 <div class="grid_12">
     <h2>Admin</h2>
-    <p>
-    	<?php
-			include('helpers/widget.php');
-		?>
-    </p>
+		<p class="bookmarkletContainer acenter">
+                           	 Déposez le bookmarklet dans votre barre de favoris.<br>&darr;<br>
+                           	&rarr;<?php include('helpers/widget.php'); ?>&larr;<br>&uarr;
+                           </p>
     <div id="vtab">
 		<ul class="tabs-left">
 			<li class="home selected">
@@ -70,12 +69,12 @@ extract( $GLOBALS );
             </div>
             <div>
                 <h3>Corbeille</h3>
-                SUPPORT CONTENT
+                <tt><strong>@todo : next realease</strong></tt>
             </div>
             <div>
                 <h3>Journaux</h3>
                 <code>
-                	<pre>
+                	<pre>&nbsp;
                 		<?php
                 			include( PATH_LOGS . 'exceptions.log' );
 						?>
@@ -84,27 +83,37 @@ extract( $GLOBALS );
             </div>
             <div>
                 <h3>Constantes</h3>
+                <p>
+                	Ensemble des constantes <tt>php</tt> définies par l'application. A noter ce sont également des "constantes" javascript disponibles.
+                	Elles sont préfixées par <tt>JS_</tt>. Exemple <tt>PATH_ROOT</tt> donne <tt>JS_PATH_ROOT</tt>. 
+                </p>
+                <hr>
                 <code>
+                	
                     <?php
                         $constantes = get_defined_constants(true);
                         $constantes = $constantes['user'];
 						
                         foreach ($constantes as $key => $value) {
-                            echo '<strong>'.$key . '</strong> : ' . $value . '<br>' . "\n";
+                            echo '<strong><tt title="Javascript : JS_'. $key .'">'.$key . '</tt></strong> : ' . $value . '<br>' . "\n";
                         }
                     ?>
+                   
                 </code>
             </div>
             <div>
             	<h3>Typographie</h3>
             	<p>
-            		<a href="<?php echo PATH_INDEX; ?>typographie/"><span class="iconic beaker_alt iconsize"></span> Page de démonstration</a>
+            		Page pour jeter un coup d'oeil rapide à l'ensemble des styles CSS.<a href="<?php echo PATH_INDEX; ?>typographie/" target="_blank">Page de démonstration</a>
             	</p>
             </div>
             <div>
             	<h3>About</h3>
             	<p>
-            		
+            		Version <?php include(PATH_HELPERS . 'version.php'); ?>, dernière version : <?php
+            		$code_html=file_get_contents(APP_UPDATE_SERVER); 
+					echo $code_html;
+            		?>
             	</p>
             </div>
         </div>
