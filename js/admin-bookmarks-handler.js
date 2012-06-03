@@ -126,6 +126,7 @@
 				},
 				success : function(data) {
 					window.pluginBookmarksHandler.remove(actualBookmark.settings.id);
+						window.pluginNotifications.msgInfo('[' + actualBookmark.settings.id + ']'+actualBookmark.settings.title.trim()+' deleted');
 				},
 				error : function() {
 
@@ -144,7 +145,7 @@
 		// #1 : Créer un bookmark valeur actuel
 		var actualBookmark = getAttrData($(this));
 		actualIndex = $(this).closest('.oneBookmark').index();
-		console.log(actualIndex);
+		//console.log(actualIndex);
 		
 		$('.gui-display-shaddy').fadeIn('slow');
 		// #2 : Inclure en ajax le formulaire avec les bonnes valeurs
@@ -163,6 +164,7 @@
 			dataType : "text",
 			success : function(data) {
 				$('.gui-display-shaddy').before(data);
+
 			},
 			error : function() {
 			}
@@ -179,7 +181,7 @@
 		var formEdit = '#bookmarkForm';
 		// @todo public
 		$(buttonSave).unbind('click').live('click', function() {
-			console.log('Current index : ' + actualIndex);
+			//console.log('Current index : ' + actualIndex);
 			$.ajax({
 				type : "POST",
 				url : JS_PATH_AJAX_BOOKMARK_EDIT,
@@ -195,12 +197,18 @@
 				success : function(data) {
 					//$('.bookmarks-list li').eq(actualIndex).remove();
 					actualIndex++;
-
-					$(".bookmarks-list li:nth-child(" + actualIndex + ")").before( $( data ) ).remove();
+					if(actualIndex !=  1) {
+						$(".bookmarks-list li:nth-child(" + actualIndex + ")").before( $( data ) ).remove();
+					}
+					else {
+						$(".bookmarks-list li").filter(':first').remove();
+						$(".bookmarks-list").append( $( data ) );
+					}
 					//$(".bookmarks-list li:nth-child(" + actualIndex+1 + ")").remove();
 					$('.gui-display-shaddy').hide();
 					$('#bookmarkContainer').remove();
 					$.getScript(JS_PATH_JS + 'admin-bookmarks-handler.js');
+					window.pluginNotifications.msgInfo('Bookmark saved');
 				},
 				error : function() {
 

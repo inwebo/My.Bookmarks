@@ -14,19 +14,20 @@
                                         setupDbPrefix: $('#setupDbPrefix').val(),
                                         },
 				dataType: "text",
-				beforeSend:function() {
+				beforeSend:function() { 
 				},
 				success:function(data) {
 					//data = responseText
 					if( data == 'TRUE' ) {
-						addMssg('okay','Connexion ok.');
+						//addMssg('okay','Connexion ok.');
+						window.pluginNotifications.msgInfo('MySQL server online.');
 					}
 					else {
-						addMssg('error','Connexion error');
+						window.pluginNotifications.msgError('Bad sql configuration, fix it and try again.');
 					}
 				},
 				error:function() {
-                                        addMssg('error','Error 404<br>Please chek path input.');
+					window.pluginNotifications.msgError('Network error.');
 				}
 			});
 
@@ -38,11 +39,17 @@
 	$( '#continue' ).click(function() {
 		$( location).attr( 'href', $( '#setupRoot' ).val() );
 	});
-
+	
+	$('.tabs-content').filter(':visible').append('<a class="button darkGreen lightGreenBackground" name="setupSave" id="setupSave" href="#"><span class="iconic check iconsize"></span>&nbsp;Save</a>');
+	$('#setupSave').toggle();
+	
 	$( '#setupSave' ).click(function() {
-                console.log( $( '#setupRoot' ).val() );
+        //console.log( $( '#setupRoot' ).val() );
+        
+
+        
 		if( $( '#setupRoot' ).val() == '' ) {
-			console.log('test');
+			//console.log('test');
 		}
 		else {
 			$.ajax({
@@ -72,17 +79,17 @@
 					//data = responseText
                                         //console.log(data);
 					if( data == 'TRUE' ) {
-						addMssg('okay','Bravo, l\'application s\'est instalée correctement.');
-                                                window.location.reload();
+						//addMssg('okay','Bravo, l\'application s\'est instalée correctement.');
+						window.location.reload();
                                                 
 					}
 					else {
-						addMssg('error','Database connection failed');
+						//addMssg('error','Database connection failed');
 					}
 				},
 				error:function(data) {
                                         //console.log(data);
-                                        addMssg('error','Error 404<br>Please chek path input.');
+                                        window.pluginNotifications.msgError('Network error.');
 				}
 			});
 		}
@@ -117,7 +124,7 @@
 					//data = responseText
                                         console.log(data);
 					if( data == 'TRUE' ) {
-						addMssg('okay','Updated.');
+						//addMssg('okay','Updated.');
                                                 window.location.reload();
 					}
 					else {
@@ -126,7 +133,7 @@
 				},
 				error:function(data) {
                                         //console.log(data);
-                                        addMssg('error','Error 404<br>Please chek path input.');
+                                        //addMssg('error','Error 404<br>Please chek path input.');
 				}
 			});
 		

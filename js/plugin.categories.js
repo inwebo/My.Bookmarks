@@ -66,7 +66,7 @@
 		
 		plugin.deleteCat = function() {
 			
-            var i = confirm('Delete categorie : ['+plugin.settings.id+']' + plugin.settings.name + '?'+"\n");
+            var i = confirm('Delete ['+plugin.settings.id.trim()+']' + plugin.settings.name.trim() + '?'+"\n");
             if(i==true) {
                 $.ajax({
                     type: "POST",
@@ -81,10 +81,12 @@
                     	$(plugin.settings.currentNode).effect('blind',function(){
                     		$(this).remove();
                     	});
-                    	//
+						debug(plugin.settings.name + '.deleteCat() : success');
+						window.pluginNotifications.msgInfo('[' + plugin.settings.id.trim() + ']'+plugin.settings.name.trim()+' Deleted');
                     },
                     error:function() {
-
+						debug(plugin.settings.name + '.deleteCat() : error');
+						window.pluginNotifications.msgError('Network error');
                     }
                 })
             }
@@ -94,7 +96,7 @@
 
 		plugin.createCat = function() {
 			var newCatVal = $('#newCat').val();
-			console.log('###');
+			debug(plugin.settings.name + '.createCat() : start');
 			// #1 : Requet ajax SQL
 			$.ajax({
 				type : "POST",
@@ -103,10 +105,7 @@
 				dataType : "text",
 				success : function(data) {
 					if (data != "FALSE") {
-						console.log('2');
-						newCatId = data;
-						pluginNotifications.msg('Addefd', newCatVal);
-
+						newCatId = data
 						$.ajax({
 							type : "POST",
 							url : JS_PATH_AJAX_CATEGORIE_SORTABLE_EMPTY_PATTERN,
@@ -118,10 +117,12 @@
 								$pattern.children('.oneCatName').html(newCatVal);
 								$('#sortable').append($pattern);
 								window.pluginCategoriesHandler.upDateGrid();
-								console.log('3');
+								debug(plugin.settings.name + '.createCat() : success');
+								window.pluginNotifications.msgInfo('[' + $pattern.attr('data-id') + ']'+$pattern.attr('data-name')+' created.');
 								
 							},
 							error : function() {
+								debug(plugin.settings.name + '.createCat() : error');
 							}
 						});
 
@@ -129,6 +130,7 @@
 						console.log('elsez');
 						// Exists déjà
 						//pluginNotifications.msg('warning','Categorie already exists');
+						window.pluginNotifications.msgError('Categorie already exists');
 					}
 					$('#inputCat').val('');
 				},

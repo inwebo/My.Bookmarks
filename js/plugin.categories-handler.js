@@ -79,7 +79,9 @@
 					plugin.settings.dataQuery += '' + $(this).attr('data-id').trim();
 				}
 			});
-			console.log('Query : ' + plugin.settings.dataQuery);
+			console.log( plugin.settings.name + '->buildQuery() : ' + plugin.settings.dataQuery + '##########');
+			//window.pluginNotifications.msgInfo('Grid updated');
+			
 		}
 
 		plugin.upDateGrid = function() {
@@ -96,7 +98,9 @@
 				beforeSend : function() {
 				},
 				success : function(data) {
-					console.log(plugin.settings.dataQuery);
+					console.log('upDateGrid : '+plugin.settings.dataQuery);
+					window.pluginNotifications.msgInfo('Grid updated');
+					
 				},
 				error : function() {
 				}

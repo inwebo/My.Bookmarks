@@ -66,25 +66,22 @@
 		}
 		var buildQuery = function() {
 			var totalLi = $(plugin.settings.sortableSelector).children().length;
-			console.log('Nombre item : ' + totalLi);
+			debug('Count categories : ' + totalLi);
 			plugin.settings.dataQuery = '';
 			$(plugin.settings.sortableSelector).children().each(function() {
 				totalLi--;
-
-				console.log('reste item : ' + totalLi);
-				console.log('##' + $(this).attr('data-id') + "##");
 				if (totalLi != 0) {
 					plugin.settings.dataQuery += $(this).attr('data-id').trim() + "|";
 				} else {
 					plugin.settings.dataQuery += '' + $(this).attr('data-id').trim();
 				}
 			});
-			console.log('Query : ' + plugin.settings.dataQuery);
+			debug(plugin.settings.name + '.buildQuery() : ' + plugin.settings.dataQuery);
 		}
 
 		plugin.upDateGrid = function() {
-			console.log('Order' + plugin.settings.dataQuery);
 			buildQuery();
+			debug(plugin.settings.name + '.upDateGrid() : start');
 			$.ajax({
 				type : "POST",
 				// URL script PHP
@@ -96,9 +93,10 @@
 				beforeSend : function() {
 				},
 				success : function(data) {
-					console.log(plugin.settings.dataQuery);
+					debug(plugin.settings.name + '.upDateGrid() : success');
 				},
 				error : function() {
+					debug(plugin.settings.name + '.upDateGrid() : error');					
 				}
 			});
 
