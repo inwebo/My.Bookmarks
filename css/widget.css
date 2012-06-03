@@ -13,7 +13,7 @@
 
 
 /* Bookmark bouton */
-
+/* todo sage del */
 .myButton {
 	-moz-box-shadow:inset 0px 1px 0px 0px #caefab;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #caefab;
@@ -51,4 +51,15 @@
 .myButtonHeadline:hover {
  color:red;
     
+}
+
+p.bookmarkletContainer {
+    border: 1px solid #BBDBE0;
+    color: #0888C3;
+	background-color:#ECF9FF;
+	padding:20px;
+}
+
+p.bookmarkletContainer a.button {
+	margin:0;
 }
