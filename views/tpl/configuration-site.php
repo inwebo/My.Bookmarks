@@ -26,6 +26,3 @@ $current = array_merge($conf_default, $conf);
                                         <label class="inputGrid_1 inputGrid_1-first">Sauvegarde des favicons ? : <select id="setupFavicon" name="setupFavicon"><option value="0" <?php if($current['app_save_favicon']== '0'){ echo 'selected';} ?>>non</option><option value="1"<?php if($current['app_save_favicon']== '1'){ echo 'selected';} ?>>oui</option></select></label><br>
                                         <label class="inputGrid_1">Liens public par défaut ? : <select id="setupPublic" name="setupPublic"><option value="0" <?php if($current['app_bookmarks_public']== '0'){ echo 'selected';} ?>>non</option><option value="1" <?php if($current['app_bookmarks_public']== '1'){ echo 'selected';} ?>>oui</option></select></label><br>
 				</fieldset>
-				<hr>
-				
-
