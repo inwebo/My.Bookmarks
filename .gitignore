@@ -1,3 +1,4 @@
 *.ini
+*.ini-
 .project
 images/favicon/*.png
