@@ -61,7 +61,7 @@ define('PATH_INI_BAK', 'config/config.ini.bak');
 
 
 define( 'APP_DEBUG', $conf['app_debug'] );
-
+define( 'APP_UPDATE_SERVER', $conf['app_update_server'] );
 define( 'DB_SERVER', $conf['db_server'] );
 define( 'DB_DATABASE', $conf['db_database'] );
 define( 'DB_TABLE_PREFIX', $conf['db_table_prefix'] );
