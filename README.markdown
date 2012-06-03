@@ -8,10 +8,10 @@ Présentation
 
 * [Démonstration](#demo)
 * [Nécessite](#require)
-* [Environnement développement](#Environnement-développement)
+* [Environnement développement](#environnement-développement)
 * [Objectifs](#objectifs)
-* [Principe](#Principe)
-* [Dépôt Gihub](#Dépôt-Gihub)
+* [Principe](#principe)
+* [Dépôt Gihub](#dépôt-Gihub)
 
 ## Require
 
