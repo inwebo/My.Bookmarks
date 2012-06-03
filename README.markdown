@@ -51,4 +51,4 @@ todo
 
 Est toujours la dernière version stable :
 
-    git clone git://github.com/inwebo/MyNotifications-Jquery-plugin.git
+    git clone git://github.com/inwebo/My.Bookmarks.git
