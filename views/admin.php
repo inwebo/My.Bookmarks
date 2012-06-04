@@ -8,10 +8,22 @@ extract( $GLOBALS );
 
 <div class="grid_12">
     <h2>Admin</h2>
-		<p class="bookmarkletContainer acenter">
-                           	 Déposez le bookmarklet dans votre barre de favoris.<br>&darr;<br>
-                           	&rarr;<?php include('helpers/widget.php'); ?>&larr;<br>&uarr;
-                           </p>
+    <?php
+		$i = get_headers(PATH_ROOT . PATH_INI);
+		$ok = strpos($i[0], "200");	
+		if( $i[0] == "HTTP/1.1 200 OK"  ) { 	
+    ?>
+    <div class="securityError">
+    	<h6><strong>Problème majeur de sécurité</strong></h6>
+    	<p>
+    		<a href="<?php echo PATH_ROOT . PATH_INI; ?>">Config.ini</a> est accessible depuis le ouaib de l'internet de l'an 2000. L'ensemble de vos paramètres sont dans la nature.
+    	</p>
+    </div>
+    <?php } ?>
+	<p class="bookmarkletContainer acenter">
+		Déposez le bookmarklet dans votre barre de favoris.<br>&darr;<br>
+		&rarr;<?php include('helpers/widget.php'); ?>&larr;<br>&uarr;
+	</p>
     <div id="vtab">
 		<ul class="tabs-left">
 			<li class="home selected">
