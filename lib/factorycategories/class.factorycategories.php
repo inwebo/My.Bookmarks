@@ -48,8 +48,10 @@ class FactoryCategories {
 		$cat            = $this->getCategorie($idCat);
 		$arrayBookmarks = $this->pdo->query('SELECT * FROM ' . DB_TABLE_PREFIX . 'bookmarks where category=? ORDER BY `dt` DESC', array($cat->id));
             foreach($arrayBookmarks as $key => $bookmarks) {
-                ( is_file( PATH_ROOT . 'images/favicon/'.$bookmarks['hash'] ) ) ?
-              		$favicon = PATH_ROOT . 'images/favicon/'.$bookmarks['hash'] :
+            	$i = get_headers(PATH_ROOT . 'images/favicon/'.$bookmarks['hash'] .'.png');
+				$ok = strpos($i[0], "200");			
+                ( $i[0] == "HTTP/1.1 200 OK"  ) ?
+              		$favicon = PATH_ROOT . 'images/favicon/'.$bookmarks['hash'] .'.png' :
                 		$favicon = PATH_DEFAULT_FAVICON ;
                 $bookmark = new Bookmark( array(
                 		'id'          => $bookmarks['id'],
