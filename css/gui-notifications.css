@@ -41,7 +41,7 @@
     overflow: hidden;
 
 }
-#debugOutPut ul li.debugError, .debugError{
+#debugOutPut ul li.debugError, .debugError, .securityError{
 	color: #E3302C;
 	background-color:#FFECCE;
 	border: 1px solid #E9C59B
@@ -87,3 +87,12 @@ div.debugOkay {
 	color:white;
 	text-shadow: 1px 1px 0 #77D42A;
 }
+
+.securityError {
+	margin-bottom: 20px;
+	padding:20px;
+}
+.securityError a {
+	color:red;
+	font-weight: bold;
+} 
