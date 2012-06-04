@@ -1,5 +1,6 @@
-Options All -Indexes
-<Files *.ini>
-  Deny from all
+#Options All -Indexes
+<Files ~ "\.ini$">
+	Order allow,deny
+	Deny from all
 </Files>
-SetEnv PHP_VER 5_3
+#SetEnv PHP_VER 5_3
