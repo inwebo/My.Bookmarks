@@ -71,6 +71,18 @@
     <div id="main" role="main">
         <div class="container_12">
             <div class="grid_12">
+    <?php
+		fopen( 'config/config.ini', 'w' );
+		$i = unlink('config/config.ini');
+		if( !$i ) { 	
+    ?>
+    <div class="securityError">
+    	<h6><strong>Ne peut pas sauvegardé la configuration</strong></h6>
+    	<p>
+    		Vérifier les permissions d'accés au dossier <tt>config/</tt>, l'application doit pouvoir effacer <tt>config/config.ini</tt>.
+    	</p>
+    </div>
+    <?php } ?>
             	<h2>Installation</h2>
                 <div id="tabs">
                    <ul>
