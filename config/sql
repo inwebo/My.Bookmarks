@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.10deb1
+-- version 3.3.7deb7
 -- http://www.phpmyadmin.net
 --
--- Serveur: localhost
--- Généré le : Ven 10 Février 2012 à 02:17
--- Version du serveur: 5.1.54
--- Version de PHP: 5.3.5-1ubuntu7.4
+-- Host: localhost
+-- Generation Time: Jun 04, 2012 at 06:37 PM
+-- Server version: 5.1.61
+-- PHP Version: 5.3.3-7+squeeze9
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -16,15 +16,13 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `my_structure`
+-- Database: `bookmarks_empty`
 --
-
-
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `bookmarks`
+-- Table structure for table `bookmarks`
 --
 
 CREATE TABLE IF NOT EXISTS `bookmarks` (
@@ -43,18 +41,44 @@ CREATE TABLE IF NOT EXISTS `bookmarks` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=4 ;
 
 --
--- Contenu de la table `bookmarks`
+-- Dumping data for table `bookmarks`
 --
 
 INSERT INTO `bookmarks` (`id`, `hash`, `url`, `title`, `tags`, `description`, `dt`, `category`, `public`) VALUES
-(1, '05465b06396eaa76c3a68979a4f1cb11', 'http://hannotin.julien.is.free.fr/', 'Jool : Curriculum vitæ en ligne', 'cv', 'Julien Hannotin artisan du ouaib', '2012-02-11 15:35:58', 1, 1),
-(2, 'f82ed97c8bbd79399529ab4b421bc1e4', 'https://github.com/inwebo', 'inwebo''s Profile - GitHub', 'network social-coding', 'Social coding', '2012-02-11 15:36:07', 1, 1),
-(3, 'bd0f04b8a19e3535d3a4b089e390e75b', 'http://www.youtube.com/watch?v=f7SNMXRZIlM', 'Hello world', 'hello-world', 'On va manger des chips', '2012-02-11 15:36:12', 1, 0);
+(1, '1b2dc8c80c04848d3e91895cb7958cec', 'http://www.youtube.com/watch?v=5icSN0zBVnk', 'Hello world', 'hello-world détournement', 'Des chips !', '2012-06-04 18:05:20', 1, 1),
+(2, '6a02292852c9f429a13ac6c50bb9bdec', 'https://github.com/inwebo/My.Bookmarks', 'inwebo/My.Bookmarks', 'git', 'Self hosted bookmarks application. Contribute to My.Bookmarks development by creating an account on GitHub.', '2012-06-04 17:45:06', 1, 1),
+(3, '05465b06396eaa76c3a68979a4f1cb11', 'http://hannotin.julien.is.free.fr/', 'Julien Hannotin : Curriculum vitæ en ligne', 'empty empty2', 'Julien Hannotin artisan du ouaib depuis 1793 (ou presque)', '2012-06-04 00:38:01', 1, 0);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `categories`
+-- Table structure for table `bookmarks_trash`
+--
+
+CREATE TABLE IF NOT EXISTS `bookmarks_trash` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `hash` varchar(32) COLLATE utf8_bin NOT NULL,
+  `url` text COLLATE utf8_bin NOT NULL,
+  `title` text COLLATE utf8_bin NOT NULL,
+  `tags` text COLLATE utf8_bin NOT NULL,
+  `description` text COLLATE utf8_bin NOT NULL,
+  `dt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `category` int(11) NOT NULL DEFAULT '1',
+  `public` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `hash` (`hash`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `bookmarks_trash`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
 --
 
 CREATE TABLE IF NOT EXISTS `categories` (
@@ -62,20 +86,36 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Incoming contient liens orphelins, Trash effacés' AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Default categorie ''[1]Incoming''' AUTO_INCREMENT=2 ;
 
 --
--- Contenu de la table `categories`
+-- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`id`, `name`) VALUES
-(1, 'Incoming'),
-(2, 'Poubelle');
+(1, 'Incoming');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `role`
+-- Table structure for table `categories_weight`
+--
+
+CREATE TABLE IF NOT EXISTS `categories_weight` (
+  `data` text COLLATE utf8_bin NOT NULL COMMENT 'Categories id seprate by ''|'''
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Categories order by id, display them in front page';
+
+--
+-- Dumping data for table `categories_weight`
+--
+
+INSERT INTO `categories_weight` (`data`) VALUES
+('1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `role`
 --
 
 CREATE TABLE IF NOT EXISTS `role` (
@@ -85,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `role` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
 
 --
--- Contenu de la table `role`
+-- Dumping data for table `role`
 --
 
 INSERT INTO `role` (`id`, `role`) VALUES
@@ -94,7 +134,7 @@ INSERT INTO `role` (`id`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -109,5 +149,5 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
--- Contenu de la table `users`
+-- Dumping data for table `users`
 --
