@@ -52,9 +52,11 @@ $create = file( 'config/sql' );
 $create = implode($create);
 
 $create = str_replace('bookmarks', $_POST['setupDbPrefix'] . 'bookmarks', $create);
-$create = str_replace('users', $_POST['setupDbPrefix'] . 'users', $create);
+$create = str_replace('bookmarks_trash', $_POST['setupDbPrefix'] . 'bookmarks_trash', $create);
 $create = str_replace('categories', $_POST['setupDbPrefix'] . 'categories', $create);
+$create = str_replace('categories_weight', $_POST['setupDbPrefix'] . 'categories_weight', $create);
 $create = str_replace('role', $_POST['setupDbPrefix'] . 'role', $create);
+$create = str_replace('users', $_POST['setupDbPrefix'] . 'users', $create);
 
 //echo $create;
 $version = file_get_contents('helpers/version.php');
@@ -62,8 +64,6 @@ $return = '';
 try {
 	$tempSql = new MyPdo( $_POST['setupDbServer'],$_POST['setupDbDatabase'] ,$_POST['setupDbUser'], $_POST['setupDbPassword']);
         $tempSql->query( $create );
-
-        // @todo tables prefixes
         $tempSql->query('INSERT INTO `'.$_POST['setupDbPrefix'].'users` VALUES ("","'.$_POST['setupUserName'].'", MD5(\'' . $_POST['setupUserPassword'] . '\'),1,"",MD5(\'' .$_POST['setupUserName'] .'+key\' ))');
         
         $tempConf                                        = config::get('config/config.ini.bak', TRUE);
@@ -80,7 +80,7 @@ try {
         $tempConf['Application']['app_public_key']       = md5( $_POST['setupRoot'] .  time() );
         $tempConf['Application']['app_version']          = $version;
         $tempConf['Google analytics id']['ga_id']        = $_POST['setupGa'];
-
+		echo __FILE__ ;
         config::save( $tempConf, "config/config.ini");
         
 	$return = 'TRUE';
