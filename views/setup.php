@@ -72,14 +72,15 @@
         <div class="container_12">
             <div class="grid_12">
     <?php
-		fopen( 'config/config.ini', 'w' );
-		$i = unlink('config/config.ini');
+		@fopen( 'config/config.ini', 'w' );
+		$i = @unlink('config/config.ini');
 		if( !$i ) { 	
     ?>
     <div class="securityError">
-    	<h6><strong>Ne peut pas sauvegardé la configuration</strong></h6>
+    	<h6><strong>Permission refusée</strong></h6>
     	<p>
-    		Vérifier les permissions d'accés au dossier <tt>config/</tt>, l'application doit pouvoir effacer <tt>config/config.ini</tt>.
+    		Vérifier les permissions d'accés au dossier <tt>config/</tt>, l'application doit pouvoir lire/écrire <tt>config/config.ini</tt>.
+    		Vérifier également les permissions du dossier <tt>images/favicon/</tt> pour sauvegarder les favicons.
     	</p>
     </div>
     <?php } ?>
