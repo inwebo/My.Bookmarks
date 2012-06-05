@@ -9,7 +9,7 @@
 $lang = 'fr_FR.utf8';
 $filename = 'message';
 putenv("LC_ALL=$lang");
-setlocale(LC_ALL, $locale);
+setlocale(LC_ALL, $lang);
 bindtextdomain($filename,"./locale");
 bind_textdomain_codeset($filename, "UTF-8");
 textdomain("messages"); 
