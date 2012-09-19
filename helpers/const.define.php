@@ -137,7 +137,7 @@ try {
         $views    = new MyViews( PATH_VIEWS );
         $template = new MyViews( PATH_TEMPLATE );
 		
-		$factoryCategories = new FactoryCategories($sql);
+		$factoryCategories = new FactoryCategories( $sql );
 		
 		$listCategories    = $factoryCategories->getCategories();
 

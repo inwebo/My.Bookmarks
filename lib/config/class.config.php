@@ -43,7 +43,7 @@ class Config
                     fclose( $handle );
         }
 
-        public function format( $ini_file ) {
+        public static function format( $ini_file ) {
             $return = '';
             if ( is_array( $ini_file ) ) {
                 $format = $ini_file;

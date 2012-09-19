@@ -51,14 +51,14 @@ $dbPassword = $enigma->code( $_POST['setupDbPassword'] );
 $create = file( 'config/sql' );
 $create = implode($create);
 
-$create = str_replace('bookmarks', $_POST['setupDbPrefix'] . 'bookmarks', $create);
-$create = str_replace('bookmarks_trash', $_POST['setupDbPrefix'] . 'bookmarks_trash', $create);
-$create = str_replace('categories', $_POST['setupDbPrefix'] . 'categories', $create);
-$create = str_replace('categories_weight', $_POST['setupDbPrefix'] . 'categories_weight', $create);
-$create = str_replace('role', $_POST['setupDbPrefix'] . 'role', $create);
-$create = str_replace('users', $_POST['setupDbPrefix'] . 'users', $create);
+$create = str_replace('`bookmarks`', '`' . $_POST['setupDbPrefix'] . 'bookmarks`', $create);
+$create = str_replace('`bookmarks_trash`', '`' . $_POST['setupDbPrefix'] . 'bookmarks_trash`', $create);
+$create = str_replace('`categories`', '`' . $_POST['setupDbPrefix'] . 'categories`', $create);
+$create = str_replace('`categories_weight`', '`' . $_POST['setupDbPrefix'] . 'categories_weight`', $create);
+$create = str_replace('`role`', '`' . $_POST['setupDbPrefix'] . 'role`', $create);
+$create = str_replace('`users`', '`' . $_POST['setupDbPrefix'] . 'users`', $create);
 
-//echo $create;
+echo $create;
 $version = file_get_contents('helpers/version.php');
 $return = '';
 try {
@@ -80,7 +80,7 @@ try {
         $tempConf['Application']['app_public_key']       = md5( $_POST['setupRoot'] .  time() );
         $tempConf['Application']['app_version']          = $version;
         $tempConf['Google analytics id']['ga_id']        = $_POST['setupGa'];
-		echo __FILE__ ;
+		//echo __FILE__ ;
         config::save( $tempConf, "config/config.ini");
         
 	$return = 'TRUE';

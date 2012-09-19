@@ -46,9 +46,13 @@ chdir('..');
 include( 'lib/mypdo/class.mypdo.php' );
 
 try {
-
-    $test = new MyPdo($_POST['setupDbServer'], $_POST['setupDbDatabase'], $_POST['setupDbUser'], $_POST['setupDbPassword']);
-    echo 'TRUE';
+	if( empty($_POST['setupDbServer']) || empty( $_POST['setupDbDatabase'] ) || empty( $_POST['setupDbUser'] ) || empty( $_POST['setupDbPassword'] ) ) {
+		echo 'FALSE';
+	}
+	else {
+    	$test = new MyPdo( $_POST['setupDbServer'], $_POST['setupDbDatabase'], $_POST['setupDbUser'], $_POST['setupDbPassword'] );
+	 	echo 'TRUE';
+	 }
 }
 catch(Exception $e) {
     echo 'FALSE';

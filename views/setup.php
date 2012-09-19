@@ -166,12 +166,12 @@
 </div>
 <!-- /setup.php -->
 <script type="text/javascript">
-		JS_ROOT="<?php echo $_root; ?>";
-		JS_CONFIG_PHP_VERSION =<?php echo (PHP_VERSION_ID > 50200) ? "true" : "false"; ?>;
-		JS_CONFIG_PHP_PDO = <?php echo (class_exists("PDO")) ? "true" : "false"; ?>;
-		JS_CONFIG_PHP_SplFileInfo = <?php echo (class_exists("SplFileInfo")) ? "true" : "false"; ?>;
+		JS_ROOT                          ="<?php echo $_root; ?>";
+		JS_CONFIG_PHP_VERSION            =<?php echo (PHP_VERSION_ID > 50200) ? "true" : "false"; ?>;
+		JS_CONFIG_PHP_PDO                = <?php echo (class_exists("PDO")) ? "true" : "false"; ?>;
+		JS_CONFIG_PHP_SplFileInfo        = <?php echo (class_exists("SplFileInfo")) ? "true" : "false"; ?>;
 		JS_CONFIG_PHP_DIRECTORY_ITERATOR = <?php echo (class_exists("DirectoryIterator")) ? "true" : "false"; ?>;
-		JS_CONFIG_APACHE_MULTIVIEWS = <?php echo $js_var; ?>;
+		JS_CONFIG_APACHE_MULTIVIEWS      = <?php echo $js_var; ?>;
 </script>
 <script type="text/javascript" src="js/tabs.js"></script>
 <script type="text/javascript" src="js/setup-configuration-handler.js"></script>
