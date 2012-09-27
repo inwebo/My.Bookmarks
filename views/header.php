@@ -59,6 +59,9 @@
 			<li>
 				<a href="<?php echo PATH_INDEX . 'tags/'; ?>"><span class="iconic tag_fill iconsize"></span> Tags</a>
 			</li>
+			<li>
+				<a href="<?php echo PATH_ROOT . 'rss.php'; ?>"><span class="iconic rss_alt iconsize rss-color"></span> RSS</a>
+			</li>
 		</nav>
 	</div>
 	<div class="clear"></div>
