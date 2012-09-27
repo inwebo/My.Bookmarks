@@ -54,7 +54,7 @@ else {
 }
 define('PATH_INI_BAK', 'config/config.ini.bak');
 // @todo renommer les variables du config.ini correctement
-// @todo construire à la volée, les constantes avec les données du .ini
+// @todo construire à la volée, les constantes avec les données du .ini : Non car ce sont déja des constantes
 
 //var_dump($conf);
 
