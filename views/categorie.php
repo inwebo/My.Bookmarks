@@ -59,7 +59,13 @@
 			<div class="categorie-menu">
 				<a href="#" title="Vue compléte" class="categorie-menu-display-full"><span class="iconic list"></span></a>
 				<a href="#" title="Vue compacte" class="categorie-menu-display-compact"><span class="iconic list_nested"></span></a>
+				<a href="<?php echo PATH_ROOT . 'rss.php/' . $categorie->name . '/'. $categorie->id; ?>" title="rss" class=""><span class="iconic rss_alt rss-color"></span></a>
 			</div>
+			<?php } else { ?>
+			<div class="categorie-menu">
+				<a href="<?php echo PATH_ROOT . 'rss.php/' . $categorie->name . '/'. $categorie->id; ?>" title="rss" class=""><span class="iconic rss_alt rss-color"></span></a>
+			</div>
+
 			<?php } ?>
 		</h2>
 		<ul class="bookmarks-list <?php echo $bookmarks_class; ?>">
