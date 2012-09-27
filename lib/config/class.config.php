@@ -6,8 +6,7 @@
  * @version    09-2011
  */
 
-class Config
-{
+class Config {
 	static $get;
 
 	private function __construct() {}
@@ -21,60 +20,54 @@ class Config
 	 * @return  : ARRAY avec toutes les variables contenues dans config
 	 * 			  Voir la fonction php parse_ini_file();
 	 */
-	public static function get( $configFile, $process_sections = FALSE ) {
-		if( ( self::$get = parse_ini_file( $configFile, $process_sections ) ) == false ) {
+	public static function get($configFile, $process_sections = FALSE) {
+		if ((self::$get = parse_ini_file($configFile, $process_sections)) == false) {
 			throw new Exception('File not found.');
 		}
 		return self::$get;
 	}
 
-        public static function save( $_from, $_to ) {
-            
-            $content = self::format( $_from );
+	public static function save($_from, $_to) {
+		$content = self::format($_from);
 
-            //$content = self::get( $_from, TRUE );
+		//$content = self::get( $_from, TRUE );
 
-                  if ( !$handle = fopen( $_to, 'w+' ) ) {
-                        return false;
-                    }
-                    if ( !fwrite( $handle, $content ) ) {
-                        return false;
-                    }
-                    fclose( $handle );
-        }
+		if (!$handle = fopen($_to, 'w+')) {
+			return false;
+		}
+		if (!fwrite($handle, $content)) {
+			return false;
+		}
+		fclose($handle);
+	}
 
-        public static function format( $ini_file ) {
-            $return = '';
-            if ( is_array( $ini_file ) ) {
-                $format = $ini_file;
-            }
-            elseif( is_file( $ini_file ) ) {
-                $format = self::get( $ini_file, TRUE );
+	public static function format($ini_file) {
+		$return = '';
+		if (is_array($ini_file)) {
+			$format = $ini_file;
+		} elseif (is_file($ini_file)) {
+			$format = self::get($ini_file, TRUE);
 
-            }
+		}
 
+		foreach ($format as $key => $value) {
 
-                foreach( $format as $key => $value ) {
+			if (is_array($value)) {
+				$return .= "\n" . '[' . $key . ']' . "\n";
+				foreach ($value as $_key => $_value) {
+					ob_start();
+					$return .= sprintf("%-20s", $_key);
+					$return .= '=';
+					$return .= ' "' . $_value . '"' . "\n";
+					ob_end_flush();
+				}
+			} else {
+				$return .= $key . '=' . $value . "\n";
+			}
 
-                    if(is_array($value) ) {
-                        $return .= "\n" . '[' . $key . ']' . "\n";
-                        foreach( $value as $_key => $_value ) {
-                            ob_start();
-                            $return .= sprintf("%-20s", $_key);
-                            $return .= '=';
-                            $return .= ' "' . $_value . '"' . "\n";
-                            ob_end_flush();
-                        }
-                    }
-                    else {
-                        $return .= $key . '=' . $value . "\n";
-                    }
+		}
 
-                }
-
-            return $return;
-        }
-
+		return $return;
+	}
 
 }
-
