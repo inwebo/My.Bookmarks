@@ -1,5 +1,5 @@
 <?php
-	if (!is_file('config/config.ini')) {
+	if ( !is_file( 'config/config.ini' )) {
 		include ('views/setup.php');
 		exit();
 	}
@@ -30,6 +30,8 @@ try {
 		$sessions->addParams('type', 'guest');
 	}
 	$multiViews = new MyMultiviews( 'index.php' );
+	
+
 }
 catch( Exception $e ) {
 
