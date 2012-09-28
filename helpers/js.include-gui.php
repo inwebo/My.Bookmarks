@@ -7,3 +7,4 @@
 <script type="text/javascript" src="<?php echo PATH_JS; ?>public-bookmarks-list-switch-view.js"></script>
 <script type="text/javascript" src="<?php echo PATH_JS; ?>plugin.mynotifications.js"></script>
 <script type="text/javascript" src="<?php echo PATH_JS; ?>plugin.tags-filter.js"></script>
+<script type="text/javascript" src="<?php echo PATH_JS; ?>plugin.myslidingtext.js"></script>
