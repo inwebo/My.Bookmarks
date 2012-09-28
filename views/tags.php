@@ -49,8 +49,8 @@ extract( $GLOBALS );
 		global $getTags ;
 		global $nbrTags;
 		global $total ;
-                //var_dump($dataString);
-                (empty($dataString)) ? $dataString = 'empty' : NULL;
+
+		(empty($dataString)) ? $dataString = 'empty' : NULL;
 		$dataString = ltrim($dataString);
 		$dataString = rtrim($dataString);
 		$temp       = explode(' ', $dataString);
@@ -77,8 +77,8 @@ $buffer = array();
 foreach( $tags as $row ) {
     if( $row['tags'] != '' ) {
         $row['tags'] = str_replace( ',', ' ', $row['tags'] );
-        $row['tags'] = str_replace( '-', '', $row['tags'] );
-        $row['tags'] = str_replace( '.', '', $row['tags'] );
+        //$row['tags'] = str_replace( '-', '', $row['tags'] );
+        //$row['tags'] = str_replace( '.', '', $row['tags'] );
         $explode = explode(' ', trim($row['tags']));
         if( count($explode) === 1 ) {
             $array_tags[] = trim($row['tags']);

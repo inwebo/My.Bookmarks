@@ -41,19 +41,19 @@
 
 <?php
 	extract($GLOBALS);
-	$categorie = $factoryCategories->getBookmarksByTag($multiViews->args[2]);
+	$categorie = $factoryCategories->getBookmarksByTag(urldecode($multiViews->args[2]));
 ?>
 <!-- tags <?php echo $multiViews->args[2]; ?> -->
 <div class="grid_12">
 		<h2>
-			<?php echo $multiViews->args[2]; ?>
+			<?php echo urldecode($multiViews->args[2]); ?>
 			<div class="categorie-menu">
 				<a href="#" title="Vue compléte" class="categorie-menu-display-full"><span class="iconic list"></span></a>
 				<a href="#" title="Vue compacte" class="categorie-menu-display-compact"><span class="iconic list_nested"></span></a>
 			</div>
 		</h2>
 		<ul class="bookmarks-list bookmarks-simple">
-			<?php
+			<?php			
 				$categorie->rewind();
 				while( $categorie->valid() ) {
 					$_SESSION['bookmark'] = $categorie->current();
