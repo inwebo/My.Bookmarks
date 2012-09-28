@@ -18,6 +18,8 @@
 		margin-bottom:5px;
 		background-color:white;
  		box-shadow: 0 0 0 1px #FFFFFF inset;
+ 		position:relative;
+ 		z-index:9999;
 	}
 		
 		#my-notifications li:hover {

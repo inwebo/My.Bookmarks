@@ -461,3 +461,8 @@
 .rss-color {
 	color: orange;
 }
+
+.rss-small-icon {
+	font-size:small;
+	vertical-align: top;
+}
