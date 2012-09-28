@@ -66,7 +66,7 @@
 		
 		plugin.deleteCat = function() {
 			
-            var i = confirm('Delete ['+plugin.settings.id.trim()+']' + plugin.settings.name.trim() + '?'+"\n");
+            var i = confirm('Delete category ?'+ "\n" +'['+plugin.settings.id.trim()+']' + plugin.settings.name.trim() + '?');
             if(i==true) {
                 $.ajax({
                     type: "POST",
