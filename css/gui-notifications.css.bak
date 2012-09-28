@@ -39,7 +39,8 @@
     margin-bottom: 15px;
     margin-top:15px;
     overflow: hidden;
-
+	position:relative;
+	z-index: 9999;
 }
 #debugOutPut ul li.debugError, .debugError, .securityError{
 	color: #E3302C;
@@ -57,9 +58,9 @@
 	background-color:#ECF9FF;
 }
 #debugOutPut ul li.debugWarning, .debugWarning{
- border: 1px solid #E5E181;
-color: #666666;
-background-color:#FEFDE2;
+	border: 1px solid #E5E181;
+	color: #666666;
+	background-color:#FEFDE2;
 }
 
 .grid_12 .debugWarning, .grid_12 .debugOkay {
@@ -73,7 +74,6 @@ div.debugOkay {
 	margin-bottom:0;
 	text-align: center;
 }
-
 
 .grid_12 .debugOkay a {
     display: block;
