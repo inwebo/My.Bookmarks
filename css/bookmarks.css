@@ -108,28 +108,33 @@
 		font-size: small;
 		width:30%;
 		vertical-align: middle;
+		line-height:1em;
 	}
 	
 	.bookmarks-simple h3 a{
 		display: inline-block;
     	overflow: hidden;
     	width: 88%;
-		vertical-align: baseline;
+		vertical-align: middle;
 		font-weight: normal;
+		text-decoration:none;
+		height:1.3em;
 	}
 	
 	.bookmarks-simple h3 a span.data-title {
 		white-space: nowrap;
+		vertical-align: middle;
 	}
 	
 	.bookmarks-simple p{
-	    height: 1.1em;
+	    height: 1.3em;
+	    vertical-align:middle;
 	    overflow: hidden;
 	    width: 65%;
 	}
 	
 	.bookmarks-simple img {
-		vertical-align: baseline;
+		vertical-align: middle;
 	}
 	
 	.bookmarks-simple ul{
