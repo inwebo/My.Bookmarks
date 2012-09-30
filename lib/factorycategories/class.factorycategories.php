@@ -64,7 +64,7 @@ class FactoryCategories {
                         'category'    => $bookmarks['category'],
                         'public'      => $bookmarks['public'],
                         'favicon'     => $favicon
-                ));
+                ) );
                 $cat->splObjectStorage->attach( $bookmark );
             }
 		return $cat;
@@ -116,7 +116,32 @@ class FactoryCategories {
 
 	public function getBookmarksByTag( $tagToSearch ) {
 		$buffer = new SplObjectStorage();
-		$arrayBookmarks = $this->pdo->query('SELECT * FROM ' . DB_TABLE_PREFIX . 'bookmarks where tags LIKE \'%' . $tagToSearch . '%\' ORDER BY `dt` DESC' );
+		$arrayBookmarks = $this->pdo->query('SELECT *, UNIX_TIMESTAMP( `dt` ) AS  `dt` FROM ' . DB_TABLE_PREFIX . 'bookmarks where tags LIKE \'%' . $tagToSearch . '%\' ORDER BY `dt` DESC' );
+			foreach($arrayBookmarks as $key => $bookmarks) {
+                ( is_file( PATH_ROOT . 'images/favicon/'.$bookmarks['hash'] ) ) ?
+              		$favicon = PATH_ROOT . 'images/favicon/'.$bookmarks['hash'] :
+                		$favicon = PATH_DEFAULT_FAVICON ;
+				$bookmark = new Bookmark( array(
+					'id'          => $bookmarks['id'],
+					'hash'        => $bookmarks['hash'],
+					'url'         => $bookmarks['url'],
+					'title'       => $bookmarks['title'],
+					'tags'        => $bookmarks['tags'],
+					'description' => $bookmarks['description'],
+					'dt'          => $bookmarks['dt'],
+					'category'    => $bookmarks['category'],
+					'public'      => $bookmarks['public'],
+					'favicon'     => $favicon
+				));
+				
+				$buffer->attach( $bookmark );
+			}
+			return $buffer;
+	}
+	
+	public function getBookmarks() {
+		$buffer = new SplObjectStorage();
+		$arrayBookmarks = $this->pdo->query('SELECT * FROM ' . DB_TABLE_PREFIX . 'bookmarks ORDER BY `dt` DESC' );
 			foreach($arrayBookmarks as $key => $bookmarks) {
                 ( is_file( PATH_ROOT . 'images/favicon/'.$bookmarks['hash'] ) ) ?
               		$favicon = PATH_ROOT . 'images/favicon/'.$bookmarks['hash'] :
