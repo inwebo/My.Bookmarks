@@ -11,4 +11,3 @@ while( $_SESSION['list-categories']->valid() ) {
 <?php
 	$_SESSION['list-categories']->next();	
 }
-?>
