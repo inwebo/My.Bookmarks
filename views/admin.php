@@ -47,6 +47,9 @@ extract( $GLOBALS );
 			<li class="about">
 				<span class="iconic info iconic-large"></span>About
 			</li>
+			<li class="export">
+				<span class="iconic cloud_download iconic-large"></span>Export
+			</li>
 		</ul>
         
         <div class="tabs-content">
@@ -126,6 +129,16 @@ extract( $GLOBALS );
             		$code_html=file_get_contents(APP_UPDATE_SERVER); 
 					echo $code_html;
             		?>
+            	</p>
+            </div>
+            <div>
+            	<h3>Export</h3>
+            	<p>
+					Export all bookmarks as Netscape bookmark file (html).
+            	</p>
+            	<hr>
+            	<p>
+            		<a id="bookmark-export" href="#" class="button">Export</a> please wait, can process for a while. It depends database size.
             	</p>
             </div>
         </div>
