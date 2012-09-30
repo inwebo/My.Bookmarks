@@ -126,7 +126,7 @@
 				},
 				success : function(data) {
 					window.pluginBookmarksHandler.remove(actualBookmark.settings.id);
-						window.pluginNotifications.msgInfo('[' + actualBookmark.settings.id + ']'+actualBookmark.settings.title.trim()+' deleted');
+					window.pluginNotifications.msgInfo('[' + actualBookmark.settings.id + ']'+actualBookmark.settings.title.trim()+' deleted');
 				},
 				error : function() {
 
@@ -217,6 +217,31 @@
 		}); 
 
 	/* =================== /Bookmark Save ============= */
+	
+	/* =================== Bookmark Export ============= */
+		var buttonSave = '#bookmark-export';
+		// @todo public
+		$(buttonSave).unbind('click').live('click', function() {
+			//console.log('Current index : ' + actualIndex);
+			$.ajax({
+				type : "POST",
+				url : JS_PATH_AJAX_BOOKMARK_EXPORT,
+				data : {
+					itemPublicKey   : JS_PUBLIC_KEY
+				},
+				dataType : "text",
+				success : function( data ) {
+					window.pluginNotifications.msgInfo('Bookmark exported' + data);
+					$( buttonSave ).attr('href', JS_PATH_ROOT + 'tmp/' + data + '.html').html('download').attr('id', 'bookmark-export-download');
+				},
+				error : function() {
+
+				}
+			});
+			return false;
+		}); 
+	
+	/* =================== /Bookmark Export ============= */
 	
 	/* ================== Snippet reset form ========= */
 	/*$.fn.reset = function () {
