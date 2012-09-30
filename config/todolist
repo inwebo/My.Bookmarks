@@ -8,7 +8,7 @@
 +Test avec IE 6, 7, 8, 9 (pffffff)
 +Ajout de permalink
 -Détail des liens
-+Export de la BDD sous forme de SQL, XML, HTML
+-Export de la BDD sous forme de HTML
 +Import de liens provenant de firefox, opera, chromium
 -Support multilingues
 -Constantes php -> variables globales javascript
@@ -47,3 +47,5 @@
 -Fixer la taille des carateres formulaire publique
 +Fixed inode sous windows SplFileInfo::getATime(): stat failed dans js.const.define.php
 +Ne pas sauvegarder l'icone par default
++SELECT concat( '<bookmark id="', id, '" hash="', hash, '" >' ) FROM `_bookmarks` LIMIT 0 , 30
++SELECT * INTO OUTFILE "/tmp/test.sql" FROM  `_bookmarks` WHERE 1
