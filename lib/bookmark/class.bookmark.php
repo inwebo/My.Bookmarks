@@ -48,5 +48,18 @@ class Bookmark {
 		$buffer    = implode( ' à ', $buffer );
 		return $buffer;
 	}
+	
+	public function dateUnix() {
+		$date = new DateTime( $this->dt );
+		return $date->format('U');
+	}
+	
+	public function faviconEncode() {
+		return base64_encode($this->favicon);
+	}
+	
+	public function asNetscapeBookmark() {
+		return '<DT><A HREF="'. $this->url .'" ADD_DATE="'. $this->dateUnix() .'" LAST_VISITED="0" ICON="'. $this->faviconEncode() .'">'. $this->title .'</A>' . "\n";
+	}
 
 }
